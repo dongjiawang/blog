@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.dongjiawang.top/"/>
-  <updated>2020-10-12T01:38:20.154Z</updated>
+  <updated>2021-01-05T03:42:22.606Z</updated>
   <id>https://blog.dongjiawang.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>修复 iPad 横屏启动卡死的问题</title>
+    <link href="https://blog.dongjiawang.top/2021/01/05/2021-01-05-%E4%BF%AE%E5%A4%8D-iPad-%E6%A8%AA%E5%B1%8F%E5%90%AF%E5%8A%A8%E5%8D%A1%E6%AD%BB%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://blog.dongjiawang.top/2021/01/05/2021-01-05-修复-iPad-横屏启动卡死的问题/</id>
+    <published>2021-01-05T04:00:00.000Z</published>
+    <updated>2021-01-05T03:42:22.606Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="一、问题与定位"><a href="#一、问题与定位" class="headerlink" title="一、问题与定位"></a>一、问题与定位</h3><p>使用<code>Xcode 12</code>打包项目后，iPad 横屏状态时，启动网校 app，展示的是横屏的启动页，在进入首页时<code>偶发性</code>的出现卡死的现象。</p><p>分析认为在<code>Deployment Info</code> 中设置支持横屏方向，所以在iPad横屏时，app会以横屏的方式启动，但是当前网校项目的首页是不支持横屏的，会出现一些布局的冲突，造成了在部分机型或系统中出现卡死的现象。</p><h3 id="二、解决方式"><a href="#二、解决方式" class="headerlink" title="二、解决方式"></a>二、解决方式</h3><ol><li><p>在 Xcode 的 <code>General</code> -&gt;<code>Deployment Info</code>中设置<code>Device Orientation</code>只勾选<code>Portrait</code>,这样会强制竖屏启动；</p></li><li><p><code>AppDelegate</code>中增加关于支持设备方向的代理方法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window &#123;</span><br><span class="line">    return UIInterfaceOrientationMaskAllButUpsideDown;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol><blockquote><p>贴一下苹果对这个的解释:<br>Discussion<br>This method returns the total set of interface orientations supported by the app. When determining whether to rotate a particular view controller, the orientations returned by this method are intersected with the orientations supported by the root view controller or topmost presented view controller. The app and view controller must agree before the rotation is allowed.<br>If you do not implement this method, the app uses the values in the UIInterfaceOrientation key of the app’s Info.plist as the default interface orientations.</p><p>翻译：<br>该方法返回应用程序支持的接口方向的总集合。在决定是否旋转某个特定视图控制器时，该方法返回的方向与根视图控制器或最上层呈现的视图控制器支持的方向相交。在允许旋转之前，app和视图控制器必须达成一致。</p><p>如果你不实现这个方法，应用会使用应用信息的UIInterfaceOrientation键中的值。作为默认的接口方向。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;一、问题与定位&quot;&gt;&lt;a href=&quot;#一、问题与定位&quot; class=&quot;headerlink&quot; title=&quot;一、问题与定位&quot;&gt;&lt;/a&gt;一、问题与定位&lt;/h3&gt;&lt;p&gt;使用&lt;code&gt;Xcode 12&lt;/code&gt;打包项目后，iPad 横屏状态时，启动网校 app，展
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://blog.dongjiawang.top/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://blog.dongjiawang.top/source/Tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>网页图片添加点击方法获取图片</title>
@@ -474,32 +499,6 @@
       
       
         &lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://blog.dongjiawang.top/categories/iOS/"/>
-    
-    
-      <category term="iOS" scheme="https://blog.dongjiawang.top/source/Tags/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS检测是否越狱</title>
-    <link href="https://blog.dongjiawang.top/2019/06/04/2019-06-04-iOS%E6%A3%80%E6%B5%8B%E6%98%AF%E5%90%A6%E8%B6%8A%E7%8B%B1/"/>
-    <id>https://blog.dongjiawang.top/2019/06/04/2019-06-04-iOS检测是否越狱/</id>
-    <published>2019-06-04T14:00:00.000Z</published>
-    <updated>2020-10-12T01:38:20.152Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="第一种"><a href="#第一种" class="headerlink" title="第一种"></a>第一种</h2><p>遍历文件目录，查看是否可以获取越狱后的文件</p><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">BOOL</span> root = <span class="literal">NO</span>;</span><br><span class="line"><span class="built_in">NSFileManager</span> *fileManager=[<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line"><span class="built_in">NSArray</span> *pathArray = @[<span class="string">@"/etc/ssh/sshd_config"</span>,</span><br><span class="line">                       <span class="string">@"/usr/libexec/ssh-keysign"</span>,</span><br><span class="line">                       <span class="string">@"/usr/sbin/sshd"</span>,</span><br><span class="line">                       <span class="string">@"/usr/sbin/sshd"</span>,</span><br><span class="line">                       <span class="string">@"/bin/sh"</span>,</span><br><span class="line">                       <span class="string">@"/bin/bash"</span>,</span><br><span class="line">                       <span class="string">@"/etc/apt"</span>,</span><br><span class="line">                       <span class="string">@"/Application/Cydia.app/"</span>,</span><br><span class="line">                       <span class="string">@"/Library/MobileSubstrate/MobileSubstrate.dylib"</span></span><br><span class="line">                       ];</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">NSString</span> *path <span class="keyword">in</span> pathArray) &#123;</span><br><span class="line">    root = [fileManager fileExistsAtPath:path];</span><br><span class="line">  <span class="comment">// 如果存在这些目录，就是已经越狱</span></span><br><span class="line">    <span class="keyword">if</span> (root) &#123;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="第二种"><a href="#第二种" class="headerlink" title="第二种"></a>第二种</h2><p>通过获取 <em>dyld_image</em> 判断是否有动态库</p><blockquote><p>需要引用到头文件 <em>&lt;mach-o/dyld.h&gt;</em></p></blockquote><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> count = _dyld_image_count();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *dyld = _dyld_get_image_name(i);</span><br><span class="line">    <span class="built_in">NSString</span> *dylibPath = [[<span class="built_in">NSString</span> alloc] initWithCString:dyld encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line">  <span class="comment">// 判断路径 是否 /Library/MobileSubstrate/DynamicLibraries</span></span><br><span class="line">  <span class="comment">// 或者判断dylib的名称</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="第三种"><a href="#第三种" class="headerlink" title="第三种"></a>第三种</h2><p>判断<em>URL Scheme</em></p><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSURL</span> *scheme = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"cydia://package/com.example.package"</span>];</span><br><span class="line"><span class="keyword">if</span>([[<span class="built_in">UIApplication</span> sharedApplication] canOpenURL:scheme])&#123;</span><br><span class="line">  <span class="comment">// 已经越狱</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;第一种&quot;&gt;&lt;a href=&quot;#第一种&quot; class=&quot;headerlink&quot; title=&quot;第一种&quot;&gt;&lt;/a&gt;第一种&lt;/h2&gt;&lt;p&gt;遍历文件目录，查看是否可以获取越狱后的文件&lt;/p&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;ta
       
     
     </summary>
