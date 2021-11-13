@@ -1,3 +1,356 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="记录一下个人码农经历。"><title>我的码 | dongjiawang</title><link rel="stylesheet" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="/css/dark.css?v=0.0.0"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>!function(e,a,t,n,g,c,o){e.GoogleAnalyticsObject=g,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),o=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",o.parentNode.insertBefore(c,o)}(window,document,"script",0,"ga"),ga("create","UA-141040294-1","auto"),ga("send","pageview")</script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><script src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><script data-ad-client="ca-pub-2074490477284403" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">我的码</h1><a id="logo" href="/.">我的码</a><p class="description">dongjiawang</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home">首页</i></a> <a href="/archives/"><i class="fa fa-archive">归档</i></a> <a href="/about/"><i class="fa fa-user">关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"><a href="/2018/11/22/2018-11-22-iOS项目中集成Cordova/">iOS项目中集成Cordova</a></h1><div class="post-meta">2018-11-22</div><div class="post-content"><p>公司想要在已有的APP中集成一个页面，准备使用<a href="https://github.com/apache/cordova-ios" target="_blank" rel="noopener">Cordova</a>。</p><p>关于Cordova的介绍可以看他们官方文档 <a href="https://cordova.apache.org/docs/zh-cn/8.x/guide/platforms/ios/index.html" target="_blank" rel="noopener">https://cordova.apache.org/docs/zh-cn/8.x/guide/platforms/ios/index.html</a></p></div><p class="readmore"><a href="/2018/11/22/2018-11-22-iOS项目中集成Cordova/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/11/19/2018-11-19-iOS混淆/">iOS混淆</a></h1><div class="post-meta">2018-11-19</div><div class="post-content"><p>最近因为业务需求，需要做代码的混淆，找了许多教程和资料，最终发现一个很好的框架可以混淆OC的代码。</p><p><a href="https://github.com/chenxiancai/STCObfuscator" target="_blank" rel="noopener">STCObfuscator</a> 可以全局自动化混淆，并且支持cocoapod组件的代码，还可以自定义不需要混淆的类或自定义某些命名开头的方法，真的很好用。</p></div><p class="readmore"><a href="/2018/11/19/2018-11-19-iOS混淆/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/11/17/2018-11-17-使用workspace管理多个project/">使用workspace管理多个project</a></h1><div class="post-meta">2018-11-17</div><div class="post-content"><p>Xcode可以使用workspace同时存在和管理多个project，也就是一个项目中同时存在多个xcodeproj。</p><p>如图：</p><p><img src="https://cdn.jsdelivr.net/gh/dongjiawang/BlogImage@1.0/img/20190527224054.png" alt></p></div><p class="readmore"><a href="/2018/11/17/2018-11-17-使用workspace管理多个project/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/10/27/2018-10-27-使用TFHpple解析HTML/">使用TFHpple解析HTML</a></h1><div class="post-meta">2018-10-27</div><div class="post-content"><p>这篇文章是对<a href="https://dongjiawang.github.io/2018/09/01/2018-09-01-修改HTML富文本中的图片的大小/" target="_blank" rel="noopener">《修改HTML富文本中的图片的大小》</a>的补充。</p><p>可能是我们的后台传过来的HTML字符串有不规范的地方，当有多张图片的时候，上面文章的正则只能解析出来第一张，所以就用到了本文中要说的<a href="https://github.com/topfunky/hpple" target="_blank" rel="noopener">TFHpple</a>来解析HTML。</p></div><p class="readmore"><a href="/2018/10/27/2018-10-27-使用TFHpple解析HTML/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/09/24/2018-09-24-优化tableview加载网络图片/">优化tableview加载网络图片</a></h1><div class="post-meta">2018-09-24</div><div class="post-content"><p>最近在优化公司的<code>TableView</code>的代码，有个界面需要加载一个在线的图片列表，在快速滑动的时候，会异步下载多个图片，容易造成内存警告，于是就准备在滑动的时候停止加载网络图片，<code>停止滑动</code>的时候再请求网络图片。</p><p><strong>在控制器中实现下面的方法:</strong></p></div><p class="readmore"><a href="/2018/09/24/2018-09-24-优化tableview加载网络图片/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/09/05/2018-09-05-后台播放音频和锁频显示音频/">后台播放音频和锁频显示音频</a></h1><div class="post-meta">2018-09-05</div><div class="post-content"><p>播放音频也可以使用<code>AVPlayer</code>，因为音频没有画面，所以就不要创建<code>AVPlayerLayer</code>，只需要一个avplayer就可以完成播放的事情</p><p><a href="https://dongjiawang.github.io/categories/AVPlayer/" target="_blank" rel="noopener">AVPlayer的一些操作</a></p></div><p class="readmore"><a href="/2018/09/05/2018-09-05-后台播放音频和锁频显示音频/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/09/04/2018-09-04-使用自定义UISlider制作音频播放进度条/">使用自定义UISlider制作音频播放进度条</a></h1><div class="post-meta">2018-09-04</div><div class="post-content"><p>在项目的需求中需要自定义一个音频播放器的进度条，于是就想到了使用<code>UISlider</code>,但是系统默认的样式无法满足需求，需要进行一些修改。</p><p>创建一个<code>AudioProgressView</code>继承<code>UISlider</code>。</p></div><p class="readmore"><a href="/2018/09/04/2018-09-04-使用自定义UISlider制作音频播放进度条/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/09/03/2018-09-03-UITextView富文本超链接点击/">UITextView富文本超链接点击</a></h1><div class="post-meta">2018-09-03</div><div class="post-content"><p>用<code>UITextView</code>显示富文本的时候，如果富文本中有<code>超链接</code>，有时候需要单独处理这个链接的点击。</p><p>可以继承<code>UITextView</code>重写<code>hitTest</code>方法，拦截点击的内容，然后进行跳转。</p></div><p class="readmore"><a href="/2018/09/03/2018-09-03-UITextView富文本超链接点击/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/09/01/2018-09-01-修改HTML富文本中的图片的大小/">修改HTML富文本中的图片的大小</a></h1><div class="post-meta">2018-09-01</div><div class="post-content"><p>使用 <a href="https://dongjiawang.github.io/2018/07/26/2018-07-26-UITextView显示HTML/" target="_blank" rel="noopener">UITextView或者UILabel显示HTML</a> 的时候，如果其中有图片，但是图片大小并不是想要的大小，就需要过滤其中的图片资源，并修改size。</p></div><p class="readmore"><a href="/2018/09/01/2018-09-01-修改HTML富文本中的图片的大小/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/09/01/2018-09-01-将GitBook转成PDF或者EPUB格式电子书/">将GitBook转成PDF或者EPUB格式电子书</a></h1><div class="post-meta">2018-09-01</div><div class="post-content"><blockquote><p>GitBook 是一个基于<code>Node.js</code>的命令行工具，可以使用<code>Markdown</code>来制作电子书，并利用<code>Git/Github</code>发布。</p></blockquote><p>支持输出<code>静态站点</code>、<code>PDF</code>、<code>eBook</code>、<code>HTML网页</code>、<code>JSON</code>等格式。</p></div><p class="readmore"><a href="/2018/09/01/2018-09-01-将GitBook转成PDF或者EPUB格式电子书/">阅读全文</a></p></div><nav class="page-navigator"><a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/5/">下一页</a></nav><script type="text/x-mathjax-config">MathJax.Hub.Config({
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-  });</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" async></script></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="https://blog.dongjiawang.top"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o">分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AVPlayer/">AVPlayer</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CocoaPods/">CocoaPods</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Cordova/">Cordova</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Xcode/">Xcode</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/flutter/">flutter</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">107</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/libSDK/">libSDK</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/博客/">博客</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程知识/">编程知识</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络/">网络</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遇到的问题/">遇到的问题</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o">标签</i></div><div class="tagcloud"><a href="/source/Tags/iOS/" style="font-size:15px">iOS</a> <a href="/source/Tags/UICollectionView/" style="font-size:15px">UICollectionView</a> <a href="/source/Tags/动画/" style="font-size:15px">动画</a> <a href="/source/Tags/编程知识/" style="font-size:15px">编程知识</a> <a href="/source/Tags/UITableView/" style="font-size:15px">UITableView</a> <a href="/source/Tags/webView/" style="font-size:15px">webView</a> <a href="/source/Tags/layer/" style="font-size:15px">layer</a> <a href="/source/Tags/Photos/" style="font-size:15px">Photos</a> <a href="/source/Tags/NSString/" style="font-size:15px">NSString</a> <a href="/source/Tags/nginx/" style="font-size:15px">nginx</a> <a href="/source/Tags/UIView/" style="font-size:15px">UIView</a> <a href="/source/Tags/Runtime/" style="font-size:15px">Runtime</a> <a href="/source/Tags/UITextField/" style="font-size:15px">UITextField</a> <a href="/source/Tags/UITextView/" style="font-size:15px">UITextView</a> <a href="/source/Tags/UISlider/" style="font-size:15px">UISlider</a> <a href="/source/Tags/flutter/" style="font-size:15px">flutter</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o">最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/03/20/2021-02-20-Jenkins 使用/">Jenkins 使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/05/2021-01-05-修复-iPad-横屏启动卡死的问题/">修复 iPad 横屏启动卡死的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/27/2020-09-27-webView-clickedImage/">网页图片添加点击方法获取图片</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/26/2020-09-26-wkwebview-cookie/">WKProcesspool方式共享WKWebView的进程和cookie</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/26/2020-09-26-launchStoryBoard/">启动页白屏</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/19/2020-01-19-screenRecord/">录屏功能</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/17/2020-01-17-检测设备方向/">检测设备方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/09/2019-12-09-UIVideoEditorController的颜色/">UIVideoEditorController的颜色</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/06/2019-12-06-UIVideoEditorController/">UIVideoEditorController</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/08/2019-11-08-Cordova创建plugin/">Cordova创建plugin</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link">友情链接</i></div><ul></ul><a href="https://github.com/dongjiawang" title="GitHub" target="_blank">GitHub</a><ul></ul><a href="https://resume.dongjiawang.top" title="个人简历" target="_blank">个人简历</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">我的码.</a> Powered by <a rel="nofollow" target="_blank" href="https://hexo.io">Hexo.</a> <a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo">Theme</a> by <a rel="nofollow" target="_blank" href="https://github.com/pagecho">Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script src="/js/totop.js?v=0.0.0" async></script><script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><script src="/js/love.js"></script><script src="/js/codeblock-resizer.js?v=0.0.0"></script><script src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>我的码</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="dongjiawang"><meta name=description content="记录一下个人码农经历。"><meta name=keywords content="Hugo,theme,even">
+<meta name=generator content="Hugo 0.89.2 with theme even">
+<link rel=canonical href=https://blog.dongjiawang.top/>
+<link href=https://blog.dongjiawang.top/index.xml rel=alternate type=application/rss+xml title=我的码>
+<link href=https://blog.dongjiawang.top/index.xml rel=feed type=application/rss+xml title=我的码>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="我的码">
+<meta property="og:description" content="记录一下个人码农经历。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.dongjiawang.top/">
+<meta itemprop=name content="我的码">
+<meta itemprop=description content="记录一下个人码农经历。"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="我的码">
+<meta name=twitter:description content="记录一下个人码农经历。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>我的码</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>首页</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>分类</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>我的码</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>首页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>分类</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<section id=posts class=posts>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2018-11-22-ios%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%9B%86%E6%88%90cordova/>iOS项目中集成Cordova</a></h1>
+<div class=post-meta>
+<span class=post-time> 2018-11-22 </span>
+<div class=post-category>
+<a href=/categories/cordova/> Cordova </a>
+</div>
+<span class=more-meta> 约 1572 字 </span>
+<span class=more-meta> 预计阅读 4 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+公司想要在已有的APP中集成一个页面，准备使用Cordova。 关于Cordova的介绍可以看他们官方文档 https://cordova.apache.org/docs/zh-cn/8.x/guide/platforms/ios/index.html 安装Cordova 安装Node.j
+</div>
+<div class=read-more>
+<a href=/post/2018-11-22-ios%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%9B%86%E6%88%90cordova/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2018-11-19-ios%E6%B7%B7%E6%B7%86/>iOS混淆</a></h1>
+<div class=post-meta>
+<span class=post-time> 2018-11-19 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 253 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+最近因为业务需求，需要做代码的混淆，找了许多教程和资料，最终发现一个很好的框架可以混淆OC的代码。 STCObfuscator 可以全局自动化混淆，并且支持cocoap
+</div>
+<div class=read-more>
+<a href=/post/2018-11-19-ios%E6%B7%B7%E6%B7%86/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2018-11-17-%E4%BD%BF%E7%94%A8workspace%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAproject/>使用workspace管理多个project</a></h1>
+<div class=post-meta>
+<span class=post-time> 2018-11-17 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 925 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+Xcode可以使用workspace同时存在和管理多个project，也就是一个项目中同时存在多个xcodeproj。 如图： 创建worksp
+</div>
+<div class=read-more>
+<a href=/post/2018-11-17-%E4%BD%BF%E7%94%A8workspace%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAproject/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2018-10-27-%E4%BD%BF%E7%94%A8tfhpple%E8%A7%A3%E6%9E%90html/>使用TFHpple解析HTML</a></h1>
+<div class=post-meta>
+<span class=post-time> 2018-10-27 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 292 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+这篇文章是对《修改HTML富文本中的图片的大小》的补充。 可能是我们的后台传过来的HTML字符串有不规范的地方，当有多张图片的时候，上面文章的
+</div>
+<div class=read-more>
+<a href=/post/2018-10-27-%E4%BD%BF%E7%94%A8tfhpple%E8%A7%A3%E6%9E%90html/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2018-09-24-%E4%BC%98%E5%8C%96tableview%E5%8A%A0%E8%BD%BD%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87/>优化tableview加载网络图片</a></h1>
+<div class=post-meta>
+<span class=post-time> 2018-09-24 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 443 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+最近在优化公司的TableView的代码，有个界面需要加载一个在线的图片列表，在快速滑动的时候，会异步下载多个图片，容易造成内存警告，于是
+</div>
+<div class=read-more>
+<a href=/post/2018-09-24-%E4%BC%98%E5%8C%96tableview%E5%8A%A0%E8%BD%BD%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2018-09-05-%E5%90%8E%E5%8F%B0%E6%92%AD%E6%94%BE%E9%9F%B3%E9%A2%91%E5%92%8C%E9%94%81%E9%A2%91%E6%98%BE%E7%A4%BA%E9%9F%B3%E9%A2%91/>后台播放音频和锁频显示音频</a></h1>
+<div class=post-meta>
+<span class=post-time> 2018-09-05 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 929 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+播放音频也可以使用AVPlayer，因为音频没有画面，所以就不要创建AVPlayerLayer，只需要一个avplayer就可以完成播放的事
+</div>
+<div class=read-more>
+<a href=/post/2018-09-05-%E5%90%8E%E5%8F%B0%E6%92%AD%E6%94%BE%E9%9F%B3%E9%A2%91%E5%92%8C%E9%94%81%E9%A2%91%E6%98%BE%E7%A4%BA%E9%9F%B3%E9%A2%91/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2018-09-04-%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89uislider%E5%88%B6%E4%BD%9C%E9%9F%B3%E9%A2%91%E6%92%AD%E6%94%BE%E8%BF%9B%E5%BA%A6%E6%9D%A1/>使用自定义UISlider制作音频播放进度条</a></h1>
+<div class=post-meta>
+<span class=post-time> 2018-09-04 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 611 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+在项目的需求中需要自定义一个音频播放器的进度条，于是就想到了使用UISlider,但是系统默认的样式无法满足需求，需要进行一些修改。 创建一个
+</div>
+<div class=read-more>
+<a href=/post/2018-09-04-%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89uislider%E5%88%B6%E4%BD%9C%E9%9F%B3%E9%A2%91%E6%92%AD%E6%94%BE%E8%BF%9B%E5%BA%A6%E6%9D%A1/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2018-09-03-uitextview%E5%AF%8C%E6%96%87%E6%9C%AC%E8%B6%85%E9%93%BE%E6%8E%A5%E7%82%B9%E5%87%BB/>UITextView富文本超链接点击</a></h1>
+<div class=post-meta>
+<span class=post-time> 2018-09-03 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 653 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+用UITextView显示富文本的时候，如果富文本中有超链接，有时候需要单独处理这个链接的点击。 可以继承UITextView重写hitTes
+</div>
+<div class=read-more>
+<a href=/post/2018-09-03-uitextview%E5%AF%8C%E6%96%87%E6%9C%AC%E8%B6%85%E9%93%BE%E6%8E%A5%E7%82%B9%E5%87%BB/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2018-09-01-%E4%BF%AE%E6%94%B9html%E5%AF%8C%E6%96%87%E6%9C%AC%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87%E7%9A%84%E5%A4%A7%E5%B0%8F/>修改HTML富文本中的图片的大小</a></h1>
+<div class=post-meta>
+<span class=post-time> 2018-09-01 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 358 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+使用 UITextView或者UILabel显示HTML 的时候，如果其中有图片，但是图片大小并不是想要的大小，就需要过滤其中的图片资源，并修改
+</div>
+<div class=read-more>
+<a href=/post/2018-09-01-%E4%BF%AE%E6%94%B9html%E5%AF%8C%E6%96%87%E6%9C%AC%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87%E7%9A%84%E5%A4%A7%E5%B0%8F/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2018-09-01-%E5%B0%86gitbook%E8%BD%AC%E6%88%90pdf%E6%88%96%E8%80%85epub%E6%A0%BC%E5%BC%8F%E7%94%B5%E5%AD%90%E4%B9%A6/>将GitBook转成PDF或者EPUB格式电子书</a></h1>
+<div class=post-meta>
+<span class=post-time> 2018-09-01 </span>
+<div class=post-category>
+<a href=/categories/%E5%B7%A5%E5%85%B7/> 工具 </a>
+</div>
+<span class=more-meta> 约 492 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+GitBook 是一个基于Node.js的命令行工具，可以使用Markdown来制作电子书，并利用Git/Github发布。 支持输出静态站点、PDF、eB
+</div>
+<div class=read-more>
+<a href=/post/2018-09-01-%E5%B0%86gitbook%E8%BD%AC%E6%88%90pdf%E6%88%96%E8%80%85epub%E6%A0%BC%E5%BC%8F%E7%94%B5%E5%AD%90%E4%B9%A6/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+</section>
+<nav class=pagination>
+<a class=prev href=/page/3/>
+<i class="iconfont icon-left"></i>
+<span class=prev-text>上一页</span>
+</a>
+<a class=next href=/page/5/>
+<span class=next-text>下一页</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=dongjiawang2008@163.com class="iconfont icon-email" title=email></a>
+<a href=http://localhost:1313 class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=http://localhost:1313 class="iconfont icon-twitter" title=twitter></a>
+<a href=http://localhost:1313 class="iconfont icon-facebook" title=facebook></a>
+<a href=http://localhost:1313 class="iconfont icon-linkedin" title=linkedin></a>
+<a href=http://localhost:1313 class="iconfont icon-google" title=google></a>
+<a href=http://localhost:1313 class="iconfont icon-github" title=github></a>
+<a href=http://localhost:1313 class="iconfont icon-weibo" title=weibo></a>
+<a href=http://localhost:1313 class="iconfont icon-zhihu" title=zhihu></a>
+<a href=http://localhost:1313 class="iconfont icon-douban" title=douban></a>
+<a href=http://localhost:1313 class="iconfont icon-pocket" title=pocket></a>
+<a href=http://localhost:1313 class="iconfont icon-tumblr" title=tumblr></a>
+<a href=http://localhost:1313 class="iconfont icon-instagram" title=instagram></a>
+<a href=http://localhost:1313 class="iconfont icon-gitlab" title=gitlab></a>
+<a href=http://localhost:1313 class="iconfont icon-bilibili" title=bilibili></a>
+<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<span class=copyright-year>
+&copy;
+2015 -
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-141040294-1','auto'),ga('set','anonymizeIp',!0),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

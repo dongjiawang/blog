@@ -1,0 +1,589 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>自定义cordova插件 - 我的码</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="dongjiawang"><meta name=description content="cordova可以通过自定义插件的形式，通过js调用原生的功能。 打开webview的Plugin 创建 创建一个继承 CDVPlugin的类， 头文"><meta name=keywords content="Hugo,theme,even">
+<meta name=generator content="Hugo 0.89.2 with theme even">
+<link rel=canonical href=https://blog.dongjiawang.top/post/2018-11-23-%E8%87%AA%E5%AE%9A%E4%B9%89cordova%E6%8F%92%E4%BB%B6/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="自定义cordova插件">
+<meta property="og:description" content="cordova可以通过自定义插件的形式，通过js调用原生的功能。 打开webview的Plugin 创建 创建一个继承 CDVPlugin的类， 头文">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.dongjiawang.top/post/2018-11-23-%E8%87%AA%E5%AE%9A%E4%B9%89cordova%E6%8F%92%E4%BB%B6/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2018-11-23T12:00:00+00:00">
+<meta property="article:modified_time" content="2018-11-23T12:00:00+00:00">
+<meta itemprop=name content="自定义cordova插件">
+<meta itemprop=description content="cordova可以通过自定义插件的形式，通过js调用原生的功能。 打开webview的Plugin 创建 创建一个继承 CDVPlugin的类， 头文"><meta itemprop=datePublished content="2018-11-23T12:00:00+00:00">
+<meta itemprop=dateModified content="2018-11-23T12:00:00+00:00">
+<meta itemprop=wordCount content="1059">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="自定义cordova插件">
+<meta name=twitter:description content="cordova可以通过自定义插件的形式，通过js调用原生的功能。 打开webview的Plugin 创建 创建一个继承 CDVPlugin的类， 头文"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>我的码</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>首页</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>分类</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>我的码</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>首页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>分类</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>自定义cordova插件</h1>
+<div class=post-meta>
+<span class=post-time> 2018-11-23 </span>
+<div class=post-category>
+<a href=/categories/cordova/> Cordova </a>
+</div>
+<span class=more-meta> 约 1059 字 </span>
+<span class=more-meta> 预计阅读 3 分钟 </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>文章目录</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href=#打开webview的plugin>打开webview的Plugin</a></li>
+<li><a href=#打开相册选取图片的plugin>打开相册选取图片的Plugin</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>cordova可以通过自定义插件的形式，通过js调用原生的功能。</p>
+<h3 id=打开webview的plugin>打开webview的Plugin</h3>
+<h4 id=创建>创建</h4>
+<p>创建一个继承 <code>CDVPlugin</code>的类，</p>
+<p>头文件的引用修改为</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=cp>#import &lt;Cordova/CDVPlugin.h&gt;
+</span></code></pre></td></tr></table>
+</div>
+</div><p>否则会报引用错误。</p>
+<ol>
+<li><strong>.h 文件的实现</strong></li>
+</ol>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=cp>#import &lt;Cordova/CDVPlugin.h&gt;
+</span><span class=cp></span>
+<span class=k>@interface</span> <span class=nc>PresentWebPlugin</span> : <span class=nc>CDVPlugin</span>
+
+<span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>presentVCWithTitle:</span><span class=p>(</span><span class=n>CDVInvokedUrlCommand</span> <span class=o>*</span><span class=p>)</span><span class=nv>command</span><span class=p>;</span>
+
+<span class=k>@end</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start=2>
+<li>
+<p><strong>.m的实现</strong></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=cp>#import &#34;PresentWebPlugin.h&#34;
+</span><span class=cp>#import &#34;TestWebViewController.h&#34;</span><span class=c1>// 自定义普通的UIWebView类
+</span><span class=c1></span>
+<span class=k>@implementation</span> <span class=nc>PresentWebPlugin</span>
+
+<span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>presentVCWithTitle:</span><span class=p>(</span><span class=n>CDVInvokedUrlCommand</span> <span class=o>*</span><span class=p>)</span><span class=nv>command</span> <span class=p>{</span>
+    <span class=k>if</span> <span class=p>(</span><span class=n>command</span><span class=p>.</span><span class=n>arguments</span><span class=p>.</span><span class=n>count</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>NSString</span> <span class=o>*</span><span class=n>title</span> <span class=o>=</span> <span class=n>command</span><span class=p>.</span><span class=n>arguments</span><span class=p>.</span><span class=n>firstObject</span><span class=p>;</span>
+
+        <span class=n>TestWebViewController</span> <span class=o>*</span><span class=n>webVC</span> <span class=o>=</span> <span class=p>[[</span><span class=n>TestWebViewController</span> <span class=n>alloc</span><span class=p>]</span> <span class=n>init</span><span class=p>];</span>
+        <span class=n>webVC</span><span class=p>.</span><span class=n>titleString</span> <span class=o>=</span> <span class=n>title</span><span class=p>;</span>
+        <span class=n>webVC</span><span class=p>.</span><span class=n>webUrl</span> <span class=o>=</span> <span class=n>command</span><span class=p>.</span><span class=n>arguments</span><span class=p>[</span><span class=mi>1</span><span class=p>];</span>
+        <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>viewController</span> <span class=nl>presentViewController</span><span class=p>:</span><span class=n>webVC</span> <span class=nl>animated</span><span class=p>:</span><span class=nb>YES</span> <span class=nl>completion</span><span class=p>:</span><span class=o>^</span><span class=p>{</span>
+            <span class=n>CDVPluginResult</span> <span class=o>*</span><span class=n>pluginResult</span> <span class=o>=</span> <span class=p>[</span><span class=n>CDVPluginResult</span> <span class=nl>resultWithStatus</span><span class=p>:</span><span class=n>CDVCommandStatus_OK</span> <span class=nl>messageAsString</span><span class=p>:</span><span class=s>@&#34;成功打开页面&#34;</span><span class=p>];</span>
+            <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>commandDelegate</span> <span class=nl>sendPluginResult</span><span class=p>:</span><span class=n>pluginResult</span> <span class=nl>callbackId</span><span class=p>:</span><span class=n>command</span><span class=p>.</span><span class=n>callbackId</span><span class=p>];</span>
+        <span class=p>}];</span>
+    <span class=p>}</span>
+    <span class=k>else</span> <span class=p>{</span>
+        <span class=n>CDVPluginResult</span> <span class=o>*</span><span class=n>pluginResult</span> <span class=o>=</span> <span class=p>[</span><span class=n>CDVPluginResult</span> <span class=nl>resultWithStatus</span><span class=p>:</span><span class=n>CDVCommandStatus_ERROR</span> <span class=nl>messageAsString</span><span class=p>:</span><span class=s>@&#34;没有参数&#34;</span><span class=p>];</span>
+        <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>commandDelegate</span> <span class=nl>sendPluginResult</span><span class=p>:</span><span class=n>pluginResult</span> <span class=nl>callbackId</span><span class=p>:</span><span class=n>command</span><span class=p>.</span><span class=n>callbackId</span><span class=p>];</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=k>@end</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h4 id=添加插件>添加插件</h4>
+<p>在<code>config.xml</code>中添加插件</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html>  <span class=p>&lt;</span><span class=nt>feature</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;ios-PresentWebPlugin&#34;</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>param</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;ios-package&#34;</span> <span class=na>value</span><span class=o>=</span><span class=s>&#34;PresentWebPlugin&#34;</span> <span class=p>/&gt;</span>
+    <span class=p>&lt;/</span><span class=nt>feature</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=编写html>编写html</h4>
+<p>在<code>index.html</code>中添加按钮和点击事件。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=kd>function</span> <span class=nx>PresentWebPlugin</span><span class=p>()</span> <span class=p>{</span>
+            <span class=nx>cordova</span><span class=p>.</span><span class=nx>exec</span><span class=p>(</span><span class=nx>PresentSuccess</span><span class=p>,</span><span class=nx>PresentFailed</span><span class=p>,</span><span class=s2>&#34;ios-PresentWebPlugin&#34;</span><span class=p>,</span><span class=s2>&#34;presentVCWithTitle&#34;</span><span class=p>,</span> <span class=p>[</span><span class=s2>&#34;标题&#34;</span><span class=p>,</span> <span class=s2>&#34;https://blog.dongjiawang.top&#34;</span><span class=p>]);</span>
+        <span class=p>}</span>
+<span class=kd>function</span> <span class=nx>PresentSuccess</span><span class=p>(</span><span class=nx>msg</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>alert</span><span class=p>(</span><span class=nx>msg</span><span class=p>);</span>
+<span class=p>}</span>
+<span class=kd>function</span> <span class=nx>PresentFailed</span><span class=p>(</span><span class=nx>msg</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>alert</span><span class=p>(</span><span class=s1>&#39;failed: &#39;</span> <span class=o>+</span> <span class=nx>msg</span><span class=p>);</span>
+<span class=p>}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>body</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;padding-top:100px&#34;</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>button</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;font-size:20px;&#34;</span> <span class=na>onclick</span><span class=o>=</span><span class=s>&#34;PresentWebPlugin();&#34;</span><span class=p>&gt;</span>打开博客<span class=p>&lt;/</span><span class=nt>button</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>br</span><span class=p>&gt;</span>
+        
+    <span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src=https://cdn.jsdelivr.net/gh/dongjiawang/BlogImage@1.0/img/2417618-5089c3c609d4d95f.gif alt></p>
+<h3 id=打开相册选取图片的plugin>打开相册选取图片的Plugin</h3>
+<h4 id=创建-1>创建</h4>
+<p>1.<strong>.h的实现</strong></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=k>@interface</span> <span class=nc>PhotoPlugin</span> : <span class=nc>CDVPlugin</span>
+
+<span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>openPhoto:</span><span class=p>(</span><span class=n>CDVInvokedUrlCommand</span> <span class=o>*</span><span class=p>)</span><span class=nv>command</span><span class=p>;</span>
+
+<span class=k>@end</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start=2>
+<li>
+<p><strong>.m的实现</strong></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=cp>#import &#34;PhotoPlugin.h&#34;
+</span><span class=cp></span>
+<span class=k>@interface</span> <span class=nc>PhotoPlugin</span> <span class=p>()</span><span class=o>&lt;</span><span class=n>UIImagePickerControllerDelegate</span><span class=p>,</span> <span class=n>UINavigationControllerDelegate</span><span class=o>&gt;</span>
+
+<span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>,</span> <span class=k>strong</span><span class=p>)</span> <span class=n>UIImagePickerController</span> <span class=o>*</span><span class=n>imagePickerVC</span><span class=p>;</span>
+
+<span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>,</span> <span class=k>strong</span><span class=p>)</span> <span class=n>CDVInvokedUrlCommand</span> <span class=o>*</span><span class=n>myCommand</span><span class=p>;</span>
+
+<span class=k>@end</span>
+
+<span class=k>@implementation</span> <span class=nc>PhotoPlugin</span>
+
+<span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>openPhoto:</span><span class=p>(</span><span class=n>CDVInvokedUrlCommand</span> <span class=o>*</span><span class=p>)</span><span class=nv>command</span> <span class=p>{</span>
+    <span class=n>_myCommand</span> <span class=o>=</span> <span class=n>command</span><span class=p>;</span>
+    <span class=nb>self</span><span class=p>.</span><span class=n>imagePickerVC</span> <span class=o>=</span> <span class=p>[[</span><span class=n>UIImagePickerController</span> <span class=n>alloc</span><span class=p>]</span> <span class=n>init</span><span class=p>];</span>
+    <span class=nb>self</span><span class=p>.</span><span class=n>imagePickerVC</span><span class=p>.</span><span class=n>delegate</span> <span class=o>=</span> <span class=nb>self</span><span class=p>;</span>
+    <span class=nb>self</span><span class=p>.</span><span class=n>imagePickerVC</span><span class=p>.</span><span class=n>modalTransitionStyle</span> <span class=o>=</span> <span class=n>UIModalTransitionStyleFlipHorizontal</span><span class=p>;</span>
+    <span class=nb>self</span><span class=p>.</span><span class=n>imagePickerVC</span><span class=p>.</span><span class=n>allowsEditing</span> <span class=o>=</span> <span class=nb>YES</span><span class=p>;</span>
+    <span class=nb>self</span><span class=p>.</span><span class=n>imagePickerVC</span><span class=p>.</span><span class=n>sourceType</span> <span class=o>=</span> <span class=n>UIImagePickerControllerSourceTypePhotoLibrary</span><span class=p>;</span>
+
+    <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>viewController</span> <span class=nl>presentViewController</span><span class=p>:</span><span class=nb>self</span><span class=p>.</span><span class=n>imagePickerVC</span> <span class=nl>animated</span><span class=p>:</span><span class=nb>YES</span> <span class=nl>completion</span><span class=p>:</span><span class=nb>nil</span><span class=p>];</span>
+<span class=p>}</span>
+
+<span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>imagePickerController:</span><span class=p>(</span><span class=n>UIImagePickerController</span> <span class=o>*</span><span class=p>)</span><span class=nv>picker</span> <span class=nf>didFinishPickingMediaWithInfo:</span><span class=p>(</span><span class=n>NSDictionary</span><span class=o>&lt;</span><span class=n>NSString</span> <span class=o>*</span><span class=p>,</span><span class=kt>id</span><span class=o>&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nv>info</span><span class=p>{</span>
+   <span class=c1>// 将选中的图片以base64 字符串的形式传递出去
+</span><span class=c1></span>    <span class=n>NSString</span> <span class=o>*</span><span class=n>encodedImageStr</span> <span class=o>=</span> <span class=p>[</span><span class=nb>self</span> <span class=nl>imageProcessing</span><span class=p>:</span><span class=n>info</span><span class=p>[</span><span class=n>UIImagePickerControllerEditedImage</span><span class=p>]];</span>
+    <span class=n>CDVPluginResult</span> <span class=o>*</span><span class=n>pluginResult</span> <span class=o>=</span> <span class=p>[</span><span class=n>CDVPluginResult</span> <span class=nl>resultWithStatus</span><span class=p>:</span><span class=n>CDVCommandStatus_OK</span> <span class=nl>messageAsString</span><span class=p>:</span><span class=n>encodedImageStr</span><span class=p>];</span>
+    <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>commandDelegate</span> <span class=nl>sendPluginResult</span><span class=p>:</span><span class=n>pluginResult</span> <span class=nl>callbackId</span><span class=p>:</span><span class=nb>self</span><span class=p>.</span><span class=n>myCommand</span><span class=p>.</span><span class=n>callbackId</span><span class=p>];</span>
+    <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>viewController</span> <span class=nl>dismissViewControllerAnimated</span><span class=p>:</span><span class=nb>YES</span> <span class=nl>completion</span><span class=p>:</span><span class=nb>nil</span><span class=p>];</span>
+<span class=p>}</span>
+
+<span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>imagePickerControllerDidCancel:</span><span class=p>(</span><span class=n>UIImagePickerController</span> <span class=o>*</span><span class=p>)</span><span class=nv>picker</span> <span class=p>{</span>
+    <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>viewController</span> <span class=nl>dismissViewControllerAnimated</span><span class=p>:</span><span class=nb>YES</span> <span class=nl>completion</span><span class=p>:</span><span class=nb>nil</span><span class=p>];</span>
+<span class=p>}</span>
+
+<span class=c1>// 图像处理
+</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nf>imageProcessing:</span><span class=p>(</span><span class=n>UIImage</span> <span class=o>*</span><span class=p>)</span><span class=nv>proImage</span><span class=p>{</span>
+    <span class=c1>// 判断传过来照片的大小进行裁剪
+</span><span class=c1></span>    <span class=n>CGFloat</span> <span class=n>width</span>  <span class=o>=</span> <span class=n>proImage</span><span class=p>.</span><span class=n>size</span><span class=p>.</span><span class=n>width</span><span class=p>;</span>
+    <span class=n>CGFloat</span> <span class=n>height</span> <span class=o>=</span> <span class=n>proImage</span><span class=p>.</span><span class=n>size</span><span class=p>.</span><span class=n>height</span><span class=p>;</span>
+    <span class=n>CGSize</span> <span class=n>size</span><span class=p>;</span>
+    <span class=k>if</span> <span class=p>(</span><span class=n>width</span><span class=o>&gt;</span><span class=n>height</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>size</span> <span class=o>=</span> <span class=n>CGSizeMake</span><span class=p>(</span><span class=mi>800</span><span class=p>,</span> <span class=mi>450</span><span class=p>);</span>
+    <span class=p>}</span><span class=k>else</span> <span class=p>{</span>
+        <span class=n>size</span> <span class=o>=</span> <span class=n>CGSizeMake</span><span class=p>(</span><span class=mi>450</span><span class=p>,</span> <span class=mi>800</span><span class=p>);</span>
+    <span class=p>}</span>
+
+    <span class=c1>// 并把它设置成为当前正在使用的context
+</span><span class=c1></span>    <span class=n>UIGraphicsBeginImageContext</span><span class=p>(</span><span class=n>size</span><span class=p>);</span>
+    <span class=c1>// 绘制改变大小的图片
+</span><span class=c1></span>    <span class=p>[</span><span class=n>proImage</span> <span class=nl>drawInRect</span><span class=p>:</span><span class=n>CGRectMake</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span><span class=mi>0</span><span class=p>,</span> <span class=n>size</span><span class=p>.</span><span class=n>width</span><span class=p>,</span> <span class=n>size</span><span class=p>.</span><span class=n>height</span><span class=p>)];</span>
+    <span class=c1>// 从当前context中创建一个改变大小后的图片
+</span><span class=c1></span>    <span class=n>UIImage</span> <span class=o>*</span> <span class=n>tailoringImage</span> <span class=o>=</span><span class=n>UIGraphicsGetImageFromCurrentImageContext</span><span class=p>();</span>
+    <span class=c1>// 使当前的context出堆栈
+</span><span class=c1></span>    <span class=n>UIGraphicsEndImageContext</span><span class=p>();</span>
+    <span class=c1>// 判断图片大小进行压缩
+</span><span class=c1></span>    <span class=n>NSData</span> <span class=o>*</span><span class=n>imageData</span> <span class=o>=</span> <span class=n>UIImageJPEGRepresentation</span><span class=p>(</span><span class=n>tailoringImage</span><span class=p>,</span><span class=mf>1.0</span><span class=p>);</span>
+
+    <span class=n>NSLog</span><span class=p>(</span><span class=s>@&#34;imagedata == %lud,size.width = %f==%f&#34;</span><span class=p>,(</span><span class=kt>unsigned</span> <span class=kt>long</span><span class=p>)</span><span class=n>imageData</span><span class=p>.</span><span class=n>length</span><span class=p>,</span><span class=n>tailoringImage</span><span class=p>.</span><span class=n>size</span><span class=p>.</span><span class=n>width</span><span class=p>,</span><span class=n>tailoringImage</span><span class=p>.</span><span class=n>size</span><span class=p>.</span><span class=n>height</span><span class=p>);</span>
+
+    <span class=k>if</span> <span class=p>(</span><span class=n>imageData</span><span class=p>.</span><span class=n>length</span><span class=o>&gt;</span><span class=mi>100</span><span class=o>*</span><span class=mi>1024</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>imageData</span><span class=p>.</span><span class=n>length</span><span class=o>&gt;</span><span class=mi>1024</span><span class=o>*</span><span class=mi>1024</span><span class=p>)</span> <span class=p>{</span>     <span class=c1>//1M以及以上
+</span><span class=c1></span>            <span class=n>imageData</span><span class=o>=</span><span class=n>UIImageJPEGRepresentation</span><span class=p>(</span><span class=n>tailoringImage</span><span class=p>,</span> <span class=mf>0.1</span><span class=p>);</span>
+        <span class=p>}</span><span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=n>imageData</span><span class=p>.</span><span class=n>length</span><span class=o>&gt;</span><span class=mi>512</span><span class=o>*</span><span class=mi>1024</span><span class=p>)</span> <span class=p>{</span><span class=c1>//0.5M-1M
+</span><span class=c1></span>            <span class=n>imageData</span><span class=o>=</span><span class=n>UIImageJPEGRepresentation</span><span class=p>(</span><span class=n>tailoringImage</span><span class=p>,</span> <span class=mf>0.3</span><span class=p>);</span>
+        <span class=p>}</span><span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=n>imageData</span><span class=p>.</span><span class=n>length</span><span class=o>&gt;</span><span class=mi>200</span><span class=o>*</span><span class=mi>1024</span><span class=p>)</span> <span class=p>{</span><span class=c1>//0.25M-0.5M
+</span><span class=c1></span>            <span class=n>imageData</span><span class=o>=</span><span class=n>UIImageJPEGRepresentation</span><span class=p>(</span><span class=n>tailoringImage</span><span class=p>,</span> <span class=mf>0.7</span><span class=p>);</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+
+    <span class=n>NSString</span> <span class=o>*</span> <span class=n>encodedImageStr</span> <span class=o>=</span> <span class=p>[</span><span class=n>imageData</span> <span class=nl>base64EncodedStringWithOptions</span><span class=p>:</span><span class=n>NSDataBase64Encoding64CharacterLineLength</span><span class=p>];</span>
+    <span class=k>return</span> <span class=n>encodedImageStr</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=k>@end</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h4 id=添加插件-1>添加插件</h4>
+<p>在<code>config.xml</code>中添加插件</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>feature</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;ios-PhotoPlugin&#34;</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>param</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;ios-package&#34;</span> <span class=na>value</span><span class=o>=</span><span class=s>&#34;PhotoPlugin&#34;</span> <span class=p>/&gt;</span>
+    <span class=p>&lt;/</span><span class=nt>feature</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=编写html-1>编写Html</h4>
+<p>在<code>index.html</code>中添加按钮、点击事件和显示图片。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kd>function</span> <span class=nx>openPhoto</span><span class=p>()</span> <span class=p>{</span>
+                <span class=nx>cordova</span><span class=p>.</span><span class=nx>exec</span><span class=p>(</span><span class=nx>selectedPhotoSuccess</span><span class=p>,</span> <span class=nx>selectedPhotoFailed</span><span class=p>,</span> <span class=s2>&#34;ios-PhotoPlugin&#34;</span><span class=p>,</span> <span class=s2>&#34;openPhoto&#34;</span><span class=p>,</span> <span class=kc>null</span><span class=p>);</span>
+            <span class=p>}</span>
+            
+            <span class=kd>function</span> <span class=nx>selectedPhotoSuccess</span><span class=p>(</span><span class=nx>img</span><span class=p>)</span> <span class=p>{</span>
+                
+                <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s2>&#34;imageview&#34;</span><span class=p>).</span><span class=nx>innerHTML</span> <span class=o>=</span> <span class=s2>&#34;&lt;img style=&#39;display:block; width:200px;height:200px;&#39; src=&#39;data:image/png;base64,&#34;</span><span class=o>+</span><span class=nx>img</span><span class=o>+</span><span class=s2>&#34;&#39;/&gt;&#34;</span>
+            <span class=p>}</span>
+            
+            <span class=kd>function</span> <span class=nx>selectedPhotoFailed</span><span class=p>(</span><span class=nx>msg</span><span class=p>)</span> <span class=p>{</span>
+                <span class=nx>alert</span><span class=p>(</span><span class=s2>&#34;选择图片失败&#34;</span><span class=p>);</span>
+            <span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html> <span class=p>&lt;</span><span class=nt>body</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;padding-top:100px&#34;</span><span class=p>&gt;</span>
+        
+        <span class=p>&lt;</span><span class=nt>button</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;font-size:20px;&#34;</span> <span class=na>onclick</span><span class=o>=</span><span class=s>&#34;openPhoto();&#34;</span><span class=p>&gt;</span>打开相册<span class=p>&lt;/</span><span class=nt>button</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>br</span><span class=p>&gt;</span>
+        
+          <span class=p>&lt;</span><span class=nt>p</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;imageview&#34;</span> <span class=p>&gt;</span> <span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+        
+    <span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src=https://cdn.jsdelivr.net/gh/dongjiawang/BlogImage@1.0/img/2417618.gif alt></p>
+</div>
+<footer class=post-footer>
+<nav class=post-nav>
+<a class=prev href=/post/2018-11-25-ios%E6%B7%B7%E6%B7%86%E4%BA%8C/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">iOS混淆（二）</span>
+<span class="prev-text nav-mobile">上一篇</span>
+</a>
+<a class=next href=/post/2018-11-22-ios%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%9B%86%E6%88%90cordova/>
+<span class="next-text nav-default">iOS项目中集成Cordova</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=dongjiawang2008@163.com class="iconfont icon-email" title=email></a>
+<a href=http://localhost:1313 class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=http://localhost:1313 class="iconfont icon-twitter" title=twitter></a>
+<a href=http://localhost:1313 class="iconfont icon-facebook" title=facebook></a>
+<a href=http://localhost:1313 class="iconfont icon-linkedin" title=linkedin></a>
+<a href=http://localhost:1313 class="iconfont icon-google" title=google></a>
+<a href=http://localhost:1313 class="iconfont icon-github" title=github></a>
+<a href=http://localhost:1313 class="iconfont icon-weibo" title=weibo></a>
+<a href=http://localhost:1313 class="iconfont icon-zhihu" title=zhihu></a>
+<a href=http://localhost:1313 class="iconfont icon-douban" title=douban></a>
+<a href=http://localhost:1313 class="iconfont icon-pocket" title=pocket></a>
+<a href=http://localhost:1313 class="iconfont icon-tumblr" title=tumblr></a>
+<a href=http://localhost:1313 class="iconfont icon-instagram" title=instagram></a>
+<a href=http://localhost:1313 class="iconfont icon-gitlab" title=gitlab></a>
+<a href=http://localhost:1313 class="iconfont icon-bilibili" title=bilibili></a>
+<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<span class=copyright-year>
+&copy;
+2015 -
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-141040294-1','auto'),ga('set','anonymizeIp',!0),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

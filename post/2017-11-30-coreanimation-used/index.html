@@ -1,0 +1,557 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>CoreAnimation 的简单使用 - 我的码</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="dongjiawang"><meta name=description content="CoreAnimation 的执行过程是在后台操作的，不会阻塞主线程。 CoreAnimation 是作用在 CALayer 上，不会修改 UIView。 核心动画与UIView动画的区别 核心动画的一切都是假象，并"><meta name=keywords content="Hugo,theme,even">
+<meta name=generator content="Hugo 0.89.2 with theme even">
+<link rel=canonical href=https://blog.dongjiawang.top/post/2017-11-30-coreanimation-used/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="CoreAnimation 的简单使用">
+<meta property="og:description" content="CoreAnimation 的执行过程是在后台操作的，不会阻塞主线程。 CoreAnimation 是作用在 CALayer 上，不会修改 UIView。 核心动画与UIView动画的区别 核心动画的一切都是假象，并">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.dongjiawang.top/post/2017-11-30-coreanimation-used/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2017-11-30T23:00:00+00:00">
+<meta property="article:modified_time" content="2017-11-30T23:00:00+00:00">
+<meta itemprop=name content="CoreAnimation 的简单使用">
+<meta itemprop=description content="CoreAnimation 的执行过程是在后台操作的，不会阻塞主线程。 CoreAnimation 是作用在 CALayer 上，不会修改 UIView。 核心动画与UIView动画的区别 核心动画的一切都是假象，并"><meta itemprop=datePublished content="2017-11-30T23:00:00+00:00">
+<meta itemprop=dateModified content="2017-11-30T23:00:00+00:00">
+<meta itemprop=wordCount content="1727">
+<meta itemprop=keywords content="动画,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="CoreAnimation 的简单使用">
+<meta name=twitter:description content="CoreAnimation 的执行过程是在后台操作的，不会阻塞主线程。 CoreAnimation 是作用在 CALayer 上，不会修改 UIView。 核心动画与UIView动画的区别 核心动画的一切都是假象，并"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>我的码</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>首页</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>分类</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>我的码</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>首页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>分类</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>CoreAnimation 的简单使用</h1>
+<div class=post-meta>
+<span class=post-time> 2017-11-30 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 1727 字 </span>
+<span class=more-meta> 预计阅读 4 分钟 </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>文章目录</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#核心动画与uiview动画的区别>核心动画与UIView动画的区别</a></li>
+<li><a href=#calayer-基础属性>CALayer 基础属性</a></li>
+<li><a href=#caanimation>CAAnimation</a>
+<ul>
+<li><a href=#1-关键帧动画-cakeyframeanimation>1. 关键帧动画 CAKeyframeAnimation</a></li>
+<li><a href=#2-动画组-caanimationgroup>2. 动画组 CAAnimationGroup</a></li>
+<li><a href=#3转场动画-catransition>3.转场动画 CATransition</a></li>
+</ul>
+</li>
+<li><a href=#代码示例>代码示例</a>
+<ul>
+<li><a href=#1-cabasicanimation-闪烁>1. CABasicAnimation 闪烁</a></li>
+<li><a href=#2-cakeyframeanimation-路径移动>2. CAKeyframeAnimation 路径移动</a></li>
+<li><a href=#3-cakeyframeanimation-抖动>3. CAKeyframeAnimation 抖动</a></li>
+<li><a href=#4-catransition-转场>4. CATransition 转场</a></li>
+<li><a href=#5-cagradientlayer-渐变颜色>5. CAGradientLayer 渐变颜色</a></li>
+<li><a href=#6-caemitterlayer-粒子发送器>6. CAEmitterLayer 粒子发送器</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p><code>CoreAnimation</code> 的执行过程是在后台操作的，不会阻塞主线程。
+<code>CoreAnimation</code> 是作用在 <code>CALayer</code> 上，不会修改 <code>UIView</code>。</p>
+<h2 id=核心动画与uiview动画的区别>核心动画与UIView动画的区别</h2>
+<blockquote>
+<p>核心动画的一切都是假象，并不会真是改变layer的值。
+UIView 真实改变属性才能有动画。</p>
+</blockquote>
+<blockquote>
+<p>核心动画用在不需要交互的地方。
+UIView 用在需要交互的地方</p>
+</blockquote>
+<hr>
+<h2 id=calayer-基础属性>CALayer 基础属性</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=n>bounds</span> <span class=err>边境范围</span>
+<span class=n>position</span> <span class=err>中心点</span>
+<span class=n>zPosition</span> <span class=n>z轴中心点</span>
+<span class=n>anchorPoint</span> <span class=err>锚点</span><span class=p>(</span><span class=err>默认锚点</span> <span class=err>是与中心点重合</span><span class=p>)</span>
+        <span class=err>锚点的值与位置</span><span class=o>:</span> <span class=err>最小值是（</span><span class=mi>0</span><span class=err>，</span><span class=mi>0</span><span class=err>），最大值是（</span><span class=mi>1</span><span class=err>，</span><span class=mi>1</span><span class=err>）</span><span class=p>,</span><span class=err>当视图改变的时候，是以锚点为基准改变的</span>
+								           <span class=err>锚点值</span> <span class=o>=</span> <span class=err>锚点在视图上的位置</span><span class=p>.</span><span class=n>x</span><span class=p>.</span><span class=n>y</span><span class=o>/</span><span class=err>视图的宽高</span>
+                		  <span class=err>默认锚点的值是（</span><span class=mf>0.5</span><span class=err>，</span><span class=mf>0.5</span><span class=err>）</span><span class=o>=</span> <span class=err>中心点</span>
+                                          <span class=p>(</span><span class=mi>0</span><span class=err>，</span><span class=mi>0</span><span class=p>)</span> <span class=o>=</span> <span class=err>图层的左上角</span>
+                                          <span class=p>(</span><span class=mi>0</span><span class=err>，</span><span class=mi>1</span><span class=p>)</span> <span class=o>=</span> <span class=err>图层的左下角</span>
+                                          <span class=p>(</span><span class=mi>1</span><span class=err>，</span><span class=mi>0</span><span class=p>)</span> <span class=o>=</span> <span class=err>图层的右上角</span>
+                                          <span class=p>(</span><span class=mi>1</span><span class=err>，</span><span class=mi>1</span><span class=p>)</span> <span class=o>=</span> <span class=err>图层的右下角</span>                     
+                                          
+<span class=n>anchorPointZ</span> <span class=n>Z轴锚点</span>
+<span class=n>transform</span> <span class=err>转换形态</span>
+<span class=n>frame</span> <span class=nb>NO</span><span class=p>.</span> <span class=n>Animatable</span> <span class=err>坐标</span>
+<span class=n>hidden</span> <span class=err>隐藏</span>
+<span class=n>doubleSided</span> <span class=err>图层背面是否显示</span>
+<span class=n>geometryFlipped</span> <span class=err>翻转</span> <span class=err>颠倒</span>
+<span class=n>masksToBounds</span> <span class=err>裁切边境</span>
+<span class=n>contents</span> <span class=err>内容</span>
+<span class=n>opaque</span> <span class=err>不透明度</span>
+<span class=n>allowsEdgeAntialiasing</span> <span class=err>是否使用</span> <span class=err>变形后的抗锯齿</span>
+<span class=n>backgroundColor</span> <span class=err>背景颜色</span>
+<span class=n>borderWidth</span> <span class=err>边框宽</span>
+<span class=n>borderColor</span> <span class=err>边框颜色</span>
+<span class=n>opacity</span> <span class=err>不透明度</span>
+<span class=n>shadowColor</span> <span class=err>阴影颜色</span>
+<span class=n>shadowOpacity</span> <span class=err>阴影不透明度</span>
+<span class=n>rasterizationScale</span> <span class=err>防止</span><span class=n>Retina屏幕像素化</span>
+<span class=n>shadowOffset</span> <span class=err>阴影偏移量</span>
+<span class=n>shadowRadius</span> <span class=err>阴影的半径</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=caanimation>CAAnimation</h2>
+<h3 id=1-关键帧动画-cakeyframeanimation>1. 关键帧动画 CAKeyframeAnimation</h3>
+<p>关键帧动画，<code>CAKeyframeAnimation</code> 是CAPropertyAnimation的子类。
+与 <code>CABasicAniamtion</code> 的区别是<code>CABasicAniamtion</code>是从<code>fromValue</code> 到<code>toValue</code> 两个值的变化，而 <code>CAKeyframeAnimation</code> 可以使用 <code>NSArray</code> 来保存这些数值。</p>
+<p>==属性说明：==</p>
+<p><strong>values：</strong> NSArray 对象，里面的元素就是“关键帧”，动画会在指定的时间内，依次显示 values 数组中的每一个关键帧。</p>
+<p><strong>path:</strong> 可以设置<code>CGPathRef</code>、<code>CGMutablePathRef</code>，让图层按照轨迹移动，<code>path</code>只对<code>CALayer</code>的 <code>anchorPoint</code> 和 <code>point</code> 起作用。如果设置了<code>path</code>， 那么<code>values</code>将被忽略。</p>
+<p><strong>keyTimes:</strong> 关键帧指定对应的时间点，取值范围从0~1，keyTimes中的每一个时间值对应values中的每一帧，如果没有设置，时间是平分的。</p>
+<p><code>CABasicAniamtion</code> 可看做 只有两个关键帧的<code>CAKeyframeAnimation</code>。</p>
+<h3 id=2-动画组-caanimationgroup>2. 动画组 CAAnimationGroup</h3>
+<p><code>CAAnimationGroup</code> 是 <code>CAAnimation</code> 的子类，可以保存一组动画对象，将 <code>CAAnimationGroup</code> 对象加入层之后，族中所有的动画对象可以同时并发运行。</p>
+<p>==属性说明：==</p>
+<p><strong>animations：</strong> 保存一组动画对象的NSArray。</p>
+<p>默认情况下，一组动画对象是同时运行的，也可以通过设置动画对象的 <code>beginTimer</code> 属性来更改动画的开始时间。</p>
+<h3 id=3转场动画-catransition>3.转场动画 CATransition</h3>
+<p><code>CATransition</code>为层提供移出屏幕和移入屏幕的动画效果。UINavigationController就是通过CATransition实现了将控制器推入屏幕的动画效果。</p>
+<p>==属性说明：==</p>
+<p><strong>type：</strong> 动画过渡类型</p>
+<p>**subtype：**动画过渡方向</p>
+<p>**startProgress：**动画起点</p>
+<p>**endProgress：**动画终点</p>
+<h2 id=代码示例>代码示例</h2>
+<h3 id=1-cabasicanimation-闪烁>1. CABasicAnimation 闪烁</h3>
+<p><img src=http://upload-images.jianshu.io/upload_images/2417618-80da35263a680863.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt=闪烁.gif></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec>
+    <span class=n>CALayer</span> <span class=o>*</span><span class=n>layer</span> <span class=o>=</span> <span class=p>[</span><span class=n>CALayer</span> <span class=n>layer</span><span class=p>];</span>
+    <span class=n>layer</span><span class=p>.</span><span class=n>frame</span> <span class=o>=</span> <span class=n>CGRectMake</span><span class=p>(</span><span class=mi>80</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>150</span><span class=p>,</span> <span class=mi>150</span><span class=p>);</span>
+    <span class=n>layer</span><span class=p>.</span><span class=n>cornerRadius</span> <span class=o>=</span> <span class=mi>75</span><span class=p>;</span>
+    <span class=n>layer</span><span class=p>.</span><span class=n>backgroundColor</span> <span class=o>=</span><span class=p>[</span><span class=n>UIColor</span> <span class=n>redColor</span><span class=p>].</span><span class=n>CGColor</span><span class=p>;</span>    
+    <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>view</span><span class=p>.</span><span class=n>layer</span> <span class=nl>addSublayer</span><span class=p>:</span><span class=n>layer</span><span class=p>];</span>
+    
+    <span class=n>CABasicAnimation</span> <span class=o>*</span><span class=n>animation</span> <span class=o>=</span> <span class=p>[</span><span class=n>CABasicAnimation</span> <span class=n>animation</span><span class=p>];</span>
+    <span class=n>animation</span><span class=p>.</span><span class=n>keyPath</span> <span class=o>=</span> <span class=s>@&#34;opacity&#34;</span><span class=p>;</span>
+    <span class=n>animation</span><span class=p>.</span><span class=n>fromValue</span> <span class=o>=</span> <span class=mi>@1</span><span class=p>;</span>
+    <span class=n>animation</span><span class=p>.</span><span class=n>toValue</span> <span class=o>=</span> <span class=mi>@0</span><span class=p>;</span>
+    <span class=n>animation</span><span class=p>.</span><span class=n>duration</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+    <span class=n>animation</span><span class=p>.</span><span class=n>repeatCount</span> <span class=o>=</span> <span class=n>MAXFLOAT</span><span class=p>;</span>
+    <span class=n>animation</span><span class=p>.</span><span class=n>removedOnCompletion</span> <span class=o>=</span> <span class=nb>NO</span><span class=p>;</span>
+    <span class=n>animation</span><span class=p>.</span><span class=n>fillMode</span> <span class=o>=</span> <span class=n>kCAFillModeBackwards</span><span class=p>;</span>
+    <span class=p>[</span><span class=n>layer</span> <span class=nl>addAnimation</span><span class=p>:</span><span class=n>animation</span> <span class=nl>forKey</span><span class=p>:</span><span class=nb>nil</span><span class=p>];</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=2-cakeyframeanimation-路径移动>2. CAKeyframeAnimation 路径移动</h3>
+<p><img src=http://upload-images.jianshu.io/upload_images/2417618-ca6b28e3eb090f75.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt=移动.gif></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec>    <span class=n>CAKeyframeAnimation</span> <span class=o>*</span><span class=n>animation</span> <span class=o>=</span> <span class=p>[</span><span class=n>CAKeyframeAnimation</span> <span class=n>animation</span><span class=p>];</span>
+    <span class=n>animation</span><span class=p>.</span><span class=n>keyPath</span> <span class=o>=</span> <span class=s>@&#34;position&#34;</span><span class=p>;</span>
+    <span class=n>UIBezierPath</span> <span class=o>*</span><span class=n>path</span> <span class=o>=</span> <span class=p>[</span><span class=n>UIBezierPath</span> <span class=nl>bezierPathWithArcCenter</span><span class=p>:</span><span class=nb>self</span><span class=p>.</span><span class=n>view</span><span class=p>.</span><span class=n>center</span> <span class=nl>radius</span><span class=p>:</span><span class=mi>100</span> <span class=nl>startAngle</span><span class=p>:</span><span class=mi>0</span> <span class=nl>endAngle</span><span class=p>:</span><span class=n>M_PI</span><span class=o>*</span><span class=mi>2</span> <span class=nl>clockwise</span><span class=p>:</span><span class=nb>YES</span><span class=p>];</span>
+    <span class=n>animation</span><span class=p>.</span><span class=n>path</span> <span class=o>=</span> <span class=n>path</span><span class=p>.</span><span class=n>CGPath</span><span class=p>;</span>
+    <span class=n>animation</span><span class=p>.</span><span class=n>repeatCount</span> <span class=o>=</span> <span class=n>MAXFLOAT</span><span class=p>;</span>
+    <span class=n>animation</span><span class=p>.</span><span class=n>duration</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
+    <span class=n>animation</span><span class=p>.</span><span class=n>removedOnCompletion</span> <span class=o>=</span> <span class=nb>NO</span><span class=p>;</span>
+    <span class=n>animation</span><span class=p>.</span><span class=n>fillMode</span> <span class=o>=</span> <span class=n>kCAFillModeBoth</span><span class=p>;</span>
+    <span class=p>[</span><span class=n>layer</span> <span class=nl>addAnimation</span><span class=p>:</span><span class=n>animation</span> <span class=nl>forKey</span><span class=p>:</span><span class=nb>nil</span><span class=p>];</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=3-cakeyframeanimation-抖动>3. CAKeyframeAnimation 抖动</h3>
+<p><img src=http://upload-images.jianshu.io/upload_images/2417618-d46617f989d2fd1e.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt=抖动.gif></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec>    <span class=n>CALayer</span> <span class=o>*</span><span class=n>layer</span> <span class=o>=</span> <span class=p>[</span><span class=n>CALayer</span> <span class=n>layer</span><span class=p>];</span>
+    <span class=n>layer</span><span class=p>.</span><span class=n>frame</span> <span class=o>=</span> <span class=n>CGRectMake</span><span class=p>(</span><span class=mi>80</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>150</span><span class=p>,</span> <span class=mi>150</span><span class=p>);</span>
+    <span class=n>layer</span><span class=p>.</span><span class=n>backgroundColor</span> <span class=o>=</span><span class=p>[</span><span class=n>UIColor</span> <span class=n>redColor</span><span class=p>].</span><span class=n>CGColor</span><span class=p>;</span>
+    <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>view</span><span class=p>.</span><span class=n>layer</span> <span class=nl>addSublayer</span><span class=p>:</span><span class=n>layer</span><span class=p>];</span>
+    
+    <span class=cp>#define angleRadion(angle) (angle / 180.0 * M_PI)
+</span><span class=cp></span>    <span class=c1>//抖动
+</span><span class=c1></span>    <span class=n>CAKeyframeAnimation</span><span class=o>*</span><span class=n>animation</span> <span class=o>=</span> <span class=p>[</span><span class=n>CAKeyframeAnimation</span> <span class=n>animation</span><span class=p>];</span>
+    <span class=n>animation</span><span class=p>.</span><span class=n>keyPath</span> <span class=o>=</span> <span class=s>@&#34;transform.rotation&#34;</span><span class=p>;</span>
+    <span class=n>animation</span><span class=p>.</span><span class=n>values</span> <span class=o>=</span> <span class=l>@[@(</span><span class=n>angleRadion</span><span class=p>(</span><span class=o>-</span><span class=mi>5</span><span class=p>)</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=n>angleRadion</span><span class=p>(</span><span class=mi>5</span><span class=p>)</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=n>angleRadion</span><span class=p>(</span><span class=o>-</span><span class=mi>5</span><span class=p>)</span><span class=l>)]</span><span class=p>;</span>
+    <span class=n>animation</span><span class=p>.</span><span class=n>duration</span> <span class=o>=</span> <span class=mf>0.15</span><span class=p>;</span>
+    <span class=n>animation</span><span class=p>.</span><span class=n>repeatCount</span> <span class=o>=</span> <span class=n>MAXFLOAT</span><span class=p>;</span>
+    <span class=p>[</span><span class=n>layer</span> <span class=nl>addAnimation</span><span class=p>:</span><span class=n>animation</span> <span class=nl>forKey</span><span class=p>:</span><span class=nb>nil</span><span class=p>];</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=4-catransition-转场>4. CATransition 转场</h3>
+<p><img src=http://upload-images.jianshu.io/upload_images/2417618-e3256e1b3a4b0c7f.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt=转场.gif></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec>    <span class=n>CALayer</span> <span class=o>*</span><span class=n>layer</span> <span class=o>=</span> <span class=p>[</span><span class=n>CALayer</span> <span class=n>layer</span><span class=p>];</span>
+    <span class=n>layer</span><span class=p>.</span><span class=n>frame</span> <span class=o>=</span> <span class=n>CGRectMake</span><span class=p>(</span><span class=mi>80</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>150</span><span class=p>,</span> <span class=mi>150</span><span class=p>);</span>
+    <span class=n>layer</span><span class=p>.</span><span class=n>backgroundColor</span> <span class=o>=</span><span class=p>[</span><span class=n>UIColor</span> <span class=n>redColor</span><span class=p>].</span><span class=n>CGColor</span><span class=p>;</span>
+    <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>view</span><span class=p>.</span><span class=n>layer</span> <span class=nl>addSublayer</span><span class=p>:</span><span class=n>layer</span><span class=p>];</span>
+    
+    <span class=n>CATransition</span> <span class=o>*</span><span class=n>animation</span> <span class=o>=</span> <span class=p>[</span><span class=n>CATransition</span> <span class=n>animation</span><span class=p>];</span>
+    <span class=c1>// 指定转场类型
+</span><span class=c1></span>    <span class=n>animation</span><span class=p>.</span><span class=n>type</span> <span class=o>=</span> <span class=s>@&#34;pageCurl&#34;</span><span class=p>;</span>
+    <span class=c1>// 设置转场的方向
+</span><span class=c1></span>    <span class=n>animation</span><span class=p>.</span><span class=n>subtype</span> <span class=o>=</span> <span class=n>kCATransitionFromLeft</span><span class=p>;</span>
+    <span class=c1>// 设置动画的进度
+</span><span class=c1></span>    <span class=n>animation</span><span class=p>.</span><span class=n>startProgress</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=n>animation</span><span class=p>.</span><span class=n>endProgress</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+    <span class=n>animation</span><span class=p>.</span><span class=n>duration</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+    <span class=n>dispatch_after</span><span class=p>(</span><span class=n>dispatch_time</span><span class=p>(</span><span class=n>DISPATCH_TIME_NOW</span><span class=p>,</span> <span class=p>(</span><span class=n>int64_t</span><span class=p>)(</span><span class=mf>0.5</span> <span class=o>*</span> <span class=n>NSEC_PER_SEC</span><span class=p>)),</span> <span class=n>dispatch_get_main_queue</span><span class=p>(),</span> <span class=o>^</span><span class=p>{</span>
+       <span class=p>[</span><span class=n>layer</span> <span class=nl>addAnimation</span><span class=p>:</span><span class=n>animation</span> <span class=nl>forKey</span><span class=p>:</span><span class=nb>nil</span><span class=p>];</span>
+    <span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=5-cagradientlayer-渐变颜色>5. CAGradientLayer 渐变颜色</h3>
+<p><img src=http://upload-images.jianshu.io/upload_images/2417618-9b4edba883ac641c.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt=渐变.gif></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec>    <span class=n>CAGradientLayer</span> <span class=o>*</span><span class=n>layer</span> <span class=o>=</span><span class=p>[</span><span class=n>CAGradientLayer</span> <span class=n>layer</span><span class=p>];</span>
+    <span class=n>layer</span><span class=p>.</span><span class=n>frame</span> <span class=o>=</span><span class=nb>self</span><span class=p>.</span><span class=n>view</span><span class=p>.</span><span class=n>frame</span><span class=p>;</span>
+    <span class=c1>//设置渐变的颜色数组
+</span><span class=c1></span>    <span class=n>layer</span><span class=p>.</span><span class=n>colors</span> <span class=o>=</span><span class=l>@[</span><span class=p>(</span><span class=kt>id</span><span class=p>)[</span><span class=n>UIColor</span> <span class=n>yellowColor</span><span class=p>].</span><span class=n>CGColor</span><span class=p>,</span>
+                    <span class=p>(</span><span class=kt>id</span><span class=p>)[</span><span class=n>UIColor</span> <span class=n>orangeColor</span><span class=p>].</span><span class=n>CGColor</span><span class=p>,</span>
+                    <span class=p>(</span><span class=kt>id</span><span class=p>)[</span><span class=n>UIColor</span> <span class=n>greenColor</span><span class=p>].</span><span class=n>CGColor</span><span class=p>,</span>
+                    <span class=p>(</span><span class=kt>id</span><span class=p>)[</span><span class=n>UIColor</span> <span class=n>blueColor</span><span class=p>].</span><span class=n>CGColor</span><span class=p>,</span>
+                    <span class=p>(</span><span class=kt>id</span><span class=p>)[</span><span class=n>UIColor</span> <span class=n>grayColor</span><span class=p>].</span><span class=n>CGColor</span><span class=p>,</span>
+                    <span class=p>(</span><span class=kt>id</span><span class=p>)[</span><span class=n>UIColor</span> <span class=n>redColor</span><span class=p>].</span><span class=n>CGColor</span><span class=l>]</span><span class=p>;</span>
+    <span class=c1>//设置透明度
+</span><span class=c1></span>    <span class=n>layer</span><span class=p>.</span><span class=n>opacity</span> <span class=o>=</span> <span class=mf>0.2</span><span class=p>;</span>
+    <span class=c1>//设置起始点
+</span><span class=c1></span>    <span class=n>layer</span><span class=p>.</span><span class=n>startPoint</span>  <span class=o>=</span> <span class=n>CGPointMake</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>);</span>
+    <span class=c1>//设置
+</span><span class=c1></span>    <span class=n>layer</span><span class=p>.</span><span class=n>locations</span> <span class=o>=</span><span class=l>@[</span><span class=mf>@0.1</span><span class=p>,</span><span class=mf>@0.2</span><span class=p>,</span><span class=mf>@0.3</span><span class=p>,</span><span class=mf>@0.4</span><span class=p>,</span><span class=mf>@0.5</span><span class=l>]</span><span class=p>;</span>
+    <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>view</span><span class=p>.</span><span class=n>layer</span> <span class=nl>addSublayer</span><span class=p>:</span><span class=n>layer</span><span class=p>];</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=6-caemitterlayer-粒子发送器>6. CAEmitterLayer 粒子发送器</h3>
+<p><img src=http://upload-images.jianshu.io/upload_images/2417618-8b69c271e90daabb.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt=粒子.gif></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec>   <span class=n>CAEmitterLayer</span> <span class=o>*</span><span class=n>emitterLayer</span> <span class=o>=</span><span class=p>[</span><span class=n>CAEmitterLayer</span> <span class=n>layer</span><span class=p>];</span>
+    <span class=n>emitterLayer</span><span class=p>.</span><span class=n>frame</span> <span class=o>=</span> <span class=n>CGRectMake</span><span class=p>(</span><span class=mi>50</span><span class=p>,</span> <span class=mi>300</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>400</span><span class=p>);</span>
+    <span class=c1>// 设置粒子发送器 每秒钟发送的数量
+</span><span class=c1></span>    <span class=n>emitterLayer</span><span class=p>.</span><span class=n>birthRate</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+    <span class=c1>//设置粒子的中心点
+</span><span class=c1></span>    <span class=n>emitterLayer</span><span class=p>.</span><span class=n>emitterPosition</span> <span class=o>=</span> <span class=nb>self</span><span class=p>.</span><span class=n>view</span><span class=p>.</span><span class=n>center</span><span class=p>;</span>
+    <span class=n>emitterLayer</span><span class=p>.</span><span class=n>renderMode</span> <span class=o>=</span> <span class=n>kCAEmitterLayerBackToFront</span><span class=p>;</span>
+    
+    <span class=c1>//初始化粒子
+</span><span class=c1></span>    <span class=n>CAEmitterCell</span> <span class=o>*</span><span class=n>cell</span> <span class=o>=</span> <span class=p>[</span><span class=n>CAEmitterCell</span> <span class=n>emitterCell</span><span class=p>];</span>
+    <span class=n>cell</span><span class=p>.</span><span class=n>contents</span> <span class=o>=</span> <span class=p>(</span><span class=kt>id</span><span class=p>)[</span><span class=n>UIImage</span> <span class=nl>imageNamed</span><span class=p>:</span><span class=s>@&#34;粒子.png&#34;</span><span class=p>].</span><span class=n>CGImage</span><span class=p>;</span>
+    <span class=c1>//粒子的出生量
+</span><span class=c1></span>    <span class=n>cell</span><span class=p>.</span><span class=n>birthRate</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
+    <span class=c1>//粒子的存活时间，默认是0，单位是秒
+</span><span class=c1></span>    <span class=n>cell</span><span class=p>.</span><span class=n>lifetime</span> <span class=o>=</span> <span class=mi>5</span><span class=p>;</span>
+    <span class=n>cell</span><span class=p>.</span><span class=n>lifetimeRange</span> <span class=o>=</span> <span class=mi>11</span><span class=p>;</span>
+    <span class=c1>//粒子发送的速度,默认是0
+</span><span class=c1></span>    <span class=n>cell</span><span class=p>.</span><span class=n>velocity</span> <span class=o>=</span> <span class=mi>100</span><span class=p>;</span>
+    <span class=n>cell</span><span class=p>.</span><span class=n>velocityRange</span> <span class=o>=</span> <span class=mi>10</span><span class=p>;</span>
+    <span class=c1>//设置粒子发送的 方向
+</span><span class=c1></span>    <span class=n>cell</span><span class=p>.</span><span class=n>emissionLongitude</span> <span class=o>=</span> <span class=mi>30</span><span class=o>*</span><span class=n>M_PI</span><span class=o>/</span><span class=mi>180</span><span class=p>;</span>
+    <span class=n>cell</span><span class=p>.</span><span class=n>emissionLatitude</span> <span class=o>=</span> <span class=n>M_PI</span><span class=o>/</span><span class=mi>180</span><span class=p>;</span>
+    <span class=c1>//设置粒子散发的范围 弧度
+</span><span class=c1></span>    <span class=n>cell</span><span class=p>.</span><span class=n>emissionRange</span> <span class=o>=</span> <span class=mi>180</span><span class=o>*</span><span class=n>M_PI</span><span class=o>/</span><span class=mi>180</span><span class=p>;</span>
+    <span class=c1>//设置粒子的加速度
+</span><span class=c1></span>    <span class=n>cell</span><span class=p>.</span><span class=n>yAcceleration</span> <span class=o>=</span> <span class=o>-</span><span class=mi>100</span><span class=p>;</span>
+    
+    <span class=c1>// 把粒子的cell 放到粒子发送器上
+</span><span class=c1></span>    <span class=n>emitterLayer</span><span class=p>.</span><span class=n>emitterCells</span> <span class=o>=</span> <span class=l>@[</span><span class=n>cell</span><span class=l>]</span><span class=p>;</span>
+    
+    <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>view</span><span class=p>.</span><span class=n>layer</span> <span class=nl>addSublayer</span><span class=p>:</span><span class=n>emitterLayer</span><span class=p>];</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+</div>
+<footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/%E5%8A%A8%E7%94%BB/>动画</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/post/2017-12-01-custom-rumtimekit/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">封装常用的 Runtime 方法</span>
+<span class="prev-text nav-mobile">上一篇</span>
+</a>
+<a class=next href=/post/2017-11-29-uiview-layer/>
+<span class="next-text nav-default">UIView 的 layer</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=dongjiawang2008@163.com class="iconfont icon-email" title=email></a>
+<a href=http://localhost:1313 class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=http://localhost:1313 class="iconfont icon-twitter" title=twitter></a>
+<a href=http://localhost:1313 class="iconfont icon-facebook" title=facebook></a>
+<a href=http://localhost:1313 class="iconfont icon-linkedin" title=linkedin></a>
+<a href=http://localhost:1313 class="iconfont icon-google" title=google></a>
+<a href=http://localhost:1313 class="iconfont icon-github" title=github></a>
+<a href=http://localhost:1313 class="iconfont icon-weibo" title=weibo></a>
+<a href=http://localhost:1313 class="iconfont icon-zhihu" title=zhihu></a>
+<a href=http://localhost:1313 class="iconfont icon-douban" title=douban></a>
+<a href=http://localhost:1313 class="iconfont icon-pocket" title=pocket></a>
+<a href=http://localhost:1313 class="iconfont icon-tumblr" title=tumblr></a>
+<a href=http://localhost:1313 class="iconfont icon-instagram" title=instagram></a>
+<a href=http://localhost:1313 class="iconfont icon-gitlab" title=gitlab></a>
+<a href=http://localhost:1313 class="iconfont icon-bilibili" title=bilibili></a>
+<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<span class=copyright-year>
+&copy;
+2015 -
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-141040294-1','auto'),ga('set','anonymizeIp',!0),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

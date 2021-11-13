@@ -1,0 +1,192 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>通知的添加和移除 - 我的码</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="dongjiawang"><meta name=description content="我们都知道 viewWillAppear: 方法是在控制器的view将要显示的时候调用的，而 viewWillDisappear: 方法是在控制器的view将要隐藏的时候调用。很多时候我们根据自身需要将相关代码"><meta name=keywords content="Hugo,theme,even">
+<meta name=generator content="Hugo 0.89.2 with theme even">
+<link rel=canonical href=https://blog.dongjiawang.top/post/2015-12-18-notification/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="通知的添加和移除">
+<meta property="og:description" content="我们都知道 viewWillAppear: 方法是在控制器的view将要显示的时候调用的，而 viewWillDisappear: 方法是在控制器的view将要隐藏的时候调用。很多时候我们根据自身需要将相关代码">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.dongjiawang.top/post/2015-12-18-notification/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2015-12-18T11:09:00+00:00">
+<meta property="article:modified_time" content="2015-12-18T11:09:00+00:00">
+<meta itemprop=name content="通知的添加和移除">
+<meta itemprop=description content="我们都知道 viewWillAppear: 方法是在控制器的view将要显示的时候调用的，而 viewWillDisappear: 方法是在控制器的view将要隐藏的时候调用。很多时候我们根据自身需要将相关代码"><meta itemprop=datePublished content="2015-12-18T11:09:00+00:00">
+<meta itemprop=dateModified content="2015-12-18T11:09:00+00:00">
+<meta itemprop=wordCount content="939">
+<meta itemprop=keywords content="iOS,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="通知的添加和移除">
+<meta name=twitter:description content="我们都知道 viewWillAppear: 方法是在控制器的view将要显示的时候调用的，而 viewWillDisappear: 方法是在控制器的view将要隐藏的时候调用。很多时候我们根据自身需要将相关代码"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>我的码</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>首页</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>分类</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>我的码</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>首页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>分类</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>通知的添加和移除</h1>
+<div class=post-meta>
+<span class=post-time> 2015-12-18 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 939 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>文章目录</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents></nav>
+</div>
+</div>
+<div class=post-content>
+<p>我们都知道 <code>viewWillAppear:</code> 方法是在控制器的view将要显示的时候调用的，而 <code>viewWillDisappear:</code> 方法是在控制器的view将要隐藏的时候调用。很多时候我们根据自身需要将相关代码逻辑添加到这两个方法中。</p>
+<p>现在随着手势操作的流行，很多人在页面中添加了左滑返回的功能，但是我们还是习惯性的把通知的移除放在了 <code>viewWillDisappear</code> 中，这样就会出现一个问题，如果我左滑滑到一半又滑回去了，这时候页面的通知已经移除了，整体的功能就会受到影响。</p>
+<p><strong>解决方法：</strong></p>
+<p>1、将注册通知的方法放到 <code>viewDidLoad</code> 中；只要页面有变化就会调用这个方法，页面的通知监听就会一直存在。</p>
+<p>2、将移除通知的代码放到 <code>dealloc</code> 方法中，dealloc方法是在控制器销毁之时调用的。这个时候移除通知而不是在 <code>viewWillDisappear</code> 方法中移除可以有效避免上述的问题。既然控制器都销毁了，那么还留着相关的通知干嘛？该移除的移除。</p>
+<p>上面的两种解决方案，要说哪种最优，那肯定非第二种莫属了。</p>
+<p>在这里可以举个例子。假如我们现在有这么个场景：在控制器的view上有个label，在label上添加一个手势（一般手势都是在创建完label之后添加的），假设我在 <code>viewWillDisappear:</code> 方法中移除该手势，则此时用户侧滑返回之时又取消侧滑返回，那么原先在label上的手势却再也添加不回来了（这里label一般在viewDidLoad方法中创建），因为viewDidLoad方法不会再次调用。而第二种方法却可以有效避免这种情况，这样就可以避免我这种“手贱”的任意捣鼓了，是不是很完美呢？</p>
+<p><strong>注意项：</strong></p>
+<blockquote>
+<p>用 [NSNotificationCenter defaultCenter] 发出的通知在控制器里面接收不用理会，控制器销毁的时候会自动释放不会野指针，但是在view里面接收通知的时候要在dealloc里面移除，否则会野指针。</p>
+</blockquote>
+<p><strong>总结：</strong></p>
+<pre><code>1、iOS7新增加了导航控制器侧滑手势，当触发侧滑返回时，会调用系统的viewWillDisappear:方法，取消侧滑返回时又会调用viewWillAppear:方法。
+
+2、在做手势和通知等一系列操作之时尽量在dealloc方法中执行，添加通知尽量在viewDidLoad等一次性方法中执行。
+
+3、在viewWillAppear:、viewWillDisappear:、viewDidAppear:、viewDidDisappear:等类似于这种会多次调用的系统方法中添加代码时，一定要多考虑业务逻辑，以免出现不必要的麻烦。</code></pre>
+</div>
+<footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/ios/>iOS</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/post/2015-12-18.app/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">iOS APP设计规范大全</span>
+<span class="prev-text nav-mobile">上一篇</span>
+</a>
+<a class=next href=/post/2015-12-17-appjump/>
+<span class="next-text nav-default">应用之间的跳转与数据传递</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=dongjiawang2008@163.com class="iconfont icon-email" title=email></a>
+<a href=http://localhost:1313 class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=http://localhost:1313 class="iconfont icon-twitter" title=twitter></a>
+<a href=http://localhost:1313 class="iconfont icon-facebook" title=facebook></a>
+<a href=http://localhost:1313 class="iconfont icon-linkedin" title=linkedin></a>
+<a href=http://localhost:1313 class="iconfont icon-google" title=google></a>
+<a href=http://localhost:1313 class="iconfont icon-github" title=github></a>
+<a href=http://localhost:1313 class="iconfont icon-weibo" title=weibo></a>
+<a href=http://localhost:1313 class="iconfont icon-zhihu" title=zhihu></a>
+<a href=http://localhost:1313 class="iconfont icon-douban" title=douban></a>
+<a href=http://localhost:1313 class="iconfont icon-pocket" title=pocket></a>
+<a href=http://localhost:1313 class="iconfont icon-tumblr" title=tumblr></a>
+<a href=http://localhost:1313 class="iconfont icon-instagram" title=instagram></a>
+<a href=http://localhost:1313 class="iconfont icon-gitlab" title=gitlab></a>
+<a href=http://localhost:1313 class="iconfont icon-bilibili" title=bilibili></a>
+<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<span class=copyright-year>
+&copy;
+2015 -
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-141040294-1','auto'),ga('set','anonymizeIp',!0),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

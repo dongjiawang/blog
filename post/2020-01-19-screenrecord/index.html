@@ -1,0 +1,778 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>录屏功能 - 我的码</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="dongjiawang"><meta name=description content="苹果提供了ReplayKit对屏幕进行录制，支持音频、视频，还可以对视频进行剪辑、分享。 需要引用头文件&amp;lt;ReplayKit/Repla"><meta name=keywords content="Hugo,theme,even">
+<meta name=generator content="Hugo 0.89.2 with theme even">
+<link rel=canonical href=https://blog.dongjiawang.top/post/2020-01-19-screenrecord/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="录屏功能">
+<meta property="og:description" content="苹果提供了ReplayKit对屏幕进行录制，支持音频、视频，还可以对视频进行剪辑、分享。 需要引用头文件<ReplayKit/Repla">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.dongjiawang.top/post/2020-01-19-screenrecord/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2020-01-19T17:00:00+00:00">
+<meta property="article:modified_time" content="2020-01-19T17:00:00+00:00">
+<meta itemprop=name content="录屏功能">
+<meta itemprop=description content="苹果提供了ReplayKit对屏幕进行录制，支持音频、视频，还可以对视频进行剪辑、分享。 需要引用头文件<ReplayKit/Repla"><meta itemprop=datePublished content="2020-01-19T17:00:00+00:00">
+<meta itemprop=dateModified content="2020-01-19T17:00:00+00:00">
+<meta itemprop=wordCount content="1995">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="录屏功能">
+<meta name=twitter:description content="苹果提供了ReplayKit对屏幕进行录制，支持音频、视频，还可以对视频进行剪辑、分享。 需要引用头文件<ReplayKit/Repla"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>我的码</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>首页</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>分类</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>我的码</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>首页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>分类</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>录屏功能</h1>
+<div class=post-meta>
+<span class=post-time> 2020-01-19 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 1995 字 </span>
+<span class=more-meta> 预计阅读 4 分钟 </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>文章目录</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#rpscreenrecorder>RPScreenRecorder</a></li>
+<li><a href=#extension方式录制视频>extension方式录制视频</a></li>
+<li><a href=#注意>注意</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>苹果提供了<code>ReplayKit</code>对屏幕进行录制，支持音频、视频，还可以对视频进行剪辑、分享。</p>
+<p>需要引用头文件<code>&lt;ReplayKit/ReplayKit.h></code>,通过<code>RPScreenRecorder</code>控制录屏。</p>
+<h2 id=rpscreenrecorder>RPScreenRecorder</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=p>[[</span><span class=n>RPScreenRecorder</span> <span class=n>sharedRecorder</span><span class=p>]</span> <span class=nl>startRecordingWithHandler</span><span class=p>:</span><span class=o>^</span><span class=p>(</span><span class=n>NSError</span> <span class=o>*</span> <span class=n>_Nullable</span> <span class=n>error</span><span class=p>)</span> <span class=p>{</span>
+        
+<span class=p>}];</span>
+    
+<span class=p>[[</span><span class=n>RPScreenRecorder</span> <span class=n>sharedRecorder</span><span class=p>]</span> <span class=nl>setMicrophoneEnabled</span><span class=p>:</span><span class=nb>YES</span><span class=p>];</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>开始录制，会请求摄像头和麦克风权限，如果用户拒绝，则无法进行录制。</p>
+<p>录制内容无法直接查看，需要通过<code>RPPreviewViewController</code>才能查看、分享和保存到相册。</p>
+</blockquote>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=p>[[</span><span class=n>RPScreenRecorder</span> <span class=n>sharedRecorder</span><span class=p>]</span> <span class=nl>stopRecordingWithHandler</span><span class=p>:</span><span class=o>^</span><span class=p>(</span><span class=n>RPPreviewViewController</span> <span class=o>*</span> <span class=n>_Nullable</span> <span class=n>previewViewController</span><span class=p>,</span> <span class=n>NSError</span> <span class=o>*</span> <span class=n>_Nullable</span> <span class=n>error</span><span class=p>)</span> <span class=p>{</span>
+        
+ <span class=p>}];</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>也可以自己处理数据流：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=p>[</span><span class=n>RPScreenRecorder</span> <span class=n>sharedRecorder</span><span class=p>].</span><span class=n>delegate</span> <span class=o>=</span> <span class=nb>self</span><span class=p>;</span><span class=c1>// 设置代理
+</span><span class=c1></span><span class=p>[</span><span class=n>RPScreenRecorder</span> <span class=n>sharedRecorder</span><span class=p>].</span><span class=n>microphoneEnabled</span> <span class=o>=</span> <span class=nb>YES</span><span class=p>;</span><span class=c1>// 麦克风
+</span><span class=c1></span><span class=p>[</span><span class=n>RPScreenRecorder</span> <span class=n>sharedRecorder</span><span class=p>].</span><span class=n>cameraEnabled</span> <span class=o>=</span> <span class=nb>YES</span><span class=p>;</span> <span class=c1>// 摄像头
+</span></code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=p>[[</span><span class=n>RPScreenRecorder</span> <span class=n>sharedRecorder</span><span class=p>]</span> <span class=nl>startCaptureWithHandler</span><span class=p>:</span><span class=o>^</span><span class=p>(</span><span class=n>CMSampleBufferRef</span>  <span class=n>_Nonnull</span> <span class=n>sampleBuffer</span><span class=p>,</span> <span class=n>RPSampleBufferType</span> <span class=n>bufferType</span><span class=p>,</span> <span class=n>NSError</span> <span class=o>*</span> <span class=n>_Nullable</span> <span class=n>error</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>previewViewController</span><span class=p>.</span><span class=n>previewControllerDelegate</span> <span class=o>=</span> <span class=nb>self</span><span class=p>;</span>
+<span class=p>}</span> <span class=nl>completionHandler</span><span class=p>:</span><span class=o>^</span><span class=p>(</span><span class=n>NSError</span> <span class=o>*</span> <span class=n>_Nullable</span> <span class=n>error</span><span class=p>)</span> <span class=p>{</span>
+        
+<span class=p>}];</span>
+
+<span class=cm>/* 接收到的 buffer类型，可以使用 AVAssetWriter  进行数据写入
+</span><span class=cm>API_AVAILABLE(ios(10.0),tvos(10.0))
+</span><span class=cm>typedef NS_ENUM(NSInteger, RPSampleBufferType) {
+</span><span class=cm>    RPSampleBufferTypeVideo = 1,
+</span><span class=cm>    RPSampleBufferTypeAudioApp,
+</span><span class=cm>    RPSampleBufferTypeAudioMic,
+</span><span class=cm>};
+</span><span class=cm>*/</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>RPScreenRecorderDelegate</strong></p>
+<p>停止的时候也可以通过代理方法使用 <code>RPPreviewViewController</code></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>screenRecorder:</span><span class=p>(</span><span class=n>RPScreenRecorder</span> <span class=o>*</span><span class=p>)</span><span class=nv>screenRecorder</span> <span class=nf>didStopRecordingWithError:</span><span class=p>(</span><span class=n>NSError</span> <span class=o>*</span><span class=p>)</span><span class=nv>error</span> <span class=nf>previewViewController:</span><span class=p>(</span><span class=n>nullable</span> <span class=n>RPPreviewViewController</span> <span class=o>*</span><span class=p>)</span><span class=nv>previewViewController</span> <span class=n>API_DEPRECATED</span><span class=p>(</span><span class=s>&#34;No longer supported&#34;</span><span class=p>,</span> <span class=n>ios</span><span class=p>(</span><span class=mf>9.0</span><span class=p>,</span> <span class=mf>10.0</span><span class=p>),</span> <span class=n>tvos</span><span class=p>(</span><span class=mf>10.0</span><span class=p>,</span><span class=mf>10.0</span><span class=p>));</span>
+<span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>screenRecorder:</span><span class=p>(</span><span class=n>RPScreenRecorder</span> <span class=o>*</span><span class=p>)</span><span class=nv>screenRecorder</span> <span class=nf>didStopRecordingWithPreviewViewController:</span><span class=p>(</span><span class=n>nullable</span> <span class=n>RPPreviewViewController</span> <span class=o>*</span><span class=p>)</span><span class=nv>previewViewController</span> <span class=nf>error:</span><span class=p>(</span><span class=n>nullable</span> <span class=n>NSError</span> <span class=o>*</span><span class=p>)</span><span class=nv>error</span> <span class=n>API_AVAILABLE</span><span class=p>(</span><span class=n>ios</span><span class=p>(</span><span class=mf>11.0</span><span class=p>),</span> <span class=n>tvos</span><span class=p>(</span><span class=mf>11.0</span><span class=p>));</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>需要设置 <code>RPPreviewViewController</code>的代理。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=n>previewViewController</span><span class=p>.</span><span class=n>previewControllerDelegate</span> <span class=o>=</span> <span class=nb>self</span><span class=p>;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>RPPreviewViewController</strong></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>previewController:</span><span class=p>(</span><span class=n>RPPreviewViewController</span> <span class=o>*</span><span class=p>)</span><span class=nv>previewController</span> <span class=nf>didFinishWithActivityTypes:</span><span class=p>(</span><span class=n>NSSet</span><span class=o>&lt;</span><span class=n>NSString</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nv>activityTypes</span> <span class=p>{</span>
+    <span class=k>if</span> <span class=p>([</span><span class=n>activityTypes</span> <span class=nl>containsObject</span><span class=p>:</span> <span class=n>UIActivityTypeSaveToCameraRoll</span><span class=p>])</span> <span class=p>{</span>
+        <span class=n>NSLog</span><span class=p>(</span><span class=s>@&#34;保存到相册&#34;</span><span class=p>);</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+<span class=c1>// 根据activityType 判断选择的操作
+</span><span class=c1></span><span class=cm>/*
+</span><span class=cm>UIKIT_EXTERN UIActivityType const UIActivityTypePostToFacebook     API_AVAILABLE(ios(6.0)) __TVOS_PROHIBITED;
+</span><span class=cm>UIKIT_EXTERN UIActivityType const UIActivityTypePostToTwitter      API_AVAILABLE(ios(6.0)) __TVOS_PROHIBITED;
+</span><span class=cm>UIKIT_EXTERN UIActivityType const UIActivityTypePostToWeibo        API_AVAILABLE(ios(6.0)) __TVOS_PROHIBITED;    // SinaWeibo
+</span><span class=cm>UIKIT_EXTERN UIActivityType const UIActivityTypeMessage            API_AVAILABLE(ios(6.0)) __TVOS_PROHIBITED;
+</span><span class=cm>UIKIT_EXTERN UIActivityType const UIActivityTypeMail               API_AVAILABLE(ios(6.0)) __TVOS_PROHIBITED;
+</span><span class=cm>UIKIT_EXTERN UIActivityType const UIActivityTypePrint              API_AVAILABLE(ios(6.0)) __TVOS_PROHIBITED;
+</span><span class=cm>UIKIT_EXTERN UIActivityType const UIActivityTypeCopyToPasteboard   API_AVAILABLE(ios(6.0)) __TVOS_PROHIBITED;
+</span><span class=cm>UIKIT_EXTERN UIActivityType const UIActivityTypeAssignToContact    API_AVAILABLE(ios(6.0)) __TVOS_PROHIBITED;
+</span><span class=cm>UIKIT_EXTERN UIActivityType const UIActivityTypeSaveToCameraRoll   API_AVAILABLE(ios(6.0)) __TVOS_PROHIBITED;
+</span><span class=cm>UIKIT_EXTERN UIActivityType const UIActivityTypeAddToReadingList   API_AVAILABLE(ios(7.0)) __TVOS_PROHIBITED;
+</span><span class=cm>UIKIT_EXTERN UIActivityType const UIActivityTypePostToFlickr       API_AVAILABLE(ios(7.0)) __TVOS_PROHIBITED;
+</span><span class=cm>UIKIT_EXTERN UIActivityType const UIActivityTypePostToVimeo        API_AVAILABLE(ios(7.0)) __TVOS_PROHIBITED;
+</span><span class=cm>UIKIT_EXTERN UIActivityType const UIActivityTypePostToTencentWeibo API_AVAILABLE(ios(7.0)) __TVOS_PROHIBITED;
+</span><span class=cm>UIKIT_EXTERN UIActivityType const UIActivityTypeAirDrop            API_AVAILABLE(ios(7.0)) __TVOS_PROHIBITED;
+</span><span class=cm>UIKIT_EXTERN UIActivityType const UIActivityTypeOpenInIBooks       API_AVAILABLE(ios(9.0)) __TVOS_PROHIBITED;
+</span><span class=cm>UIKIT_EXTERN UIActivityType const UIActivityTypeMarkupAsPDF        API_AVAILABLE(ios(11.0)) __TVOS_PROHIBITED;
+</span><span class=cm>*
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id=extension方式录制视频>extension方式录制视频</h2>
+<p>通过Xcode的<code>file -> new -> target </code>创建<code>extension</code></p>
+<p><img src=https://cdn.jsdelivr.net/gh/dongjiawang/BlogImage@1.0/img/20200119152644.png alt></p>
+<p>如果录屏或直播屏幕前需要用户输入一些内容或其他操作，需要同时添加 <code>UI Extension</code></p>
+<p><img src=https://cdn.jsdelivr.net/gh/dongjiawang/BlogImage@1.0/img/20200119153225.png alt></p>
+<p>创建完成后就出现<code>Extension</code>的代码</p>
+<p><img src=https://cdn.jsdelivr.net/gh/dongjiawang/BlogImage@1.0/img/20200119154545.png alt></p>
+<p>具体的录制功能在<code>SampleHandler</code>中实现,由于iOS沙盒机制的存在，<code>extension</code>的数据并不能直接被App使用，可以使用<code>AppGroup</code>进行数据共享。从而将录制的视频保存到App中。</p>
+<p><strong>RPSystemBroadcastPickerView 按钮</strong></p>
+<p>需要通过<code>replaykit</code>提供的<code>RPSystemBroadcastPickerView</code> 启动录屏，把<code>RPSystemBroadcastPickerView</code>放到需要的view上，通过点击调起<code>Extension</code>。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=n>RPSystemBroadcastPickerView</span> <span class=o>*</span><span class=n>broadcastPickerView</span> <span class=o>=</span> <span class=p>[[</span><span class=n>RPSystemBroadcastPickerView</span> <span class=n>alloc</span><span class=p>]</span> <span class=nl>initWithFrame</span><span class=p>:</span><span class=n>CGRectMake</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>100</span><span class=p>)];</span>
+<span class=n>broadcastPickerView</span><span class=p>.</span><span class=n>preferredExtension</span> <span class=o>=</span> <span class=n>kBroadcastExtensionBundleId</span><span class=p>;</span>  <span class=c1>// extension的id
+</span><span class=c1></span><span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>view</span> <span class=nl>addSubview</span><span class=p>:</span><span class=n>broadcastPickerView</span><span class=p>];</span>
+<span class=n>broadcastPickerView</span><span class=p>.</span><span class=n>center</span> <span class=o>=</span> <span class=nb>self</span><span class=p>.</span><span class=n>view</span><span class=p>.</span><span class=n>center</span><span class=p>;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src=https://cdn.jsdelivr.net/gh/dongjiawang/BlogImage@1.0/img/20200119163751.jpeg alt></p>
+<p><strong><code>SampleHandler</code>中的视频写入操作</strong></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>,</span> <span class=k>strong</span><span class=p>)</span> <span class=n>AVAssetWriter</span> <span class=o>*</span><span class=n>assetWriter</span><span class=p>;</span>
+<span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>,</span> <span class=k>strong</span><span class=p>)</span> <span class=n>AVAssetWriterInput</span> <span class=o>*</span><span class=n>assetWriterInput</span><span class=p>;</span>
+<span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>,</span> <span class=k>strong</span><span class=p>)</span> <span class=n>AVAssetWriterInput</span> <span class=o>*</span><span class=n>assetAudioInput</span><span class=p>;</span>
+<span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>,</span> <span class=k>strong</span><span class=p>)</span> <span class=n>NSString</span> <span class=o>*</span><span class=n>videoOutPath</span><span class=p>;</span> <span class=c1>// 当前沙盒保存视频的路径
+</span><span class=c1></span>
+<span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>,</span> <span class=k>assign</span><span class=p>)</span> <span class=kt>BOOL</span>  <span class=n>isFirstSample</span><span class=p>;</span> <span class=c1>// 是否第一帧数据
+</span></code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>broadcastStartedWithSetupInfo:</span><span class=p>(</span><span class=n>NSDictionary</span><span class=o>&lt;</span><span class=n>NSString</span> <span class=o>*</span><span class=p>,</span><span class=n>NSObject</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nv>setupInfo</span> <span class=p>{</span>
+	<span class=c1>// 视频开始录制时调用
+</span><span class=c1></span>  <span class=c1>// info中可以是从 UI 中传递过来的参数
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec> <span class=c1>// 定义 AVAssetWriter
+</span><span class=c1></span><span class=n>NSNumber</span> <span class=o>*</span><span class=n>width</span><span class=o>=</span> <span class=p>[</span><span class=n>NSNumber</span> <span class=nl>numberWithFloat</span><span class=p>:[[</span><span class=n>UIScreen</span> <span class=n>mainScreen</span><span class=p>]</span> <span class=n>bounds</span><span class=p>].</span><span class=n>size</span><span class=p>.</span><span class=n>width</span><span class=p>];</span>
+<span class=n>NSNumber</span> <span class=o>*</span><span class=n>height</span> <span class=o>=</span> <span class=p>[</span><span class=n>NSNumber</span> <span class=nl>numberWithFloat</span><span class=p>:[[</span><span class=n>UIScreen</span> <span class=n>mainScreen</span><span class=p>]</span> <span class=n>bounds</span><span class=p>].</span><span class=n>size</span><span class=p>.</span><span class=n>height</span><span class=p>];</span>
+<span class=c1>// 视频参数
+</span><span class=c1></span>
+<span class=n>NSDictionary</span> <span class=o>*</span><span class=n>compressionProperties</span> <span class=o>=</span>
+    <span class=l>@{</span><span class=nl>AVVideoProfileLevelKey</span>         <span class=p>:</span> <span class=n>AVVideoProfileLevelH264HighAutoLevel</span><span class=p>,</span>
+      <span class=nl>AVVideoH264EntropyModeKey</span>      <span class=p>:</span> <span class=n>AVVideoH264EntropyModeCABAC</span><span class=p>,</span>
+      <span class=nl>AVVideoAverageBitRateKey</span>       <span class=p>:</span> <span class=l>@(</span><span class=mi>1920</span> <span class=o>*</span> <span class=mi>1080</span> <span class=o>*</span> <span class=mf>11.4</span><span class=l>)</span><span class=p>,</span>
+      <span class=nl>AVVideoMaxKeyFrameIntervalKey</span>  <span class=p>:</span> <span class=mi>@30</span><span class=p>,</span>
+      <span class=nl>AVVideoAllowFrameReorderingKey</span> <span class=p>:</span> <span class=m>@NO</span><span class=l>}</span><span class=p>;</span>
+
+<span class=n>NSDictionary</span> <span class=o>*</span><span class=n>videoSettings</span> <span class=o>=</span>
+    <span class=l>@{</span>
+        <span class=nl>AVVideoCompressionPropertiesKey</span> <span class=p>:</span> <span class=n>compressionProperties</span><span class=p>,</span>
+        <span class=nl>AVVideoCodecKey</span>                 <span class=p>:</span> <span class=n>AVVideoCodecTypeH264</span><span class=p>,</span>
+        <span class=nl>AVVideoWidthKey</span>                 <span class=p>:</span> <span class=l>@(</span><span class=n>width</span><span class=l>)</span><span class=p>,</span>
+        <span class=nl>AVVideoHeightKey</span>                <span class=p>:</span> <span class=l>@(</span><span class=n>height</span><span class=l>)</span>
+    <span class=l>}</span><span class=p>;</span>
+<span class=c1>// 音频参数
+</span><span class=c1></span><span class=n>AudioChannelLayout</span> <span class=n>acl</span><span class=p>;</span>
+    <span class=n>bzero</span><span class=p>(</span> <span class=o>&amp;</span><span class=n>acl</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>acl</span><span class=p>));</span>
+    <span class=n>acl</span><span class=p>.</span><span class=n>mChannelLayoutTag</span> <span class=o>=</span> <span class=n>kAudioChannelLayoutTag_Mono</span><span class=p>;</span>
+
+<span class=n>NSDictionary</span> <span class=o>*</span><span class=n>audioOutputSettings</span> <span class=o>=</span> <span class=p>[</span><span class=n>NSDictionary</span> <span class=nl>dictionaryWithObjectsAndKeys</span><span class=p>:</span>
+                                         <span class=p>[</span><span class=n>NSNumber</span> <span class=nl>numberWithInt</span><span class=p>:</span> <span class=n>kAudioFormatMPEG4AAC</span> <span class=p>],</span> <span class=n>AVFormatIDKey</span><span class=p>,</span>
+                                         <span class=p>[</span><span class=n>NSNumber</span> <span class=nl>numberWithInt</span><span class=p>:</span> <span class=mi>1</span> <span class=p>],</span> <span class=n>AVNumberOfChannelsKey</span><span class=p>,</span>
+                                         <span class=p>[</span><span class=n>NSNumber</span> <span class=nl>numberWithFloat</span><span class=p>:</span> <span class=mf>44100.0</span> <span class=p>],</span> <span class=n>AVSampleRateKey</span><span class=p>,</span>
+                                         <span class=p>[</span><span class=n>NSNumber</span> <span class=nl>numberWithInt</span><span class=p>:</span> <span class=mi>64000</span> <span class=p>],</span> <span class=n>AVEncoderBitRateKey</span><span class=p>,</span>
+                                         <span class=p>[</span><span class=n>NSData</span> <span class=nl>dataWithBytes</span><span class=p>:</span> <span class=o>&amp;</span><span class=n>acl</span> <span class=nl>length</span><span class=p>:</span> <span class=k>sizeof</span><span class=p>(</span> <span class=n>acl</span> <span class=p>)</span> <span class=p>],</span> <span class=n>AVChannelLayoutKey</span><span class=p>,</span>
+                                         <span class=nb>nil</span><span class=p>];</span>
+<span class=c1>// 定义 writer
+</span><span class=c1></span><span class=nb>self</span><span class=p>.</span><span class=n>assetWriterInput</span> <span class=o>=</span> <span class=p>[</span><span class=n>AVAssetWriterInput</span> <span class=nl>assetWriterInputWithMediaType</span><span class=p>:</span><span class=n>AVMediaTypeVideo</span> <span class=nl>outputSettings</span><span class=p>:</span><span class=n>videoSettings</span><span class=p>];</span>
+<span class=nb>self</span><span class=p>.</span><span class=n>assetWriterInput</span><span class=p>.</span><span class=n>expectsMediaDataInRealTime</span> <span class=o>=</span> <span class=nb>YES</span><span class=p>;</span>
+
+<span class=nb>self</span><span class=p>.</span><span class=n>assetAudioInput</span> <span class=o>=</span> <span class=p>[</span><span class=n>AVAssetWriterInput</span> <span class=nl>assetWriterInputWithMediaType</span><span class=p>:</span><span class=n>AVMediaTypeAudio</span> <span class=nl>outputSettings</span><span class=p>:</span><span class=n>audioOutputSettings</span><span class=p>];</span>
+<span class=nb>self</span><span class=p>.</span><span class=n>assetAudioInput</span><span class=p>.</span><span class=n>expectsMediaDataInRealTime</span> <span class=o>=</span> <span class=nb>YES</span><span class=p>;</span>
+
+<span class=nb>self</span><span class=p>.</span><span class=n>assetWriter</span> <span class=o>=</span> <span class=p>[</span><span class=n>AVAssetWriter</span> <span class=nl>assetWriterWithURL</span><span class=p>:[</span><span class=n>NSURL</span> <span class=nl>fileURLWithPath</span><span class=p>:</span><span class=nb>self</span><span class=p>.</span><span class=n>videoOutPath</span><span class=p>]</span> <span class=nl>fileType</span><span class=p>:</span><span class=n>AVFileTypeMPEG4</span> <span class=nl>error</span><span class=p>:</span><span class=nb>nil</span><span class=p>];</span>    
+<span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>assetWriter</span> <span class=nl>addInput</span><span class=p>:</span><span class=nb>self</span><span class=p>.</span><span class=n>assetWriterInput</span><span class=p>];</span>    
+<span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>assetWriter</span> <span class=nl>addInput</span><span class=p>:</span><span class=nb>self</span><span class=p>.</span><span class=n>assetAudioInput</span><span class=p>];</span>
+<span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>assetWriter</span> <span class=nl>setMovieTimeScale</span><span class=p>:</span><span class=mi>60</span><span class=p>];</span>
+<span class=c1>//	开始写入视频
+</span><span class=c1></span><span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>assetWriter</span> <span class=n>startWriting</span><span class=p>];</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=c1>// 暂停和继续录屏
+</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>broadcastPaused</span> <span class=p>{</span>
+    <span class=c1>// User has requested to pause the broadcast. Samples will stop being delivered.
+</span><span class=c1></span>    
+<span class=p>}</span>
+
+<span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>broadcastResumed</span> <span class=p>{</span>
+    <span class=c1>// User has requested to resume the broadcast. Samples delivery will resume.
+</span><span class=c1></span>    
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=c1>// 收到录屏的 buffer
+</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>processSampleBuffer:</span><span class=p>(</span><span class=n>CMSampleBufferRef</span><span class=p>)</span><span class=nv>sampleBuffer</span> <span class=nf>withType:</span><span class=p>(</span><span class=n>RPSampleBufferType</span><span class=p>)</span><span class=nv>sampleBufferType</span> <span class=p>{</span>
+    
+    <span class=k>switch</span> <span class=p>(</span><span class=n>sampleBufferType</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>case</span> <span class=nl>RPSampleBufferTypeVideo</span><span class=p>:</span>
+            <span class=c1>// Handle video sample buffer for app audio
+</span><span class=c1></span>        <span class=p>{</span>
+          <span class=c1>// 如果是第一帧数据，判断数据类型，如果不是 video，则废弃，否则会出现视频开头是黑屏
+</span><span class=c1></span>            <span class=k>if</span> <span class=p>(</span><span class=nb>self</span><span class=p>.</span><span class=n>isFirstSample</span><span class=p>)</span> <span class=p>{</span>
+                
+                <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>assetWriter</span> <span class=nl>startSessionAtSourceTime</span><span class=p>:</span><span class=n>CMSampleBufferGetPresentationTimeStamp</span><span class=p>(</span><span class=n>sampleBuffer</span><span class=p>)];</span>
+                
+                <span class=nb>self</span><span class=p>.</span><span class=n>isFirstSample</span> <span class=o>=</span> <span class=nb>NO</span><span class=p>;</span>
+            <span class=p>}</span>
+            
+            <span class=k>if</span> <span class=p>(</span><span class=n>CMSampleBufferIsValid</span><span class=p>(</span><span class=n>sampleBuffer</span><span class=p>)</span> <span class=o>&amp;&amp;</span> <span class=nb>self</span><span class=p>.</span><span class=n>assetWriterInput</span><span class=p>.</span><span class=n>readyForMoreMediaData</span><span class=p>)</span> <span class=p>{</span>
+                <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>assetWriterInput</span> <span class=nl>appendSampleBuffer</span><span class=p>:</span><span class=n>sampleBuffer</span><span class=p>];</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+            <span class=k>break</span><span class=p>;</span>
+        <span class=k>case</span> <span class=nl>RPSampleBufferTypeAudioApp</span><span class=p>:</span>
+            <span class=c1>// Handle audio sample buffer for app audio
+</span><span class=c1></span>            
+            <span class=k>break</span><span class=p>;</span>
+        <span class=k>case</span> <span class=nl>RPSampleBufferTypeAudioMic</span><span class=p>:</span>
+            <span class=c1>// Handle audio sample buffer for mic audio
+</span><span class=c1></span>        <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>CMSampleBufferIsValid</span><span class=p>(</span><span class=n>sampleBuffer</span><span class=p>)</span> <span class=o>&amp;&amp;</span> <span class=nb>self</span><span class=p>.</span><span class=n>assetAudioInput</span><span class=p>.</span><span class=n>readyForMoreMediaData</span><span class=p>)</span> <span class=p>{</span>
+                <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>assetAudioInput</span> <span class=nl>appendSampleBuffer</span><span class=p>:</span><span class=n>sampleBuffer</span><span class=p>];</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+            <span class=k>break</span><span class=p>;</span>
+        <span class=k>default</span><span class=o>:</span>
+            <span class=k>break</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=c1>// 完成录屏
+</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>broadcastFinished</span> <span class=p>{</span>
+    <span class=c1>// User has requested to finish the broadcast.
+</span><span class=c1></span>    <span class=c1>// 定义一个标志，标记 assetWriter 是否完成了写入
+</span><span class=c1></span>  	<span class=c1>// 也可以使用 dispatchgroup
+</span><span class=c1></span>    <span class=k>__block</span> <span class=kt>BOOL</span> <span class=n>finish</span> <span class=o>=</span> <span class=nb>NO</span><span class=p>;</span>    
+    <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>assetWriterInput</span> <span class=n>markAsFinished</span><span class=p>];</span>
+    <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>assetAudioInput</span> <span class=n>markAsFinished</span><span class=p>];</span>
+    <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>assetWriter</span> <span class=nl>finishWritingWithCompletionHandler</span><span class=p>:</span><span class=o>^</span><span class=p>{</span>
+        <span class=nb>self</span><span class=p>.</span><span class=n>assetWriterInput</span> <span class=o>=</span> <span class=nb>nil</span><span class=p>;</span>
+        <span class=nb>self</span><span class=p>.</span><span class=n>assetAudioInput</span> <span class=o>=</span> <span class=nb>nil</span><span class=p>;</span>
+        <span class=nb>self</span><span class=p>.</span><span class=n>assetWriter</span> <span class=o>=</span> <span class=nb>nil</span><span class=p>;</span>
+        
+        <span class=c1>// [self moveVideo]; // 把视频数据保存到appgroup共享
+</span><span class=c1></span>        <span class=c1>// [self sendLocalNotification]; // 发送 一个本地通知
+</span><span class=c1></span>        
+        <span class=n>finish</span> <span class=o>=</span> <span class=nb>YES</span><span class=p>;</span>
+    <span class=p>}];</span>
+    
+    <span class=k>while</span> <span class=p>(</span><span class=n>finish</span> <span class=o>==</span> <span class=nb>NO</span><span class=p>)</span> <span class=p>{</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>AppGroup共享数据</strong></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>moveVideo</span> <span class=p>{</span>
+    <span class=n>NSURL</span> <span class=o>*</span><span class=n>groupURL</span> <span class=o>=</span> <span class=p>[[</span><span class=n>NSFileManager</span> <span class=n>defaultManager</span><span class=p>]</span> <span class=nl>containerURLForSecurityApplicationGroupIdentifier</span><span class=p>:</span><span class=s>@&#34;定义的 appgroup 的 id&#34;</span><span class=p>];</span>
+    <span class=n>NSURL</span> <span class=o>*</span><span class=n>fileURL</span> <span class=o>=</span> <span class=p>[</span><span class=n>groupURL</span> <span class=nl>URLByAppendingPathComponent</span><span class=p>:</span><span class=s>@&#34;record.mp4&#34;</span><span class=p>];</span>
+    <span class=p>[[</span><span class=n>NSFileManager</span> <span class=n>defaultManager</span><span class=p>]</span> <span class=nl>removeItemAtURL</span><span class=p>:</span><span class=n>fileURL</span> <span class=nl>error</span><span class=p>:</span><span class=nb>nil</span><span class=p>];</span>
+    
+    <span class=p>[[</span><span class=n>NSFileManager</span> <span class=n>defaultManager</span><span class=p>]</span> <span class=nl>moveItemAtPath</span><span class=p>:</span><span class=nb>self</span><span class=p>.</span><span class=n>videoOutPath</span> <span class=nl>toPath</span><span class=p>:[</span><span class=n>fileURL</span> <span class=n>path</span><span class=p>]</span> <span class=nl>error</span><span class=p>:</span><span class=nb>nil</span><span class=p>];</span>    
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>通过通知回调到app</strong></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=c1>//  identifier 是通知到id，在app的代码中，正常监听这个id 的通知就行
+</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>sendNotificationForMessageWithIdentifier:</span><span class=p>(</span><span class=n>nullable</span> <span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>identifier</span> <span class=nf>userInfo:</span><span class=p>(</span><span class=n>NSDictionary</span> <span class=o>*</span><span class=p>)</span><span class=nv>info</span> <span class=p>{</span>
+    <span class=n>CFNotificationCenterRef</span> <span class=k>const</span> <span class=n>center</span> <span class=o>=</span> <span class=n>CFNotificationCenterGetDarwinNotifyCenter</span><span class=p>();</span>
+    <span class=n>CFDictionaryRef</span> <span class=n>userInfo</span> <span class=o>=</span> <span class=p>(</span><span class=k>__bridge</span> <span class=n>CFDictionaryRef</span><span class=p>)</span><span class=n>info</span><span class=p>;</span>
+    <span class=kt>BOOL</span> <span class=k>const</span> <span class=n>deliverImmediately</span> <span class=o>=</span> <span class=nb>YES</span><span class=p>;</span>
+    <span class=n>CFStringRef</span> <span class=n>identifierRef</span> <span class=o>=</span> <span class=p>(</span><span class=k>__bridge</span> <span class=n>CFStringRef</span><span class=p>)</span><span class=n>identifier</span><span class=p>;</span>
+    <span class=n>CFNotificationCenterPostNotification</span><span class=p>(</span><span class=n>center</span><span class=p>,</span> <span class=n>identifierRef</span><span class=p>,</span> <span class=nb>NULL</span><span class=p>,</span> <span class=n>userInfo</span><span class=p>,</span> <span class=n>deliverImmediately</span><span class=p>);</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>接收录制完成的通知</strong></p>
+<p>定义<code>CFNotification</code>回调</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=kt>void</span> <span class=nf>NotificationCallback</span><span class=p>(</span><span class=n>CFNotificationCenterRef</span> <span class=n>center</span><span class=p>,</span>
+                                <span class=kt>void</span> <span class=o>*</span> <span class=n>observer</span><span class=p>,</span>
+                                <span class=n>CFStringRef</span> <span class=n>name</span><span class=p>,</span>
+                                <span class=kt>void</span> <span class=k>const</span> <span class=o>*</span> <span class=n>object</span><span class=p>,</span>
+                                <span class=n>CFDictionaryRef</span> <span class=n>userInfo</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>NSString</span> <span class=o>*</span><span class=n>identifier</span> <span class=o>=</span> <span class=p>(</span><span class=k>__bridge</span> <span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=n>name</span><span class=p>;</span>
+    <span class=n>NSObject</span> <span class=o>*</span><span class=n>sender</span> <span class=o>=</span> <span class=p>(</span><span class=k>__bridge</span> <span class=n>NSObject</span> <span class=o>*</span><span class=p>)</span><span class=n>observer</span><span class=p>;</span>
+    
+    <span class=n>NSDictionary</span> <span class=o>*</span><span class=n>notionUserInfo</span> <span class=o>=</span> <span class=l>@{</span><span class=s>@&#34;identifier&#34;</span><span class=o>:</span><span class=n>identifier</span><span class=l>}</span><span class=p>;</span>
+    <span class=p>[[</span><span class=n>NSNotificationCenter</span> <span class=n>defaultCenter</span><span class=p>]</span> <span class=nl>postNotificationName</span><span class=p>:</span><span class=s>@&#34;ScreenNotificationName&#34;</span>
+                                                        <span class=nl>object</span><span class=p>:</span><span class=n>sender</span>
+                                                      <span class=nl>userInfo</span><span class=p>:</span><span class=n>notionUserInfo</span><span class=p>];</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>注册通知监听</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=n>CFNotificationCenterRef</span> <span class=k>const</span> <span class=n>center</span> <span class=o>=</span> <span class=n>CFNotificationCenterGetDarwinNotifyCenter</span><span class=p>();</span>
+    <span class=n>CFStringRef</span> <span class=n>str</span> <span class=o>=</span> <span class=p>(</span><span class=k>__bridge</span> <span class=n>CFStringRef</span><span class=p>)</span><span class=n>identifier</span><span class=p>;</span>
+    <span class=n>CFNotificationCenterAddObserver</span><span class=p>(</span><span class=n>center</span><span class=p>,</span>
+                                    <span class=p>(</span><span class=k>__bridge</span> <span class=k>const</span> <span class=kt>void</span> <span class=o>*</span><span class=p>)(</span><span class=nb>self</span><span class=p>),</span>
+                                    <span class=n>NotificationCallback</span><span class=p>,</span>
+                                    <span class=n>str</span><span class=p>,</span>
+                                    <span class=nb>NULL</span><span class=p>,</span>
+                                    <span class=n>CFNotificationSuspensionBehaviorDeliverImmediately</span><span class=p>);</span>
+    <span class=p>[[</span><span class=n>NSNotificationCenter</span> <span class=n>defaultCenter</span><span class=p>]</span> <span class=nl>addObserver</span><span class=p>:</span><span class=nb>self</span> <span class=nl>selector</span><span class=p>:</span><span class=k>@selector</span><span class=p>(</span><span class=nl>broadcastInfo</span><span class=p>:)</span> <span class=nl>name</span><span class=p>:</span><span class=s>@&#34;ScreenNotificationName&#34;</span> <span class=nl>object</span><span class=p>:</span><span class=nb>nil</span><span class=p>];</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>收到通知后</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>broadcastInfo:</span><span class=p>(</span><span class=n>NSNotification</span> <span class=o>*</span><span class=p>)</span><span class=nv>notion</span> <span class=p>{</span>
+    <span class=n>NSDictionary</span> <span class=o>*</span><span class=n>userInfo</span> <span class=o>=</span> <span class=n>notion</span><span class=p>.</span><span class=n>userInfo</span><span class=p>;</span>
+    <span class=n>NSString</span> <span class=o>*</span><span class=n>identifier</span> <span class=o>=</span> <span class=n>userInfo</span><span class=p>[</span><span class=s>@&#34;identifier&#34;</span><span class=p>];</span>
+  <span class=c1>// 从 appgroup 中获取保存的视频地址
+</span><span class=c1></span>    <span class=n>NSURL</span> <span class=o>*</span><span class=n>groupURL</span> <span class=o>=</span> <span class=p>[[</span><span class=n>NSFileManager</span> <span class=n>defaultManager</span><span class=p>]</span> <span class=nl>containerURLForSecurityApplicationGroupIdentifier</span><span class=p>:</span><span class=n>appGroupId</span><span class=p>];</span>
+    <span class=n>NSURL</span> <span class=o>*</span><span class=n>fileURL</span> <span class=o>=</span> <span class=p>[</span><span class=n>groupURL</span> <span class=nl>URLByAppendingPathComponent</span><span class=p>:</span><span class=s>@&#34;record.mp4&#34;</span><span class=p>];</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=注意>注意</h2>
+<blockquote>
+<p>系统提供录制进程的内存空间约为50M，超过50M进程将会被停止</p>
+<p>采集到数据结构中的yuv的缓存空间，不能占用</p>
+<p>使用 AppDelegate 的代理判断是否锁屏</p>
+</blockquote>
+</div>
+<footer class=post-footer>
+<nav class=post-nav>
+<a class=prev href=/post/2020-09-26-launchstoryboard/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">启动页白屏</span>
+<span class="prev-text nav-mobile">上一篇</span>
+</a>
+<a class=next href=/post/2020-01-17-%E6%A3%80%E6%B5%8B%E8%AE%BE%E5%A4%87%E6%96%B9%E5%90%91/>
+<span class="next-text nav-default">检测设备方向</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=dongjiawang2008@163.com class="iconfont icon-email" title=email></a>
+<a href=http://localhost:1313 class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=http://localhost:1313 class="iconfont icon-twitter" title=twitter></a>
+<a href=http://localhost:1313 class="iconfont icon-facebook" title=facebook></a>
+<a href=http://localhost:1313 class="iconfont icon-linkedin" title=linkedin></a>
+<a href=http://localhost:1313 class="iconfont icon-google" title=google></a>
+<a href=http://localhost:1313 class="iconfont icon-github" title=github></a>
+<a href=http://localhost:1313 class="iconfont icon-weibo" title=weibo></a>
+<a href=http://localhost:1313 class="iconfont icon-zhihu" title=zhihu></a>
+<a href=http://localhost:1313 class="iconfont icon-douban" title=douban></a>
+<a href=http://localhost:1313 class="iconfont icon-pocket" title=pocket></a>
+<a href=http://localhost:1313 class="iconfont icon-tumblr" title=tumblr></a>
+<a href=http://localhost:1313 class="iconfont icon-instagram" title=instagram></a>
+<a href=http://localhost:1313 class="iconfont icon-gitlab" title=gitlab></a>
+<a href=http://localhost:1313 class="iconfont icon-bilibili" title=bilibili></a>
+<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<span class=copyright-year>
+&copy;
+2015 -
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-141040294-1','auto'),ga('set','anonymizeIp',!0),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

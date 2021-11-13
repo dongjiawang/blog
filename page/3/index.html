@@ -1,3 +1,356 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="记录一下个人码农经历。"><title>我的码 | dongjiawang</title><link rel="stylesheet" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="/css/dark.css?v=0.0.0"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>!function(e,a,t,n,g,c,o){e.GoogleAnalyticsObject=g,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),o=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",o.parentNode.insertBefore(c,o)}(window,document,"script",0,"ga"),ga("create","UA-141040294-1","auto"),ga("send","pageview")</script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><script src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><script data-ad-client="ca-pub-2074490477284403" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">我的码</h1><a id="logo" href="/.">我的码</a><p class="description">dongjiawang</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home">首页</i></a> <a href="/archives/"><i class="fa fa-archive">归档</i></a> <a href="/about/"><i class="fa fa-user">关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"><a href="/2019/06/05/2019-06-05-iOS进入后台的模糊效果/">iOS进入后台的模糊效果</a></h1><div class="post-meta">2019-06-05</div><div class="post-content"><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义遮盖view</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>)<span class="built_in">UIVisualEffectView</span> *visualEffectView;</span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2019/06/05/2019-06-05-iOS进入后台的模糊效果/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/06/04/2019-06-04-iOS检测是否越狱/">iOS检测是否越狱</a></h1><div class="post-meta">2019-06-04</div><div class="post-content"><h2 id="第一种"><a href="#第一种" class="headerlink" title="第一种"></a>第一种</h2><p>遍历文件目录，查看是否可以获取越狱后的文件</p><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">BOOL</span> root = <span class="literal">NO</span>;</span><br><span class="line"><span class="built_in">NSFileManager</span> *fileManager=[<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line"><span class="built_in">NSArray</span> *pathArray = @[<span class="string">@"/etc/ssh/sshd_config"</span>,</span><br><span class="line">                       <span class="string">@"/usr/libexec/ssh-keysign"</span>,</span><br><span class="line">                       <span class="string">@"/usr/sbin/sshd"</span>,</span><br><span class="line">                       <span class="string">@"/usr/sbin/sshd"</span>,</span><br><span class="line">                       <span class="string">@"/bin/sh"</span>,</span><br><span class="line">                       <span class="string">@"/bin/bash"</span>,</span><br><span class="line">                       <span class="string">@"/etc/apt"</span>,</span><br><span class="line">                       <span class="string">@"/Application/Cydia.app/"</span>,</span><br><span class="line">                       <span class="string">@"/Library/MobileSubstrate/MobileSubstrate.dylib"</span></span><br><span class="line">                       ];</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">NSString</span> *path <span class="keyword">in</span> pathArray) &#123;</span><br><span class="line">    root = [fileManager fileExistsAtPath:path];</span><br><span class="line">  <span class="comment">// 如果存在这些目录，就是已经越狱</span></span><br><span class="line">    <span class="keyword">if</span> (root) &#123;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2019/06/04/2019-06-04-iOS检测是否越狱/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/01/22/2019-01-22-检测私有API的使用/">检测私有API的使用</a></h1><div class="post-meta">2019-01-22</div><div class="post-content"><h3 id="1、使用string命令获取使用的api列表"><a href="#1、使用string命令获取使用的api列表" class="headerlink" title="1、使用string命令获取使用的api列表"></a>1、使用string命令获取使用的api列表</h3><p>先<code>archive</code>出来一个可提交审核的<code>ipa</code>包。</p></div><p class="readmore"><a href="/2019/01/22/2019-01-22-检测私有API的使用/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/12/31/2018-12-31-UITableView的索引/">UITableView的索引</a></h1><div class="post-meta">2018-12-31</div><div class="post-content"><p>苹果提供了<code>UILocalizedIndexedCollation</code>来配合<code>UITableView</code>进行索引管理。</p><p><code>UILocalizedIndexedCollation</code>提供了返回汉字拼音的首字母、返回包含<code>A～Z</code>字母的数组和按照字母进行排序的功能。</p></div><p class="readmore"><a href="/2018/12/31/2018-12-31-UITableView的索引/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/12/30/2018-12-30-UICollectionViewCell的Label点击文字颜色/">UICollectionViewCell的Label点击文字颜色</a></h1><div class="post-meta">2018-12-30</div><div class="post-content"><p>在做有<code>UICollectionViewCell</code>的界面，cell上有一个<code>UILabel</code>，需要在选中cell的时候改变label的文字颜色。</p><p>在cell的<code>- (void)setSelected:(BOOL)selected ;</code>中设置了颜色的变化，但是出来的效果并不是设置的颜色，而是变成了cell的背景色。</p></div><p class="readmore"><a href="/2018/12/30/2018-12-30-UICollectionViewCell的Label点击文字颜色/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/12/26/2018-12-26-添加和获取app的编译时间/">添加和获取app的编译时间</a></h1><div class="post-meta">2018-12-26</div><div class="post-content"><p>最近做的app有个关于我们界面，其中有一项就是显示app的更新日期，由于这个界面隐藏的比较深，有时发新版的时候忽略修改编译的日期，所以就想着，这个日期可以跟随编译的时间而变。</p><p>在<code>Build Phases</code>中添加脚本：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"In the build time script run."</span></span><br><span class="line">infoplist=<span class="string">"<span class="variable">$BUILT_PRODUCTS_DIR</span>/<span class="variable">$INFOPLIST_PATH</span>"</span></span><br><span class="line">builddate=`date +%Y-%m-%d`</span><br><span class="line"><span class="keyword">if</span> [[ -n <span class="string">"<span class="variable">$builddate</span>"</span> ]]; <span class="keyword">then</span></span><br><span class="line">/usr/libexec/PlistBuddy -c <span class="string">"Set :BuildDate <span class="variable">$builddate</span>"</span> <span class="variable">$&#123;infoplist&#125;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2018/12/26/2018-12-26-添加和获取app的编译时间/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/12/26/2018-12-26-获取APP的图标和启动图/">获取APP的图标和启动图</a></h1><div class="post-meta">2018-12-26</div><div class="post-content"><p>公司的app又新的需求，在某些地方会用到app的图标和启动图，但是图标和启动图放在系统的文件夹里，获取这些图标的方式和一般加载资源的方式不一样。</p><h4 id="获取图标"><a href="#获取图标" class="headerlink" title="获取图标"></a>获取图标</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSDictionary</span> *APPInfo = [[<span class="built_in">NSBundle</span> mainBundle] infoDictionary];    </span><br><span class="line"><span class="built_in">NSArray</span> *appIcons = APPInfo[<span class="string">@"CFBundleIcons"</span>][<span class="string">@"CFBundlePrimaryIcon"</span>][<span class="string">@"CFBundleIconFiles"</span>];</span><br><span class="line"><span class="built_in">UIImage</span> *icon = appIcons.lastObject;</span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2018/12/26/2018-12-26-获取APP的图标和启动图/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/11/30/2018-11-30-loaded-the-XXXViewnib-but-the-view-outlet-was-not-set/">loaded the &quot;XXXView&quot; nib but the view outlet was not set</a></h1><div class="post-meta">2018-11-30</div><div class="post-content"><p>关于<code>[UIViewController _loadViewFromNibNamed:bundle:] loaded the &quot;XXXView&quot; nib but the view outlet was not set</code>这个错误的原因，一般分为两种情况：</p></div><p class="readmore"><a href="/2018/11/30/2018-11-30-loaded-the-XXXViewnib-but-the-view-outlet-was-not-set/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/11/25/2018-11-25-iOS混淆（二）/">iOS混淆（二）</a></h1><div class="post-meta">2018-11-25</div><div class="post-content"><p>前两天做项目混淆的时候已经使用了一个开源的框架，今天在github上又发现了一个，只是我还没有亲自去体验，在这里记录一下吧。</p><p>上次的博客，可以做一下对比参考：<a href="https://blog.dongjiawang.top/2018/11/19/2018-11-19-iOS混淆/">《iOS混淆》</a></p></div><p class="readmore"><a href="/2018/11/25/2018-11-25-iOS混淆（二）/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/11/23/2018-11-23-自定义cordova插件/">自定义cordova插件</a></h1><div class="post-meta">2018-11-23</div><div class="post-content"><p>cordova可以通过自定义插件的形式，通过js调用原生的功能。</p><h3 id="打开webview的Plugin"><a href="#打开webview的Plugin" class="headerlink" title="打开webview的Plugin"></a>打开webview的Plugin</h3><h4 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h4><p>创建一个继承 <code>CDVPlugin</code>的类，</p></div><p class="readmore"><a href="/2018/11/23/2018-11-23-自定义cordova插件/">阅读全文</a></p></div><nav class="page-navigator"><a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/4/">下一页</a></nav><script type="text/x-mathjax-config">MathJax.Hub.Config({
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-  });</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" async></script></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="https://blog.dongjiawang.top"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o">分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AVPlayer/">AVPlayer</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CocoaPods/">CocoaPods</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Cordova/">Cordova</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Xcode/">Xcode</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/flutter/">flutter</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">107</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/libSDK/">libSDK</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/博客/">博客</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程知识/">编程知识</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络/">网络</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遇到的问题/">遇到的问题</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o">标签</i></div><div class="tagcloud"><a href="/source/Tags/iOS/" style="font-size:15px">iOS</a> <a href="/source/Tags/UICollectionView/" style="font-size:15px">UICollectionView</a> <a href="/source/Tags/动画/" style="font-size:15px">动画</a> <a href="/source/Tags/编程知识/" style="font-size:15px">编程知识</a> <a href="/source/Tags/UITableView/" style="font-size:15px">UITableView</a> <a href="/source/Tags/webView/" style="font-size:15px">webView</a> <a href="/source/Tags/layer/" style="font-size:15px">layer</a> <a href="/source/Tags/Photos/" style="font-size:15px">Photos</a> <a href="/source/Tags/NSString/" style="font-size:15px">NSString</a> <a href="/source/Tags/nginx/" style="font-size:15px">nginx</a> <a href="/source/Tags/UIView/" style="font-size:15px">UIView</a> <a href="/source/Tags/Runtime/" style="font-size:15px">Runtime</a> <a href="/source/Tags/UITextField/" style="font-size:15px">UITextField</a> <a href="/source/Tags/UITextView/" style="font-size:15px">UITextView</a> <a href="/source/Tags/UISlider/" style="font-size:15px">UISlider</a> <a href="/source/Tags/flutter/" style="font-size:15px">flutter</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o">最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/03/20/2021-02-20-Jenkins 使用/">Jenkins 使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/05/2021-01-05-修复-iPad-横屏启动卡死的问题/">修复 iPad 横屏启动卡死的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/27/2020-09-27-webView-clickedImage/">网页图片添加点击方法获取图片</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/26/2020-09-26-wkwebview-cookie/">WKProcesspool方式共享WKWebView的进程和cookie</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/26/2020-09-26-launchStoryBoard/">启动页白屏</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/19/2020-01-19-screenRecord/">录屏功能</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/17/2020-01-17-检测设备方向/">检测设备方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/09/2019-12-09-UIVideoEditorController的颜色/">UIVideoEditorController的颜色</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/06/2019-12-06-UIVideoEditorController/">UIVideoEditorController</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/08/2019-11-08-Cordova创建plugin/">Cordova创建plugin</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link">友情链接</i></div><ul></ul><a href="https://github.com/dongjiawang" title="GitHub" target="_blank">GitHub</a><ul></ul><a href="https://resume.dongjiawang.top" title="个人简历" target="_blank">个人简历</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">我的码.</a> Powered by <a rel="nofollow" target="_blank" href="https://hexo.io">Hexo.</a> <a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo">Theme</a> by <a rel="nofollow" target="_blank" href="https://github.com/pagecho">Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script src="/js/totop.js?v=0.0.0" async></script><script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><script src="/js/love.js"></script><script src="/js/codeblock-resizer.js?v=0.0.0"></script><script src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>我的码</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="dongjiawang"><meta name=description content="记录一下个人码农经历。"><meta name=keywords content="Hugo,theme,even">
+<meta name=generator content="Hugo 0.89.2 with theme even">
+<link rel=canonical href=https://blog.dongjiawang.top/>
+<link href=https://blog.dongjiawang.top/index.xml rel=alternate type=application/rss+xml title=我的码>
+<link href=https://blog.dongjiawang.top/index.xml rel=feed type=application/rss+xml title=我的码>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="我的码">
+<meta property="og:description" content="记录一下个人码农经历。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.dongjiawang.top/">
+<meta itemprop=name content="我的码">
+<meta itemprop=description content="记录一下个人码农经历。"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="我的码">
+<meta name=twitter:description content="记录一下个人码农经历。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>我的码</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>首页</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>分类</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>我的码</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>首页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>分类</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<section id=posts class=posts>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2019-06-05-ios%E8%BF%9B%E5%85%A5%E5%90%8E%E5%8F%B0%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C/>iOS进入后台的模糊效果</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-06-05 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 81 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+1 2 // 定义遮盖view @property (strong, nonatomic)UIVisualEffectView *visualEffectView; 1 2 3 4 5 6 7 8 - (UIVisualEffectView *)visualEffectView{ if (!_visualEffectView) { UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]; _visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect]; _visualEffectView.frame = [UIScreen mainScreen].bounds; } return _visualEffectView; } 监听app状态 1 2 3 - (void)applicationWillResignActive:(UIApplication *)application { [[UIApplication sharedApplication].keyWindow addSubview:self.visualEffectView]; } 1 2 3 4 5
+</div>
+<div class=read-more>
+<a href=/post/2019-06-05-ios%E8%BF%9B%E5%85%A5%E5%90%8E%E5%8F%B0%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2019-06-04-ios%E6%A3%80%E6%B5%8B%E6%98%AF%E5%90%A6%E8%B6%8A%E7%8B%B1/>iOS检测是否越狱</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-06-04 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 202 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+第一种 遍历文件目录，查看是否可以获取越狱后的文件 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 BOOL root = NO; NSFileManager *fileManager=[NSFileManager defaultManager]; NSArray *pathArray = @[@"/etc/ssh/sshd_config", @"/usr/libexec/ssh-keysign", @"/usr/sbin/sshd", @"/usr/sbin/sshd", @"/bin/sh", @"/bin/bash", @"/etc/apt", @"/Application/Cydia.app/", @"/Library/MobileSubstrate/MobileSubstrate.dylib" ]; for (NSString *path in pathArray) { root
+</div>
+<div class=read-more>
+<a href=/post/2019-06-04-ios%E6%A3%80%E6%B5%8B%E6%98%AF%E5%90%A6%E8%B6%8A%E7%8B%B1/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2019-01-22-%E6%A3%80%E6%B5%8B%E7%A7%81%E6%9C%89api%E7%9A%84%E4%BD%BF%E7%94%A8/>检测私有API的使用</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-01-22 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 327 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+1、使用string命令获取使用的api列表 先archive出来一个可提交审核的ipa包。 将后缀改为zip,解压，得到Payload文件夹。
+</div>
+<div class=read-more>
+<a href=/post/2019-01-22-%E6%A3%80%E6%B5%8B%E7%A7%81%E6%9C%89api%E7%9A%84%E4%BD%BF%E7%94%A8/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2018-12-31-uitableview%E7%9A%84%E7%B4%A2%E5%BC%95/>UITableView的索引</a></h1>
+<div class=post-meta>
+<span class=post-time> 2018-12-31 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 868 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+苹果提供了UILocalizedIndexedCollation来配合UITableView进行索引管理。 UILocalizedIndexe
+</div>
+<div class=read-more>
+<a href=/post/2018-12-31-uitableview%E7%9A%84%E7%B4%A2%E5%BC%95/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2018-12-30-uicollectionviewcell%E7%9A%84label%E7%82%B9%E5%87%BB%E6%96%87%E5%AD%97%E9%A2%9C%E8%89%B2/>UICollectionViewCell的Label点击文字颜色</a></h1>
+<div class=post-meta>
+<span class=post-time> 2018-12-30 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 187 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+在做有UICollectionViewCell的界面，cell上有一个UILabel，需要在选中cell的时候改变label的文字颜色。 在c
+</div>
+<div class=read-more>
+<a href=/post/2018-12-30-uicollectionviewcell%E7%9A%84label%E7%82%B9%E5%87%BB%E6%96%87%E5%AD%97%E9%A2%9C%E8%89%B2/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2018-12-26-%E6%B7%BB%E5%8A%A0%E5%92%8C%E8%8E%B7%E5%8F%96app%E7%9A%84%E7%BC%96%E8%AF%91%E6%97%B6%E9%97%B4/>添加和获取app的编译时间</a></h1>
+<div class=post-meta>
+<span class=post-time> 2018-12-26 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 238 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+最近做的app有个关于我们界面，其中有一项就是显示app的更新日期，由于这个界面隐藏的比较深，有时发新版的时候忽略修改编译的日期，所以就想着
+</div>
+<div class=read-more>
+<a href=/post/2018-12-26-%E6%B7%BB%E5%8A%A0%E5%92%8C%E8%8E%B7%E5%8F%96app%E7%9A%84%E7%BC%96%E8%AF%91%E6%97%B6%E9%97%B4/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2018-12-26-%E8%8E%B7%E5%8F%96app%E7%9A%84%E5%9B%BE%E6%A0%87%E5%92%8C%E5%90%AF%E5%8A%A8%E5%9B%BE/>获取APP的图标和启动图</a></h1>
+<div class=post-meta>
+<span class=post-time> 2018-12-26 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 697 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+公司的app又新的需求，在某些地方会用到app的图标和启动图，但是图标和启动图放在系统的文件夹里，获取这些图标的方式和一般加载资源的方式不一
+</div>
+<div class=read-more>
+<a href=/post/2018-12-26-%E8%8E%B7%E5%8F%96app%E7%9A%84%E5%9B%BE%E6%A0%87%E5%92%8C%E5%90%AF%E5%8A%A8%E5%9B%BE/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2018-11-30-loaded-the-xxxviewnib-but-the-view-outlet-was-not-set/>loaded the "XXXView" nib but the view outlet was not set</a></h1>
+<div class=post-meta>
+<span class=post-time> 2018-11-30 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 312 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+关于[UIViewController _loadViewFromNibNamed:bundle:] loaded the "XXXView" nib but the view outlet was not set这个错误的原因，一般分为两种情况： 第一种 当控制器的view是通过xib加载
+</div>
+<div class=read-more>
+<a href=/post/2018-11-30-loaded-the-xxxviewnib-but-the-view-outlet-was-not-set/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2018-11-25-ios%E6%B7%B7%E6%B7%86%E4%BA%8C/>iOS混淆（二）</a></h1>
+<div class=post-meta>
+<span class=post-time> 2018-11-25 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 248 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+前两天做项目混淆的时候已经使用了一个开源的框架，今天在github上又发现了一个，只是我还没有亲自去体验，在这里记录一下吧。 上次的博客，可以
+</div>
+<div class=read-more>
+<a href=/post/2018-11-25-ios%E6%B7%B7%E6%B7%86%E4%BA%8C/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2018-11-23-%E8%87%AA%E5%AE%9A%E4%B9%89cordova%E6%8F%92%E4%BB%B6/>自定义cordova插件</a></h1>
+<div class=post-meta>
+<span class=post-time> 2018-11-23 </span>
+<div class=post-category>
+<a href=/categories/cordova/> Cordova </a>
+</div>
+<span class=more-meta> 约 1059 字 </span>
+<span class=more-meta> 预计阅读 3 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+cordova可以通过自定义插件的形式，通过js调用原生的功能。 打开webview的Plugin 创建 创建一个继承 CDVPlugin的类， 头文
+</div>
+<div class=read-more>
+<a href=/post/2018-11-23-%E8%87%AA%E5%AE%9A%E4%B9%89cordova%E6%8F%92%E4%BB%B6/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+</section>
+<nav class=pagination>
+<a class=prev href=/page/2/>
+<i class="iconfont icon-left"></i>
+<span class=prev-text>上一页</span>
+</a>
+<a class=next href=/page/4/>
+<span class=next-text>下一页</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=dongjiawang2008@163.com class="iconfont icon-email" title=email></a>
+<a href=http://localhost:1313 class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=http://localhost:1313 class="iconfont icon-twitter" title=twitter></a>
+<a href=http://localhost:1313 class="iconfont icon-facebook" title=facebook></a>
+<a href=http://localhost:1313 class="iconfont icon-linkedin" title=linkedin></a>
+<a href=http://localhost:1313 class="iconfont icon-google" title=google></a>
+<a href=http://localhost:1313 class="iconfont icon-github" title=github></a>
+<a href=http://localhost:1313 class="iconfont icon-weibo" title=weibo></a>
+<a href=http://localhost:1313 class="iconfont icon-zhihu" title=zhihu></a>
+<a href=http://localhost:1313 class="iconfont icon-douban" title=douban></a>
+<a href=http://localhost:1313 class="iconfont icon-pocket" title=pocket></a>
+<a href=http://localhost:1313 class="iconfont icon-tumblr" title=tumblr></a>
+<a href=http://localhost:1313 class="iconfont icon-instagram" title=instagram></a>
+<a href=http://localhost:1313 class="iconfont icon-gitlab" title=gitlab></a>
+<a href=http://localhost:1313 class="iconfont icon-bilibili" title=bilibili></a>
+<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<span class=copyright-year>
+&copy;
+2015 -
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-141040294-1','auto'),ga('set','anonymizeIp',!0),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

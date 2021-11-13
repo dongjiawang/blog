@@ -1,0 +1,377 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>WKWebView添加Cookie总结 - 我的码</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="dongjiawang"><meta name=description content="WKWebView是苹果在iOS8 开始推出的webView组件，用来替代UIWebView内存占用高的问题，虽然WKWebView的性能提升"><meta name=keywords content="Hugo,theme,even">
+<meta name=generator content="Hugo 0.89.2 with theme even">
+<link rel=canonical href=https://blog.dongjiawang.top/post/2018-07-09-wkwebview-cookie-add/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="WKWebView添加Cookie总结">
+<meta property="og:description" content="WKWebView是苹果在iOS8 开始推出的webView组件，用来替代UIWebView内存占用高的问题，虽然WKWebView的性能提升">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.dongjiawang.top/post/2018-07-09-wkwebview-cookie-add/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2018-07-09T17:40:00+00:00">
+<meta property="article:modified_time" content="2018-07-09T17:40:00+00:00">
+<meta itemprop=name content="WKWebView添加Cookie总结">
+<meta itemprop=description content="WKWebView是苹果在iOS8 开始推出的webView组件，用来替代UIWebView内存占用高的问题，虽然WKWebView的性能提升"><meta itemprop=datePublished content="2018-07-09T17:40:00+00:00">
+<meta itemprop=dateModified content="2018-07-09T17:40:00+00:00">
+<meta itemprop=wordCount content="1056">
+<meta itemprop=keywords content="webView,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="WKWebView添加Cookie总结">
+<meta name=twitter:description content="WKWebView是苹果在iOS8 开始推出的webView组件，用来替代UIWebView内存占用高的问题，虽然WKWebView的性能提升"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>我的码</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>首页</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>分类</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>我的码</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>首页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>分类</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>WKWebView添加Cookie总结</h1>
+<div class=post-meta>
+<span class=post-time> 2018-07-09 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 1056 字 </span>
+<span class=more-meta> 预计阅读 3 分钟 </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>文章目录</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href=#1添加到nsurlrequest中>1、添加到NSURLRequest中</a></li>
+<li><a href=#2使用js注入的方式添加cookie>2、使用JS注入的方式添加cookie</a></li>
+<li><a href=#3使用wkhttpcookiestore-管理cookie>3,使用WKHTTPCookieStore 管理cookie</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>WKWebView是苹果在iOS8 开始推出的webView组件，用来替代UIWebView内存占用高的问题，虽然WKWebView的性能提升了很多，但是也有很多的坑是不可忽略的，比如对cookie的使用，就是存在的一个很大的坑。</p>
+<h3 id=1添加到nsurlrequest中>1、添加到NSURLRequest中</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=c1>//获取Cookie
+</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nf>getCookie</span> <span class=p>{</span>
+    <span class=n>NSMutableString</span> <span class=o>*</span><span class=n>cookieStr</span> <span class=o>=</span> <span class=p>[[</span><span class=n>NSMutableString</span> <span class=n>alloc</span><span class=p>]</span> <span class=n>init</span><span class=p>];</span>
+    <span class=n>NSArray</span> <span class=o>*</span><span class=n>array</span> <span class=o>=</span>  <span class=p>[[</span><span class=n>NSHTTPCookieStorage</span> <span class=n>sharedHTTPCookieStorage</span><span class=p>]</span> <span class=nl>cookiesForURL</span><span class=p>:[</span><span class=n>NSURL</span> <span class=nl>URLWithString</span><span class=p>:</span><span class=s>@&#34;https://www.baidu.com&#34;</span><span class=p>]];</span>
+    <span class=k>if</span> <span class=p>([</span><span class=n>array</span> <span class=n>count</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>for</span> <span class=p>(</span><span class=n>NSHTTPCookie</span> <span class=o>*</span><span class=n>cookie</span> <span class=k>in</span> <span class=n>array</span><span class=p>)</span> <span class=p>{</span>
+            <span class=p>[</span><span class=n>cookieStr</span> <span class=nl>appendFormat</span><span class=p>:</span><span class=s>@&#34;%@=%@;&#34;</span><span class=p>,</span><span class=n>cookie</span><span class=p>.</span><span class=n>name</span><span class=p>,</span><span class=n>cookie</span><span class=p>.</span><span class=n>value</span><span class=p>];</span>
+        <span class=p>}</span>
+        <span class=c1>//删除最后一个分号 “；”
+</span><span class=c1></span>        <span class=p>[</span><span class=n>cookieStr</span> <span class=nl>deleteCharactersInRange</span><span class=p>:</span><span class=n>NSMakeRange</span><span class=p>(</span><span class=n>cookieString</span><span class=p>.</span><span class=n>length</span> <span class=o>-</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>1</span><span class=p>)];</span>
+    <span class=p>}</span>
+    <span class=k>return</span> <span class=n>cookieStr</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=err>`</span>
+
+
+
+<span class=err>​```</span><span class=n>objective</span><span class=o>-</span><span class=n>c</span>
+<span class=c1>// 添加request的请求头
+</span><span class=c1></span><span class=n>NSMutableURLRequest</span> <span class=o>*</span><span class=n>request</span> <span class=o>=</span> <span class=p>[</span><span class=n>NSMutableURLRequest</span> <span class=nl>requestWithURL</span><span class=p>:[</span><span class=n>NSURL</span> <span class=nl>URLWithString</span><span class=p>:</span><span class=n>requestUrl</span><span class=p>]];</span>
+<span class=n>NSString</span> <span class=o>*</span><span class=n>cookie</span> <span class=o>=</span> <span class=p>[</span><span class=nb>self</span> <span class=n>getCookie</span><span class=p>];</span>
+<span class=p>[</span><span class=n>request</span> <span class=nl>addValue</span><span class=p>:</span><span class=n>cookie</span> <span class=nl>forHTTPHeaderField</span><span class=p>:</span><span class=s>@&#34;Cookie&#34;</span><span class=p>];</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>我平时用的时候这个方式经常添加失效，建议使用第二种方式添加，如果是iOS11以上的系统，尽量用第三种方式</p>
+</blockquote>
+<h3 id=2使用js注入的方式添加cookie>2、使用JS注入的方式添加cookie</h3>
+<p>创建JS字符串</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=p>-</span> <span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nf>cookieJSString</span> <span class=p>{</span>
+    <span class=n>NSMutableString</span> <span class=o>*</span><span class=n>script</span> <span class=o>=</span> <span class=p>[</span><span class=n>NSMutableString</span> <span class=n>string</span><span class=p>];</span>
+    <span class=p>[</span><span class=n>script</span> <span class=nl>appendString</span><span class=p>:</span><span class=s>@&#34;var cookieNames = document.cookie.split(&#39;; &#39;).map(function(cookie) { return cookie.split(&#39;=&#39;)[0] } );</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>];</span>
+    <span class=k>for</span> <span class=p>(</span><span class=n>NSHTTPCookie</span> <span class=o>*</span><span class=n>cookie</span> <span class=k>in</span> <span class=p>[[</span><span class=n>NSHTTPCookieStorage</span> <span class=n>sharedHTTPCookieStorage</span><span class=p>]</span> <span class=n>cookies</span><span class=p>])</span> <span class=p>{</span>
+
+        <span class=k>if</span> <span class=p>([</span><span class=n>cookie</span><span class=p>.</span><span class=n>value</span> <span class=nl>rangeOfString</span><span class=p>:</span><span class=s>@&#34;&#39;&#34;</span><span class=p>].</span><span class=n>location</span> <span class=o>!=</span> <span class=n>NSNotFound</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>continue</span><span class=p>;</span>
+        <span class=p>}</span>
+
+        <span class=p>[</span><span class=n>script</span> <span class=nl>appendFormat</span><span class=p>:</span><span class=s>@&#34;if (cookieNames.indexOf(&#39;%@&#39;) == -1) { document.cookie=&#39;%@&#39;; };</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>cookie</span><span class=p>.</span><span class=n>name</span><span class=p>,</span> <span class=n>cookie</span><span class=p>.</span><span class=n>da_javascriptString</span><span class=p>];</span>
+    <span class=p>}</span>
+    <span class=k>return</span> <span class=n>script</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>添加JS字符串到<code>WKWebView</code>的<code>configuration</code>中,</p>
+<p>创建<a href="https://developer.apple.com/documentation/webkit/wkuserscript?language=objc">WKUserScript</a></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=n>WKUserScript</span> <span class=o>*</span> <span class=n>cookieScript</span> <span class=o>=</span> <span class=p>[[</span><span class=n>WKUserScript</span> <span class=n>alloc</span><span class=p>]</span> <span class=nl>initWithSource</span><span class=p>:[</span><span class=nb>self</span> <span class=n>cookieString</span><span class=p>]</span> <span class=nl>injectionTime</span><span class=p>:</span><span class=n>WKUserScriptInjectionTimeAtDocumentStart</span> <span class=nl>forMainFrameOnly</span><span class=p>:</span><span class=nb>NO</span><span class=p>];</span>
+
+<span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>wkwebView</span><span class=p>.</span><span class=n>configuration</span><span class=p>.</span><span class=n>userContentController</span> <span class=nl>addUserScript</span><span class=p>:</span><span class=n>cookieScript</span><span class=p>];</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=3使用wkhttpcookiestore-管理cookie>3,使用WKHTTPCookieStore 管理cookie</h3>
+<p>在iOS11中新增了 <a href="https://developer.apple.com/documentation/webkit/wkhttpcookiestore?language=objc">WKHTTPCookieStore</a>管理cookie，通过这个API可以添加、删除、查询WKWebView的Cookie，甚至监听Cookie的变化。</p>
+<p>先使用<code>NSHTTPCookieStorage</code>获取已经存在的cookie。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=n>NSArray</span> <span class=o>*</span><span class=n>cookies</span> <span class=o>=</span> <span class=p>[[</span><span class=n>NSHTTPCookieStorage</span> <span class=n>sharedHTTPCookieStorage</span><span class=p>]</span> <span class=n>cookies</span><span class=p>];</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>获取到WKWebView的<code>httpCookieStore</code></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=n>WKHTTPCookieStore</span> <span class=o>*</span><span class=n>cookieStroe</span> <span class=o>=</span> <span class=nb>self</span><span class=p>.</span><span class=n>wkwebView</span><span class=p>.</span><span class=n>configuration</span><span class=p>.</span><span class=n>websiteDataStore</span><span class=p>.</span><span class=n>httpCookieStore</span><span class=p>;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=c1>// 添加cookie
+</span><span class=c1></span><span class=k>for</span> <span class=p>(</span><span class=n>NSHTTPCookie</span> <span class=o>*</span><span class=n>cookie</span> <span class=k>in</span> <span class=n>cookies</span><span class=p>)</span> <span class=p>{</span>
+    <span class=p>[</span><span class=n>cookieStroe</span> <span class=nl>setCookie</span><span class=p>:</span><span class=n>cookie</span> <span class=nl>completionHandler</span><span class=p>:</span><span class=o>^</span><span class=p>{</span>
+        <span class=k>if</span> <span class=p>([[</span><span class=n>cookies</span> <span class=n>lastObject</span><span class=p>]</span> <span class=nl>isEqual</span><span class=p>:</span><span class=n>cookie</span><span class=p>])</span> <span class=p>{</span>
+            <span class=k>return</span><span class=p>;</span>
+        <span class=p>}</span>
+    <span class=p>}];</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>WKHTTPCookieStore 添加cookie是通过block执行添加之后的操作</p>
+</blockquote>
+<p><strong>通过WKHTTPCookieStore添加cookie经常在第一次加载的时候没有添加成功， 需要在web开始加载内容的 时候确认一下</strong></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>webView:</span><span class=p>(</span><span class=n>WKWebView</span> <span class=o>*</span><span class=p>)</span><span class=nv>webView</span> <span class=nf>decidePolicyForNavigationAction:</span><span class=p>(</span><span class=n>WKNavigationAction</span> <span class=o>*</span><span class=p>)</span><span class=nv>navigationAction</span> <span class=nf>decisionHandler:</span><span class=p>(</span><span class=kt>void</span> <span class=p>(</span><span class=o>^</span><span class=p>)(</span><span class=n>WKNavigationActionPolicy</span><span class=p>))</span><span class=nv>decisionHandler</span> <span class=p>{</span>
+    <span class=k>if</span> <span class=p>(@</span><span class=n>available</span><span class=p>(</span><span class=n>iOS</span> <span class=mf>11.0</span><span class=p>,</span> <span class=o>*</span><span class=p>))</span> <span class=p>{</span>
+        <span class=n>WKHTTPCookieStore</span> <span class=o>*</span><span class=n>cookieStore</span> <span class=o>=</span> <span class=n>webView</span><span class=p>.</span><span class=n>configuration</span><span class=p>.</span><span class=n>websiteDataStore</span><span class=p>.</span><span class=n>httpCookieStore</span><span class=p>;</span>
+        <span class=p>[</span><span class=n>cookieStore</span> <span class=nl>getAllCookies</span><span class=p>:</span><span class=o>^</span><span class=p>(</span><span class=n>NSArray</span><span class=o>&lt;</span><span class=n>NSHTTPCookie</span> <span class=o>*&gt;</span> <span class=o>*</span> <span class=n>_Nonnull</span> <span class=n>allCookies</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>allCookies</span><span class=p>.</span><span class=n>count</span> <span class=o>==</span> <span class=mi>0</span> <span class=o>&amp;&amp;</span> <span class=o>!</span><span class=p>[</span><span class=n>webView</span><span class=p>.</span><span class=n>URL</span><span class=p>.</span><span class=n>absoluteString</span> <span class=nl>isEqualToString</span><span class=p>:</span><span class=s>@&#34;about:blank&#34;</span><span class=p>])</span> <span class=p>{</span>
+                <span class=c1>//如果没有添加成功cookie，在这里让web重新进行loadRequest请求
+</span><span class=c1></span>                <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>wkwebView</span> <span class=nl>loadRequest</span><span class=p>:</span><span class=nb>self</span><span class=p>.</span><span class=n>request</span><span class=p>];</span>
+            <span class=p>}</span>
+        <span class=p>}];</span>
+    <span class=p>}</span>
+
+    <span class=n>decisionHandler</span><span class=p>(</span><span class=n>WKNavigationActionPolicyAllow</span><span class=p>);</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>这三种方式基本上能满足大部分的对于添加cookie的需求，如果APP对cookie的操作比较多的话，建议还是使用UIWebView吧，毕竟WKWebView的坑太多了，cookie的管理知识其中一个😂😂😂</p>
+</blockquote>
+<blockquote>
+<p>最后建议观看WWDC，这里能增长很多iOS开发的知识。这个视频是WWDC中介绍WKWebView的，里面讲解了cookie的管理等等，好好观看可以跳过很多坑</p>
+</blockquote>
+<p><a href=https://developer.apple.com/wwdc17/220>Customized Loading in WKWebView</a></p>
+</div>
+<footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/webview/>webView</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/post/2018-07-11-uitextview%E8%87%AA%E5%8A%A8%E5%88%B0%E5%BA%95%E9%83%A8/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">UITextView自动滚动到底部</span>
+<span class="prev-text nav-mobile">上一篇</span>
+</a>
+<a class=next href=/post/2017-12-17-textfield-plceholder/>
+<span class="next-text nav-default">UITextField的placeholder自定义</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=dongjiawang2008@163.com class="iconfont icon-email" title=email></a>
+<a href=http://localhost:1313 class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=http://localhost:1313 class="iconfont icon-twitter" title=twitter></a>
+<a href=http://localhost:1313 class="iconfont icon-facebook" title=facebook></a>
+<a href=http://localhost:1313 class="iconfont icon-linkedin" title=linkedin></a>
+<a href=http://localhost:1313 class="iconfont icon-google" title=google></a>
+<a href=http://localhost:1313 class="iconfont icon-github" title=github></a>
+<a href=http://localhost:1313 class="iconfont icon-weibo" title=weibo></a>
+<a href=http://localhost:1313 class="iconfont icon-zhihu" title=zhihu></a>
+<a href=http://localhost:1313 class="iconfont icon-douban" title=douban></a>
+<a href=http://localhost:1313 class="iconfont icon-pocket" title=pocket></a>
+<a href=http://localhost:1313 class="iconfont icon-tumblr" title=tumblr></a>
+<a href=http://localhost:1313 class="iconfont icon-instagram" title=instagram></a>
+<a href=http://localhost:1313 class="iconfont icon-gitlab" title=gitlab></a>
+<a href=http://localhost:1313 class="iconfont icon-bilibili" title=bilibili></a>
+<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<span class=copyright-year>
+&copy;
+2015 -
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-141040294-1','auto'),ga('set','anonymizeIp',!0),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

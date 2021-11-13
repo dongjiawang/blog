@@ -1,3 +1,356 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="记录一下个人码农经历。"><title>我的码 | dongjiawang</title><link rel="stylesheet" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="/css/dark.css?v=0.0.0"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>!function(e,a,t,n,g,c,o){e.GoogleAnalyticsObject=g,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),o=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",o.parentNode.insertBefore(c,o)}(window,document,"script",0,"ga"),ga("create","UA-141040294-1","auto"),ga("send","pageview")</script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><script src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><script data-ad-client="ca-pub-2074490477284403" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">我的码</h1><a id="logo" href="/.">我的码</a><p class="description">dongjiawang</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home">首页</i></a> <a href="/archives/"><i class="fa fa-archive">归档</i></a> <a href="/about/"><i class="fa fa-user">关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"><a href="/2017/12/01/2017-12-01-custom-Rumtimekit/">封装常用的 Runtime 方法</a></h1><div class="post-meta">2017-12-01</div><div class="post-content"><p>可以下载我写好的代码<br><a href="https://github.com/dongjiawang/RuntimeKit" target="_blank" rel="noopener">RuntimeKit</a></p><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> 获取类名</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> @param class 类</span></span><br><span class="line"><span class="comment"> @return 类名</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">+ (<span class="built_in">NSString</span> *)fetchClassName:(Class)<span class="keyword">class</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *className = class_getName(<span class="keyword">class</span>);</span><br><span class="line">    <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithUTF8String:className];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2017/12/01/2017-12-01-custom-Rumtimekit/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/11/30/2017-11-30-CoreAnimation-used/">CoreAnimation 的简单使用</a></h1><div class="post-meta">2017-11-30</div><div class="post-content"><p><code>CoreAnimation</code> 的执行过程是在后台操作的，不会阻塞主线程。<br><code>CoreAnimation</code> 是作用在 <code>CALayer</code> 上，不会修改 <code>UIView</code>。</p><hr><h2 id="核心动画与UIView动画的区别"><a href="#核心动画与UIView动画的区别" class="headerlink" title="核心动画与UIView动画的区别"></a>核心动画与UIView动画的区别</h2><blockquote></blockquote></div><p class="readmore"><a href="/2017/11/30/2017-11-30-CoreAnimation-used/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/11/29/2017-11-29-uiview-layer/">UIView 的 layer</a></h1><div class="post-meta">2017-11-29</div><div class="post-content"><p>iOS 中能看得见的控件基本都是 UIView，比如按钮、文本、输入框、图片等等。</p><p>UIView 之所以能显示在屏幕上，因为它内部有一个图层：<code>CALayer</code></p><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>,<span class="keyword">retain</span>) <span class="built_in">CALayer</span> *layer;</span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2017/11/29/2017-11-29-uiview-layer/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/11/28/2017-11-28-uiwebview-gethtml/">UIWebView简单的获取HTML内容和修改页面信息</a></h1><div class="post-meta">2017-11-28</div><div class="post-content"><p>通过 <code>stringByEvaluatingJavaScriptFromString</code> 这个方法我们可以在iOS中与UIWebView中的网页元素交互。</p><p>使用<code>stringByEvaluatingJavaScriptFromString</code>方法，需要等UIWebView中的 <strong>页面加载完成之后</strong> 去调用。</p></div><p class="readmore"><a href="/2017/11/28/2017-11-28-uiwebview-gethtml/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/11/27/2017-11-27-nsstring-stringWithFormat/">NSString使用stringWithFormat拼接</a></h1><div class="post-meta">2017-11-27</div><div class="post-content"><p><strong>字符串中有特殊符号 ”</strong></p><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSInteger</span> count = <span class="number">50</span>;</span><br><span class="line"><span class="comment">//"是一个特殊符号, 如果在NSString中用到"需要用\进行转义</span></span><br><span class="line"><span class="built_in">NSString</span> *string = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%zd\""</span>,count];</span><br><span class="line"><span class="comment">//输出结果是: 50"</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, string);</span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2017/11/27/2017-11-27-nsstring-stringWithFormat/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/11/26/2017-11-26-nginx-init/">搭建本地 nginx 推流服务器</a></h1><div class="post-meta">2017-11-26</div><div class="post-content"><h3 id="安装nginx-rtmp"><a href="#安装nginx-rtmp" class="headerlink" title="安装nginx+rtmp"></a>安装nginx+rtmp</h3><p>使用 homebrew 安装，先 clone nginx 到本地</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew tap homebrew/nginx</span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2017/11/26/2017-11-26-nginx-init/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/11/25/2017-11-25-custom-mainTabBar/">自定义 Tabbar 控制器中间按钮</a></h1><div class="post-meta">2017-11-25</div><div class="post-content"><p><img src="http://upload-images.jianshu.io/upload_images/2417618-be8464f84b578c61.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="示例"></p></div><p class="readmore"><a href="/2017/11/25/2017-11-25-custom-mainTabBar/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/11/24/2017-11-24-InterfaceOrientation/">手动屏幕旋转</a></h1><div class="post-meta">2017-11-24</div><div class="post-content"><p>做 APP 的时候大部分界面是不支持屏幕旋转的，一般在做视频播放的时候，会要求手动全屏播放，这时候就需要用到旋转屏幕方向的操作，我在代码中式这样实现的。</p><h4 id="AppDelegate-中的配置"><a href="#AppDelegate-中的配置" class="headerlink" title="AppDelegate 中的配置"></a>AppDelegate 中的配置</h4><p>在<code>AppDelegate.h</code>中定义屏幕支持的方向的枚举：</p></div><p class="readmore"><a href="/2017/11/24/2017-11-24-InterfaceOrientation/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/11/23/2017-11-23-nsstring-whitespaceCharacterSet/">NSString 去除空格</a></h1><div class="post-meta">2017-11-23</div><div class="post-content"><p><strong>NSString 去掉两边空格</strong></p><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *utlStr = [urlString stringByTrimmingCharactersInSet:[<span class="built_in">NSCharacterSet</span> whitespaceCharacterSet]];</span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2017/11/23/2017-11-23-nsstring-whitespaceCharacterSet/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/11/22/2017-11-22-iOS-utsname/">判断 iOS 设备</a></h1><div class="post-meta">2017-11-22</div><div class="post-content"><p>需要引用头文件<br></p><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;sys/utsname.h&gt;</span></span></span><br></pre></td></tr></table></figure><p></p></div><p class="readmore"><a href="/2017/11/22/2017-11-22-iOS-utsname/">阅读全文</a></p></div><nav class="page-navigator"><a class="extend prev" rel="prev" href="/page/5/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/7/">下一页</a></nav><script type="text/x-mathjax-config">MathJax.Hub.Config({
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-  });</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" async></script></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="https://blog.dongjiawang.top"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o">分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AVPlayer/">AVPlayer</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CocoaPods/">CocoaPods</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Cordova/">Cordova</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Xcode/">Xcode</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/flutter/">flutter</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">107</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/libSDK/">libSDK</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/博客/">博客</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程知识/">编程知识</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络/">网络</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遇到的问题/">遇到的问题</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o">标签</i></div><div class="tagcloud"><a href="/source/Tags/iOS/" style="font-size:15px">iOS</a> <a href="/source/Tags/UICollectionView/" style="font-size:15px">UICollectionView</a> <a href="/source/Tags/动画/" style="font-size:15px">动画</a> <a href="/source/Tags/编程知识/" style="font-size:15px">编程知识</a> <a href="/source/Tags/UITableView/" style="font-size:15px">UITableView</a> <a href="/source/Tags/webView/" style="font-size:15px">webView</a> <a href="/source/Tags/layer/" style="font-size:15px">layer</a> <a href="/source/Tags/Photos/" style="font-size:15px">Photos</a> <a href="/source/Tags/NSString/" style="font-size:15px">NSString</a> <a href="/source/Tags/nginx/" style="font-size:15px">nginx</a> <a href="/source/Tags/UIView/" style="font-size:15px">UIView</a> <a href="/source/Tags/Runtime/" style="font-size:15px">Runtime</a> <a href="/source/Tags/UITextField/" style="font-size:15px">UITextField</a> <a href="/source/Tags/UITextView/" style="font-size:15px">UITextView</a> <a href="/source/Tags/UISlider/" style="font-size:15px">UISlider</a> <a href="/source/Tags/flutter/" style="font-size:15px">flutter</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o">最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/03/20/2021-02-20-Jenkins 使用/">Jenkins 使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/05/2021-01-05-修复-iPad-横屏启动卡死的问题/">修复 iPad 横屏启动卡死的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/27/2020-09-27-webView-clickedImage/">网页图片添加点击方法获取图片</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/26/2020-09-26-wkwebview-cookie/">WKProcesspool方式共享WKWebView的进程和cookie</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/26/2020-09-26-launchStoryBoard/">启动页白屏</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/19/2020-01-19-screenRecord/">录屏功能</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/17/2020-01-17-检测设备方向/">检测设备方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/09/2019-12-09-UIVideoEditorController的颜色/">UIVideoEditorController的颜色</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/06/2019-12-06-UIVideoEditorController/">UIVideoEditorController</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/08/2019-11-08-Cordova创建plugin/">Cordova创建plugin</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link">友情链接</i></div><ul></ul><a href="https://github.com/dongjiawang" title="GitHub" target="_blank">GitHub</a><ul></ul><a href="https://resume.dongjiawang.top" title="个人简历" target="_blank">个人简历</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">我的码.</a> Powered by <a rel="nofollow" target="_blank" href="https://hexo.io">Hexo.</a> <a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo">Theme</a> by <a rel="nofollow" target="_blank" href="https://github.com/pagecho">Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script src="/js/totop.js?v=0.0.0" async></script><script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><script src="/js/love.js"></script><script src="/js/codeblock-resizer.js?v=0.0.0"></script><script src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>我的码</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="dongjiawang"><meta name=description content="记录一下个人码农经历。"><meta name=keywords content="Hugo,theme,even">
+<meta name=generator content="Hugo 0.89.2 with theme even">
+<link rel=canonical href=https://blog.dongjiawang.top/>
+<link href=https://blog.dongjiawang.top/index.xml rel=alternate type=application/rss+xml title=我的码>
+<link href=https://blog.dongjiawang.top/index.xml rel=feed type=application/rss+xml title=我的码>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="我的码">
+<meta property="og:description" content="记录一下个人码农经历。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.dongjiawang.top/">
+<meta itemprop=name content="我的码">
+<meta itemprop=description content="记录一下个人码农经历。"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="我的码">
+<meta name=twitter:description content="记录一下个人码农经历。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>我的码</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>首页</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>分类</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>我的码</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>首页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>分类</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<section id=posts class=posts>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2017-12-01-custom-rumtimekit/>封装常用的 Runtime 方法</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-12-01 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 493 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+可以下载我写好的代码 RuntimeKit 1 2 3 4 5 6 7 8 9 10 /** 获取类名 @param class 类 @return 类名 */ + (NSString *)fetchClassName:(Class)class { const char *className = class_getName(class); return [NSString stringWithUTF8String:className]; } 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 /**
+</div>
+<div class=read-more>
+<a href=/post/2017-12-01-custom-rumtimekit/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2017-11-30-coreanimation-used/>CoreAnimation 的简单使用</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-11-30 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 1727 字 </span>
+<span class=more-meta> 预计阅读 4 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+CoreAnimation 的执行过程是在后台操作的，不会阻塞主线程。 CoreAnimation 是作用在 CALayer 上，不会修改 UIView。 核心动画与UIView动画的区别 核心动画的一切都是假象，并
+</div>
+<div class=read-more>
+<a href=/post/2017-11-30-coreanimation-used/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2017-11-29-uiview-layer/>UIView 的 layer</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-11-29 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 1527 字 </span>
+<span class=more-meta> 预计阅读 4 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+iOS 中能看得见的控件基本都是 UIView，比如按钮、文本、输入框、图片等等。 UIView 之所以能显示在屏幕上，因为它内部有一个图层：CALayer 1 @property(nonatomic,readonly,retain) CALayer
+</div>
+<div class=read-more>
+<a href=/post/2017-11-29-uiview-layer/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2017-11-28-uiwebview-gethtml/>UIWebView简单的获取HTML内容和修改页面信息</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-11-28 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 703 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+通过 stringByEvaluatingJavaScriptFromString 这个方法我们可以在iOS中与UIWebView中的网页元素交互。 使用stringByEvaluatingJavaScriptFromS
+</div>
+<div class=read-more>
+<a href=/post/2017-11-28-uiwebview-gethtml/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2017-11-27-nsstring-stringwithformat/>NSString使用stringWithFormat拼接</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-11-27 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 249 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+字符串中有特殊符号 ” 1 2 3 4 5 NSInteger count = 50; //"是一个特殊符号, 如果在NSString中用到"需要用\进行转义 NSString *string = [NSString stringWithFormat:@"%zd\"",count]; //输出
+</div>
+<div class=read-more>
+<a href=/post/2017-11-27-nsstring-stringwithformat/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2017-11-26-nginx-init/>搭建本地 nginx 推流服务器</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-11-26 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 572 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+安装nginx+rtmp 使用 homebrew 安装，先 clone nginx 到本地 1 brew tap homebrew/nginx 执行安装命令 1 brew install nginx-full --with-rtmp-module 安装完成后使用 nginx 命令，检查是否安装成功 1 nginx 在浏览器里打开htt
+</div>
+<div class=read-more>
+<a href=/post/2017-11-26-nginx-init/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2017-11-25-custom-maintabbar/>自定义 Tabbar 控制器中间按钮</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-11-25 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 706 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+自定义主控制器 自定义 MainTabBarViewController 继承于 UITabBarController。 这个控制器引用 UITabBarControllerDelegate,通过这
+</div>
+<div class=read-more>
+<a href=/post/2017-11-25-custom-maintabbar/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2017-11-24-interfaceorientation/>手动屏幕旋转</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-11-24 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 530 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+做 APP 的时候大部分界面是不支持屏幕旋转的，一般在做视频播放的时候，会要求手动全屏播放，这时候就需要用到旋转屏幕方向的操作，我在代码中式这样实现
+</div>
+<div class=read-more>
+<a href=/post/2017-11-24-interfaceorientation/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2017-11-23-nsstring-whitespacecharacterset/>NSString 去除空格</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-11-23 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 29 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+NSString 去掉两边空格 1 NSString *utlStr = [urlString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]; 去掉 NSString 中的空格 1 NSString *utlStr = [urlString stringByReplacingOccurrencesOfString:@" " withString:@""];
+</div>
+<div class=read-more>
+<a href=/post/2017-11-23-nsstring-whitespacecharacterset/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2017-11-22-ios-utsname/>判断 iOS 设备</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-11-22 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 377 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+需要引用头文件 1 #import &lt;sys/utsname.h> 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60
+</div>
+<div class=read-more>
+<a href=/post/2017-11-22-ios-utsname/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+</section>
+<nav class=pagination>
+<a class=prev href=/page/5/>
+<i class="iconfont icon-left"></i>
+<span class=prev-text>上一页</span>
+</a>
+<a class=next href=/page/7/>
+<span class=next-text>下一页</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=dongjiawang2008@163.com class="iconfont icon-email" title=email></a>
+<a href=http://localhost:1313 class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=http://localhost:1313 class="iconfont icon-twitter" title=twitter></a>
+<a href=http://localhost:1313 class="iconfont icon-facebook" title=facebook></a>
+<a href=http://localhost:1313 class="iconfont icon-linkedin" title=linkedin></a>
+<a href=http://localhost:1313 class="iconfont icon-google" title=google></a>
+<a href=http://localhost:1313 class="iconfont icon-github" title=github></a>
+<a href=http://localhost:1313 class="iconfont icon-weibo" title=weibo></a>
+<a href=http://localhost:1313 class="iconfont icon-zhihu" title=zhihu></a>
+<a href=http://localhost:1313 class="iconfont icon-douban" title=douban></a>
+<a href=http://localhost:1313 class="iconfont icon-pocket" title=pocket></a>
+<a href=http://localhost:1313 class="iconfont icon-tumblr" title=tumblr></a>
+<a href=http://localhost:1313 class="iconfont icon-instagram" title=instagram></a>
+<a href=http://localhost:1313 class="iconfont icon-gitlab" title=gitlab></a>
+<a href=http://localhost:1313 class="iconfont icon-bilibili" title=bilibili></a>
+<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<span class=copyright-year>
+&copy;
+2015 -
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-141040294-1','auto'),ga('set','anonymizeIp',!0),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

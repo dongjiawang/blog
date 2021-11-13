@@ -1,0 +1,244 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>修改HTML富文本中的图片的大小 - 我的码</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="dongjiawang"><meta name=description content="使用 UITextView或者UILabel显示HTML 的时候，如果其中有图片，但是图片大小并不是想要的大小，就需要过滤其中的图片资源，并修改"><meta name=keywords content="Hugo,theme,even">
+<meta name=generator content="Hugo 0.89.2 with theme even">
+<link rel=canonical href=https://blog.dongjiawang.top/post/2018-09-01-%E4%BF%AE%E6%94%B9html%E5%AF%8C%E6%96%87%E6%9C%AC%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87%E7%9A%84%E5%A4%A7%E5%B0%8F/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="修改HTML富文本中的图片的大小">
+<meta property="og:description" content="使用 UITextView或者UILabel显示HTML 的时候，如果其中有图片，但是图片大小并不是想要的大小，就需要过滤其中的图片资源，并修改">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.dongjiawang.top/post/2018-09-01-%E4%BF%AE%E6%94%B9html%E5%AF%8C%E6%96%87%E6%9C%AC%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87%E7%9A%84%E5%A4%A7%E5%B0%8F/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2018-09-01T18:40:00+00:00">
+<meta property="article:modified_time" content="2018-09-01T18:40:00+00:00">
+<meta itemprop=name content="修改HTML富文本中的图片的大小">
+<meta itemprop=description content="使用 UITextView或者UILabel显示HTML 的时候，如果其中有图片，但是图片大小并不是想要的大小，就需要过滤其中的图片资源，并修改"><meta itemprop=datePublished content="2018-09-01T18:40:00+00:00">
+<meta itemprop=dateModified content="2018-09-01T18:40:00+00:00">
+<meta itemprop=wordCount content="358">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="修改HTML富文本中的图片的大小">
+<meta name=twitter:description content="使用 UITextView或者UILabel显示HTML 的时候，如果其中有图片，但是图片大小并不是想要的大小，就需要过滤其中的图片资源，并修改"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>我的码</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>首页</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>分类</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>我的码</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>首页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>分类</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>修改HTML富文本中的图片的大小</h1>
+<div class=post-meta>
+<span class=post-time> 2018-09-01 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 358 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>文章目录</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents></nav>
+</div>
+</div>
+<div class=post-content>
+<p>使用 <a href=https://dongjiawang.github.io/2018/07/26/2018-07-26-UITextView%E6%98%BE%E7%A4%BAHTML/>UITextView或者UILabel显示HTML</a> 的时候，如果其中有图片，但是图片大小并不是想要的大小，就需要过滤其中的图片资源，并修改size。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=c1>// htmlString 是获取的HTML字符串
+</span><span class=c1>// 通过标签过滤出来src图片资源
+</span><span class=c1>// 图片的链接，根据后台返回的地址，判断是否需要在这里进行拼接
+</span><span class=c1></span><span class=n>NSString</span> <span class=o>*</span><span class=n>regulaStr</span> <span class=o>=</span> <span class=s>@&#34;&lt;</span><span class=se>\\</span><span class=s>s*img</span><span class=se>\\</span><span class=s>s+[^&gt;]*?src</span><span class=se>\\</span><span class=s>s*=</span><span class=se>\\</span><span class=s>s*[</span><span class=se>\&#39;\&#34;</span><span class=s>](.*?)[</span><span class=se>\&#39;\&#34;</span><span class=s>]</span><span class=se>\\</span><span class=s>s*(alt=[</span><span class=se>\&#39;\&#34;</span><span class=s>](.*?)[</span><span class=se>\&#39;\&#34;</span><span class=s>])?[^&gt;]*?</span><span class=se>\\</span><span class=s>/?</span><span class=se>\\</span><span class=s>s*&gt;&#34;</span><span class=p>;</span>
+    <span class=n>NSRegularExpression</span> <span class=o>*</span><span class=n>regex</span> <span class=o>=</span> <span class=p>[</span><span class=n>NSRegularExpression</span> <span class=nl>regularExpressionWithPattern</span><span class=p>:</span><span class=n>regulaStr</span>
+                                                                           <span class=nl>options</span><span class=p>:</span><span class=n>NSRegularExpressionCaseInsensitive</span>
+                                                                             <span class=nl>error</span><span class=p>:</span><span class=nb>nil</span><span class=p>];</span>
+    
+    <span class=n>NSArray</span> <span class=o>*</span><span class=n>arrayOfAllMatches</span> <span class=o>=</span> <span class=p>[</span><span class=n>regex</span> <span class=nl>matchesInString</span><span class=p>:</span><span class=n>htmlString</span> <span class=nl>options</span><span class=p>:</span><span class=mi>0</span> <span class=nl>range</span><span class=p>:</span><span class=n>NSMakeRange</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=p>[</span><span class=n>htmlString</span> <span class=n>length</span><span class=p>])];</span>
+    <span class=k>for</span> <span class=p>(</span><span class=n>NSTextCheckingResult</span> <span class=o>*</span><span class=n>match</span> <span class=k>in</span> <span class=n>arrayOfAllMatches</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>NSRange</span> <span class=n>range</span> <span class=o>=</span> <span class=n>match</span><span class=p>.</span><span class=n>range</span><span class=p>;</span>
+        <span class=n>range</span><span class=p>.</span><span class=n>location</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+        <span class=n>NSString</span><span class=o>*</span> <span class=n>group1</span> <span class=o>=</span> <span class=p>[</span><span class=n>htmlString</span> <span class=nl>substringWithRange</span><span class=p>:[</span><span class=n>match</span> <span class=nl>rangeAtIndex</span><span class=p>:</span><span class=mi>1</span><span class=p>]];</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>group1</span><span class=p>.</span><span class=n>length</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>htmlString</span> <span class=o>=</span> <span class=p>[</span><span class=n>htmlString</span> <span class=nl>stringByReplacingOccurrencesOfString</span><span class=p>:</span><span class=n>group1</span> <span class=nl>withString</span><span class=p>:[[</span><span class=n>Utils</span> <span class=nl>ImgUrl</span><span class=p>:</span><span class=n>group1</span><span class=p>]</span> <span class=n>absoluteString</span><span class=p>]];</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+
+<span class=c1>// 将HTML字符串转为富文本
+</span><span class=c1></span>    <span class=n>NSDictionary</span> <span class=o>*</span><span class=n>options</span> <span class=o>=</span> <span class=l>@{</span><span class=nl>NSDocumentTypeDocumentAttribute</span><span class=p>:</span><span class=n>NSHTMLTextDocumentType</span><span class=l>}</span><span class=p>;</span>
+    
+    <span class=n>NSAttributedString</span> <span class=o>*</span><span class=n>attributeString</span> <span class=o>=</span> <span class=p>[[</span><span class=n>NSAttributedString</span> <span class=n>alloc</span><span class=p>]</span> <span class=nl>initWithData</span><span class=p>:[</span><span class=n>htmlString</span> <span class=nl>dataUsingEncoding</span><span class=p>:</span><span class=n>NSUnicodeStringEncoding</span><span class=p>]</span> <span class=nl>options</span><span class=p>:</span><span class=n>options</span> <span class=nl>documentAttributes</span><span class=p>:</span><span class=nb>nil</span> <span class=nl>error</span><span class=p>:</span><span class=nb>nil</span><span class=p>];</span>
+    <span class=c1>// 遍历富文本的附件
+</span><span class=c1></span>    <span class=p>[</span><span class=n>attributeString</span> <span class=nl>enumerateAttribute</span><span class=p>:</span><span class=n>NSAttachmentAttributeName</span> <span class=nl>inRange</span><span class=p>:</span><span class=n>NSMakeRange</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=n>attributeString</span><span class=p>.</span><span class=n>length</span><span class=p>)</span> <span class=nl>options</span><span class=p>:</span><span class=mi>0</span> <span class=nl>usingBlock</span><span class=p>:</span><span class=o>^</span><span class=p>(</span><span class=kt>id</span>  <span class=n>_Nullable</span> <span class=n>value</span><span class=p>,</span> <span class=n>NSRange</span> <span class=n>range</span><span class=p>,</span> <span class=kt>BOOL</span> <span class=o>*</span> <span class=n>_Nonnull</span> <span class=n>stop</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>value</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>NSTextAttachment</span> <span class=o>*</span><span class=n>ment</span> <span class=o>=</span> <span class=n>value</span><span class=p>;</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>ment</span><span class=p>.</span><span class=n>bounds</span><span class=p>.</span><span class=n>size</span><span class=p>.</span><span class=n>width</span> <span class=o>&gt;</span> <span class=mi>250</span><span class=p>)</span> <span class=p>{</span><span class=c1>// 假如图片宽度大于250，就设置为250，并且高度按照比例缩小
+</span><span class=c1></span>                <span class=n>CGFloat</span> <span class=n>scale</span> <span class=o>=</span> <span class=mi>250</span> <span class=o>/</span> <span class=n>ment</span><span class=p>.</span><span class=n>bounds</span><span class=p>.</span><span class=n>size</span><span class=p>.</span><span class=n>width</span><span class=p>;</span>
+                <span class=n>ment</span><span class=p>.</span><span class=n>bounds</span> <span class=o>=</span> <span class=n>CGRectMake</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=n>scale</span> <span class=o>*</span> <span class=n>ment</span><span class=p>.</span><span class=n>bounds</span><span class=p>.</span><span class=n>size</span><span class=p>.</span><span class=n>width</span><span class=p>,</span> <span class=n>scale</span> <span class=o>*</span> <span class=n>ment</span><span class=p>.</span><span class=n>bounds</span><span class=p>.</span><span class=n>size</span><span class=p>.</span><span class=n>height</span><span class=p>);</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+    <span class=p>}];</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>建议在生成数据model的时候执行size转换的代码</p>
+</div>
+<footer class=post-footer>
+<nav class=post-nav>
+<a class=prev href=/post/2018-09-03-uitextview%E5%AF%8C%E6%96%87%E6%9C%AC%E8%B6%85%E9%93%BE%E6%8E%A5%E7%82%B9%E5%87%BB/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">UITextView富文本超链接点击</span>
+<span class="prev-text nav-mobile">上一篇</span>
+</a>
+<a class=next href=/post/2018-09-01-%E5%B0%86gitbook%E8%BD%AC%E6%88%90pdf%E6%88%96%E8%80%85epub%E6%A0%BC%E5%BC%8F%E7%94%B5%E5%AD%90%E4%B9%A6/>
+<span class="next-text nav-default">将GitBook转成PDF或者EPUB格式电子书</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=dongjiawang2008@163.com class="iconfont icon-email" title=email></a>
+<a href=http://localhost:1313 class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=http://localhost:1313 class="iconfont icon-twitter" title=twitter></a>
+<a href=http://localhost:1313 class="iconfont icon-facebook" title=facebook></a>
+<a href=http://localhost:1313 class="iconfont icon-linkedin" title=linkedin></a>
+<a href=http://localhost:1313 class="iconfont icon-google" title=google></a>
+<a href=http://localhost:1313 class="iconfont icon-github" title=github></a>
+<a href=http://localhost:1313 class="iconfont icon-weibo" title=weibo></a>
+<a href=http://localhost:1313 class="iconfont icon-zhihu" title=zhihu></a>
+<a href=http://localhost:1313 class="iconfont icon-douban" title=douban></a>
+<a href=http://localhost:1313 class="iconfont icon-pocket" title=pocket></a>
+<a href=http://localhost:1313 class="iconfont icon-tumblr" title=tumblr></a>
+<a href=http://localhost:1313 class="iconfont icon-instagram" title=instagram></a>
+<a href=http://localhost:1313 class="iconfont icon-gitlab" title=gitlab></a>
+<a href=http://localhost:1313 class="iconfont icon-bilibili" title=bilibili></a>
+<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<span class=copyright-year>
+&copy;
+2015 -
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-141040294-1','auto'),ga('set','anonymizeIp',!0),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

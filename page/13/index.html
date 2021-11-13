@@ -1,3 +1,356 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="记录一下个人码农经历。"><title>我的码 | dongjiawang</title><link rel="stylesheet" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="/css/dark.css?v=0.0.0"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>!function(e,a,t,n,g,c,o){e.GoogleAnalyticsObject=g,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),o=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",o.parentNode.insertBefore(c,o)}(window,document,"script",0,"ga"),ga("create","UA-141040294-1","auto"),ga("send","pageview")</script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><script src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><script data-ad-client="ca-pub-2074490477284403" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">我的码</h1><a id="logo" href="/.">我的码</a><p class="description">dongjiawang</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home">首页</i></a> <a href="/archives/"><i class="fa fa-archive">归档</i></a> <a href="/about/"><i class="fa fa-user">关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"><a href="/2015/12/30/2015-12-30-iOS-CollectionView-basic/">UICollectionView的简单使用和常用代理方法</a></h1><div class="post-meta">2015-12-30</div><div class="post-content"><p><code>UICollectionView</code> 相对于 <code>UITableView</code> 有更加自由的布局，做出的界面可变性更大最近开始接触使用 <code>UICollectionView</code> ，整理了一下常用的代理方法。</p><p>首先需要先添加UICollectionView的代理：<code>UICollectionViewDelegate</code> <code>UICollectionViewDataSource</code> <code>UICollectionViewDelegateFlowLayout</code></p></div><p class="readmore"><a href="/2015/12/30/2015-12-30-iOS-CollectionView-basic/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2015/12/30/2015-12-30-AttributedString/">富文本的简单使用</a></h1><div class="post-meta">2015-12-30</div><div class="post-content"><p>常常会有一段文字显示不同的颜色和字体，或者给某几个文字加删除线或下划线的需求。</p><p>使用富文本 <code>NSMuttableAttstring</code>（带属性的字符串），上面的一些需求都可以很简便的实现。<br><strong>1、实例化方法和使用方法</strong></p></div><p class="readmore"><a href="/2015/12/30/2015-12-30-AttributedString/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2015/12/30/2015-12-30-time-differentCount/">计算当前时间和指定时间的时间差</a></h1><div class="post-meta">2015-12-30</div><div class="post-content"><p><strong>这段代码计算出了相差几天</strong></p><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  计算剩余时间</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *  @param endTime   结束日期</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *  @return 剩余时间</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">-(<span class="built_in">NSString</span> *)getCountDownStringWithEndTime:(<span class="built_in">NSString</span> *)endTime &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSDateFormatter</span> *dateFormatter = [[<span class="built_in">NSDateFormatter</span> alloc] init];</span><br><span class="line">    [dateFormatter setDateFormat:<span class="string">@"yyyy-MM-dd HH:mm"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSDate</span> *now = [<span class="built_in">NSDate</span> date];</span><br><span class="line">    <span class="built_in">NSTimeZone</span> *zone = [<span class="built_in">NSTimeZone</span> systemTimeZone];<span class="comment">//设置时区</span></span><br><span class="line">    <span class="built_in">NSInteger</span> interval = [zone secondsFromGMTForDate: now];</span><br><span class="line">    <span class="built_in">NSDate</span> *localDate = [now  dateByAddingTimeInterval: interval];</span><br><span class="line">    endTime = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@ 23:59"</span>, endTime];</span><br><span class="line">    <span class="built_in">NSDate</span> *endDate = [dateFormatter dateFromString:endTime];</span><br><span class="line">    <span class="built_in">NSInteger</span> endInterval = [zone secondsFromGMTForDate: endDate];</span><br><span class="line">    <span class="built_in">NSDate</span> *end = [endDate dateByAddingTimeInterval: endInterval];</span><br><span class="line">    <span class="built_in">NSUInteger</span> voteCountTime = ([end timeIntervalSinceDate:localDate]) / <span class="number">3600</span> / <span class="number">24</span>;</span><br><span class="line"></span><br><span class="line">     <span class="built_in">NSString</span> *timeStr = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%d"</span>, voteCountTime];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> timeStr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2015/12/30/2015-12-30-time-differentCount/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2015/12/28/2015-12-28-time-dateStr/">计算时间间隔(年月日)</a></h1><div class="post-meta">2015-12-28</div><div class="post-content"><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建时间格式</span></span><br><span class="line">    <span class="built_in">NSDateFormatter</span> *dateFormatter = [[<span class="built_in">NSDateFormatter</span> alloc] init];</span><br><span class="line">    [dateFormatter setDateFormat:<span class="string">@"yyyy-MM-dd HH:mm"</span>];</span><br><span class="line">    <span class="built_in">NSDate</span> *startDate = [dateFormatter dateFromString:<span class="string">@"2015-12-20 14:00"</span>];</span><br><span class="line">    <span class="built_in">NSDate</span> *endDate = [dateFormatter dateFromString:<span class="string">@"2015-12-21 14:00"</span>];</span><br><span class="line">    <span class="built_in">NSTimeInterval</span> time = [endDate timeIntervalSinceDate:startDate];</span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2015/12/28/2015-12-28-time-dateStr/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2015/12/22/2015-12-22-iOS9-certificate/">iOS 9以上系统 信任的企业级开发者证书</a></h1><div class="post-meta">2015-12-22</div><div class="post-content"><p>　系统升级iOS9之后，安装企业签名的app时，会提示“未受信任的企业级开发者”</p><p>　　解决方法为： 设置-通用-描述文件-点上去，找到相应目录，点击后选择信任</p><p>　　</p><p>　　如果出现在通用中找不到描述文件的情况</p><p>　　解决方法为：多次尝试关闭设置，并重新进入通用。或者重启手机</p></div><p class="readmore"><a href="/2015/12/22/2015-12-22-iOS9-certificate/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2015/12/18/2015-12-18-textfield-keyBoard/">防止输入时键盘覆盖掉输入框</a></h1><div class="post-meta">2015-12-18</div><div class="post-content"><p><strong>添加监听者</strong></p><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(keyboardwasChange:) name:<span class="built_in">UIKeyboardWillChangeFrameNotification</span> object:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2015/12/18/2015-12-18-textfield-keyBoard/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2015/12/18/2015-12-18.app/">iOS APP设计规范大全</a></h1><div class="post-meta">2015-12-18</div><div class="post-content"><p>#大图可保存到本地#<br><img src="https://cdn.jsdelivr.net/gh/dongjiawang/BlogImage@1.0.0.2/img/20200926115629.jpg" alt></p></div><p class="readmore"><a href="/2015/12/18/2015-12-18.app/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2015/12/18/2015-12-18-Notification/">通知的添加和移除</a></h1><div class="post-meta">2015-12-18</div><div class="post-content"><p>我们都知道 <code>viewWillAppear:</code> 方法是在控制器的view将要显示的时候调用的，而 <code>viewWillDisappear:</code> 方法是在控制器的view将要隐藏的时候调用。很多时候我们根据自身需要将相关代码逻辑添加到这两个方法中。</p><p>现在随着手势操作的流行，很多人在页面中添加了左滑返回的功能，但是我们还是习惯性的把通知的移除放在了 <code>viewWillDisappear</code> 中，这样就会出现一个问题，如果我左滑滑到一半又滑回去了，这时候页面的通知已经移除了，整体的功能就会受到影响。</p></div><p class="readmore"><a href="/2015/12/18/2015-12-18-Notification/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2015/12/17/2015-12-17-appJump/">应用之间的跳转与数据传递</a></h1><div class="post-meta">2015-12-17</div><div class="post-content"><p>在开发的时候遇到需要从其他APP调用自己的APP的需求，比如从Safari中打开APP，并且传递一些信息的需要</p><p>1、首先设置自己的 <code>URL types</code></p><p>打开项目中的工程文件，打开info选项，在下面的URL types中添加自己APP的Identifier，并且自定义一个自己的scheme，如图：</p></div><p class="readmore"><a href="/2015/12/17/2015-12-17-appJump/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2015/12/15/2015-12-15-tools/">开发时候使用到的工具资源</a></h1><div class="post-meta">2015-12-15</div><div class="post-content"><p>#图片处理<br><strong>压缩图片</strong><br>ImageOptim（Mac客户端，免费），支持 <code>PNG/JPEG/GIF</code> 动画，压缩后图像质量不变，体积更小载入更快。</p><p><img src="https://cdn.jsdelivr.net/gh/dongjiawang/BlogImage@1.0.0.2/img/20200926115328.png" alt></p></div><p class="readmore"><a href="/2015/12/15/2015-12-15-tools/">阅读全文</a></p></div><nav class="page-navigator"><a class="extend prev" rel="prev" href="/page/12/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/14/">下一页</a></nav><script type="text/x-mathjax-config">MathJax.Hub.Config({
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-  });</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" async></script></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="https://blog.dongjiawang.top"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o">分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AVPlayer/">AVPlayer</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CocoaPods/">CocoaPods</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Cordova/">Cordova</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Xcode/">Xcode</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/flutter/">flutter</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">107</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/libSDK/">libSDK</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/博客/">博客</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程知识/">编程知识</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络/">网络</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遇到的问题/">遇到的问题</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o">标签</i></div><div class="tagcloud"><a href="/source/Tags/iOS/" style="font-size:15px">iOS</a> <a href="/source/Tags/UICollectionView/" style="font-size:15px">UICollectionView</a> <a href="/source/Tags/动画/" style="font-size:15px">动画</a> <a href="/source/Tags/编程知识/" style="font-size:15px">编程知识</a> <a href="/source/Tags/UITableView/" style="font-size:15px">UITableView</a> <a href="/source/Tags/webView/" style="font-size:15px">webView</a> <a href="/source/Tags/layer/" style="font-size:15px">layer</a> <a href="/source/Tags/Photos/" style="font-size:15px">Photos</a> <a href="/source/Tags/NSString/" style="font-size:15px">NSString</a> <a href="/source/Tags/nginx/" style="font-size:15px">nginx</a> <a href="/source/Tags/UIView/" style="font-size:15px">UIView</a> <a href="/source/Tags/Runtime/" style="font-size:15px">Runtime</a> <a href="/source/Tags/UITextField/" style="font-size:15px">UITextField</a> <a href="/source/Tags/UITextView/" style="font-size:15px">UITextView</a> <a href="/source/Tags/UISlider/" style="font-size:15px">UISlider</a> <a href="/source/Tags/flutter/" style="font-size:15px">flutter</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o">最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/03/20/2021-02-20-Jenkins 使用/">Jenkins 使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/05/2021-01-05-修复-iPad-横屏启动卡死的问题/">修复 iPad 横屏启动卡死的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/27/2020-09-27-webView-clickedImage/">网页图片添加点击方法获取图片</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/26/2020-09-26-wkwebview-cookie/">WKProcesspool方式共享WKWebView的进程和cookie</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/26/2020-09-26-launchStoryBoard/">启动页白屏</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/19/2020-01-19-screenRecord/">录屏功能</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/17/2020-01-17-检测设备方向/">检测设备方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/09/2019-12-09-UIVideoEditorController的颜色/">UIVideoEditorController的颜色</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/06/2019-12-06-UIVideoEditorController/">UIVideoEditorController</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/08/2019-11-08-Cordova创建plugin/">Cordova创建plugin</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link">友情链接</i></div><ul></ul><a href="https://github.com/dongjiawang" title="GitHub" target="_blank">GitHub</a><ul></ul><a href="https://resume.dongjiawang.top" title="个人简历" target="_blank">个人简历</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">我的码.</a> Powered by <a rel="nofollow" target="_blank" href="https://hexo.io">Hexo.</a> <a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo">Theme</a> by <a rel="nofollow" target="_blank" href="https://github.com/pagecho">Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script src="/js/totop.js?v=0.0.0" async></script><script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><script src="/js/love.js"></script><script src="/js/codeblock-resizer.js?v=0.0.0"></script><script src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>我的码</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="dongjiawang"><meta name=description content="记录一下个人码农经历。"><meta name=keywords content="Hugo,theme,even">
+<meta name=generator content="Hugo 0.89.2 with theme even">
+<link rel=canonical href=https://blog.dongjiawang.top/>
+<link href=https://blog.dongjiawang.top/index.xml rel=alternate type=application/rss+xml title=我的码>
+<link href=https://blog.dongjiawang.top/index.xml rel=feed type=application/rss+xml title=我的码>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="我的码">
+<meta property="og:description" content="记录一下个人码农经历。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.dongjiawang.top/">
+<meta itemprop=name content="我的码">
+<meta itemprop=description content="记录一下个人码农经历。"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="我的码">
+<meta name=twitter:description content="记录一下个人码农经历。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>我的码</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>首页</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>分类</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>我的码</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>首页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>分类</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<section id=posts class=posts>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2015-12-30-ios-collectionview-basic/>UICollectionView的简单使用和常用代理方法</a></h1>
+<div class=post-meta>
+<span class=post-time> 2015-12-30 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 653 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+UICollectionView 相对于 UITableView 有更加自由的布局，做出的界面可变性更大最近开始接触使用 UICollectionView ，整理了一下常用的代理方法。 首先需要先添加UICollectionView
+</div>
+<div class=read-more>
+<a href=/post/2015-12-30-ios-collectionview-basic/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2015-12-30-attributedstring/>富文本的简单使用</a></h1>
+<div class=post-meta>
+<span class=post-time> 2015-12-30 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 747 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+常常会有一段文字显示不同的颜色和字体，或者给某几个文字加删除线或下划线的需求。 使用富文本 NSMuttableAttstring（带属性的字符
+</div>
+<div class=read-more>
+<a href=/post/2015-12-30-attributedstring/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2015-12-30-time-differentcount/>计算当前时间和指定时间的时间差</a></h1>
+<div class=post-meta>
+<span class=post-time> 2015-12-30 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 162 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+** 这段代码计算出了相差几天** 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 /** * 计算剩余时间 * * @param endTime 结束日期 * * @return 剩余时间 */ -(NSString *)getCountDownStringWithEndTime:(NSString *)endTime { NSDateFormatter
+</div>
+<div class=read-more>
+<a href=/post/2015-12-30-time-differentcount/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2015-12-28-time-datestr/>计算时间间隔(年月日)</a></h1>
+<div class=post-meta>
+<span class=post-time> 2015-12-28 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 101 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+1 2 3 4 5 6 //创建时间格式 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init]; [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"]; NSDate *startDate = [dateFormatter dateFromString:@"2015-12-20 14:00"]; NSDate *endDate = [dateFormatter dateFromString:@"2015-12-21 14:00"]; NSTimeInterval time = [endDate timeIntervalSinceDate:startDate]; 1 2 3 4 5 6 7 8 9 10 11 12 13 //显示时间间隔 int minute,second,hour,day; second=time%60; minute = (time/60)%60; hour = (time/3600)%24;
+</div>
+<div class=read-more>
+<a href=/post/2015-12-28-time-datestr/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2015-12-22-ios9-certificate/>iOS 9以上系统 信任的企业级开发者证书</a></h1>
+<div class=post-meta>
+<span class=post-time> 2015-12-22 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 168 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+系统升级iOS9之后，安装企业签名的app时，会提示“未受信任的企业级开发者” 解决方法为： 设置-通用-描述文件-点上去，找到相应目录，点击后
+</div>
+<div class=read-more>
+<a href=/post/2015-12-22-ios9-certificate/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2015-12-18-textfield-keyboard/>防止输入时键盘覆盖掉输入框</a></h1>
+<div class=post-meta>
+<span class=post-time> 2015-12-18 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 66 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+添加监听者 1 [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardwasChange:) name:UIKeyboardWillChangeFrameNotification object:nil]; 监听键盘之后的操作 可以根据自己的需要调整高度的大小 1 2 3 4 5 6 7 - (void)keyboardwasChange:(NSNotification *)info { CGRect keyFrame = [info.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue]; CGFloat tY = keyFrame.origin.y - self.view.frame.size.height - 64; self.view.transform = CGAffineTransformMakeTranslation(0, tY); }
+</div>
+<div class=read-more>
+<a href=/post/2015-12-18-textfield-keyboard/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2015-12-18.app/>iOS APP设计规范大全</a></h1>
+<div class=post-meta>
+<span class=post-time> 2015-12-18 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 10 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+#大图可保存到本地#
+</div>
+<div class=read-more>
+<a href=/post/2015-12-18.app/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2015-12-18-notification/>通知的添加和移除</a></h1>
+<div class=post-meta>
+<span class=post-time> 2015-12-18 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 939 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+我们都知道 viewWillAppear: 方法是在控制器的view将要显示的时候调用的，而 viewWillDisappear: 方法是在控制器的view将要隐藏的时候调用。很多时候我们根据自身需要将相关代码
+</div>
+<div class=read-more>
+<a href=/post/2015-12-18-notification/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2015-12-17-appjump/>应用之间的跳转与数据传递</a></h1>
+<div class=post-meta>
+<span class=post-time> 2015-12-17 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 357 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+在开发的时候遇到需要从其他APP调用自己的APP的需求，比如从Safari中打开APP，并且传递一些信息的需要 1、首先设置自己的 URL types 打开项目
+</div>
+<div class=read-more>
+<a href=/post/2015-12-17-appjump/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2015-12-15-tools/>开发时候使用到的工具资源</a></h1>
+<div class=post-meta>
+<span class=post-time> 2015-12-15 </span>
+<div class=post-category>
+<a href=/categories/%E5%B7%A5%E5%85%B7/> 工具 </a>
+</div>
+<span class=more-meta> 约 508 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+#图片处理 压缩图片 ImageOptim（Mac客户端，免费），支持 PNG/JPEG/GIF 动画，压缩后图像质量不变，体积更小载入更快。 下载地址 密码： c97a 制作GIF动
+</div>
+<div class=read-more>
+<a href=/post/2015-12-15-tools/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+</section>
+<nav class=pagination>
+<a class=prev href=/page/12/>
+<i class="iconfont icon-left"></i>
+<span class=prev-text>上一页</span>
+</a>
+<a class=next href=/page/14/>
+<span class=next-text>下一页</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=dongjiawang2008@163.com class="iconfont icon-email" title=email></a>
+<a href=http://localhost:1313 class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=http://localhost:1313 class="iconfont icon-twitter" title=twitter></a>
+<a href=http://localhost:1313 class="iconfont icon-facebook" title=facebook></a>
+<a href=http://localhost:1313 class="iconfont icon-linkedin" title=linkedin></a>
+<a href=http://localhost:1313 class="iconfont icon-google" title=google></a>
+<a href=http://localhost:1313 class="iconfont icon-github" title=github></a>
+<a href=http://localhost:1313 class="iconfont icon-weibo" title=weibo></a>
+<a href=http://localhost:1313 class="iconfont icon-zhihu" title=zhihu></a>
+<a href=http://localhost:1313 class="iconfont icon-douban" title=douban></a>
+<a href=http://localhost:1313 class="iconfont icon-pocket" title=pocket></a>
+<a href=http://localhost:1313 class="iconfont icon-tumblr" title=tumblr></a>
+<a href=http://localhost:1313 class="iconfont icon-instagram" title=instagram></a>
+<a href=http://localhost:1313 class="iconfont icon-gitlab" title=gitlab></a>
+<a href=http://localhost:1313 class="iconfont icon-bilibili" title=bilibili></a>
+<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<span class=copyright-year>
+&copy;
+2015 -
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-141040294-1','auto'),ga('set','anonymizeIp',!0),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>
