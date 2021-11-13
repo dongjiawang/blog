@@ -82,6 +82,27 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2019-10-30-cordova%E4%B8%AD%E4%BD%BF%E7%94%A8cocoapods%E7%AE%A1%E7%90%86ios%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/>Cordova中使用cocoapods管理iOS的第三方库</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-10-30 </span>
+<div class=post-category>
+<a href=/categories/cordova/> Cordova </a>
+</div>
+<span class=more-meta> 约 358 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+Cordova 已经支持iOS的cocoapods管理第三方库。 如果自定义的plugin中使用了cocoapods管理的框架，可以在plugin.xml文
+</div>
+<div class=read-more>
+<a href=/post/2019-10-30-cordova%E4%B8%AD%E4%BD%BF%E7%94%A8cocoapods%E7%AE%A1%E7%90%86ios%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/post/2019-10-30-%E8%8E%B7%E5%8F%96%E5%88%B0%E7%9A%84%E7%9B%B8%E5%86%8C%E5%9B%BE%E7%89%87%E6%96%B9%E5%90%91%E9%94%99%E8%AF%AF/>获取到的相册图片方向错误</a></h1>
 <div class=post-meta>
 <span class=post-time> 2019-10-30 </span>
@@ -266,27 +287,6 @@ iOS项目中涉及到了多张图片合成视频，合成出来的视频出现�
 </div>
 <div class=read-more>
 <a href=/post/2019-06-10-%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%85%8D%E7%BD%AE%E6%90%AC%E7%93%A6%E5%B7%A5%E7%9A%84ss/ class=read-more-link>阅读更多</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title><a class=post-link href=/post/2019-06-05-ios%E8%BF%9B%E5%85%A5%E5%90%8E%E5%8F%B0%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C/>iOS进入后台的模糊效果</a></h1>
-<div class=post-meta>
-<span class=post-time> 2019-06-05 </span>
-<div class=post-category>
-<a href=/categories/ios/> iOS </a>
-</div>
-<span class=more-meta> 约 81 字 </span>
-<span class=more-meta> 预计阅读 1 分钟 </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-1 2 // 定义遮盖view @property (strong, nonatomic)UIVisualEffectView *visualEffectView; 1 2 3 4 5 6 7 8 - (UIVisualEffectView *)visualEffectView{ if (!_visualEffectView) { UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]; _visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect]; _visualEffectView.frame = [UIScreen mainScreen].bounds; } return _visualEffectView; } 监听app状态 1 2 3 - (void)applicationWillResignActive:(UIApplication *)application { [[UIApplication sharedApplication].keyWindow addSubview:self.visualEffectView]; } 1 2 3 4 5
-</div>
-<div class=read-more>
-<a href=/post/2019-06-05-ios%E8%BF%9B%E5%85%A5%E5%90%8E%E5%8F%B0%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C/ class=read-more-link>阅读更多</a>
 </div>
 </div>
 </article>

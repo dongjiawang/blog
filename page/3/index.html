@@ -82,6 +82,27 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2019-06-05-ios%E8%BF%9B%E5%85%A5%E5%90%8E%E5%8F%B0%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C/>iOS进入后台的模糊效果</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-06-05 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 81 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+1 2 // 定义遮盖view @property (strong, nonatomic)UIVisualEffectView *visualEffectView; 1 2 3 4 5 6 7 8 - (UIVisualEffectView *)visualEffectView{ if (!_visualEffectView) { UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]; _visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect]; _visualEffectView.frame = [UIScreen mainScreen].bounds; } return _visualEffectView; } 监听app状态 1 2 3 - (void)applicationWillResignActive:(UIApplication *)application { [[UIApplication sharedApplication].keyWindow addSubview:self.visualEffectView]; } 1 2 3 4 5
+</div>
+<div class=read-more>
+<a href=/post/2019-06-05-ios%E8%BF%9B%E5%85%A5%E5%90%8E%E5%8F%B0%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/post/2019-06-04-ios%E6%A3%80%E6%B5%8B%E6%98%AF%E5%90%A6%E8%B6%8A%E7%8B%B1/>iOS检测是否越狱</a></h1>
 <div class=post-meta>
 <span class=post-time> 2019-06-04 </span>
@@ -266,27 +287,6 @@ cordova可以通过自定义插件的形式，通过js调用原生的功能。 �
 </div>
 <div class=read-more>
 <a href=/post/2018-11-23-%E8%87%AA%E5%AE%9A%E4%B9%89cordova%E6%8F%92%E4%BB%B6/ class=read-more-link>阅读更多</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title><a class=post-link href=/post/2018-11-22-ios%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%9B%86%E6%88%90cordova/>iOS项目中集成Cordova</a></h1>
-<div class=post-meta>
-<span class=post-time> 2018-11-22 </span>
-<div class=post-category>
-<a href=/categories/cordova/> Cordova </a>
-</div>
-<span class=more-meta> 约 1572 字 </span>
-<span class=more-meta> 预计阅读 4 分钟 </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-公司想要在已有的APP中集成一个页面，准备使用Cordova。 关于Cordova的介绍可以看他们官方文档 https://cordova.apache.org/docs/zh-cn/8.x/guide/platforms/ios/index.html 安装Cordova 安装Node.j
-</div>
-<div class=read-more>
-<a href=/post/2018-11-22-ios%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%9B%86%E6%88%90cordova/ class=read-more-link>阅读更多</a>
 </div>
 </div>
 </article>
