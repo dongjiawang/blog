@@ -82,27 +82,6 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
-<h1 class=post-title><a class=post-link href=/post/2016-08-09-scrollimage/>可以放大、缩小、滑动的imageView</a></h1>
-<div class=post-meta>
-<span class=post-time> 2016-08-09 </span>
-<div class=post-category>
-<a href=/categories/ios/> iOS </a>
-</div>
-<span class=more-meta> 约 378 字 </span>
-<span class=more-meta> 预计阅读 1 分钟 </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-示例图片## 代码## 1 2 3 4 //底部srollView @property (nonatomic, strong) UIScrollView *imgScroll; //显示图片 @property (nonatomic, strong) UIImageView *myImageView; 1 2 3 4 5 6 7 8 9 10 11 12 13 14 -(UIScrollView *)imgScroll { if (!_imgScroll) { _imgScroll = [[UIScrollView alloc] initWithFrame:self.view.bounds]; _imgScroll.delegate =
-</div>
-<div class=read-more>
-<a href=/post/2016-08-09-scrollimage/ class=read-more-link>阅读更多</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
 <h1 class=post-title><a class=post-link href=/post/2016-08-02-tableview/>UITableView侧滑删除</a></h1>
 <div class=post-meta>
 <span class=post-time> 2016-08-02 </span>
@@ -287,6 +266,27 @@ iOS已经提供了捕获异常的机制 NSSetUncaughtExceptionHandler 我们就�
 </div>
 <div class=read-more>
 <a href=/post/2016-04-21-viewcorner/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2016-03-15-imageviewcorner/>图片设置圆角的三种方法</a></h1>
+<div class=post-meta>
+<span class=post-time> 2016-03-15 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 548 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+一般我们在iOS开发的过程中设置圆角都是如下这样设置的。 第一种 1 2 imageView.clipsToBounds = YES; [imageView.layer setCornerRadius:50]; 这样设置会触发离屏渲染，比较消耗性能。比如当一个页面上有十几头像
+</div>
+<div class=read-more>
+<a href=/post/2016-03-15-imageviewcorner/ class=read-more-link>阅读更多</a>
 </div>
 </div>
 </article>
