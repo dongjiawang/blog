@@ -48,6 +48,11 @@ copyright = "dongjiawang"            # default: author.name ↓        # 默认�
   weight = 40
   identifier = "categories"
   url = "/categories/"
+  [[menu.main]]
+  name = "关于"
+  weight = 50
+  identifier = "about"
+  url = "/about/"
 
 [params]
   version = "4.x"           # Used to give a friendly message when you have an incompatible update
@@ -183,20 +188,20 @@ copyright = "dongjiawang"            # default: author.name ↓        # 默认�
 
   [params.social]                                         # 社交链接
     a-email = "dongjiawang2008@163.com"
-    b-stack-overflow = "http://localhost:1313"
-    c-twitter = "http://localhost:1313"
-    d-facebook = "http://localhost:1313"
-    e-linkedin = "http://localhost:1313"
-    f-google = "http://localhost:1313"
-    g-github = "http://localhost:1313"
-    h-weibo = "http://localhost:1313"
-    i-zhihu = "http://localhost:1313"
-    j-douban = "http://localhost:1313"
-    k-pocket = "http://localhost:1313"
-    l-tumblr = "http://localhost:1313"
-    m-instagram = "http://localhost:1313"
-    n-gitlab = "http://localhost:1313"
-    o-bilibili = "http://localhost:1313"
+    # b-stack-overflow = "http://localhost:1313"
+    # c-twitter = "http://localhost:1313"
+    # d-facebook = "http://localhost:1313"
+    # e-linkedin = "http://localhost:1313"
+    # f-google = "http://localhost:1313"
+    g-github = "https://github.com/dongjiawang"
+    # h-weibo = "http://localhost:1313"
+    # i-zhihu = "http://localhost:1313"
+    # j-douban = "http://localhost:1313"
+    # k-pocket = "http://localhost:1313"
+    # l-tumblr = "http://localhost:1313"
+    # m-instagram = "http://localhost:1313"
+    # n-gitlab = "http://localhost:1313"
+    o-bilibili = "https://space.bilibili.com/13834686"
 
 # See https://gohugo.io/about/hugo-and-gdpr/
 [privacy]
