@@ -12,7 +12,7 @@
 <meta name=apple-mobile-web-app-capable content="yes">
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
 <meta name=author content="dongjiawang"><meta name=description content="1 2 3 4 5 6 7 8 9 10 11 12 //行的高度。 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath { NewNotificationCell *cell = (NewNotificationCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath]; cell.myLabel.text = [self.dataArray objectAtIndex:indexPath.row]; labelSize = [cell.myLabel.text sizeWithFont:[UIFont fontWithName:@&amp;#34;Arial&amp;#34; size:15] constrainedToSize:CGSizeMake(cell.myLabel.frame.size.width, 1000) lineBreakMode:UILineBreakModeWordWrap]; cell.myLabel.lineBreakMode = UILineBreakModeWordWrap; cell.myLabel.numberOfLines = 0; [cell.myLabel setFont:[UIFont fontWithName:@&amp;#34;Arial&amp;#34; size:15]]; cell.myLabel.frame = CGRectMake(0, 0, labelSize.width, labelSize.height); return labelSize.height+30; } 1 2 3 4 5 6 7"><meta name=keywords content="Hugo,theme,even">
-<meta name=generator content="Hugo 0.89.2 with theme even">
+<meta name=generator content="Hugo 0.89.3 with theme even">
 <link rel=canonical href=https://blog.dongjiawang.top/post/2016-01-06-labelstring/>
 <link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
