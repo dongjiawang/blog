@@ -86,6 +86,27 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2017-11-20-photos-video-save/>获取相册视频并保存到指定路径</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-11-20 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 282 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+需要用到两个系统框架 Photos/Photos.h 用来获取系统的相册信息 AVFoundation/AVFoundation.h 用来获取视频信息 首先获取相册中的所有视频 1 2 3 4 5 6 7 8 9 10 11 NSMutableArray *videoArray = [NSMutableArray array]; PHFetchOptions *option = [[PHFetchOptions alloc] init]; option.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
+</div>
+<div class=read-more>
+<a href=/post/2017-11-20-photos-video-save/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/post/2017-10-30-gulp-optimize-hexo/>用 gulp 优化 Hexo</a></h1>
 <div class=post-meta>
 <span class=post-time> 2017-10-30 </span>
@@ -270,27 +291,6 @@ AVFoundation 框架提供了播放音频和视频的工具，使用 AVFoundation
 </div>
 <div class=read-more>
 <a href=/post/2017-09-20-__cxa_throw/ class=read-more-link>阅读更多</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title><a class=post-link href=/post/2017-09-15-version-define/>iOS 利用宏判断系统版本</a></h1>
-<div class=post-meta>
-<span class=post-time> 2017-09-15 </span>
-<div class=post-category>
-<a href=/categories/ios/> iOS </a>
-</div>
-<span class=more-meta> 约 198 字 </span>
-<span class=more-meta> 预计阅读 1 分钟 </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-一般判断系统版本都时候，都会这么写 1 #define SysVersion [[UIDevice currentDevice] systemVersion].floatValue 其实系统已经定义了很多类似的宏，不需要我们去再次定义 就在这个路径下 (__IPHONE_OS_VERSION_MAX_ALLOWED 这个定义是在Simulat
-</div>
-<div class=read-more>
-<a href=/post/2017-09-15-version-define/ class=read-more-link>阅读更多</a>
 </div>
 </div>
 </article>
