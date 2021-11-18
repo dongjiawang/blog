@@ -1,0 +1,376 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>面试准备（二）内存管理 - 我的码</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="dongjiawang"><meta name=description content="内存管理 基本原理 说一下对 OC 内存管理的理解 ARC：是 OC 的内存管理机制，简单的说，就是代码中自动加入了 retain/release，原先需要手动"><meta name=keywords content="Hugo,theme,even">
+<meta name=generator content="Hugo 0.89.4 with theme even">
+<link rel=canonical href=https://blog.dongjiawang.top/post/2021-11-18-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<link href=/sass/main.min.cb68f97bc9cece255d217346d970e3c62623408634e500c330a62fadabbbe77c.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="面试准备（二）内存管理">
+<meta property="og:description" content="内存管理 基本原理 说一下对 OC 内存管理的理解 ARC：是 OC 的内存管理机制，简单的说，就是代码中自动加入了 retain/release，原先需要手动">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.dongjiawang.top/post/2021-11-18-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%8C%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2021-11-18T17:05:00+08:00">
+<meta property="article:modified_time" content="2021-11-18T17:05:00+08:00">
+<meta itemprop=name content="面试准备（二）内存管理">
+<meta itemprop=description content="内存管理 基本原理 说一下对 OC 内存管理的理解 ARC：是 OC 的内存管理机制，简单的说，就是代码中自动加入了 retain/release，原先需要手动"><meta itemprop=datePublished content="2021-11-18T17:05:00+08:00">
+<meta itemprop=dateModified content="2021-11-18T17:05:00+08:00">
+<meta itemprop=wordCount content="3347">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="面试准备（二）内存管理">
+<meta name=twitter:description content="内存管理 基本原理 说一下对 OC 内存管理的理解 ARC：是 OC 的内存管理机制，简单的说，就是代码中自动加入了 retain/release，原先需要手动"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>我的码</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>首页</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>分类</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>关于</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>我的码</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>首页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>分类</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>关于</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>面试准备（二）内存管理</h1>
+<div class=post-meta>
+<span class=post-time> 2021-11-18 </span>
+<div class=post-category>
+<a href=/categories/%E5%85%85%E7%94%B5/> 充电 </a>
+</div>
+<span class=more-meta> 约 3347 字 </span>
+<span class=more-meta> 预计阅读 7 分钟 </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>文章目录</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#内存管理>内存管理</a>
+<ul>
+<li><a href=#基本原理>基本原理</a>
+<ul>
+<li><a href=#说一下对-oc-内存管理的理解>说一下对 OC 内存管理的理解</a></li>
+<li><a href=#操作系统内存布局各分为什么区>操作系统内存布局，各分为什么区？</a></li>
+<li><a href=#堆和栈的区别>堆和栈的区别</a></li>
+<li><a href=#为什么要分堆和栈不分堆和栈行吗>为什么要分堆和栈？不分堆和栈行吗？</a></li>
+<li><a href=#为什么栈上面效率高>为什么栈上面效率高</a></li>
+<li><a href=#僵尸对象野指针空指针分别指什么有什么区别>僵尸对象、野指针、空指针分别指什么？有什么区别？</a></li>
+<li><a href=#什么是虚拟内存共享内存物理内存>什么是虚拟内存、共享内存、物理内存</a></li>
+<li><a href=#描述下__block和__weak修饰符的区别>描述下<code>__block</code>和<code>__weak</code>修饰符的区别</a></li>
+</ul>
+</li>
+<li><a href=#实际问题>实际问题</a>
+<ul>
+<li><a href=#对于基本数据类型一般是存储到栈中的有没有可能存在堆上什么情况下存到堆上>对于基本数据类型，一般是存储到栈中的，有没有可能存在堆上，什么情况下存到堆上？</a></li>
+<li><a href=#对象分配到堆还是栈>对象分配到堆还是栈</a></li>
+<li><a href=#堆为什么默认是-4g是什么决定的机器上插-16g-的内存条虚拟内存只有-4g是不是浪费>堆为什么默认是 4G，是什么决定的？机器上插 16G 的内存条，虚拟内存只有 4G，是不是浪费？</a></li>
+<li><a href=#对象的-isa-指针指向哪里>对象的 isa 指针指向哪里</a></li>
+<li><a href=#ios-开发中什么情况下会有野指针>iOS 开发中什么情况下会有野指针？</a></li>
+<li><a href=#栈会溢出吗什么情况下会溢出>栈会溢出吗？什么情况下会溢出</a></li>
+<li><a href=#一个-oc-对象如何进行内存布局考虑有父类情况>一个 OC 对象如何进行内存布局(考虑有父类情况)</a></li>
+<li><a href=#一个-autorelease-对象在什么时候释放>一个 autorelease 对象在什么时候释放？</a></li>
+<li><a href=#引用计数为-0-的引用实例是立即回收吗>引用计数为 0 的引用实例是立即回收吗？</a></li>
+<li><a href=#内存泄漏可能出现的几种原因>内存泄漏可能出现的几种原因</a></li>
+<li><a href=#imagenamed和imagewithcontentsoffile的区别>imageNamed和imageWithContentsOfFile的区别</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<h1 id=内存管理>内存管理</h1>
+<h2 id=基本原理>基本原理</h2>
+<h3 id=说一下对-oc-内存管理的理解>说一下对 OC 内存管理的理解</h3>
+<blockquote>
+<ol start=2>
+<li>ARC：是 OC 的内存管理机制，简单的说，就是代码中自动加入了 retain/release，原先需要手动添加来处理内存管理的引用计数的代码可以自动地由编译器完成。</li>
+<li>在 ARC 情况下，任何强指针（strong、retain）指向的对象就会被销毁；任何弱指针指向的对象不会被销毁；默认情况下对象都是强指针类型。</li>
+<li>自动释放池是 OC 的一种内存自动回收机制，可以将一些临时变量通过自动释放池来回收统一释放；内存池 autoreleasepool 是用于管理那些被声明为 autorelease 的对象，系统中有成千上万个内存池，系统内存不足时，系统会从栈中取最顶层的池子把引用计数为 0 的对象释放掉，收回内存给当前应用程序使用。自动释放池本身销毁时，池子里所有的对象都会做一次 release 操作。在使用 block 时，一定注意不能在 block 里面直接对对象进行操作，而是需要使用<code>__block</code>或者<code>__weak</code>进行修饰，避免循环引用，造成内存泄漏。</li>
+</ol>
+</blockquote>
+<h3 id=操作系统内存布局各分为什么区>操作系统内存布局，各分为什么区？</h3>
+<blockquote>
+<ul>
+<li>栈区：由系统区管理，地址从高到低分配，先进后出。会存一些局部变量，函数跳转时现场保护，这些都是系统处理，所以大量的局部变量、深递归、函数循环调用都可能耗尽栈内存而造成程序崩溃。</li>
+<li>堆区：需要开发人员管理内存，alloc 申请内存，release 释放内存。创建的对象也都放在这里，地址是从低到高分配。堆是所有程序共享的内存，当 N 个内存得不到释放，堆区会被挤爆崩溃。</li>
+<li>全局区/静态区：全局变量和静态变量的存储是放在一块的，初始化的全局变量和静态变量在一块区域，未初始化的全局变量和静态变量在相邻的另一块区域，程序结束后由系统释放。</li>
+<li>常量区：常量字符串存放，还有 const 常量。</li>
+<li>代码区：存放 App 代码，App 程序会拷贝到这里。</li>
+</ul>
+</blockquote>
+<h3 id=堆和栈的区别>堆和栈的区别</h3>
+<blockquote>
+<p>栈由编译器自动管理，无需手动控制；堆的释放需要开发人员控制，容易产生内存泄漏；</p>
+<p>栈的存储顺序是由高地址向低地址，是一块连续的内存区域，能获得栈的空间较小，栈有两种分配方式：静态分配和动态分配；</p>
+<p>堆的存储顺序是由低地址向高地址，是不连续的内存区域，堆获得的空间比较灵活也比较大，堆是动态分配和回收内存，没有静态分配的堆。</p>
+</blockquote>
+<h3 id=为什么要分堆和栈不分堆和栈行吗>为什么要分堆和栈？不分堆和栈行吗？</h3>
+<blockquote>
+<ol>
+<li>从软件设计角度看，栈代表了处理逻辑，而堆代表了数据。这样分开，使得处理逻辑更为清晰。这种隔离、模块化的思想在软件设计方方面面都有体现；</li>
+<li>堆与栈的分离，使得堆中的内容可以被多个栈共享，这种共享提供了一种有效的数据交互方式，堆中的共享常量和缓存可以被所有栈访问，节省了空间；</li>
+<li>栈因为运行时的需要，比如保存系统运行的上下文，需要进行地址段的划分。由于栈只能向上增长，因此就会限制栈的存储内容的能力。堆中的对象可以根据需要动态增长，因此堆和栈的拆分，使得动态增长成为可能，相应栈中只需记录堆中的一个地址即可。</li>
+</ol>
+</blockquote>
+<h3 id=为什么栈上面效率高>为什么栈上面效率高</h3>
+<blockquote>
+<p>对于堆来讲，频繁的 new/delete 势必会造成内存空间的不连续，从而造成大量的碎片，是程序效率低。</p>
+<p>对于栈来讲，遵循先进后出的队列，队列是一一对应的，不会先出一个内存块从栈中弹出。</p>
+</blockquote>
+<h3 id=僵尸对象野指针空指针分别指什么有什么区别>僵尸对象、野指针、空指针分别指什么？有什么区别？</h3>
+<blockquote>
+<ul>
+<li>僵尸对象：堆中已经被释放的对象（retainCount == 0）</li>
+<li>野指针：不是 NULL 指针，是指向一个非法的或者已经销毁的内存指针；</li>
+<li>空指针：指针赋值为 空
+<ul>
+<li>没有存储任何内存地址的指针成为空指针 NULL</li>
+<li>空指针是被赋值为 0 的指针，在没有被具体初始化之前，其值为 0。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id=什么是虚拟内存共享内存物理内存>什么是虚拟内存、共享内存、物理内存</h3>
+<blockquote>
+<ul>
+<li>
+<p>虚拟内存：当我们向系统申请内存时，系统并不会给你返回物理内存的地址，而是给你一个虚拟内存地址。每个进程都拥有相同大小的虚拟地址空间，对于 32 位的进程，可以拥有 4GB 的虚拟内存，64 位进程，可达 18EB 。只有我们开始使用申请到的虚拟内存时，系统才会将虚拟地址映射到物理地址上，从而让程序使用真实的物理内存。</p>
+<p>系统会对虚拟内存和物理内存进行分页，虚拟内存到物理内存的映射都是以页为最小粒度。</p>
+<p>虚拟内存是在物理内存上建立的一个逻辑地址空间，它向上(应用)提供了一个连续的逻辑地址空间，向下隐藏了物理内存的细节。</p>
+<p>虚拟内存使得逻辑地址可以没有实际的物理地址，也可以让多个逻辑地址对应到一个物理地址。</p>
+<p>虚拟内存被划分为一个个大小相同的 page，提高管理和读写效率，page 又分为只读和读写。</p>
+</li>
+<li>
+<p>共享内存指在多处理的计算机系统中，可以被不同的 CPU 访问的大容量内存。</p>
+</li>
+<li>
+<p>物理内存：真实的硬件设备。</p>
+</li>
+</ul>
+</blockquote>
+<h3 id=描述下__block和__weak修饰符的区别>描述下<code>__block</code>和<code>__weak</code>修饰符的区别</h3>
+<blockquote>
+<p><code>__block</code>不管是 ARC 还是 MRC 模式，都可以使用，可以修饰对象，还可以修饰基本数据类型，<code>__block</code>对象可以在 block 中重新被赋值；</p>
+<p><code>__weak</code>只能在 ARC 模式下使用，只能修饰对象，不可以在 block 中重新赋值。</p>
+</blockquote>
+<h2 id=实际问题>实际问题</h2>
+<h3 id=对于基本数据类型一般是存储到栈中的有没有可能存在堆上什么情况下存到堆上>对于基本数据类型，一般是存储到栈中的，有没有可能存在堆上，什么情况下存到堆上？</h3>
+<blockquote>
+<p>栈和堆都是同属一块内存，只不过一个是高地址往低地址存储，一个从低地址往高地址存储，它们并没有严格的界限。所以基本数据类型也是可以存储到堆上的。</p>
+<p>当该基本类型变量被 <code>__block</code>捕获时，该变量连同 block 都会被 copy 到堆上。</p>
+</blockquote>
+<h3 id=对象分配到堆还是栈>对象分配到堆还是栈</h3>
+<blockquote>
+<p>OC 的对象在内存中是以堆的方式分配空间，并且堆内存是由开发者释放，就是 release；</p>
+<p>非 OC 对象一般放在栈里。</p>
+</blockquote>
+<h3 id=堆为什么默认是-4g是什么决定的机器上插-16g-的内存条虚拟内存只有-4g是不是浪费>堆为什么默认是 4G，是什么决定的？机器上插 16G 的内存条，虚拟内存只有 4G，是不是浪费？</h3>
+<blockquote>
+<p>每个进程都拥有相同大小的虚拟地址空间，对于 32 位的进程，可以拥有 4GB 的虚拟内存。</p>
+<p>系统可以运行很多的进程，当进程开始真正使用内存时，会映射到物理内存上。</p>
+</blockquote>
+<h3 id=对象的-isa-指针指向哪里>对象的 isa 指针指向哪里</h3>
+<blockquote>
+<p>instance 对象的 isa 指向 class 对象；</p>
+<p>class 对象的 isa 指向 meta-class 对象；</p>
+<p>meta-class 对象的isa 指向基类的 meta-class 对象。</p>
+</blockquote>
+<h3 id=ios-开发中什么情况下会有野指针>iOS 开发中什么情况下会有野指针？</h3>
+<blockquote>
+<ol>
+<li>指针未初始化；</li>
+<li>指针变量在定义时不会自动初始化成空指针，而是随机一个值，可能指向任意空间，这就使该指针成为野指针。因此指针初始化时要么指向一个合理的地址，要么初始化为 NULL；</li>
+<li>在释放空间后，指针指向的内容被销毁，空间被释放，当时指针的值并未改变，仍然指向这块内存，这就使得该指针成为野指针，因此在调用 free 或者 delete 之后，应该将该指针置为 NULL；</li>
+<li>指针操作超过所指向变量的生存期；</li>
+<li>当指针指向的变量的声明周期已经结束时，如果指针仍然指向这块空间，就会使得该指针成为野指针，养成良好的编码习惯，避免发生这样的情况。</li>
+</ol>
+</blockquote>
+<h3 id=栈会溢出吗什么情况下会溢出>栈会溢出吗？什么情况下会溢出</h3>
+<blockquote>
+<ol>
+<li>在函数内部定义的超大数组会导致栈溢出</li>
+<li>递归次数过多</li>
+</ol>
+</blockquote>
+<h3 id=一个-oc-对象如何进行内存布局考虑有父类情况>一个 OC 对象如何进行内存布局(考虑有父类情况)</h3>
+<blockquote>
+<p>最前面是 isa 指针，父类的成员变量存放在子类成员变量之前，所有父类的成员变量和自己的成员变量都会存放在该对象所对应的存储空间中。</p>
+<p>每个对象内部都有一个 isa 指针，指向他的类对象，类对象中放置着本对象的：对象方法列表、成员变量列表、属性列表。</p>
+</blockquote>
+<h3 id=一个-autorelease-对象在什么时候释放>一个 autorelease 对象在什么时候释放？</h3>
+<blockquote>
+<p>分两种情况：手动干预释放时机、系统自动去释放</p>
+<p>手动干预释放：当前作用域大括号结束时释放</p>
+<p>系统自动去释放：autorelease 对象在出了作用域之后，会在当前 runloop 结束时释放</p>
+</blockquote>
+<h3 id=引用计数为-0-的引用实例是立即回收吗>引用计数为 0 的引用实例是立即回收吗？</h3>
+<blockquote>
+<p>对象的内存销毁分四个步骤：</p>
+<ol>
+<li>调用 release：引用计数变为 0
+<ul>
+<li>对象正在被销毁，生命周期即将结束</li>
+<li>不能再有新的 <code>__weak</code>引用，否则将指向 nil</li>
+<li>调用[self dealloc]</li>
+</ul>
+</li>
+<li>子类调用 dealloc
+<ul>
+<li>继承关系中最底层的子类在调用 dealloc</li>
+<li>如果是 MRC 代码，则会手动释放实例变量们</li>
+<li>继承关系中每一层的父类在调用 dealloc</li>
+</ul>
+</li>
+<li>NSObject 调用 dealloc
+<ul>
+<li>只做一件事：调用 OC Runtime 中的 object_dispose() 方法</li>
+</ul>
+</li>
+<li>调用 object_dispose()
+<ul>
+<li>为 C++ 的实例变量们调用 destructors</li>
+<li>为 ARC 状态下的实例变量们调用 release</li>
+<li>解除所有使用 runtime Associate 方法关联的对象</li>
+<li>解除所有 __weak 引用</li>
+<li>调用 free()</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<h3 id=内存泄漏可能出现的几种原因>内存泄漏可能出现的几种原因</h3>
+<blockquote>
+<ol>
+<li>第三方框架使用不当</li>
+<li>block 循环引用</li>
+<li>delegate 循环引用</li>
+<li>NSTimer 循环引用</li>
+<li>非 OC 对象内存处理</li>
+<li>大次数的循环导致内存暴涨</li>
+</ol>
+</blockquote>
+<h3 id=imagenamed和imagewithcontentsoffile的区别>imageNamed和imageWithContentsOfFile的区别</h3>
+<blockquote>
+<ul>
+<li>
+<p>imageNamed：这个方法生成的 UIImage 对象，会在应用的 bundle 中寻找图片，如果找到怎 Cache 到系统缓存中，作为内存的 Cache。开发者无法操作 Cahce，只能有系统自动处理，如果需要重复加载一张图片，系统能很快的从内存 Cache 中找到这张图，但是如果怕加载很大的图片，内存消耗过大，会强制释放内存，遇到内存警告</p>
+<p>所以只适合于小的图片读取。</p>
+</li>
+<li>
+<p>imageWithContentsOfFile：图片会被系统以数据的方式进行加载，在使用完成之后系统会直接释放，并不会缓存。一些使用次数比较少的操作可以使用这种方式，因为对内存的消耗比较小。</p>
+</li>
+</ul>
+</blockquote>
+</div>
+<footer class=post-footer>
+<nav class=post-nav>
+<a class=next href=/post/2021-11-17-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%80%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E9%97%AE%E9%A2%98/>
+<span class="next-text nav-default">面试准备（一）基础语法问题</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=dongjiawang2008@163.com class="iconfont icon-email" title=email></a>
+<a href=https://github.com/dongjiawang class="iconfont icon-github" title=github></a>
+<a href=https://space.bilibili.com/13834686 class="iconfont icon-bilibili" title=bilibili></a>
+<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<span class=copyright-year>
+&copy;
+2015 -
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-141040294-1','auto'),ga('set','anonymizeIp',!0),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>
