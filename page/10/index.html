@@ -86,6 +86,27 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2016-11-19-statusbar/>iOS 状态栏的图标</a></h1>
+<div class=post-meta>
+<span class=post-time> 2016-11-19 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 335 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+获取状态栏上的 view 数组 1 2 3 4 UIApplication *app = [UIApplication sharedApplication]; // 获取状态栏 UIView *statusView = [app valueForKey:@"statusBar"]; NSArray *subViews = [[statusView valueForKey:@"foregroundView"] subviews]; 打印 subviews 就能看到状态栏上的图标数据 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 // 信
+</div>
+<div class=read-more>
+<a href=/post/2016-11-19-statusbar/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/post/2016-11-14-jwscrollpageview/>模仿今日头条（网易新闻）的滚动</a></h1>
 <div class=post-meta>
 <span class=post-time> 2016-11-14 </span>
@@ -270,27 +291,6 @@ JWScrollPageView GitHub 地址 JWTagStyle 标签样式的类， 是否滚动条�
 </div>
 <div class=read-more>
 <a href=/post/2016-08-22-stringformat/ class=read-more-link>阅读更多</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title><a class=post-link href=/post/2016-08-16-cookie/>WKWebView添加Cookie</a></h1>
-<div class=post-meta>
-<span class=post-time> 2016-08-16 </span>
-<div class=post-category>
-<a href=/categories/ios/> iOS </a>
-</div>
-<span class=more-meta> 约 177 字 </span>
-<span class=more-meta> 预计阅读 1 分钟 </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-获取 Cookie 之前，APP 已经与服务器交互过，已经存在 Cookie 才行 网络请求添加Cookie都需要在request的时候添加 1 2 3 4 5 6 7 8 9 10 11 12 13 //获
-</div>
-<div class=read-more>
-<a href=/post/2016-08-16-cookie/ class=read-more-link>阅读更多</a>
 </div>
 </div>
 </article>
