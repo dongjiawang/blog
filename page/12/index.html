@@ -86,6 +86,27 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2016-07-08-ios-devices/>iOS 关闭自动锁屏</a></h1>
+<div class=post-meta>
+<span class=post-time> 2016-07-08 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 129 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+关闭自动锁屏 1 [UIApplication sharedApplication].idleTimerDisabled = YES; 关闭距离感应（防止黑屏） 1 2 [UIDevice currentDevice].proximityMonitoringEnabled = NO; // 不允许临近检测 写项目的时候一进入视频播放界面就会被手指挡住距离感应黑屏了，试了好
+</div>
+<div class=read-more>
+<a href=/post/2016-07-08-ios-devices/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/post/2016-07-07-touch-event/>iOS 手势基本操作</a></h1>
 <div class=post-meta>
 <span class=post-time> 2016-07-07 </span>
@@ -270,27 +291,6 @@ UILable是iPhone界面最基本的控件，主要用来显示文本信息。 常
 </div>
 <div class=read-more>
 <a href=/post/2016-01-06-viewanimation/ class=read-more-link>阅读更多</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title><a class=post-link href=/post/2016-01-06-labelstring/>iOS 获取UILabel上最后一个字符串的位置。获取文字长度和高度，自动换行</a></h1>
-<div class=post-meta>
-<span class=post-time> 2016-01-06 </span>
-<div class=post-category>
-<a href=/categories/ios/> iOS </a>
-</div>
-<span class=more-meta> 约 371 字 </span>
-<span class=more-meta> 预计阅读 1 分钟 </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-1 2 3 4 5 6 7 8 9 10 11 12 //行的高度。 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath { NewNotificationCell *cell = (NewNotificationCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath]; cell.myLabel.text = [self.dataArray objectAtIndex:indexPath.row]; labelSize = [cell.myLabel.text sizeWithFont:[UIFont fontWithName:@"Arial" size:15] constrainedToSize:CGSizeMake(cell.myLabel.frame.size.width, 1000) lineBreakMode:UILineBreakModeWordWrap]; cell.myLabel.lineBreakMode = UILineBreakModeWordWrap; cell.myLabel.numberOfLines = 0; [cell.myLabel setFont:[UIFont fontWithName:@"Arial" size:15]]; cell.myLabel.frame = CGRectMake(0, 0, labelSize.width, labelSize.height); return labelSize.height+30; } 1 2 3 4 5 6 7
-</div>
-<div class=read-more>
-<a href=/post/2016-01-06-labelstring/ class=read-more-link>阅读更多</a>
 </div>
 </div>
 </article>

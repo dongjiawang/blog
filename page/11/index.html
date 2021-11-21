@@ -86,6 +86,27 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2016-08-22-stringformat/>NSString使用stringWithFormat的拼接</a></h1>
+<div class=post-meta>
+<span class=post-time> 2016-08-22 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 241 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+保留2位小数点 1 2 3 //.2代表小数点后面保留2位(2代表保留的数量) NSString *string = [NSString stringWithFormat:@"%.2f",M_PI]; //输出结果是: 3.14 用0补全的方法 1 2 3 4 NSInteger count = 5; //02代表
+</div>
+<div class=read-more>
+<a href=/post/2016-08-22-stringformat/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/post/2016-08-16-cookie/>WKWebView添加Cookie</a></h1>
 <div class=post-meta>
 <span class=post-time> 2016-08-16 </span>
@@ -270,27 +291,6 @@ iOS已经提供了捕获异常的机制 NSSetUncaughtExceptionHandler 我们就�
 </div>
 <div class=read-more>
 <a href=/post/2016-07-13-afnnetstatus/ class=read-more-link>阅读更多</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title><a class=post-link href=/post/2016-07-08-ios-devices/>iOS 关闭自动锁屏</a></h1>
-<div class=post-meta>
-<span class=post-time> 2016-07-08 </span>
-<div class=post-category>
-<a href=/categories/ios/> iOS </a>
-</div>
-<span class=more-meta> 约 129 字 </span>
-<span class=more-meta> 预计阅读 1 分钟 </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-关闭自动锁屏 1 [UIApplication sharedApplication].idleTimerDisabled = YES; 关闭距离感应（防止黑屏） 1 2 [UIDevice currentDevice].proximityMonitoringEnabled = NO; // 不允许临近检测 写项目的时候一进入视频播放界面就会被手指挡住距离感应黑屏了，试了好
-</div>
-<div class=read-more>
-<a href=/post/2016-07-08-ios-devices/ class=read-more-link>阅读更多</a>
 </div>
 </div>
 </article>
