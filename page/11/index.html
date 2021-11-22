@@ -86,6 +86,27 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2016-09-08-getdate/>获取当前的年、月、日、小时、分钟、秒</a></h1>
+<div class=post-meta>
+<span class=post-time> 2016-09-08 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 124 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+获取当前的date 1 NSDate *nowDate = [NSDate date]; 使用NSCalendar 计算详细的时间 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 NSCalendar *calendar = [NSCalendar currentCalendar]; NSUInteger unitFlags = NSYearCalendarUnit | //年 NSMonthCalendarUnit | //月份 NSDayCalendarUnit |
+</div>
+<div class=read-more>
+<a href=/post/2016-09-08-getdate/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/post/2016-08-23-imagetype/>判断图片的类型</a></h1>
 <div class=post-meta>
 <span class=post-time> 2016-08-23 </span>
@@ -270,27 +291,6 @@ iOS已经提供了捕获异常的机制 NSSetUncaughtExceptionHandler 我们就�
 </div>
 <div class=read-more>
 <a href=/post/2016-07-18-downloadbig/ class=read-more-link>阅读更多</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title><a class=post-link href=/post/2016-07-13-iconupload/>使用AFN提交头像</a></h1>
-<div class=post-meta>
-<span class=post-time> 2016-07-13 </span>
-<div class=post-category>
-<a href=/categories/%E7%BD%91%E7%BB%9C/> 网络 </a>
-</div>
-<span class=more-meta> 约 324 字 </span>
-<span class=more-meta> 预计阅读 1 分钟 </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 //服务器地址 NSString *url = [NSString stringWithFormat:@"%@/uploadfile",[GlobalData GetInstance].GB_ServerIP]; //请求的字典信息（用户的
-</div>
-<div class=read-more>
-<a href=/post/2016-07-13-iconupload/ class=read-more-link>阅读更多</a>
 </div>
 </div>
 </article>

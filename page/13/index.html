@@ -86,6 +86,27 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2016-01-10-camreascreen/>屏幕截图的方法</a></h1>
+<div class=post-meta>
+<span class=post-time> 2016-01-10 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 89 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+不用 2d截图 直接截图 1 2 3 4 5 6 7 8 - (UIImage *)screenShots { //截取整个backview UIGraphicsBeginImageContext(self.backgroundView.bounds.size); [self.backgroundView.layer renderInContext:UIGraphicsGetCurrentContext()]; UIImage *sourceImage = UIGraphicsGetImageFromCurrentImageContext(); UIGraphicsEndImageContext(); return sourceImage; } 上面的方法会压缩图片，用下面的方法可以设置是否
+</div>
+<div class=read-more>
+<a href=/post/2016-01-10-camreascreen/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/post/2016-01-06-viewanimation/>自定义UIView动画效果</a></h1>
 <div class=post-meta>
 <span class=post-time> 2016-01-06 </span>
@@ -270,27 +291,6 @@ UICollectionView 相对于 UITableView 有更加自由的布局，做出的界�
 </div>
 <div class=read-more>
 <a href=/post/2015-12-28-time-datestr/ class=read-more-link>阅读更多</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title><a class=post-link href=/post/2015-12-22-ios9-certificate/>iOS 9以上系统 信任的企业级开发者证书</a></h1>
-<div class=post-meta>
-<span class=post-time> 2015-12-22 </span>
-<div class=post-category>
-<a href=/categories/ios/> iOS </a>
-</div>
-<span class=more-meta> 约 168 字 </span>
-<span class=more-meta> 预计阅读 1 分钟 </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-系统升级iOS9之后，安装企业签名的app时，会提示“未受信任的企业级开发者” 解决方法为： 设置-通用-描述文件-点上去，找到相应目录，点击后
-</div>
-<div class=read-more>
-<a href=/post/2015-12-22-ios9-certificate/ class=read-more-link>阅读更多</a>
 </div>
 </div>
 </article>

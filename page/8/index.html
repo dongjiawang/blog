@@ -86,6 +86,27 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2017-10-23-uiview-custom-layer/>绘制 UIView 指定的边框</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-10-23 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 256 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+一般绘制 UIView 的的边框的时候我们都会用 layer 的 borderWidth 和 borderColor 这两个属性，但是这样出来的效果是四周的边框都会被画上线条，有事需求就是指定画某个边框或者不画某个
+</div>
+<div class=read-more>
+<a href=/post/2017-10-23-uiview-custom-layer/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/post/2017-10-01-cocoapods-library-not-found-for-/>cocoaPods-library not found for - {}</a></h1>
 <div class=post-meta>
 <span class=post-time> 2017-10-01 </span>
@@ -270,27 +291,6 @@ AVFoundation 框架提供了播放音频和视频的工具，使用 AVFoundation
 </div>
 <div class=read-more>
 <a href=/post/2017-07-31-uitableview-auto-bottom/ class=read-more-link>阅读更多</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title><a class=post-link href=/post/2017-07-31-remove-htmlstr/>去除 HTML 标签</a></h1>
-<div class=post-meta>
-<span class=post-time> 2017-07-31 </span>
-<div class=post-category>
-<a href=/categories/ios/> iOS </a>
-</div>
-<span class=more-meta> 约 71 字 </span>
-<span class=more-meta> 预计阅读 1 分钟 </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-###这个方法可以很简单的去掉 HTML 的标签 1 2 3 4 5 6 7 8 9 10 11 12 // 去掉 HTML 标签 -(NSString *)filterHTML:(NSString *)html { NSScanner * scanner = [NSScanner scannerWithString:html]; NSString * text = nil; while([scanner isAtEnd]==NO) { [scanner scanUpToString:@"&lt;" intoString:nil]; [scanner scanUpToString:@">" intoString:&text]; html = [html stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@>",text] withString:@""]; } return html;
-</div>
-<div class=read-more>
-<a href=/post/2017-07-31-remove-htmlstr/ class=read-more-link>阅读更多</a>
 </div>
 </div>
 </article>
