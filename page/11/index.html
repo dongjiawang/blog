@@ -86,6 +86,27 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2016-08-23-imagetype/>判断图片的类型</a></h1>
+<div class=post-meta>
+<span class=post-time> 2016-08-23 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 312 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+从网络获取的图片URL. 举例如下: 1 2 3 4 5 6 7 8 9 //假设这是一个网络获取的URL NSString *path = @"http://pic3.nipic.com/20090709/2893198_075124038_2.png"; // 判断是否为png NSString *extensionName = path.pathExtension; if ([extensionName.lowercaseString isEqualToString:@"png"]) { //是png图
+</div>
+<div class=read-more>
+<a href=/post/2016-08-23-imagetype/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/post/2016-08-22-stringformat/>NSString使用stringWithFormat的拼接</a></h1>
 <div class=post-meta>
 <span class=post-time> 2016-08-22 </span>
@@ -270,27 +291,6 @@ iOS已经提供了捕获异常的机制 NSSetUncaughtExceptionHandler 我们就�
 </div>
 <div class=read-more>
 <a href=/post/2016-07-13-iconupload/ class=read-more-link>阅读更多</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title><a class=post-link href=/post/2016-07-13-afnnetstatus/>AFN监听网络状态</a></h1>
-<div class=post-meta>
-<span class=post-time> 2016-07-13 </span>
-<div class=post-category>
-<a href=/categories/%E7%BD%91%E7%BB%9C/> 网络 </a>
-</div>
-<span class=more-meta> 约 91 字 </span>
-<span class=more-meta> 预计阅读 1 分钟 </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-在 1 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 中添加以下代码就可以了 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 // 监测网络情况 [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) { switch (status) { case AFNetworkReachabilityStatusNotReachable: //没有网络 break; case AFNetworkReachabilityStatusReachableViaWWAN: //使用的数据
-</div>
-<div class=read-more>
-<a href=/post/2016-07-13-afnnetstatus/ class=read-more-link>阅读更多</a>
 </div>
 </div>
 </article>

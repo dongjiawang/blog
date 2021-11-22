@@ -86,6 +86,27 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2016-07-13-afnnetstatus/>AFN监听网络状态</a></h1>
+<div class=post-meta>
+<span class=post-time> 2016-07-13 </span>
+<div class=post-category>
+<a href=/categories/%E7%BD%91%E7%BB%9C/> 网络 </a>
+</div>
+<span class=more-meta> 约 91 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+在 1 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 中添加以下代码就可以了 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 // 监测网络情况 [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) { switch (status) { case AFNetworkReachabilityStatusNotReachable: //没有网络 break; case AFNetworkReachabilityStatusReachableViaWWAN: //使用的数据
+</div>
+<div class=read-more>
+<a href=/post/2016-07-13-afnnetstatus/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/post/2016-07-08-ios-devices/>iOS 关闭自动锁屏</a></h1>
 <div class=post-meta>
 <span class=post-time> 2016-07-08 </span>
@@ -270,27 +291,6 @@ UILable是iPhone界面最基本的控件，主要用来显示文本信息。 常
 </div>
 <div class=read-more>
 <a href=/post/2016-01-10-camreascreen/ class=read-more-link>阅读更多</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title><a class=post-link href=/post/2016-01-06-viewanimation/>自定义UIView动画效果</a></h1>
-<div class=post-meta>
-<span class=post-time> 2016-01-06 </span>
-<div class=post-category>
-<a href=/categories/ios/> iOS </a>
-</div>
-<span class=more-meta> 约 1186 字 </span>
-<span class=more-meta> 预计阅读 3 分钟 </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-最普通动画: 1 2 3 4 5 6 7 8 9 //开始动画 [UIView beginAnimations:nil context:nil]; //设定动画持续时间 [UIView setAnimationDuration:2]; //动画的内容 frame.origin.x += 150; [img setFrame:frame]; //动画结束 [UIView commitAnimations]; 连续动画:一个接一个地显示一
-</div>
-<div class=read-more>
-<a href=/post/2016-01-06-viewanimation/ class=read-more-link>阅读更多</a>
 </div>
 </div>
 </article>

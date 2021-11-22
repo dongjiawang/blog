@@ -86,6 +86,27 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2015-12-18-textfield-keyboard/>防止输入时键盘覆盖掉输入框</a></h1>
+<div class=post-meta>
+<span class=post-time> 2015-12-18 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 66 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+添加监听者 1 [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardwasChange:) name:UIKeyboardWillChangeFrameNotification object:nil]; 监听键盘之后的操作 可以根据自己的需要调整高度的大小 1 2 3 4 5 6 7 - (void)keyboardwasChange:(NSNotification *)info { CGRect keyFrame = [info.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue]; CGFloat tY = keyFrame.origin.y - self.view.frame.size.height - 64; self.view.transform = CGAffineTransformMakeTranslation(0, tY); }
+</div>
+<div class=read-more>
+<a href=/post/2015-12-18-textfield-keyboard/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/post/2015-12-18.app/>iOS APP设计规范大全</a></h1>
 <div class=post-meta>
 <span class=post-time> 2015-12-18 </span>

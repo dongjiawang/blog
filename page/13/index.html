@@ -86,6 +86,27 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2016-01-06-viewanimation/>自定义UIView动画效果</a></h1>
+<div class=post-meta>
+<span class=post-time> 2016-01-06 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 1186 字 </span>
+<span class=more-meta> 预计阅读 3 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+最普通动画: 1 2 3 4 5 6 7 8 9 //开始动画 [UIView beginAnimations:nil context:nil]; //设定动画持续时间 [UIView setAnimationDuration:2]; //动画的内容 frame.origin.x += 150; [img setFrame:frame]; //动画结束 [UIView commitAnimations]; 连续动画:一个接一个地显示一
+</div>
+<div class=read-more>
+<a href=/post/2016-01-06-viewanimation/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/post/2016-01-06-labelstring/>iOS 获取UILabel上最后一个字符串的位置。获取文字长度和高度，自动换行</a></h1>
 <div class=post-meta>
 <span class=post-time> 2016-01-06 </span>
@@ -270,27 +291,6 @@ UICollectionView 相对于 UITableView 有更加自由的布局，做出的界�
 </div>
 <div class=read-more>
 <a href=/post/2015-12-22-ios9-certificate/ class=read-more-link>阅读更多</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title><a class=post-link href=/post/2015-12-18-textfield-keyboard/>防止输入时键盘覆盖掉输入框</a></h1>
-<div class=post-meta>
-<span class=post-time> 2015-12-18 </span>
-<div class=post-category>
-<a href=/categories/ios/> iOS </a>
-</div>
-<span class=more-meta> 约 66 字 </span>
-<span class=more-meta> 预计阅读 1 分钟 </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-添加监听者 1 [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardwasChange:) name:UIKeyboardWillChangeFrameNotification object:nil]; 监听键盘之后的操作 可以根据自己的需要调整高度的大小 1 2 3 4 5 6 7 - (void)keyboardwasChange:(NSNotification *)info { CGRect keyFrame = [info.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue]; CGFloat tY = keyFrame.origin.y - self.view.frame.size.height - 64; self.view.transform = CGAffineTransformMakeTranslation(0, tY); }
-</div>
-<div class=read-more>
-<a href=/post/2015-12-18-textfield-keyboard/ class=read-more-link>阅读更多</a>
 </div>
 </div>
 </article>
