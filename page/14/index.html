@@ -86,6 +86,27 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2015-12-28-time-datestr/>计算时间间隔(年月日)</a></h1>
+<div class=post-meta>
+<span class=post-time> 2015-12-28 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 101 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+1 2 3 4 5 6 //创建时间格式 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init]; [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"]; NSDate *startDate = [dateFormatter dateFromString:@"2015-12-20 14:00"]; NSDate *endDate = [dateFormatter dateFromString:@"2015-12-21 14:00"]; NSTimeInterval time = [endDate timeIntervalSinceDate:startDate]; 1 2 3 4 5 6 7 8 9 10 11 12 13 //显示时间间隔 int minute,second,hour,day; second=time%60; minute = (time/60)%60; hour = (time/3600)%24;
+</div>
+<div class=read-more>
+<a href=/post/2015-12-28-time-datestr/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/post/2015-12-22-ios9-certificate/>iOS 9以上系统 信任的企业级开发者证书</a></h1>
 <div class=post-meta>
 <span class=post-time> 2015-12-22 </span>
@@ -270,27 +291,6 @@ APP需要用到的权限有时候没有打开，就需要提示用户打开某�
 </div>
 <div class=read-more>
 <a href=/post/2015-11-27-baidumapsdk/ class=read-more-link>阅读更多</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title><a class=post-link href=/post/2015-11-13-sqlcipher/>使用SQLCipher加密数据库</a></h1>
-<div class=post-meta>
-<span class=post-time> 2015-11-13 </span>
-<div class=post-category>
-<a href=/categories/ios/> iOS </a>
-</div>
-<span class=more-meta> 约 651 字 </span>
-<span class=more-meta> 预计阅读 2 分钟 </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-Xcode中集成了免费的sqlite，但是不提供加密的模块，突然有一天，蛋疼的客户要求把数据进行加密，于是乎就寻找使用简单并且可以把数据迁移
-</div>
-<div class=read-more>
-<a href=/post/2015-11-13-sqlcipher/ class=read-more-link>阅读更多</a>
 </div>
 </div>
 </article>

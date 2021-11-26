@@ -1,0 +1,265 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>面试准备（八）设计模式 - 我的码</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="dongjiawang"><meta name=description content="设计模式 设计模式是什么？简要概述 设计模式是一种编码经验，用比较成熟的逻辑去处理某一种类型的事情； MVC 模式：model、view、control"><meta name=keywords content="Hugo,theme,even">
+<meta name=generator content="Hugo 0.89.4 with theme even">
+<link rel=canonical href=https://blog.dongjiawang.top/post/2021-11-26-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E5%85%AB%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<link href=/sass/main.min.cb68f97bc9cece255d217346d970e3c62623408634e500c330a62fadabbbe77c.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="面试准备（八）设计模式">
+<meta property="og:description" content="设计模式 设计模式是什么？简要概述 设计模式是一种编码经验，用比较成熟的逻辑去处理某一种类型的事情； MVC 模式：model、view、control">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.dongjiawang.top/post/2021-11-26-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E5%85%AB%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2021-11-26T21:07:00+08:00">
+<meta property="article:modified_time" content="2021-11-26T21:07:00+08:00">
+<meta itemprop=name content="面试准备（八）设计模式">
+<meta itemprop=description content="设计模式 设计模式是什么？简要概述 设计模式是一种编码经验，用比较成熟的逻辑去处理某一种类型的事情； MVC 模式：model、view、control"><meta itemprop=datePublished content="2021-11-26T21:07:00+08:00">
+<meta itemprop=dateModified content="2021-11-26T21:07:00+08:00">
+<meta itemprop=wordCount content="931">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="面试准备（八）设计模式">
+<meta name=twitter:description content="设计模式 设计模式是什么？简要概述 设计模式是一种编码经验，用比较成熟的逻辑去处理某一种类型的事情； MVC 模式：model、view、control"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>我的码</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>首页</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>分类</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>关于</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>我的码</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>首页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>分类</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>关于</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>面试准备（八）设计模式</h1>
+<div class=post-meta>
+<span class=post-time> 2021-11-26 </span>
+<div class=post-category>
+<a href=/categories/%E5%85%85%E7%94%B5/> 充电 </a>
+</div>
+<span class=more-meta> 约 931 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>文章目录</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#设计模式>设计模式</a>
+<ul>
+<li><a href=#设计模式是什么简要概述>设计模式是什么？简要概述</a></li>
+<li><a href=#比较-mvc-和-mvvm>比较 MVC 和 MVVM</a></li>
+<li><a href=#什么是单例及优缺点>什么是单例？及优缺点</a></li>
+<li><a href=#创建单例有哪两种方式>创建单例有哪两种方式？</a></li>
+<li><a href=#用伪代码写一个线程安全的单例模式>用伪代码写一个线程安全的单例模式</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<h1 id=设计模式>设计模式</h1>
+<h2 id=设计模式是什么简要概述>设计模式是什么？简要概述</h2>
+<blockquote>
+<p>设计模式是一种编码经验，用比较成熟的逻辑去处理某一种类型的事情；</p>
+<ol>
+<li>MVC 模式：model、view、control，把模型、视图、控制器进行解耦；</li>
+<li>MVVM 模式：在 MVC 的基础上增加 viewmodel 层，把模型、视图和业务逻辑进行解耦；</li>
+<li>单例模式：通过 static 关键字，声明全局变量，在整个进程运行期间只会被赋值一次；</li>
+<li>观察者模式： KVO 是典型的通知模式，观察某个属性的状态，状态发生变化时，通知观察者；</li>
+<li>委托模式：代理 + 协议的组合，实现 1 对 1 的方向传值操作；</li>
+<li>工厂模式： 通过一个类方法，批量的根据已有的模版生产对象。</li>
+</ol>
+</blockquote>
+<h2 id=比较-mvc-和-mvvm>比较 MVC 和 MVVM</h2>
+<blockquote>
+<ul>
+<li>模型层几乎相同：模型层从理论上来说都是数据来源</li>
+<li>视图层在理论上都被设计为被动，但是实际上略有不同：在实际的开发中，MVC 的视图层和中间层高度耦合，几乎所有的操作都统一由 ViewController 包办。</li>
+<li>中间层的设计是两种架构的核心差异：从逻辑上讲，中间层的作用就是连接视图层和模型层。它用于处理交互、接收通知和完成数据更新。
+<ul>
+<li>MVC 的中间层 Controller 持有视图和模型，主要起到组装和连接的作用，通过传递参数和实例变量来直接完成所有操作。</li>
+<li>MVVM 的中间层 viewModel 持有模型，在更新模型上与 MVC 相同。它独立于视图，视图拥有中间层，通过绑定属性自动更新。</li>
+</ul>
+</li>
+<li>MVC 的耦合度很高，维护和扩展成本最高，但是因为无须层级传递，所以代码总量较小</li>
+<li>MVVM 的耦合度角度，比较容易实现高测试覆盖率。</li>
+</ul>
+</blockquote>
+<h2 id=什么是单例及优缺点>什么是单例？及优缺点</h2>
+<blockquote>
+<p>单例就是一个类只被实例化一次，提供对唯一实例的受控访问</p>
+</blockquote>
+<blockquote>
+<p>优点：一个类只被实例化一次，提供唯一的实例受控访问，节省系统资源，允许可变数目的实例</p>
+<p>缺点：一个类只有一个对象，可能造成责任过重，在一定程度上违背了单一职责的原则；单例模式中没有抽象层，因此单例扩展有很大困难；滥用单例模式将带来一些负面问题，比如：实例化对象长时间不被利用，系统会认为是垃圾而被回收，导致对象状态丢失。</p>
+</blockquote>
+<h2 id=创建单例有哪两种方式>创建单例有哪两种方式？</h2>
+<blockquote>
+<ol>
+<li>创建一个全局静态实例并置为 nil；实现一个实例构造方法并同步处理，再判断上面声明的静态实例是否为 nil，如果是则新建并返回这个实例对象；</li>
+<li>使用 GCD 线程中只执行一次的方法来创建单例。</li>
+</ol>
+</blockquote>
+<h2 id=用伪代码写一个线程安全的单例模式>用伪代码写一个线程安全的单例模式</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objc data-lang=objc><span class=k>static</span> <span class=kt>id</span> <span class=n>_instance</span><span class=p>;</span>
+
+<span class=p>+</span> <span class=p>(</span><span class=kt>id</span><span class=p>)</span><span class=nf>allocWithZone:</span><span class=p>(</span><span class=k>struct</span> <span class=n>_NSZone</span> <span class=o>*</span><span class=p>)</span><span class=nv>zone</span> <span class=p>{</span>
+  <span class=k>static</span> <span class=n>dispatch_once_t</span> <span class=n>onceToken</span><span class=p>;</span>
+  <span class=n>dispatch_once</span><span class=p>(</span><span class=o>&amp;</span><span class=n>onceToken</span><span class=p>,</span> <span class=o>^</span><span class=p>{</span>
+    <span class=n>_instance</span> <span class=o>=</span> <span class=p>[</span><span class=nb>super</span> <span class=nl>allocWithZone</span><span class=p>:</span><span class=n>zone</span><span class=p>];</span>
+  <span class=p>});</span>
+  <span class=k>return</span> <span class=n>_instance</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=p>+</span> <span class=p>(</span><span class=kt>instancetype</span><span class=p>)</span><span class=nf>sharedData</span> <span class=p>{</span>
+  <span class=k>static</span> <span class=n>dispatch_once_t</span> <span class=n>onceToken</span><span class=p>;</span>
+  <span class=n>dispatch_once</span><span class=p>(</span><span class=o>&amp;</span><span class=n>onceToken</span><span class=p>,</span> <span class=o>^</span><span class=p>{</span>
+    <span class=n>_instance</span> <span class=o>=</span> <span class=p>[[</span><span class=nb>self</span> <span class=n>alloc</span><span class=p>]</span> <span class=n>init</span><span class=p>];</span>
+  <span class=p>});</span>
+    <span class=k>return</span> <span class=n>_instance</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=p>-</span> <span class=p>(</span><span class=kt>id</span><span class=p>)</span><span class=nf>copyWithZone:</span><span class=p>(</span><span class=n>NSZone</span> <span class=o>*</span><span class=p>)</span><span class=nv>zone</span> <span class=p>{</span>
+  <span class=k>return</span> <span class=n>_instance</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+</div>
+<footer class=post-footer>
+<nav class=post-nav>
+<a class=next href=/post/2021-11-22-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%83runloopruntimemethod-swizzle/>
+<span class="next-text nav-default">面试准备（七）RunLoop、Runtime、Method Swizzle</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=dongjiawang2008@163.com class="iconfont icon-email" title=email></a>
+<a href=https://github.com/dongjiawang class="iconfont icon-github" title=github></a>
+<a href=https://space.bilibili.com/13834686 class="iconfont icon-bilibili" title=bilibili></a>
+<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<span class=copyright-year>
+&copy;
+2015 -
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-141040294-1','auto'),ga('set','anonymizeIp',!0),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

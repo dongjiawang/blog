@@ -86,6 +86,27 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2016-12-22-uicolortohexstring/>UIColor 转成 Hex 16进制色值</a></h1>
+<div class=post-meta>
+<span class=post-time> 2016-12-22 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 48 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+1 2 3 4 5 6 7 8 9 10 11 12 13 - (NSString *)hexStringFromColor:(UIColor *)color { const CGFloat *components = CGColorGetComponents(color.CGColor); CGFloat r = components[0]; CGFloat g = components[1]; CGFloat b = components[2]; return [NSString stringWithFormat:@"#%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255)]; }
+</div>
+<div class=read-more>
+<a href=/post/2016-12-22-uicolortohexstring/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/post/2016-12-15-nsmutablearray-delete/>删除可变数组元素</a></h1>
 <div class=post-meta>
 <span class=post-time> 2016-12-15 </span>
@@ -270,27 +291,6 @@ JWScrollPageView GitHub 地址 JWTagStyle 标签样式的类， 是否滚动条�
 </div>
 <div class=read-more>
 <a href=/post/2016-10-18-xcodeerror/ class=read-more-link>阅读更多</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title><a class=post-link href=/post/2016-09-19-swift-json/>Swift 使用JSON数据结构</a></h1>
-<div class=post-meta>
-<span class=post-time> 2016-09-19 </span>
-<div class=post-category>
-<a href=/categories/ios/> iOS </a>
-</div>
-<span class=more-meta> 约 2173 字 </span>
-<span class=more-meta> 预计阅读 5 分钟 </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-如果你的APP从服务器获取到的数据格式为JSON。你可以使用JSONSerialization把JSON解析成Swift的数据类型，比如Di
-</div>
-<div class=read-more>
-<a href=/post/2016-09-19-swift-json/ class=read-more-link>阅读更多</a>
 </div>
 </div>
 </article>
