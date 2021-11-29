@@ -1,0 +1,1055 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>面试准备（十一）算法 - 我的码</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="dongjiawang"><meta name=description content="算法 替换 A 和 B 的值 1 2 3 4 5 6 // 中间变量 void swap(int a, int b) { int temp = a; a = b; b = temp; } 1 2 3 4 5 6 // 加法 void swap(int a, int b) { a = a + b; b = a - b; a = a - b; } 1 2"><meta name=keywords content="Hugo,theme,even">
+<meta name=generator content="Hugo 0.89.4 with theme even">
+<link rel=canonical href=https://blog.dongjiawang.top/post/2021-11-29-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E5%8D%81%E4%B8%80%E7%AE%97%E6%B3%95/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<link href=/sass/main.min.cb68f97bc9cece255d217346d970e3c62623408634e500c330a62fadabbbe77c.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="面试准备（十一）算法">
+<meta property="og:description" content="算法 替换 A 和 B 的值 1 2 3 4 5 6 // 中间变量 void swap(int a, int b) { int temp = a; a = b; b = temp; } 1 2 3 4 5 6 // 加法 void swap(int a, int b) { a = a + b; b = a - b; a = a - b; } 1 2">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.dongjiawang.top/post/2021-11-29-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E5%8D%81%E4%B8%80%E7%AE%97%E6%B3%95/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2021-11-29T20:34:00+08:00">
+<meta property="article:modified_time" content="2021-11-29T20:34:00+08:00">
+<meta itemprop=name content="面试准备（十一）算法">
+<meta itemprop=description content="算法 替换 A 和 B 的值 1 2 3 4 5 6 // 中间变量 void swap(int a, int b) { int temp = a; a = b; b = temp; } 1 2 3 4 5 6 // 加法 void swap(int a, int b) { a = a + b; b = a - b; a = a - b; } 1 2"><meta itemprop=datePublished content="2021-11-29T20:34:00+08:00">
+<meta itemprop=dateModified content="2021-11-29T20:34:00+08:00">
+<meta itemprop=wordCount content="3898">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="面试准备（十一）算法">
+<meta name=twitter:description content="算法 替换 A 和 B 的值 1 2 3 4 5 6 // 中间变量 void swap(int a, int b) { int temp = a; a = b; b = temp; } 1 2 3 4 5 6 // 加法 void swap(int a, int b) { a = a + b; b = a - b; a = a - b; } 1 2"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>我的码</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>首页</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>分类</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>关于</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>我的码</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>首页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>分类</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>关于</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>面试准备（十一）算法</h1>
+<div class=post-meta>
+<span class=post-time> 2021-11-29 </span>
+<div class=post-category>
+<a href=/categories/%E5%85%85%E7%94%B5/> 充电 </a>
+</div>
+<span class=more-meta> 约 3898 字 </span>
+<span class=more-meta> 预计阅读 8 分钟 </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>文章目录</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#算法>算法</a>
+<ul>
+<li><a href=#替换-a-和-b-的值>替换 A 和 B 的值</a></li>
+<li><a href=#求最大公约数>求最大公约数</a></li>
+<li><a href=#排序算法>排序算法</a>
+<ul>
+<li><a href=#冒泡排序>冒泡排序</a></li>
+<li><a href=#选择排序>选择排序</a></li>
+</ul>
+</li>
+<li><a href=#二叉树>二叉树</a>
+<ul>
+<li><a href=#基本概念>基本概念</a></li>
+<li><a href=#二叉树的遍历>二叉树的遍历</a></li>
+</ul>
+</li>
+<li><a href=#搜索>搜索</a>
+<ul>
+<li><a href=#二分查找>二分查找</a></li>
+</ul>
+</li>
+<li><a href=#例题整理>例题整理</a>
+<ul>
+<li><a href=#给定一个整数数组和一个目标值找出数组中和为目标值的两个数你可以假设每个输入只对应一种答案且同样的元素不能重复利用>给定一个整数数组和一个目标值，找出数组中和为目标值的两个数，你可以假设每个输入只对应一种答案，且同样的元素不能重复利用。</a></li>
+<li><a href=#给定两个非空链表表示两个非负整数位数按照逆序方式存储他们的每个节点只存储单个数字将两数相加返回一个新的链表你可以假设除了数字0之外这2个数字都不会以零开头>给定两个非空链表，表示两个非负整数，位数按照逆序方式存储，他们的每个节点只存储单个数字，将两数相加，返回一个新的链表，你可以假设除了数字0之外,这2个数字都不会以零开头.</a></li>
+<li><a href=#给你一个整数-x-如果-x-是一个回文整数返回-true-否则返回-false-回文数是指正序从左向右和倒序从右向左读都是一样的整数例如121-是回文而-123-不是>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。</a></li>
+<li><a href=#编写一个函数来查找字符串数组中的最长公共前缀如果不存在公共前缀返回空字符串->编写一个函数来查找字符串数组中的最长公共前缀。如果不存在公共前缀，返回空字符串 &ldquo;"。</a></li>
+<li><a href=#给定一个只包括--的字符串-s-判断字符串是否有效有效字符串需满足>给定一个只包括 &lsquo;('，')'，'{'，'}'，'['，']&rsquo; 的字符串 s ，判断字符串是否有效。有效字符串需满足：</a></li>
+<li><a href=#一个有序数组-nums-请你-原地-删除重复出现的元素使每个元素-只出现一次-返回删除后数组的新长度不要使用额外的数组空间你必须在-原地-修改输入数组-并在使用-o1-额外空间的条件下完成>一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。</a></li>
+<li><a href=#一个数组-nums-和一个值-val你需要-原地-移除所有数值等于-val-的元素并返回移除后数组的新长度不要使用额外的数组空间你必须仅使用-o1-额外空间并-原地-修改输入数组元素的顺序可以改变你不需要考虑数组中超出新长度后面的元素>一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并 原地 修改输入数组。元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</a></li>
+<li><a href=#给定一个排序数组和一个目标值在数组中找到目标值并返回其索引如果目标值不存在于数组中返回它将会被按顺序插入的位置你可以假设数组中无重复元素>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。你可以假设数组中无重复元素。</a></li>
+<li><a href=#一个字符串-s由若干单词组成单词之间用空格隔开返回字符串中最后一个单词的长度如果不存在最后一个单词请返回-0-单词-是指仅由字母组成不包含任何空格字符的最大子字符串>一个字符串 s，由若干单词组成，单词之间用空格隔开。返回字符串中最后一个单词的长度。如果不存在最后一个单词，请返回 0 。单词 是指仅由字母组成、不包含任何空格字符的最大子字符串。</a></li>
+<li><a href=#实现一个方法计算100的阶乘>实现一个方法，计算100的阶乘。</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<h1 id=算法>算法</h1>
+<h2 id=替换-a-和-b-的值>替换 A 和 B 的值</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=c1>// 中间变量
+</span><span class=c1></span><span class=kt>void</span> <span class=nf>swap</span><span class=p>(</span><span class=kt>int</span> <span class=n>a</span><span class=p>,</span> <span class=kt>int</span> <span class=n>b</span><span class=p>)</span> <span class=p>{</span>
+  <span class=kt>int</span> <span class=n>temp</span> <span class=o>=</span> <span class=n>a</span><span class=p>;</span>
+  <span class=n>a</span> <span class=o>=</span> <span class=n>b</span><span class=p>;</span>
+  <span class=n>b</span> <span class=o>=</span> <span class=n>temp</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=c1>// 加法
+</span><span class=c1></span><span class=kt>void</span> <span class=nf>swap</span><span class=p>(</span><span class=kt>int</span> <span class=n>a</span><span class=p>,</span> <span class=kt>int</span> <span class=n>b</span><span class=p>)</span> <span class=p>{</span>
+  <span class=n>a</span> <span class=o>=</span> <span class=n>a</span> <span class=o>+</span> <span class=n>b</span><span class=p>;</span>
+  <span class=n>b</span> <span class=o>=</span> <span class=n>a</span> <span class=o>-</span> <span class=n>b</span><span class=p>;</span>
+  <span class=n>a</span> <span class=o>=</span> <span class=n>a</span> <span class=o>-</span> <span class=n>b</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=c1>// 异或
+</span><span class=c1></span><span class=kt>void</span> <span class=nf>swap</span><span class=p>(</span><span class=kt>int</span> <span class=n>a</span><span class=p>,</span> <span class=kt>int</span> <span class=n>b</span><span class=p>)</span> <span class=p>{</span>
+  <span class=n>a</span> <span class=o>=</span> <span class=n>a</span> <span class=o>^</span> <span class=n>b</span><span class=p>;</span>
+  <span class=n>b</span> <span class=o>=</span> <span class=n>a</span> <span class=o>^</span> <span class=n>b</span><span class=p>;</span>
+  <span class=n>a</span> <span class=o>=</span> <span class=n>a</span> <span class=o>^</span> <span class=n>b</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=求最大公约数>求最大公约数</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=c1>// 直接遍历
+</span><span class=c1></span><span class=kt>int</span> <span class=nf>maxCommonDivisor</span><span class=p>(</span><span class=kt>int</span> <span class=n>a</span><span class=p>,</span> <span class=kt>int</span> <span class=n>b</span><span class=p>)</span> <span class=p>{</span>
+  <span class=kt>int</span> <span class=n>max</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+  <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;=</span> <span class=n>b</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>if</span><span class=p>(</span><span class=n>a</span> <span class=o>%</span> <span class=n>i</span> <span class=o>==</span> <span class=mi>0</span> <span class=o>&amp;&amp;</span> <span class=n>b</span> <span class=o>%</span> <span class=n>i</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+      <span class=n>max</span> <span class=o>=</span> <span class=n>i</span><span class=p>;</span>
+    <span class=p>}</span>
+  <span class=p>}</span>
+  <span class=k>return</span> <span class=n>max</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=c1>// 辗转相除
+</span><span class=c1></span><span class=kt>int</span> <span class=nf>maxCommonDivisor</span><span class=p>(</span><span class=kt>int</span> <span class=n>a</span><span class=p>,</span> <span class=kt>int</span> <span class=n>b</span><span class=p>)</span> <span class=p>{</span>
+  <span class=kt>int</span> <span class=n>r</span><span class=p>;</span>
+  <span class=k>while</span><span class=p>(</span><span class=n>a</span> <span class=o>%</span> <span class=n>b</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>r</span> <span class=o>=</span> <span class=n>a</span> <span class=o>%</span> <span class=n>b</span><span class=p>;</span>
+    <span class=n>a</span> <span class=o>=</span> <span class=n>b</span><span class=p>;</span>
+    <span class=n>b</span> <span class=o>=</span> <span class=n>r</span><span class=p>;</span>
+  <span class=p>}</span>
+  <span class=k>return</span> <span class=n>b</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>扩展：最小公倍数 = （a * b）/最大公约数</p>
+</blockquote>
+<h2 id=排序算法>排序算法</h2>
+<h3 id=冒泡排序>冒泡排序</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=c1>// 两两比较，质量大的下沉，质量小的上浮；
+</span><span class=c1>// 外层循环用于控制排序次数，n 个数需要 n-1 次；
+</span><span class=c1>// 内层循环用于两两比较，每次找出最大的沉到底部。
+</span><span class=c1></span>
+<span class=k>for</span> <span class=p>(</span><span class=n>i</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+  <span class=k>for</span> <span class=p>(</span><span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=n>n</span> <span class=o>-</span> <span class=n>i</span><span class=p>;</span> <span class=n>j</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>if</span> <span class=p>(</span><span class=n>ary</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>&gt;</span> <span class=n>ary</span><span class=p>[</span><span class=n>j</span><span class=o>+</span><span class=mi>1</span><span class=p>])</span> <span class=p>{</span>
+      <span class=n>temp</span> <span class=o>=</span> <span class=n>ary</span><span class=p>[</span><span class=n>j</span><span class=p>];</span>
+      <span class=n>ary</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>=</span> <span class=n>ary</span><span class=p>[</span><span class=n>j</span> <span class=o>+</span> <span class=mi>1</span><span class=p>];</span>
+      <span class=n>ary</span><span class=p>[</span><span class=n>j</span> <span class=o>+</span> <span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=n>temp</span><span class=p>;</span>
+    <span class=p>}</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=选择排序>选择排序</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=c1>// 每次获取一个关键字与它后面的数进行比较，找出最小的数与关键字进行交换；
+</span><span class=c1>// 外层循环用于获取关键字，同时控制循环次数，n 个数需要 n-1 次；
+</span><span class=c1>// 内存循环用于将关键字与它后面的数比较，找出最小的数与关键字进行交换。
+</span><span class=c1></span>
+<span class=cm>/*
+</span><span class=cm>第一趟选择排序：从 n 个数中找出最小的数，将它与第一个数交换，结果最小的数被安置在第一个元素位置上；
+</span><span class=cm>第二趟选择排序：从 n-1 个数中找出次小的数，将它与第二个数交换，结果最小的数被安排在第二个元素位置上；
+</span><span class=cm>重复上述过程，共经过 n-1 趟排序后，排序结束。
+</span><span class=cm>*/</span>
+  
+<span class=k>for</span> <span class=p>(</span><span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>n</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+  <span class=k>for</span> <span class=p>(</span><span class=n>j</span> <span class=o>=</span> <span class=n>i</span> <span class=o>+</span> <span class=mi>1</span><span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=n>n</span><span class=p>;</span> <span class=n>j</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>if</span> <span class=p>(</span><span class=n>ary</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>&gt;</span> <span class=n>ary</span><span class=p>[</span><span class=n>j</span><span class=p>])</span> <span class=p>{</span>
+      <span class=n>temp</span> <span class=o>=</span> <span class=n>ary</span><span class=p>[</span><span class=n>i</span><span class=p>];</span> <span class=c1>// 这里 ary[i]就是关键字
+</span><span class=c1></span>      <span class=n>ary</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>ary</span><span class=p>[</span><span class=n>j</span><span class=p>];</span>
+      <span class=n>ary</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>=</span> <span class=n>temp</span><span class=p>;</span>
+    <span class=p>}</span>
+  <span class=p>}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=二叉树>二叉树</h2>
+<h3 id=基本概念>基本概念</h3>
+<blockquote>
+<p>在二叉树中，每个节点最多有两个子节点，一般被称为左子节点和右子节点，并且二叉树的子树有左右之分，其次序不能任意颠倒。</p>
+</blockquote>
+<h3 id=二叉树的遍历>二叉树的遍历</h3>
+<blockquote>
+<p>最常见的树的遍历有 3 种，前序、中序和后序遍历，3 种写法相似，无非是递归的顺序略有不同。</p>
+</blockquote>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-swift data-lang=swift><span class=c1>// 用栈实现的前序遍历</span>
+<span class=kd>func</span> <span class=nf>preorderTraversal</span><span class=p>(</span><span class=n>root</span><span class=p>:</span> <span class=n>TreeNode</span><span class=p>?)</span> <span class=p>-&gt;</span> <span class=p>[</span><span class=nb>Int</span><span class=p>]</span> <span class=p>{</span>
+  <span class=kd>var</span> <span class=nv>res</span> <span class=p>=</span> <span class=p>[</span><span class=nb>Int</span><span class=p>]()</span>
+  <span class=kd>var</span> <span class=nv>stack</span> <span class=p>=</span> <span class=p>[</span><span class=n>TreeNode</span><span class=p>]()</span>
+  <span class=kd>var</span> <span class=nv>node</span> <span class=p>=</span> <span class=n>root</span>
+    
+   <span class=k>while</span> <span class=o>!</span><span class=n>stack</span><span class=p>.</span><span class=bp>isEmpty</span> <span class=o>||</span> <span class=n>node</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+     <span class=k>if</span> <span class=n>node</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+       <span class=n>res</span><span class=p>.</span><span class=n>append</span><span class=p>(</span><span class=n>node</span><span class=p>!.</span><span class=n>val</span><span class=p>)</span>
+       <span class=n>stack</span><span class=p>.</span><span class=n>append</span><span class=p>(</span><span class=n>node</span><span class=p>!)</span>
+			 <span class=n>node</span> <span class=p>=</span> <span class=n>node</span><span class=p>!.</span><span class=kr>left</span>
+     <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+       <span class=n>node</span> <span class=p>=</span> <span class=n>stack</span><span class=p>.</span><span class=bp>removeLast</span><span class=p>().</span><span class=kr>right</span>
+     <span class=p>}</span>
+   <span class=p>}</span>
+  <span class=k>return</span> <span class=n>res</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=搜索>搜索</h2>
+<h3 id=二分查找>二分查找</h3>
+<blockquote>
+<ol>
+<li>先决条件：必须是一维顺序数组；</li>
+<li>原理： 取中，比较；</li>
+<li>设置最小索引和最大索引，定一个 while 循环语句条件时最小索引 &lt; 最大索引,首先判断要查找的值不等于这 2 个索引对应的值，等于就查找成功了。不等于再定义一个中间索引，判断要查找的值是否等于中间索引值，等于就是查找成功了。不等于就判断要查找的值是否小雨中间索引对应的值，小于的话就把中间索引值减 1 赋值给最大索引，反之就把索引加 1，赋值给最小索引。</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>设置数组 r 最小索引 low，最大索引 high，求数组的中间索引 mid = (low + high) / 2;</p>
+<p>若 r[mid] == k，查找成功；</p>
+<p>若 r[mid] > k, 设置 high = mid - 1，继续进行二分查找；</p>
+<p>若 r[mid] &lt; k,设置 low = mid + 1，继续进行二分查找。</p>
+</blockquote>
+<h2 id=例题整理>例题整理</h2>
+<h3 id=给定一个整数数组和一个目标值找出数组中和为目标值的两个数你可以假设每个输入只对应一种答案且同样的元素不能重复利用>给定一个整数数组和一个目标值，找出数组中和为目标值的两个数，你可以假设每个输入只对应一种答案，且同样的元素不能重复利用。</h3>
+<p>示例：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objc data-lang=objc><span class=err>给定数组</span> <span class=n>NSArray</span> <span class=o>*</span><span class=n>arr</span> <span class=o>=</span> <span class=l>@[</span><span class=mi>2</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>11</span><span class=p>,</span><span class=mi>15</span><span class=p>,</span><span class=mi>20</span><span class=l>]</span><span class=p>;</span> <span class=n>NSInteger</span> <span class=n>target</span> <span class=o>=</span> <span class=mi>9</span><span class=p>;</span>
+
+<span class=err>因为</span> <span class=n>arr</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>+</span> <span class=n>arr</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=mi>9</span><span class=p>;</span>
+
+<span class=err>所以返回</span><span class=p>[</span><span class=mi>0</span><span class=p>,</span><span class=mi>1</span><span class=p>]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>解决思路：</strong></p>
+<blockquote>
+<ol>
+<li>首先肯定需要循环，第一层for循环，arr的下标为0，开始走，获取数组每个元素arr[i]</li>
+<li>第二层for循环，从上层循环的i+1开始走，获取后面数据arr[j]，保证每次两层循环都不会拿到重复数据</li>
+<li>arr[i]+arr[j]如果等于target，那就输出下标以及元素。</li>
+</ol>
+</blockquote>
+<p><strong>OC 示例代码</strong></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objc data-lang=objc><span class=n>NSInteger</span> <span class=n>target</span> <span class=o>=</span> <span class=mi>11</span><span class=p>;</span>
+<span class=n>NSArray</span> <span class=o>*</span><span class=n>arr</span> <span class=o>=</span> <span class=l>@[@(</span><span class=mi>2</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=mi>11</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=mi>7</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=mi>9</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=mi>0</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=mi>3</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=mi>6</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=mi>1</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=mi>8</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=mi>5</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=mi>4</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=mi>111</span><span class=l>)]</span><span class=p>;</span>
+
+<span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>arr</span><span class=p>.</span><span class=n>count</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+  <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>j</span> <span class=o>=</span> <span class=n>i</span> <span class=o>+</span> <span class=mi>1</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>arr</span><span class=p>.</span><span class=n>count</span><span class=p>;</span> <span class=n>j</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>if</span> <span class=p>([</span><span class=n>arr</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=n>integerValue</span><span class=p>]</span> <span class=o>+</span> <span class=p>[</span><span class=n>arr</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=n>integerValue</span><span class=p>]</span> <span class=o>==</span> <span class=n>target</span><span class=p>)</span>  <span class=p>{</span>
+				<span class=n>NSLog</span><span class=p>(</span><span class=s>@&#34;%@(%d) + %@(%d) = %ld</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span><span class=n>arr</span><span class=p>[</span><span class=n>i</span><span class=p>],</span><span class=n>i</span><span class=p>,</span><span class=n>arr</span><span class=p>[</span><span class=n>j</span><span class=p>],</span><span class=n>j</span><span class=p>,(</span><span class=kt>long</span><span class=p>)</span><span class=n>target</span><span class=p>);</span>
+    <span class=p>}</span>
+  <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=给定两个非空链表表示两个非负整数位数按照逆序方式存储他们的每个节点只存储单个数字将两数相加返回一个新的链表你可以假设除了数字0之外这2个数字都不会以零开头>给定两个非空链表，表示两个非负整数，位数按照逆序方式存储，他们的每个节点只存储单个数字，将两数相加，返回一个新的链表，你可以假设除了数字0之外,这2个数字都不会以零开头.</h3>
+<p>示例：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objc data-lang=objc><span class=n>NSArray</span> <span class=o>*</span><span class=n>firstArr</span> <span class=o>=</span> <span class=l>@[@(</span><span class=mi>2</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=mi>4</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=mi>3</span><span class=l>)]</span><span class=p>;</span>
+<span class=n>NSArray</span> <span class=o>*</span><span class=n>lastArr</span> <span class=o>=</span> <span class=l>@[@(</span><span class=mi>5</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=mi>6</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=mi>4</span><span class=l>)]</span><span class=p>;</span>
+<span class=err>输出</span><span class=p>[</span><span class=mi>7</span><span class=p>,</span><span class=mi>0</span><span class=p>,</span><span class=mi>8</span><span class=p>]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>解决思路：</strong></p>
+<blockquote>
+<ol>
+<li>首先用两个数据表示链表，存储给定的数据</li>
+<li>然后用两个 NSInteger 表示给定的数据</li>
+<li>使用 for 循环倒序遍历计算给定的数据，并赋值给 NSInteger</li>
+<li>计算两个数的和，使用一个 NSInteger 存储</li>
+<li>创建一个数组，使用 while 循环，取余将余数添加到数组</li>
+<li>输出数组</li>
+</ol>
+</blockquote>
+<p><strong>OC 示例代码：</strong></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objc data-lang=objc><span class=n>NSArray</span> <span class=o>*</span><span class=n>starArr</span> <span class=o>=</span> <span class=l>@[@(</span><span class=mi>2</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=mi>4</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=mi>3</span><span class=l>)]</span><span class=p>;</span>
+<span class=n>NSArray</span> <span class=o>*</span><span class=n>endArr</span> <span class=o>=</span> <span class=l>@[@(</span><span class=mi>5</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=mi>6</span><span class=l>)</span><span class=p>,</span><span class=l>@(</span><span class=mi>4</span><span class=l>)]</span><span class=p>;</span>
+<span class=n>NSMutableArray</span> <span class=o>*</span><span class=n>resArr</span> <span class=o>=</span> <span class=p>[</span><span class=n>NSMutableArray</span> <span class=n>array</span><span class=p>];</span>
+
+<span class=n>NSInteger</span> <span class=n>starInt</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+<span class=n>NSInteger</span> <span class=n>endInt</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+<span class=n>NSInteger</span> <span class=n>result</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+
+<span class=k>for</span> <span class=p>(</span><span class=n>NSInteger</span> <span class=n>i</span> <span class=o>=</span> <span class=n>starArr</span><span class=p>.</span><span class=n>count</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=n>i</span> <span class=o>&gt;=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>starInt</span> <span class=o>=</span> <span class=n>starInt</span> <span class=o>*</span> <span class=mi>10</span> <span class=o>+</span> <span class=p>[</span><span class=n>starArr</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=n>integerValue</span><span class=p>];</span>
+<span class=p>}</span>
+
+<span class=k>for</span> <span class=p>(</span><span class=n>NSInteger</span> <span class=n>i</span> <span class=o>=</span> <span class=n>endArr</span><span class=p>.</span><span class=n>count</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=n>i</span> <span class=o>&gt;=</span><span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
+    <span class=n>endInt</span> <span class=o>=</span> <span class=n>endInt</span> <span class=o>*</span> <span class=mi>10</span> <span class=o>+</span> <span class=p>[</span><span class=n>endArr</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=n>integerValue</span><span class=p>];</span>
+<span class=p>}</span>
+
+<span class=n>result</span> <span class=o>=</span> <span class=n>starInt</span> <span class=o>+</span> <span class=n>endInt</span><span class=p>;</span>
+
+<span class=k>while</span> <span class=p>(</span><span class=n>result</span> <span class=o>&gt;</span> <span class=mi>9</span><span class=p>)</span> <span class=p>{</span>
+    <span class=p>[</span><span class=n>resArr</span> <span class=nl>addObject</span><span class=p>:</span><span class=l>@(</span><span class=n>result</span> <span class=o>%</span> <span class=mi>10</span><span class=l>)</span><span class=p>];</span>
+    <span class=n>result</span> <span class=o>=</span> <span class=p>(</span><span class=n>result</span> <span class=o>-</span> <span class=p>(</span><span class=n>result</span> <span class=o>%</span> <span class=mi>10</span><span class=p>))</span> <span class=o>/</span> <span class=mi>10</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=p>[</span><span class=n>resArr</span> <span class=nl>addObject</span><span class=p>:</span><span class=l>@(</span><span class=n>result</span><span class=l>)</span><span class=p>];</span>
+
+<span class=k>if</span> <span class=p>([</span><span class=n>resArr</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=n>integerValue</span><span class=p>]</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+    <span class=p>[</span><span class=n>resArr</span> <span class=nl>removeObjectAtIndex</span><span class=p>:</span><span class=mi>0</span><span class=p>];</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=给你一个整数-x-如果-x-是一个回文整数返回-true-否则返回-false-回文数是指正序从左向右和倒序从右向左读都是一样的整数例如121-是回文而-123-不是>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。</h3>
+<p><strong>解决思路:</strong></p>
+<blockquote>
+<ol>
+<li>先判断是否负数，如果是负数，直接返回 false</li>
+<li>先进行数据转换，取绝对值</li>
+<li>将整数倒序排列</li>
+<li>判断新得到的整数与原整数是否相等</li>
+</ol>
+</blockquote>
+<p><strong>OC 代码示例：</strong></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objc data-lang=objc><span class=p>-</span> <span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nf>solution:</span><span class=p>(</span><span class=kt>int</span><span class=p>)</span><span class=nv>number</span> <span class=p>{</span>
+    <span class=k>if</span> <span class=p>(</span><span class=n>number</span> <span class=o>&lt;</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=nb>NO</span><span class=p>;</span>
+    <span class=p>}</span>
+    
+    <span class=kt>int</span> <span class=n>res</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=kt>int</span> <span class=n>temp</span> <span class=o>=</span> <span class=n>abs</span><span class=p>(</span><span class=n>number</span><span class=p>);</span>
+    
+    <span class=k>while</span> <span class=p>(</span><span class=n>temp</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>res</span> <span class=o>=</span> <span class=n>res</span> <span class=o>*</span> <span class=mi>10</span> <span class=o>+</span> <span class=n>temp</span> <span class=o>%</span> <span class=mi>10</span><span class=p>;</span>
+        <span class=n>temp</span> <span class=o>=</span> <span class=n>temp</span> <span class=o>/</span> <span class=mi>10</span><span class=p>;</span>
+    <span class=p>}</span>
+    
+    <span class=k>if</span> <span class=p>(</span><span class=n>res</span> <span class=o>==</span> <span class=n>number</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=nb>YES</span><span class=p>;</span>
+    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=nb>NO</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=编写一个函数来查找字符串数组中的最长公共前缀如果不存在公共前缀返回空字符串->编写一个函数来查找字符串数组中的最长公共前缀。如果不存在公共前缀，返回空字符串 &ldquo;"。</h3>
+<p><strong>解决思路：</strong></p>
+<blockquote>
+<ol>
+<li>先计算最小字符串长度</li>
+<li>按照最小字符串进行遍历，从每个字符串 0 个开始去字符串比较</li>
+<li>如果字符串都有，拼接到公共开头字符串中</li>
+<li>如果不一致，直接返回先前结果</li>
+</ol>
+</blockquote>
+<p><strong>OC 代码示例：</strong></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objc data-lang=objc><span class=p>-</span> <span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nf>solutionString:</span><span class=p>(</span><span class=n>NSArray</span><span class=o>&lt;</span><span class=n>NSString</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nv>array</span> <span class=p>{</span>
+    <span class=n>NSInteger</span> <span class=n>minLength</span> <span class=o>=</span> <span class=n>array</span><span class=p>.</span><span class=n>firstObject</span><span class=p>.</span><span class=n>length</span><span class=p>;</span>
+    
+    <span class=k>for</span> <span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=n>str</span> <span class=k>in</span> <span class=n>array</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>str</span><span class=p>.</span><span class=n>length</span> <span class=o>&lt;</span> <span class=n>minLength</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>minLength</span> <span class=o>=</span> <span class=n>str</span><span class=p>.</span><span class=n>length</span><span class=p>;</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+    
+    <span class=n>NSString</span> <span class=o>*</span><span class=n>result</span> <span class=o>=</span> <span class=s>@&#34;&#34;</span><span class=p>;</span>
+    
+    <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>minLength</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>NSString</span> <span class=o>*</span><span class=n>tempStr</span> <span class=o>=</span> <span class=s>@&#34;&#34;</span><span class=p>;</span>
+        <span class=n>NSInteger</span> <span class=n>count</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+        
+        <span class=k>for</span> <span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=n>str</span> <span class=k>in</span> <span class=n>array</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>([</span><span class=n>tempStr</span> <span class=nl>isEqualToString</span><span class=p>:</span><span class=s>@&#34;&#34;</span><span class=p>])</span> <span class=p>{</span>
+                <span class=n>tempStr</span> <span class=o>=</span> <span class=p>[</span><span class=n>str</span> <span class=nl>substringToIndex</span><span class=p>:</span><span class=n>i</span><span class=p>];</span>
+            <span class=p>}</span>
+            
+            <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=p>[[</span><span class=n>str</span> <span class=nl>substringToIndex</span><span class=p>:</span><span class=n>i</span><span class=p>]</span> <span class=nl>isEqualToString</span><span class=p>:</span><span class=n>tempStr</span><span class=p>])</span> <span class=p>{</span>
+                <span class=n>count</span> <span class=o>+=</span> <span class=mi>1</span><span class=p>;</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+        
+        <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=p>[</span><span class=n>tempStr</span> <span class=nl>isEqualToString</span><span class=p>:</span><span class=s>@&#34;&#34;</span><span class=p>]</span> <span class=o>&amp;&amp;</span> <span class=n>count</span> <span class=o>!=</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>result</span> <span class=o>=</span> <span class=n>tempStr</span><span class=p>;</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+    
+    <span class=k>return</span> <span class=n>result</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=给定一个只包括--的字符串-s-判断字符串是否有效有效字符串需满足>给定一个只包括 &lsquo;('，')'，'{'，'}'，'['，']&rsquo; 的字符串 s ，判断字符串是否有效。有效字符串需满足：</h3>
+<blockquote>
+<p>1、左括号必须用相同类型的右括号闭合。</p>
+<p>2、左括号必须以正确的顺序闭合。</p>
+</blockquote>
+<p><strong>解决思路:</strong></p>
+<blockquote>
+<p>1、传入的字符串是否有效在于括号是否对应，所以创建一个数组，将字符串从头开始遍历，遇到括号就添加，每次添加前先判断数组是否为空，如果为空直接添加，如果不为空取最后一个进行判断是否是和当前括号对应
+2、如果数组最后一个括号与当前的对应，那么就删除数组最后一个值，当前值不做添加操作
+3、就是遇到左括号就往数组中添加，遇到右括号，就取数组最后一个值，看是否对应，如果对应就解，如果不对应，继续添加
+4、最后判断数组是否为空来确定是否符合，为空表示有效</p>
+</blockquote>
+<p><strong>OC 代码示例：</strong></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objc data-lang=objc><span class=p>-</span> <span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nf>solution:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>string</span> <span class=p>{</span>
+    <span class=n>NSMutableArray</span> <span class=o>*</span><span class=n>arr</span> <span class=o>=</span> <span class=p>[</span><span class=n>NSMutableArray</span> <span class=n>array</span><span class=p>];</span>
+    
+    <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>string</span><span class=p>.</span><span class=n>length</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>NSString</span> <span class=o>*</span><span class=n>temp</span> <span class=o>=</span> <span class=p>[</span><span class=nb>self</span> <span class=nl>foundValidValue</span><span class=p>:[</span><span class=n>string</span> <span class=nl>substringWithRange</span><span class=p>:</span><span class=n>NSMakeRange</span><span class=p>(</span><span class=n>i</span><span class=p>,</span> <span class=mi>1</span><span class=p>)]];</span>
+        
+        <span class=k>if</span> <span class=p>(</span><span class=n>temp</span><span class=p>.</span><span class=n>length</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>arr</span><span class=p>.</span><span class=n>count</span><span class=p>)</span> <span class=p>{</span>
+                <span class=k>if</span> <span class=p>([</span><span class=n>temp</span> <span class=nl>isEqualToString</span><span class=p>:[</span><span class=nb>self</span> <span class=nl>foundValidValue</span><span class=p>:</span><span class=n>arr</span><span class=p>.</span><span class=n>lastObject</span><span class=p>]])</span> <span class=p>{</span>
+                    <span class=p>[</span><span class=n>arr</span> <span class=n>removeLastObject</span><span class=p>];</span>
+                <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+                    <span class=p>[</span><span class=n>arr</span> <span class=nl>addObject</span><span class=p>:</span><span class=n>temp</span><span class=p>];</span>
+                <span class=p>}</span>
+            <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+                <span class=p>[</span><span class=n>arr</span> <span class=nl>addObject</span><span class=p>:</span><span class=n>temp</span><span class=p>];</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+    
+    <span class=k>if</span> <span class=p>(</span><span class=n>arr</span><span class=p>.</span><span class=n>count</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=nb>YES</span><span class=p>;</span>
+    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=nb>NO</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=p>-</span> <span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nf>foundValidValue:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>string</span> <span class=p>{</span>
+    <span class=k>if</span> <span class=p>([</span><span class=n>string</span> <span class=nl>isEqualToString</span><span class=p>:</span><span class=s>@&#34;(&#34;</span><span class=p>])</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=s>@&#34;)&#34;</span><span class=p>;</span>
+    <span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=p>([</span><span class=n>string</span> <span class=nl>isEqualToString</span><span class=p>:</span><span class=s>@&#34;[&#34;</span><span class=p>])</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=s>@&#34;]&#34;</span><span class=p>;</span>
+    <span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=p>([</span><span class=n>string</span> <span class=nl>isEqualToString</span><span class=p>:</span><span class=s>@&#34;{&#34;</span><span class=p>])</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=s>@&#34;}&#34;</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=k>return</span> <span class=s>@&#34;&#34;</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=一个有序数组-nums-请你-原地-删除重复出现的元素使每个元素-只出现一次-返回删除后数组的新长度不要使用额外的数组空间你必须在-原地-修改输入数组-并在使用-o1-额外空间的条件下完成>一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。</h3>
+<p><strong>解决思路</strong></p>
+<blockquote>
+<p>1、首先判断数组是否为空，为空直接返回0
+2、数组不为空的情况下，至少有一个不重复的元素
+3、因为数组是有序的数组，所以只需要判断相邻元素是否相同，如果发现不相同的元素，往前移动，使用一个值来记录移动的元素个数
+4、最后得到的移动元素个数值就是新数组长度</p>
+</blockquote>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objc data-lang=objc><span class=p>-</span> <span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nf>solution:</span><span class=p>(</span><span class=n>NSMutableArray</span> <span class=o>*</span><span class=p>)</span><span class=nv>array</span> <span class=p>{</span>
+    <span class=k>if</span> <span class=p>(</span><span class=n>array</span><span class=p>.</span><span class=n>count</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=p>}</span>
+    
+    <span class=n>NSInteger</span> <span class=n>index</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+    <span class=n>NSInteger</span> <span class=n>count</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+    
+    <span class=k>while</span> <span class=p>(</span><span class=n>index</span> <span class=o>&lt;</span> <span class=n>array</span><span class=p>.</span><span class=n>count</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>array</span><span class=p>[</span><span class=n>index</span><span class=p>]</span> <span class=o>!=</span> <span class=n>array</span><span class=p>[</span><span class=n>index</span> <span class=o>-</span> <span class=mi>1</span><span class=p>])</span> <span class=p>{</span>
+            <span class=n>array</span><span class=p>[</span><span class=n>count</span><span class=p>]</span> <span class=o>=</span> <span class=n>array</span><span class=p>[</span><span class=n>index</span><span class=p>];</span>
+            <span class=n>count</span> <span class=o>+=</span> <span class=mi>1</span><span class=p>;</span>
+        <span class=p>}</span>
+        <span class=n>index</span> <span class=o>+=</span> <span class=mi>1</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=k>return</span> <span class=n>count</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=一个数组-nums-和一个值-val你需要-原地-移除所有数值等于-val-的元素并返回移除后数组的新长度不要使用额外的数组空间你必须仅使用-o1-额外空间并-原地-修改输入数组元素的顺序可以改变你不需要考虑数组中超出新长度后面的元素>一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并 原地 修改输入数组。元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</h3>
+<p><strong>解决思路：</strong></p>
+<blockquote>
+<p>1、首先判断数组是否为空，为空直接返回0
+2、因为给定了需要移除的元素，所以只需要遍历数组，找到相同元素进行移除，但是如果用for循环，遍历过程中数组长度发生变化容易跳过相邻元素的比对，所以使用while循环，使用外部值，当找到需要删除元素时，对查找的下标指针进行减一操作，防止跳过元素检查
+3、最后遍历结束后得到的数组就是去除给定元素后的新数组</p>
+</blockquote>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objc data-lang=objc><span class=p>-</span> <span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nf>solution:</span><span class=p>(</span><span class=n>NSMutableArray</span> <span class=o>*</span><span class=p>)</span><span class=nv>nums</span> <span class=nf>num:</span><span class=p>(</span><span class=kt>int</span><span class=p>)</span><span class=nv>val</span> <span class=p>{</span>
+    <span class=k>if</span> <span class=p>(</span><span class=n>nums</span><span class=p>.</span><span class=n>count</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=p>}</span>
+    
+    <span class=n>NSInteger</span> <span class=n>index</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=k>while</span> <span class=p>(</span><span class=n>index</span> <span class=o>&lt;</span> <span class=n>nums</span><span class=p>.</span><span class=n>count</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>if</span> <span class=p>([</span><span class=n>nums</span><span class=p>[</span><span class=n>index</span><span class=p>]</span> <span class=n>intValue</span><span class=p>]</span> <span class=o>==</span> <span class=n>val</span><span class=p>)</span> <span class=p>{</span>
+            <span class=p>[</span><span class=n>nums</span> <span class=nl>removeObjectAtIndex</span><span class=p>:</span><span class=n>index</span><span class=p>];</span>
+            <span class=n>index</span> <span class=o>-=</span> <span class=mi>1</span><span class=p>;</span>
+        <span class=p>}</span>
+        <span class=n>index</span> <span class=o>+=</span> <span class=mi>1</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=k>return</span> <span class=n>nums</span><span class=p>.</span><span class=n>count</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=给定一个排序数组和一个目标值在数组中找到目标值并返回其索引如果目标值不存在于数组中返回它将会被按顺序插入的位置你可以假设数组中无重复元素>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。你可以假设数组中无重复元素。</h3>
+<p><strong>解决思路：</strong></p>
+<blockquote>
+<p>1、首先确定数组是通过排序的，所以只需要遍历一次就可以确定有没有，如果没有应该放在哪个位置
+2、当我们遍历的时候，先判断是否相等，来确定是否包含，然后判断是否遍历的当前值是否大于给定值，如果大于，就说明数组中不包含给定值，我们就将给定值插入到当前值的前面，下标就是当前值的原下标
+3、如果遍历完数组后，还是没有找到，那就说明给定值比数组中的任何一个值都大，所以直接添加到数组结尾，下标为原数组长度值</p>
+</blockquote>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objc data-lang=objc><span class=p>-</span> <span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nf>solution:</span><span class=p>(</span><span class=n>NSArray</span> <span class=o>*</span><span class=p>)</span><span class=nv>array</span> <span class=nf>num:</span><span class=p>(</span><span class=kt>int</span><span class=p>)</span><span class=nv>num</span> <span class=p>{</span>
+    <span class=k>if</span> <span class=p>(</span><span class=n>array</span><span class=p>.</span><span class=n>count</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=p>}</span>
+    
+    <span class=n>NSInteger</span> <span class=n>index</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+    
+    <span class=k>while</span> <span class=p>(</span><span class=n>index</span> <span class=o>&lt;</span> <span class=n>array</span><span class=p>.</span><span class=n>count</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>if</span> <span class=p>([</span><span class=n>array</span><span class=p>[</span><span class=n>index</span><span class=p>]</span> <span class=n>intValue</span><span class=p>]</span> <span class=o>==</span> <span class=n>num</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>return</span> <span class=n>index</span><span class=p>;</span>
+        <span class=p>}</span>
+        <span class=k>if</span> <span class=p>([</span><span class=n>array</span><span class=p>[</span><span class=n>index</span><span class=p>]</span> <span class=n>intValue</span><span class=p>]</span> <span class=o>&gt;</span> <span class=n>num</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>return</span> <span class=n>index</span><span class=p>;</span>
+        <span class=p>}</span>
+        
+        <span class=n>index</span> <span class=o>+=</span> <span class=mi>1</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=k>return</span> <span class=n>array</span><span class=p>.</span><span class=n>count</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=一个字符串-s由若干单词组成单词之间用空格隔开返回字符串中最后一个单词的长度如果不存在最后一个单词请返回-0-单词-是指仅由字母组成不包含任何空格字符的最大子字符串>一个字符串 s，由若干单词组成，单词之间用空格隔开。返回字符串中最后一个单词的长度。如果不存在最后一个单词，请返回 0 。单词 是指仅由字母组成、不包含任何空格字符的最大子字符串。</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objc data-lang=objc><span class=p>-</span> <span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nf>solution:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>string</span> <span class=p>{</span>
+    <span class=n>NSArray</span><span class=o>&lt;</span><span class=n>NSString</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=n>arr</span> <span class=o>=</span> <span class=p>[</span><span class=n>string</span> <span class=nl>componentsSeparatedByString</span><span class=p>:</span><span class=s>@&#34; &#34;</span><span class=p>];</span>
+    
+    <span class=k>if</span> <span class=p>(</span><span class=n>arr</span><span class=p>.</span><span class=n>count</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=p>}</span>
+    
+    <span class=k>if</span> <span class=p>(</span><span class=n>arr</span><span class=p>.</span><span class=n>count</span> <span class=o>==</span> <span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=n>arr</span><span class=p>.</span><span class=n>firstObject</span><span class=p>.</span><span class=n>length</span><span class=p>;</span>
+    <span class=p>}</span>
+    
+    <span class=k>return</span> <span class=n>arr</span><span class=p>.</span><span class=n>lastObject</span><span class=p>.</span><span class=n>length</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=实现一个方法计算100的阶乘>实现一个方法，计算100的阶乘。</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-objc data-lang=objc><span class=p>-</span> <span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nf>dofactorial:</span><span class=p>(</span><span class=kt>int</span><span class=p>)</span><span class=nv>min</span> <span class=nf>max:</span><span class=p>(</span><span class=kt>int</span><span class=p>)</span><span class=nv>max</span> <span class=p>{</span>
+    <span class=k>if</span> <span class=p>(</span><span class=n>min</span> <span class=o>&gt;</span> <span class=n>max</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=p>}</span>
+    
+    <span class=k>if</span> <span class=p>(</span><span class=n>min</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>max</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+            <span class=c1>// 0 的阶乘 是1
+</span><span class=c1></span>            <span class=k>return</span> <span class=mi>1</span><span class=p>;</span>
+        <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+            <span class=n>min</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+    
+    <span class=n>NSInteger</span> <span class=n>result</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+    <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=n>min</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;=</span> <span class=n>max</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>result</span> <span class=o>*=</span> <span class=n>i</span><span class=p>;</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>result</span> <span class=o>&gt;</span> <span class=n>INTMAX_MAX</span><span class=p>)</span> <span class=p>{</span>
+            <span class=c1>// 溢出
+</span><span class=c1></span>            <span class=n>result</span> <span class=o>=</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+    
+    <span class=k>return</span> <span class=n>result</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+</div>
+<footer class=post-footer>
+<nav class=post-nav>
+<a class=next href=/post/2021-11-29-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E5%8D%81%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/>
+<span class="next-text nav-default">面试准备（十）性能优化</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=dongjiawang2008@163.com class="iconfont icon-email" title=email></a>
+<a href=https://github.com/dongjiawang class="iconfont icon-github" title=github></a>
+<a href=https://space.bilibili.com/13834686 class="iconfont icon-bilibili" title=bilibili></a>
+<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<span class=copyright-year>
+&copy;
+2015 -
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-141040294-1','auto'),ga('set','anonymizeIp',!0),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>
