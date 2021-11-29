@@ -86,6 +86,27 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2016-12-27-recognizer-get-tableview-selectedcell/>UITableView 的 selectRowAtIndexPath 被 UITapGestureRecognizer 的问题</a></h1>
+<div class=post-meta>
+<span class=post-time> 2016-12-27 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 202 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+今天在控制器的 view 上添加了一个 UITapGestureRecognizer 手势来处理一些功能 1 2 3 UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(endTextfieldEditing)]; tap.delegate = self; [self.view addGestureRecognizer:tap]; 但是这时候点击 tableView 的 cell 的时候不会跳转了，是点击手势截获了tabl
+</div>
+<div class=read-more>
+<a href=/post/2016-12-27-recognizer-get-tableview-selectedcell/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/post/2016-12-22-uicolortohexstring/>UIColor 转成 Hex 16进制色值</a></h1>
 <div class=post-meta>
 <span class=post-time> 2016-12-22 </span>
@@ -270,27 +291,6 @@ JWScrollPageView GitHub 地址 JWTagStyle 标签样式的类， 是否滚动条�
 </div>
 <div class=read-more>
 <a href=/post/2016-11-02-netstatus/ class=read-more-link>阅读更多</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title><a class=post-link href=/post/2016-10-18-xcodeerror/>提交审核报错：No .app bundles found in the package</a></h1>
-<div class=post-meta>
-<span class=post-time> 2016-10-18 </span>
-<div class=post-category>
-<a href=/categories/xcode/> Xcode </a>
-</div>
-<span class=more-meta> 约 120 字 </span>
-<span class=more-meta> 预计阅读 1 分钟 </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-昨天把系统升级到了10.12，今天准备提交一个版本APP进行审核，Xcode版本是 8.0，结果老是报错，重新打包多次无效。 后来发现用Xcod
-</div>
-<div class=read-more>
-<a href=/post/2016-10-18-xcodeerror/ class=read-more-link>阅读更多</a>
 </div>
 </div>
 </article>
