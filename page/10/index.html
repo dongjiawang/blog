@@ -86,6 +86,27 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2017-03-27-textfield-keyboard/>关闭 textField、textView 的键盘联想和拼写检查</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-03-27 </span>
+<div class=post-category>
+<a href=/categories/ios/> iOS </a>
+</div>
+<span class=more-meta> 约 87 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+1 2 3 self.textField.autocorrectionType = UITextAutocorrectionTypeNo; // 关闭键盘联想 self.textField.spellCheckingType = UITextSpellCheckingTypeNo;// 禁用拼写检查 对应的设置选项： 1 2 3 4 5 typedef NS_ENUM(NSInteger, UITextAutocorrectionType) { UITextAutocorrectionTypeDefault, //默认 UITextAutocorrectionTypeNo, //不自动纠错 UITextAutocorrectionTypeYes, //自动纠错 }; 1 2 3 4 5 typedef NS_ENUM(NSInteger, UITextSpellCheckingType) { UITextSpellCheckingTypeDefault,
+</div>
+<div class=read-more>
+<a href=/post/2017-03-27-textfield-keyboard/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/post/2017-03-21-coredata-nsmanageobjectsubclass/>Xcode8 使用 CoreData 创建 NSManageObject subclass</a></h1>
 <div class=post-meta>
 <span class=post-time> 2017-03-21 </span>
@@ -270,27 +291,6 @@ JWScrollPageView GitHub 地址 JWTagStyle 标签样式的类， 是否滚动条�
 </div>
 <div class=read-more>
 <a href=/post/2016-11-14-jwscrollpageview/ class=read-more-link>阅读更多</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title><a class=post-link href=/post/2016-11-08-nsdictionary-enum/>遍历字典 NSDictionary</a></h1>
-<div class=post-meta>
-<span class=post-time> 2016-11-08 </span>
-<div class=post-category>
-<a href=/categories/ios/> iOS </a>
-</div>
-<span class=more-meta> 约 196 字 </span>
-<span class=more-meta> 预计阅读 1 分钟 </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-遍历字典内容的方式一般有两种 enumerateKeysAndObjectsUsingBlock 、enumerateObjectsWithOptions enumerateObjectsWithOptions 可以设置遍历的类型： NSEnumerationConcurrent = (1UL &#171; 0), // 并发模式 NSEnumerationReverse = (1UL &#171; 1), /
-</div>
-<div class=read-more>
-<a href=/post/2016-11-08-nsdictionary-enum/ class=read-more-link>阅读更多</a>
 </div>
 </div>
 </article>

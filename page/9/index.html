@@ -86,6 +86,27 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2017-09-20-__cxa_throw/>使用AVAudioPlayer产生__cxa_throw异常</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-09-20 </span>
+<div class=post-category>
+<a href=/categories/avplayer/> AVPlayer </a>
+</div>
+<span class=more-meta> 约 83 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+最近使用 AVAudioPlayer 的时候遇到一个很麻烦的事情，就是每次播放视频的时候，都会被这个异常卡住 libc++abi.dylib`__cxa_throw: 原因是在 Xcode 中设置了 异常断点 于是每次播放就会卡在这里几次 其实
+</div>
+<div class=read-more>
+<a href=/post/2017-09-20-__cxa_throw/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/post/2017-09-15-version-define/>iOS 利用宏判断系统版本</a></h1>
 <div class=post-meta>
 <span class=post-time> 2017-09-15 </span>
@@ -270,27 +291,6 @@ iOS 自带框架中有将字典转成标准 json 的方法 比如我有一个字
 </div>
 <div class=read-more>
 <a href=/post/2017-04-14-masonry-animation/ class=read-more-link>阅读更多</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title><a class=post-link href=/post/2017-03-27-textfield-keyboard/>关闭 textField、textView 的键盘联想和拼写检查</a></h1>
-<div class=post-meta>
-<span class=post-time> 2017-03-27 </span>
-<div class=post-category>
-<a href=/categories/ios/> iOS </a>
-</div>
-<span class=more-meta> 约 87 字 </span>
-<span class=more-meta> 预计阅读 1 分钟 </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-1 2 3 self.textField.autocorrectionType = UITextAutocorrectionTypeNo; // 关闭键盘联想 self.textField.spellCheckingType = UITextSpellCheckingTypeNo;// 禁用拼写检查 对应的设置选项： 1 2 3 4 5 typedef NS_ENUM(NSInteger, UITextAutocorrectionType) { UITextAutocorrectionTypeDefault, //默认 UITextAutocorrectionTypeNo, //不自动纠错 UITextAutocorrectionTypeYes, //自动纠错 }; 1 2 3 4 5 typedef NS_ENUM(NSInteger, UITextSpellCheckingType) { UITextSpellCheckingTypeDefault,
-</div>
-<div class=read-more>
-<a href=/post/2017-03-27-textfield-keyboard/ class=read-more-link>阅读更多</a>
 </div>
 </div>
 </article>
