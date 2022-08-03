@@ -1,115 +1,8 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>iOS 横竖屏幕 - 我的码</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="dongjiawang"><meta name=description content="首先，确保APP支持屏幕旋转，具体怎么支持，去网上查询一下 然后，在对应的类中进行如下操作 1 2 3 4 5 6 7 8 9 10 #pragma mark 转屏方法重写 -(UIInterfaceOrientationMask)supportedInterfaceOrientations { return [self.viewControllers.lastObject supportedInterfaceOrientations]; } - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation"><meta name=keywords content="Hugo,theme,even">
-<meta name=generator content="Hugo 0.89.4 with theme even">
-<link rel=canonical href=https://blog.dongjiawang.top/post/2016-04-22-ios-screen/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<link href=/sass/main.min.cb68f97bc9cece255d217346d970e3c62623408634e500c330a62fadabbbe77c.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="iOS 横竖屏幕">
-<meta property="og:description" content="首先，确保APP支持屏幕旋转，具体怎么支持，去网上查询一下 然后，在对应的类中进行如下操作 1 2 3 4 5 6 7 8 9 10 #pragma mark 转屏方法重写 -(UIInterfaceOrientationMask)supportedInterfaceOrientations { return [self.viewControllers.lastObject supportedInterfaceOrientations]; } - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://blog.dongjiawang.top/post/2016-04-22-ios-screen/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2016-04-22T10:06:00+00:00">
-<meta property="article:modified_time" content="2016-04-22T10:06:00+00:00">
-<meta itemprop=name content="iOS 横竖屏幕">
-<meta itemprop=description content="首先，确保APP支持屏幕旋转，具体怎么支持，去网上查询一下 然后，在对应的类中进行如下操作 1 2 3 4 5 6 7 8 9 10 #pragma mark 转屏方法重写 -(UIInterfaceOrientationMask)supportedInterfaceOrientations { return [self.viewControllers.lastObject supportedInterfaceOrientations]; } - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation"><meta itemprop=datePublished content="2016-04-22T10:06:00+00:00">
-<meta itemprop=dateModified content="2016-04-22T10:06:00+00:00">
-<meta itemprop=wordCount content="499">
-<meta itemprop=keywords content="iOS,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="iOS 横竖屏幕">
-<meta name=twitter:description content="首先，确保APP支持屏幕旋转，具体怎么支持，去网上查询一下 然后，在对应的类中进行如下操作 1 2 3 4 5 6 7 8 9 10 #pragma mark 转屏方法重写 -(UIInterfaceOrientationMask)supportedInterfaceOrientations { return [self.viewControllers.lastObject supportedInterfaceOrientations]; } - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>我的码</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>iOS 横竖屏幕 - 我的码</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="dongjiawang"><meta name=description content="首先，确保APP支持屏幕旋转，具体怎么支持，去网上查询一下 然后，在对应的类中进行如下操作 1 2 3 4 5 6 7 8 9 10 #pragma mark 转屏方法重写 -(UIInterfaceOrientationMask)supportedInterfaceOrientations { return [self.viewControllers.lastObject supportedInterfaceOrientations]; } - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.101.0 with theme even"><link rel=canonical href=https://blog.dongjiawang.top/post/2016-04-22-ios-screen/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.cb68f97bc9cece255d217346d970e3c62623408634e500c330a62fadabbbe77c.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="iOS 横竖屏幕"><meta property="og:description" content="首先，确保APP支持屏幕旋转，具体怎么支持，去网上查询一下 然后，在对应的类中进行如下操作 1 2 3 4 5 6 7 8 9 10 #pragma mark 转屏方法重写 -(UIInterfaceOrientationMask)supportedInterfaceOrientations { return [self.viewControllers.lastObject supportedInterfaceOrientations]; } - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.dongjiawang.top/post/2016-04-22-ios-screen/"><meta property="article:section" content="post"><meta property="article:published_time" content="2016-04-22T10:06:00+00:00"><meta property="article:modified_time" content="2016-04-22T10:06:00+00:00"><meta itemprop=name content="iOS 横竖屏幕"><meta itemprop=description content="首先，确保APP支持屏幕旋转，具体怎么支持，去网上查询一下 然后，在对应的类中进行如下操作 1 2 3 4 5 6 7 8 9 10 #pragma mark 转屏方法重写 -(UIInterfaceOrientationMask)supportedInterfaceOrientations { return [self.viewControllers.lastObject supportedInterfaceOrientations]; } - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation"><meta itemprop=datePublished content="2016-04-22T10:06:00+00:00"><meta itemprop=dateModified content="2016-04-22T10:06:00+00:00"><meta itemprop=wordCount content="499"><meta itemprop=keywords content="iOS,"><meta name=twitter:card content="summary"><meta name=twitter:title content="iOS 横竖屏幕"><meta name=twitter:description content="首先，确保APP支持屏幕旋转，具体怎么支持，去网上查询一下 然后，在对应的类中进行如下操作 1 2 3 4 5 6 7 8 9 10 #pragma mark 转屏方法重写 -(UIInterfaceOrientationMask)supportedInterfaceOrientations { return [self.viewControllers.lastObject supportedInterfaceOrientations]; } - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>我的码</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>首页</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>归档</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>标签</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>分类</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>关于</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>我的码</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>首页</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>归档</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>标签</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>分类</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>关于</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>iOS 横竖屏幕</h1>
-<div class=post-meta>
-<span class=post-time> 2016-04-22 </span>
-<div class=post-category>
-<a href=/categories/ios/> iOS </a>
-</div>
-<span class=more-meta> 约 499 字 </span>
-<span class=more-meta> 预计阅读 1 分钟 </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>文章目录</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents></nav>
-</div>
-</div>
-<div class=post-content>
-<p>首先，确保APP支持屏幕旋转，具体怎么支持，去网上查询一下</p>
-<p>然后，在对应的类中进行如下操作</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>我的码</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>iOS 横竖屏幕</h1><div class=post-meta><span class=post-time>2016-04-22</span><div class=post-category><a href=/categories/ios/>iOS</a></div><span class=more-meta>约 499 字</span>
+<span class=more-meta>预计阅读 1 分钟</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents></nav></div></div><div class=post-content><p>首先，确保APP支持屏幕旋转，具体怎么支持，去网上查询一下</p><p>然后，在对应的类中进行如下操作</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -119,24 +12,17 @@
 </span><span class=lnt> 8
 </span><span class=lnt> 9
 </span><span class=lnt>10
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=cp>#pragma mark 转屏方法重写
-</span><span class=cp></span><span class=p>-(</span><span class=n>UIInterfaceOrientationMask</span><span class=p>)</span><span class=nf>supportedInterfaceOrientations</span> <span class=p>{</span>    
-    <span class=k>return</span> <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>viewControllers</span><span class=p>.</span><span class=n>lastObject</span> <span class=n>supportedInterfaceOrientations</span><span class=p>];</span>
-<span class=p>}</span>
-<span class=p>-</span> <span class=p>(</span><span class=n>UIInterfaceOrientation</span><span class=p>)</span><span class=nf>preferredInterfaceOrientationForPresentation</span> <span class=p>{</span>    
-  <span class=k>return</span> <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>viewControllers</span><span class=p>.</span><span class=n>lastObject</span> <span class=n>preferredInterfaceOrientationForPresentation</span><span class=p>];</span>
-<span class=p>}</span>
-<span class=p>-(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nf>shouldAutorotate</span> <span class=p>{</span> 
-     <span class=k>return</span> <span class=nb>self</span><span class=p>.</span><span class=n>visibleViewController</span><span class=p>.</span><span class=n>shouldAutorotate</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>最后，在你不想转屏切换的ViewController上重写以下方法：</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=line><span class=cl><span class=cp>#pragma mark 转屏方法重写
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=p>-(</span><span class=n>UIInterfaceOrientationMask</span><span class=p>)</span><span class=nf>supportedInterfaceOrientations</span> <span class=p>{</span>    
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>viewControllers</span><span class=p>.</span><span class=n>lastObject</span> <span class=n>supportedInterfaceOrientations</span><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=n>UIInterfaceOrientation</span><span class=p>)</span><span class=nf>preferredInterfaceOrientationForPresentation</span> <span class=p>{</span>    
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>viewControllers</span><span class=p>.</span><span class=n>lastObject</span> <span class=n>preferredInterfaceOrientationForPresentation</span><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>-(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nf>shouldAutorotate</span> <span class=p>{</span> 
+</span></span><span class=line><span class=cl>     <span class=k>return</span> <span class=nb>self</span><span class=p>.</span><span class=n>visibleViewController</span><span class=p>.</span><span class=n>shouldAutorotate</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>最后，在你不想转屏切换的ViewController上重写以下方法：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -149,27 +35,20 @@
 </span><span class=lnt>11
 </span><span class=lnt>12
 </span><span class=lnt>13
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=cp>#pragma mark 转屏方法 不允许转屏
-</span><span class=cp></span><span class=p>-(</span><span class=n>UIInterfaceOrientationMask</span><span class=p>)</span><span class=nf>supportedInterfaceOrientations</span> <span class=p>{</span>  
-      <span class=k>return</span> <span class=n>UIInterfaceOrientationMaskPortrait</span> <span class=p>;</span>
-<span class=p>}</span>
-<span class=p>-</span> <span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nf>shouldAutorotate</span><span class=p>{</span>    
-  <span class=k>return</span> <span class=nb>NO</span><span class=p>;</span>
-<span class=p>}</span>
-<span class=p>-(</span><span class=n>UIInterfaceOrientation</span><span class=p>)</span><span class=nf>preferredInterfaceOrientationForPresentation</span> <span class=p>{</span>
-    <span class=k>return</span> <span class=n>UIInterfaceOrientationPortrait</span><span class=p>;</span>
-<span class=p>}</span>
-<span class=p>-</span> <span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nf>shouldAutorotateToInterfaceOrientation:</span><span class=p>(</span><span class=n>UIInterfaceOrientation</span><span class=p>)</span><span class=nv>toInterfaceOrientation</span> <span class=p>{</span>
-    <span class=k>return</span> <span class=nb>NO</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>在你想转屏切换的ViewController上可以照这样重写（允许左右横屏以及竖屏）：</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=line><span class=cl><span class=cp>#pragma mark 转屏方法 不允许转屏
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=p>-(</span><span class=n>UIInterfaceOrientationMask</span><span class=p>)</span><span class=nf>supportedInterfaceOrientations</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>      <span class=k>return</span> <span class=n>UIInterfaceOrientationMaskPortrait</span> <span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nf>shouldAutorotate</span><span class=p>{</span>    
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nb>NO</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>-(</span><span class=n>UIInterfaceOrientation</span><span class=p>)</span><span class=nf>preferredInterfaceOrientationForPresentation</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>UIInterfaceOrientationPortrait</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nf>shouldAutorotateToInterfaceOrientation:</span><span class=p>(</span><span class=n>UIInterfaceOrientation</span><span class=p>)</span><span class=nv>toInterfaceOrientation</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nb>NO</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>在你想转屏切换的ViewController上可以照这样重写（允许左右横屏以及竖屏）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -181,26 +60,19 @@
 </span><span class=lnt>10
 </span><span class=lnt>11
 </span><span class=lnt>12
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=p>-</span> <span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nf>shouldAutorotate</span> <span class=p>{</span>    
-    <span class=k>return</span> <span class=nb>YES</span><span class=p>;</span>
-<span class=p>}</span>
-<span class=p>-</span> <span class=p>(</span><span class=n>UIInterfaceOrientationMask</span><span class=p>)</span><span class=nf>supportedInterfaceOrientations</span> <span class=p>{</span>
-    <span class=k>return</span> <span class=n>UIInterfaceOrientationMaskAll</span><span class=p>;</span>
-<span class=p>}</span>
-<span class=p>-</span> <span class=p>(</span><span class=n>UIInterfaceOrientation</span><span class=p>)</span><span class=nf>preferredInterfaceOrientationForPresentation</span> <span class=p>{</span>    
-    <span class=k>return</span> <span class=n>UIInterfaceOrientationPortrait</span><span class=p>;</span>
-<span class=p>}</span>
-<span class=p>-</span> <span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nf>shouldAutorotateToInterfaceOrientation:</span><span class=p>(</span><span class=n>UIInterfaceOrientation</span><span class=p>)</span><span class=nv>interfaceOrientation</span> <span class=p>{</span>
-    <span class=k>return</span> <span class=nb>YES</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>另外，在ViewController中对于转屏事件可以参见下面的方法进行捕获：</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nf>shouldAutorotate</span> <span class=p>{</span>    
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nb>YES</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=n>UIInterfaceOrientationMask</span><span class=p>)</span><span class=nf>supportedInterfaceOrientations</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>UIInterfaceOrientationMaskAll</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=n>UIInterfaceOrientation</span><span class=p>)</span><span class=nf>preferredInterfaceOrientationForPresentation</span> <span class=p>{</span>    
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>UIInterfaceOrientationPortrait</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nf>shouldAutorotateToInterfaceOrientation:</span><span class=p>(</span><span class=n>UIInterfaceOrientation</span><span class=p>)</span><span class=nv>interfaceOrientation</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nb>YES</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>另外，在ViewController中对于转屏事件可以参见下面的方法进行捕获：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -223,94 +95,47 @@
 </span><span class=lnt>21
 </span><span class=lnt>22
 </span><span class=lnt>23
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>viewWillTransitionToSize:</span><span class=p>(</span><span class=n>CGSize</span><span class=p>)</span><span class=nv>size</span> <span class=nf>withTransitionCoordinator:</span><span class=p>(</span><span class=kt>id</span><span class=o>&lt;</span><span class=n>UIViewControllerTransitionCoordinator</span><span class=o>&gt;</span><span class=p>)</span><span class=nv>coordinator</span> <span class=p>{</span>
-
-    <span class=p>[</span><span class=nb>super</span> <span class=nl>viewWillTransitionToSize</span><span class=p>:</span><span class=n>size</span> <span class=nl>withTransitionCoordinator</span><span class=p>:</span><span class=n>coordinator</span><span class=p>];</span>    
-
-    <span class=p>[</span><span class=n>coordinator</span> <span class=nl>animateAlongsideTransition</span><span class=p>:</span><span class=o>^</span><span class=p>(</span><span class=kt>id</span><span class=o>&lt;</span><span class=n>UIViewControllerTransitionCoordinatorContext</span><span class=o>&gt;</span> <span class=n>context</span><span class=p>)</span> <span class=p>{</span>
-
-        <span class=c1>//计算旋转之后的宽度并赋值
-</span><span class=c1></span>        <span class=n>CGSize</span> <span class=n>screen</span> <span class=o>=</span> <span class=p>[</span><span class=n>UIScreen</span> <span class=n>mainScreen</span><span class=p>].</span><span class=n>bounds</span><span class=p>.</span><span class=n>size</span><span class=p>;</span>
-        <span class=c1>//界面处理逻辑
-</span><span class=c1></span>        <span class=nb>self</span><span class=p>.</span><span class=n>lineChartView</span><span class=p>.</span><span class=n>frame</span> <span class=o>=</span> <span class=n>CGRectMake</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>30</span><span class=p>,</span> <span class=n>screen</span><span class=p>.</span><span class=n>width</span><span class=p>,</span> <span class=mf>200.0</span><span class=p>);</span>
-        <span class=c1>//动画播放完成之后
-</span><span class=c1></span>        <span class=k>if</span><span class=p>(</span><span class=n>screen</span><span class=p>.</span><span class=n>width</span> <span class=o>&gt;</span> <span class=n>screen</span><span class=p>.</span><span class=n>height</span> <span class=p>){</span>
-            <span class=n>NSLog</span><span class=p>(</span><span class=s>@&#34;横屏&#34;</span><span class=p>);</span>
-        <span class=p>}</span><span class=k>else</span><span class=p>{</span>
-            <span class=n>NSLog</span><span class=p>(</span><span class=s>@&#34;竖屏&#34;</span><span class=p>);</span>
-        <span class=p>}</span>
-
-    <span class=p>}</span> <span class=nl>completion</span><span class=p>:</span><span class=o>^</span><span class=p>(</span><span class=kt>id</span><span class=o>&lt;</span><span class=n>UIViewControllerTransitionCoordinatorContext</span><span class=o>&gt;</span> <span class=n>context</span><span class=p>)</span> <span class=p>{</span>
-
-        <span class=n>NSLog</span><span class=p>(</span><span class=s>@&#34;动画播放完之后处理&#34;</span><span class=p>);</span>    
-
-    <span class=p>}];</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>区分当前屏幕是否为横竖屏的状态，其实通过判断当前屏幕的宽高来决定是不是横屏或者竖屏：</p>
-<p><strong>竖屏时：</strong> 宽&lt;高</p>
-<p><strong>横屏时：</strong> 宽>高</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/ios/>iOS</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/post/2016-07-07-touch-event/>
-<i class="iconfont icon-left"></i>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>viewWillTransitionToSize:</span><span class=p>(</span><span class=n>CGSize</span><span class=p>)</span><span class=nv>size</span> <span class=nf>withTransitionCoordinator:</span><span class=p>(</span><span class=kt>id</span><span class=o>&lt;</span><span class=n>UIViewControllerTransitionCoordinator</span><span class=o>&gt;</span><span class=p>)</span><span class=nv>coordinator</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=p>[</span><span class=nb>super</span> <span class=nl>viewWillTransitionToSize</span><span class=p>:</span><span class=n>size</span> <span class=nl>withTransitionCoordinator</span><span class=p>:</span><span class=n>coordinator</span><span class=p>];</span>    
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=p>[</span><span class=n>coordinator</span> <span class=nl>animateAlongsideTransition</span><span class=p>:</span><span class=o>^</span><span class=p>(</span><span class=kt>id</span><span class=o>&lt;</span><span class=n>UIViewControllerTransitionCoordinatorContext</span><span class=o>&gt;</span> <span class=n>context</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1>//计算旋转之后的宽度并赋值
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>CGSize</span> <span class=n>screen</span> <span class=o>=</span> <span class=p>[</span><span class=n>UIScreen</span> <span class=n>mainScreen</span><span class=p>].</span><span class=n>bounds</span><span class=p>.</span><span class=n>size</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//界面处理逻辑
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=nb>self</span><span class=p>.</span><span class=n>lineChartView</span><span class=p>.</span><span class=n>frame</span> <span class=o>=</span> <span class=n>CGRectMake</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>30</span><span class=p>,</span> <span class=n>screen</span><span class=p>.</span><span class=n>width</span><span class=p>,</span> <span class=mf>200.0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//动画播放完成之后
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>if</span><span class=p>(</span><span class=n>screen</span><span class=p>.</span><span class=n>width</span> <span class=o>&gt;</span> <span class=n>screen</span><span class=p>.</span><span class=n>height</span> <span class=p>){</span>
+</span></span><span class=line><span class=cl>            <span class=n>NSLog</span><span class=p>(</span><span class=s>@&#34;横屏&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span><span class=k>else</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>NSLog</span><span class=p>(</span><span class=s>@&#34;竖屏&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=p>}</span> <span class=nl>completion</span><span class=p>:</span><span class=o>^</span><span class=p>(</span><span class=kt>id</span><span class=o>&lt;</span><span class=n>UIViewControllerTransitionCoordinatorContext</span><span class=o>&gt;</span> <span class=n>context</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>NSLog</span><span class=p>(</span><span class=s>@&#34;动画播放完之后处理&#34;</span><span class=p>);</span>    
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=p>}];</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>区分当前屏幕是否为横竖屏的状态，其实通过判断当前屏幕的宽高来决定是不是横屏或者竖屏：</p><p><strong>竖屏时：</strong> 宽&lt;高</p><p><strong>横屏时：</strong> 宽>高</p></div><footer class=post-footer><div class=post-tags><a href=/tags/ios/>iOS</a></div><nav class=post-nav><a class=prev href=/post/2016-07-07-touch-event/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">iOS 手势基本操作</span>
-<span class="prev-text nav-mobile">上一篇</span>
-</a>
-<a class=next href=/post/2016-04-21-viewcorner/>
-<span class="next-text nav-default">UIView设置少于四个的圆角</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/post/2016-04-21-viewcorner/><span class="next-text nav-default">UIView设置少于四个的圆角</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=dongjiawang2008@163.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div></div></main><footer id=footer class=footer><div class=social-links><a href=weakself@foxmail.com class="iconfont icon-email" title=email></a>
 <a href=https://github.com/dongjiawang class="iconfont icon-github" title=github></a>
 <a href=https://space.bilibili.com/13834686 class="iconfont icon-bilibili" title=bilibili></a>
-<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
-</span>
+<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
 <span class=division>|</span>
-<span class=theme-info>
-主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<span class=copyright-year>
-&copy;
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
 2015 -
-2021<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-141040294-1','auto'),ga('set','anonymizeIp',!0),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-141040294-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){if(window.location.hostname==="localhost")return;var t,e=document.createElement("script");e.async=!0,e.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script><script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

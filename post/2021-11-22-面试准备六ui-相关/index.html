@@ -1,268 +1,8 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>面试准备（六）UI 相关 - 我的码</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="dongjiawang"><meta name=description content="UI 相关 CALayer 和 UIView 的区别 UIView 和 CALayer 都是在 UI 操作的对象。两者都是 NSObject 的子类，发生在 UIView 上的操作本质上也发生在对应的 CALayer 上。 UIView 是 CALayer 用于交互的对象。UIView 是"><meta name=keywords content="Hugo,theme,even">
-<meta name=generator content="Hugo 0.89.4 with theme even">
-<link rel=canonical href=https://blog.dongjiawang.top/post/2021-11-22-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E5%85%ADui-%E7%9B%B8%E5%85%B3/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<link href=/sass/main.min.cb68f97bc9cece255d217346d970e3c62623408634e500c330a62fadabbbe77c.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="面试准备（六）UI 相关">
-<meta property="og:description" content="UI 相关 CALayer 和 UIView 的区别 UIView 和 CALayer 都是在 UI 操作的对象。两者都是 NSObject 的子类，发生在 UIView 上的操作本质上也发生在对应的 CALayer 上。 UIView 是 CALayer 用于交互的对象。UIView 是">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://blog.dongjiawang.top/post/2021-11-22-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E5%85%ADui-%E7%9B%B8%E5%85%B3/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2021-11-22T17:10:00+08:00">
-<meta property="article:modified_time" content="2021-11-22T17:10:00+08:00">
-<meta itemprop=name content="面试准备（六）UI 相关">
-<meta itemprop=description content="UI 相关 CALayer 和 UIView 的区别 UIView 和 CALayer 都是在 UI 操作的对象。两者都是 NSObject 的子类，发生在 UIView 上的操作本质上也发生在对应的 CALayer 上。 UIView 是 CALayer 用于交互的对象。UIView 是"><meta itemprop=datePublished content="2021-11-22T17:10:00+08:00">
-<meta itemprop=dateModified content="2021-11-22T17:10:00+08:00">
-<meta itemprop=wordCount content="2102">
-<meta itemprop=keywords content><meta name=twitter:card content="summary">
-<meta name=twitter:title content="面试准备（六）UI 相关">
-<meta name=twitter:description content="UI 相关 CALayer 和 UIView 的区别 UIView 和 CALayer 都是在 UI 操作的对象。两者都是 NSObject 的子类，发生在 UIView 上的操作本质上也发生在对应的 CALayer 上。 UIView 是 CALayer 用于交互的对象。UIView 是"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>我的码</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>面试准备（六）UI 相关 - 我的码</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="dongjiawang"><meta name=description content="UI 相关 CALayer 和 UIView 的区别 UIView 和 CALayer 都是在 UI 操作的对象。两者都是 NSObject 的子类，发生在 UIView 上的操作本质上也发生在对应的 CALayer 上。 UIView 是 CALayer 用于交互的对象。UIView 是"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.101.0 with theme even"><link rel=canonical href=https://blog.dongjiawang.top/post/2021-11-22-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E5%85%ADui-%E7%9B%B8%E5%85%B3/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.cb68f97bc9cece255d217346d970e3c62623408634e500c330a62fadabbbe77c.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="面试准备（六）UI 相关"><meta property="og:description" content="UI 相关 CALayer 和 UIView 的区别 UIView 和 CALayer 都是在 UI 操作的对象。两者都是 NSObject 的子类，发生在 UIView 上的操作本质上也发生在对应的 CALayer 上。 UIView 是 CALayer 用于交互的对象。UIView 是"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.dongjiawang.top/post/2021-11-22-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E5%85%ADui-%E7%9B%B8%E5%85%B3/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-11-22T17:10:00+08:00"><meta property="article:modified_time" content="2021-11-22T17:10:00+08:00"><meta itemprop=name content="面试准备（六）UI 相关"><meta itemprop=description content="UI 相关 CALayer 和 UIView 的区别 UIView 和 CALayer 都是在 UI 操作的对象。两者都是 NSObject 的子类，发生在 UIView 上的操作本质上也发生在对应的 CALayer 上。 UIView 是 CALayer 用于交互的对象。UIView 是"><meta itemprop=datePublished content="2021-11-22T17:10:00+08:00"><meta itemprop=dateModified content="2021-11-22T17:10:00+08:00"><meta itemprop=wordCount content="2102"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="面试准备（六）UI 相关"><meta name=twitter:description content="UI 相关 CALayer 和 UIView 的区别 UIView 和 CALayer 都是在 UI 操作的对象。两者都是 NSObject 的子类，发生在 UIView 上的操作本质上也发生在对应的 CALayer 上。 UIView 是 CALayer 用于交互的对象。UIView 是"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>我的码</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>首页</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>归档</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>标签</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>分类</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>关于</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>我的码</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>首页</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>归档</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>标签</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>分类</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>关于</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>面试准备（六）UI 相关</h1>
-<div class=post-meta>
-<span class=post-time> 2021-11-22 </span>
-<div class=post-category>
-<a href=/categories/%E5%85%85%E7%94%B5/> 充电 </a>
-</div>
-<span class=more-meta> 约 2102 字 </span>
-<span class=more-meta> 预计阅读 5 分钟 </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>文章目录</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#ui-相关>UI 相关</a>
-<ul>
-<li><a href=#calayer-和-uiview-的区别>CALayer 和 UIView 的区别</a></li>
-<li><a href=#frame-和-bounds-有什么不同>frame 和 bounds 有什么不同</a></li>
-<li><a href=#layoutifneeded-和-setneedslayout-的区别>layoutIfNeeded 和 setNeedsLayout 的区别</a></li>
-<li><a href=#说明并比较关键词-safe-areasafearealayoutguide-和-safeareainsets>说明并比较关键词： Safe Area、SafeAreaLayoutGuide 和 SafeAreaInsets</a></li>
-<li><a href=#didmovetosuperviewlayoutsubviewsdrawrect-都在什么时候调用实际编码中用来做什么>didMoveToSuperView、layoutSubviews、drawRect 都在什么时候调用？实际编码中用来做什么？</a></li>
-<li><a href=#说一下-uiscrollview-实现原理>说一下 UIScrollView 实现原理</a></li>
-<li><a href=#uiscrollview-及其子类中-contentviewcontentinsetcontentsize-和-contentoffset-说明>UIScrollView 及其子类中 contentView、contentInset、contentSize 和 contentOffset 说明</a></li>
-<li><a href=#描述一下事件的响应者链>描述一下事件的响应者链</a></li>
-<li><a href=#coreanimation-和-coregraphic-的区别>CoreAnimation 和 CoreGraphic 的区别</a></li>
-<li><a href=#uiview-动画与核心动画的区别>UIView 动画与核心动画的区别</a></li>
-<li><a href=#如何兼容不同的屏幕>如何兼容不同的屏幕</a></li>
-<li><a href=#添加约束时如果产生了警告和冲突如何解决>添加约束时，如果产生了警告和冲突，如何解决</a></li>
-<li><a href=#xib-与-storyboard-的区别>xib 与 storyboard 的区别</a></li>
-<li><a href=#如何实现视图变形>如何实现视图变形</a></li>
-<li><a href=#高性能的给-uiimageview-增加圆角>高性能的给 UIImageView 增加圆角</a></li>
-<li><a href=#transform-改变的是-frame-还是-bounds>transform 改变的是 frame 还是 bounds</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<h1 id=ui-相关>UI 相关</h1>
-<h2 id=calayer-和-uiview-的区别>CALayer 和 UIView 的区别</h2>
-<blockquote>
-<ol>
-<li>UIView 和 CALayer 都是在 UI 操作的对象。两者都是 NSObject 的子类，发生在 UIView 上的操作本质上也发生在对应的 CALayer 上。</li>
-<li>UIView 是 CALayer 用于交互的对象。UIView 是 UIResponder 的子类，其中提供了很多CALayer 所没有的交互上的接口，主要负责处理用户触发的各种操作。</li>
-<li>CALayer 在图像和动画渲染上性能更好，因为 UIView 有冗余的交互接口，而且相比 CALayer，还有层级之分，CALayer 无需处理交互时进行渲染，可以节省大量时间。</li>
-</ol>
-</blockquote>
-<h2 id=frame-和-bounds-有什么不同>frame 和 bounds 有什么不同</h2>
-<blockquote>
-<p>frame：该 view 在父 view 坐标系中的位置和大小</p>
-<p>bounds：该 view 在本身坐标系中的位置和大小</p>
-</blockquote>
-<h2 id=layoutifneeded-和-setneedslayout-的区别>layoutIfNeeded 和 setNeedsLayout 的区别</h2>
-<blockquote>
-<ul>
-<li>layoutIfNeeded: 如果有需要刷新的标记，立即调用 layoutSubViews 进行布局</li>
-<li>setNeedsLayout: 标记为需要重新布局，异步调用 layoutIfNeeded 刷新布局，在下一轮 runloop 刷新</li>
-</ul>
-</blockquote>
-<h2 id=说明并比较关键词-safe-areasafearealayoutguide-和-safeareainsets>说明并比较关键词： Safe Area、SafeAreaLayoutGuide 和 SafeAreaInsets</h2>
-<blockquote>
-<ul>
-<li>Safe Area: 指 App 合理显示内容的区域，不包括 status bar、navigation bar、tab bar 和 tool bar，在 iPhone X 中，一般是指扣除了顶部 status bar 和 底部 home indicator 的区域。</li>
-<li>SafeAreaLayoutGuide: 指 Safe Area 的区域范围和限制，在布局设置中，可以分别取得它的上下左右四个边界的位置进行相应的布局处理。</li>
-<li>SafeAreaInset: 限定了 Safe Area 区域与整个屏幕之间的布局关系，一般用上下左右 4 个值来获取 SafeArea 与屏幕边缘之间的距离。</li>
-</ul>
-</blockquote>
-<h2 id=didmovetosuperviewlayoutsubviewsdrawrect-都在什么时候调用实际编码中用来做什么>didMoveToSuperView、layoutSubviews、drawRect 都在什么时候调用？实际编码中用来做什么？</h2>
-<blockquote>
-<p>didMoveToSuperView：当继承自 UIView 的子视图被贴到父视图时调用，可以在此方法中设置子视图自身的属性；</p>
-<p>layoutSubviews：当添加到父视图或自己添加子视图时调用，当修改自己的 frame 或子视图的 frame 时也会调用，当自己调用 setNeedsLayout 方法时也会调用，父视图 UIScrollView 滚动时或者屏幕旋转时也会调用；可以在此方法中对子视图进行重新布局；</p>
-<p>drawRect：贴到父视图时调用，设置它的 contentMode 属性值为 UIViewContentModeRedraw 时，每次更改 frame 时调用，直接调用 setNeedsDisplay 或 setNeedsDisplayRect 时也会调用；可以在此方法中绘制自己的内容。</p>
-</blockquote>
-<h2 id=说一下-uiscrollview-实现原理>说一下 UIScrollView 实现原理</h2>
-<blockquote>
-<p>在滚动过程中，其实是在修改圆点坐标。当手指触摸后，scrollView 会暂时拦截触摸事件，使用一个计时器，假如计时器到点后没有发生手指移动事件，那么 scrolView 发送 tracking events 到被点击的 subview。假如计时器到点前发生了移动事件，那么 scrollview 取消 tracking，自己发生滚动。</p>
-</blockquote>
-<h2 id=uiscrollview-及其子类中-contentviewcontentinsetcontentsize-和-contentoffset-说明>UIScrollView 及其子类中 contentView、contentInset、contentSize 和 contentOffset 说明</h2>
-<blockquote>
-<ul>
-<li>
-<p>contentView：显示内容的区域，一般情况下，用户对 UIScrollView 的操作都是在这 contentView 中进行的。</p>
-</li>
-<li>
-<p>contentInset：指 contentView 与 UIScrollVIew 的边界。分别指 contentView 的四条边到 UIScrollView 的对应边的距离。</p>
-</li>
-<li>
-<p>contentSize：指contentView 的大小，是整个 UIScrollView 的实际内容大小。</p>
-</li>
-<li>
-<p>contentOffSet：当前 contentView 浏览位置左上角的点的坐标。是相对于整个 UIScrollView 左上角为原点而言，默认是 CGPointZero。</p>
-</li>
-</ul>
-</blockquote>
-<h2 id=描述一下事件的响应者链>描述一下事件的响应者链</h2>
-<blockquote>
-<p>当前触发事件 - 根视图上的子视图 - 视图控制器上的根视图 - viewController - window - UIApplication - AppDelegate</p>
-</blockquote>
-<blockquote>
-<p>iOS 中只有继承 UIResponse 的对象才能接受处理事件，常见的子类：UIView、UIViewController、UIApplication、UIApplocationDelegate。</p>
-</blockquote>
-<blockquote>
-<p><strong>UIView 不接受事件处理的情况</strong></p>
-<ol>
-<li>hidden = YES； 隐藏视图</li>
-<li>userInteractionEnable = NO；禁止用户操作视图</li>
-<li>alpha &lt; 0.01； 透明视图</li>
-</ol>
-</blockquote>
-<h2 id=coreanimation-和-coregraphic-的区别>CoreAnimation 和 CoreGraphic 的区别</h2>
-<blockquote>
-<ul>
-<li>CoreAnimation：核心动画，可以实现效果非常好的动画效果
-<ul>
-<li>支持 iOS、macOS</li>
-<li>在后台执行动画，不会阻塞主线程</li>
-<li>作用在 CALayer</li>
-</ul>
-</li>
-</ul>
-<p>CoreGraphic：核心图形库，常用的 point、size、rect 等都定义在这个框架中，类名以 CG 开头饿都属于 CoreGraphic，提供的是 C 语言函数接口，支持 iOS、macOS。</p>
-</blockquote>
-<blockquote>
-<p>CoreAcimation 和 CoreGraphics 的关系：都是跨 iOS、macOS 平台，CoreAnimation 中大量使用到 CoreGraphics 中的类。</p>
-</blockquote>
-<h2 id=uiview-动画与核心动画的区别>UIView 动画与核心动画的区别</h2>
-<blockquote>
-<p>核心动画只作用在 layer</p>
-<p>核心动画不会去修改 view 的真实位置</p>
-</blockquote>
-<blockquote>
-<p>什么时候使用 UIView 动画</p>
-<p>如果需要与用户交互就使用 UIView 动画</p>
-</blockquote>
-<blockquote>
-<p>什么时候使用核心动画</p>
-<ol>
-<li>不需要与用户交互</li>
-<li>需要根据路径做动画时，使用核心动画</li>
-<li>做转场动画时需要使用核心动画</li>
-</ol>
-</blockquote>
-<h2 id=如何兼容不同的屏幕>如何兼容不同的屏幕</h2>
-<blockquote>
-<ol>
-<li>在代码中写一个宏，判断当前设备的屏幕尺寸，根据不同的尺寸，动态调整图片及视图的尺寸；</li>
-<li>使用 main.storyboard 中的 size class 属性对不同的屏幕尺寸进行开分类处理</li>
-<li>使用自动布局（masonry）</li>
-</ol>
-</blockquote>
-<h2 id=添加约束时如果产生了警告和冲突如何解决>添加约束时，如果产生了警告和冲突，如何解决</h2>
-<blockquote>
-<ol>
-<li>非运行的约束冲突，去掉冲突中的一个约束；</li>
-<li>运行时的约束冲突：通过阅读日志，在运行时动态修改约束冲突</li>
-</ol>
-</blockquote>
-<h2 id=xib-与-storyboard-的区别>xib 与 storyboard 的区别</h2>
-<blockquote>
-<p>xib 是轻量级，用来描述局部的 UI 界面，一个工程中可以有多个 xib 文件，主要用于视图，一个 xib 可以在不同的视图控制器中使用。</p>
-<p>storyboard 是重量级，用来描述整个软件的多个界面，并且能展示多个界面之间的跳转关系，主要用于视图控制器。多个 storyboard 之间可以关联使用。</p>
-</blockquote>
-<h2 id=如何实现视图变形>如何实现视图变形</h2>
-<blockquote>
-<p>修改 view 的 transform 属性</p>
-</blockquote>
-<h2 id=高性能的给-uiimageview-增加圆角>高性能的给 UIImageView 增加圆角</h2>
-<blockquote>
-<p>使用图形上下文绘制</p>
-</blockquote>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>我的码</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>面试准备（六）UI 相关</h1><div class=post-meta><span class=post-time>2021-11-22</span><div class=post-category><a href=/categories/%E5%85%85%E7%94%B5/>充电</a></div><span class=more-meta>约 2102 字</span>
+<span class=more-meta>预计阅读 5 分钟</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#ui-相关>UI 相关</a><ul><li><a href=#calayer-和-uiview-的区别>CALayer 和 UIView 的区别</a></li><li><a href=#frame-和-bounds-有什么不同>frame 和 bounds 有什么不同</a></li><li><a href=#layoutifneeded-和-setneedslayout-的区别>layoutIfNeeded 和 setNeedsLayout 的区别</a></li><li><a href=#说明并比较关键词-safe-areasafearealayoutguide-和-safeareainsets>说明并比较关键词： Safe Area、SafeAreaLayoutGuide 和 SafeAreaInsets</a></li><li><a href=#didmovetosuperviewlayoutsubviewsdrawrect-都在什么时候调用实际编码中用来做什么>didMoveToSuperView、layoutSubviews、drawRect 都在什么时候调用？实际编码中用来做什么？</a></li><li><a href=#说一下-uiscrollview-实现原理>说一下 UIScrollView 实现原理</a></li><li><a href=#uiscrollview-及其子类中-contentviewcontentinsetcontentsize-和-contentoffset-说明>UIScrollView 及其子类中 contentView、contentInset、contentSize 和 contentOffset 说明</a></li><li><a href=#描述一下事件的响应者链>描述一下事件的响应者链</a></li><li><a href=#coreanimation-和-coregraphic-的区别>CoreAnimation 和 CoreGraphic 的区别</a></li><li><a href=#uiview-动画与核心动画的区别>UIView 动画与核心动画的区别</a></li><li><a href=#如何兼容不同的屏幕>如何兼容不同的屏幕</a></li><li><a href=#添加约束时如果产生了警告和冲突如何解决>添加约束时，如果产生了警告和冲突，如何解决</a></li><li><a href=#xib-与-storyboard-的区别>xib 与 storyboard 的区别</a></li><li><a href=#如何实现视图变形>如何实现视图变形</a></li><li><a href=#高性能的给-uiimageview-增加圆角>高性能的给 UIImageView 增加圆角</a></li><li><a href=#transform-改变的是-frame-还是-bounds>transform 改变的是 frame 还是 bounds</a></li></ul></li></ul></nav></div></div><div class=post-content><h1 id=ui-相关>UI 相关</h1><h2 id=calayer-和-uiview-的区别>CALayer 和 UIView 的区别</h2><blockquote><ol><li>UIView 和 CALayer 都是在 UI 操作的对象。两者都是 NSObject 的子类，发生在 UIView 上的操作本质上也发生在对应的 CALayer 上。</li><li>UIView 是 CALayer 用于交互的对象。UIView 是 UIResponder 的子类，其中提供了很多CALayer 所没有的交互上的接口，主要负责处理用户触发的各种操作。</li><li>CALayer 在图像和动画渲染上性能更好，因为 UIView 有冗余的交互接口，而且相比 CALayer，还有层级之分，CALayer 无需处理交互时进行渲染，可以节省大量时间。</li></ol></blockquote><h2 id=frame-和-bounds-有什么不同>frame 和 bounds 有什么不同</h2><blockquote><p>frame：该 view 在父 view 坐标系中的位置和大小</p><p>bounds：该 view 在本身坐标系中的位置和大小</p></blockquote><h2 id=layoutifneeded-和-setneedslayout-的区别>layoutIfNeeded 和 setNeedsLayout 的区别</h2><blockquote><ul><li>layoutIfNeeded: 如果有需要刷新的标记，立即调用 layoutSubViews 进行布局</li><li>setNeedsLayout: 标记为需要重新布局，异步调用 layoutIfNeeded 刷新布局，在下一轮 runloop 刷新</li></ul></blockquote><h2 id=说明并比较关键词-safe-areasafearealayoutguide-和-safeareainsets>说明并比较关键词： Safe Area、SafeAreaLayoutGuide 和 SafeAreaInsets</h2><blockquote><ul><li>Safe Area: 指 App 合理显示内容的区域，不包括 status bar、navigation bar、tab bar 和 tool bar，在 iPhone X 中，一般是指扣除了顶部 status bar 和 底部 home indicator 的区域。</li><li>SafeAreaLayoutGuide: 指 Safe Area 的区域范围和限制，在布局设置中，可以分别取得它的上下左右四个边界的位置进行相应的布局处理。</li><li>SafeAreaInset: 限定了 Safe Area 区域与整个屏幕之间的布局关系，一般用上下左右 4 个值来获取 SafeArea 与屏幕边缘之间的距离。</li></ul></blockquote><h2 id=didmovetosuperviewlayoutsubviewsdrawrect-都在什么时候调用实际编码中用来做什么>didMoveToSuperView、layoutSubviews、drawRect 都在什么时候调用？实际编码中用来做什么？</h2><blockquote><p>didMoveToSuperView：当继承自 UIView 的子视图被贴到父视图时调用，可以在此方法中设置子视图自身的属性；</p><p>layoutSubviews：当添加到父视图或自己添加子视图时调用，当修改自己的 frame 或子视图的 frame 时也会调用，当自己调用 setNeedsLayout 方法时也会调用，父视图 UIScrollView 滚动时或者屏幕旋转时也会调用；可以在此方法中对子视图进行重新布局；</p><p>drawRect：贴到父视图时调用，设置它的 contentMode 属性值为 UIViewContentModeRedraw 时，每次更改 frame 时调用，直接调用 setNeedsDisplay 或 setNeedsDisplayRect 时也会调用；可以在此方法中绘制自己的内容。</p></blockquote><h2 id=说一下-uiscrollview-实现原理>说一下 UIScrollView 实现原理</h2><blockquote><p>在滚动过程中，其实是在修改圆点坐标。当手指触摸后，scrollView 会暂时拦截触摸事件，使用一个计时器，假如计时器到点后没有发生手指移动事件，那么 scrolView 发送 tracking events 到被点击的 subview。假如计时器到点前发生了移动事件，那么 scrollview 取消 tracking，自己发生滚动。</p></blockquote><h2 id=uiscrollview-及其子类中-contentviewcontentinsetcontentsize-和-contentoffset-说明>UIScrollView 及其子类中 contentView、contentInset、contentSize 和 contentOffset 说明</h2><blockquote><ul><li><p>contentView：显示内容的区域，一般情况下，用户对 UIScrollView 的操作都是在这 contentView 中进行的。</p></li><li><p>contentInset：指 contentView 与 UIScrollVIew 的边界。分别指 contentView 的四条边到 UIScrollView 的对应边的距离。</p></li><li><p>contentSize：指contentView 的大小，是整个 UIScrollView 的实际内容大小。</p></li><li><p>contentOffSet：当前 contentView 浏览位置左上角的点的坐标。是相对于整个 UIScrollView 左上角为原点而言，默认是 CGPointZero。</p></li></ul></blockquote><h2 id=描述一下事件的响应者链>描述一下事件的响应者链</h2><blockquote><p>当前触发事件 - 根视图上的子视图 - 视图控制器上的根视图 - viewController - window - UIApplication - AppDelegate</p></blockquote><blockquote><p>iOS 中只有继承 UIResponse 的对象才能接受处理事件，常见的子类：UIView、UIViewController、UIApplication、UIApplocationDelegate。</p></blockquote><blockquote><p><strong>UIView 不接受事件处理的情况</strong></p><ol><li>hidden = YES； 隐藏视图</li><li>userInteractionEnable = NO；禁止用户操作视图</li><li>alpha &lt; 0.01； 透明视图</li></ol></blockquote><h2 id=coreanimation-和-coregraphic-的区别>CoreAnimation 和 CoreGraphic 的区别</h2><blockquote><ul><li>CoreAnimation：核心动画，可以实现效果非常好的动画效果<ul><li>支持 iOS、macOS</li><li>在后台执行动画，不会阻塞主线程</li><li>作用在 CALayer</li></ul></li></ul><p>CoreGraphic：核心图形库，常用的 point、size、rect 等都定义在这个框架中，类名以 CG 开头饿都属于 CoreGraphic，提供的是 C 语言函数接口，支持 iOS、macOS。</p></blockquote><blockquote><p>CoreAcimation 和 CoreGraphics 的关系：都是跨 iOS、macOS 平台，CoreAnimation 中大量使用到 CoreGraphics 中的类。</p></blockquote><h2 id=uiview-动画与核心动画的区别>UIView 动画与核心动画的区别</h2><blockquote><p>核心动画只作用在 layer</p><p>核心动画不会去修改 view 的真实位置</p></blockquote><blockquote><p>什么时候使用 UIView 动画</p><p>如果需要与用户交互就使用 UIView 动画</p></blockquote><blockquote><p>什么时候使用核心动画</p><ol><li>不需要与用户交互</li><li>需要根据路径做动画时，使用核心动画</li><li>做转场动画时需要使用核心动画</li></ol></blockquote><h2 id=如何兼容不同的屏幕>如何兼容不同的屏幕</h2><blockquote><ol><li>在代码中写一个宏，判断当前设备的屏幕尺寸，根据不同的尺寸，动态调整图片及视图的尺寸；</li><li>使用 main.storyboard 中的 size class 属性对不同的屏幕尺寸进行开分类处理</li><li>使用自动布局（masonry）</li></ol></blockquote><h2 id=添加约束时如果产生了警告和冲突如何解决>添加约束时，如果产生了警告和冲突，如何解决</h2><blockquote><ol><li>非运行的约束冲突，去掉冲突中的一个约束；</li><li>运行时的约束冲突：通过阅读日志，在运行时动态修改约束冲突</li></ol></blockquote><h2 id=xib-与-storyboard-的区别>xib 与 storyboard 的区别</h2><blockquote><p>xib 是轻量级，用来描述局部的 UI 界面，一个工程中可以有多个 xib 文件，主要用于视图，一个 xib 可以在不同的视图控制器中使用。</p><p>storyboard 是重量级，用来描述整个软件的多个界面，并且能展示多个界面之间的跳转关系，主要用于视图控制器。多个 storyboard 之间可以关联使用。</p></blockquote><h2 id=如何实现视图变形>如何实现视图变形</h2><blockquote><p>修改 view 的 transform 属性</p></blockquote><h2 id=高性能的给-uiimageview-增加圆角>高性能的给 UIImageView 增加圆角</h2><blockquote><p>使用图形上下文绘制</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -279,87 +19,41 @@
 </span><span class=lnt>15
 </span><span class=lnt>16
 </span><span class=lnt>17
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-objc data-lang=objc><span class=p>-</span> <span class=p>(</span><span class=n>UIImage</span> <span class=o>*</span><span class=p>)</span><span class=nf>circleImage</span> <span class=p>{</span>
-    <span class=c1>// NO代表透明
-</span><span class=c1></span>    <span class=n>UIGraphicsBeginImageContextWithOptions</span><span class=p>(</span><span class=nb>self</span><span class=p>.</span><span class=n>size</span><span class=p>,</span> <span class=nb>NO</span><span class=p>,</span> <span class=mf>0.0</span><span class=p>);</span>
-    <span class=c1>// 获得上下文
-</span><span class=c1></span>    <span class=n>CGContextRef</span> <span class=n>ctx</span> <span class=o>=</span> <span class=n>UIGraphicsGetCurrentContext</span><span class=p>();</span>
-    <span class=c1>// 添加一个圆
-</span><span class=c1></span>    <span class=n>CGRect</span> <span class=n>rect</span> <span class=o>=</span> <span class=n>CGRectMake</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=nb>self</span><span class=p>.</span><span class=n>size</span><span class=p>.</span><span class=n>width</span><span class=p>,</span> <span class=nb>self</span><span class=p>.</span><span class=n>size</span><span class=p>.</span><span class=n>height</span><span class=p>);</span>
-    <span class=n>CGContextAddEllipseInRect</span><span class=p>(</span><span class=n>ctx</span><span class=p>,</span> <span class=n>rect</span><span class=p>);</span>
-    <span class=c1>// 裁剪
-</span><span class=c1></span>    <span class=n>CGContextClip</span><span class=p>(</span><span class=n>ctx</span><span class=p>);</span>
-    <span class=c1>// 将图片画上去
-</span><span class=c1></span>    <span class=p>[</span><span class=nb>self</span> <span class=nl>drawInRect</span><span class=p>:</span><span class=n>rect</span><span class=p>];</span>
-    <span class=n>UIImage</span> <span class=o>*</span><span class=n>image</span> <span class=o>=</span> <span class=n>UIGraphicsGetImageFromCurrentImageContext</span><span class=p>();</span>
-    <span class=c1>// 关闭上下文
-</span><span class=c1></span>    <span class=n>UIGraphicsEndImageContext</span><span class=p>();</span>
-    <span class=k>return</span> <span class=n>image</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id=transform-改变的是-frame-还是-bounds>transform 改变的是 frame 还是 bounds</h2>
-<blockquote>
-<p>transform 的改变，会影响 frame，bounds 不会受到影响</p>
-<p>transform 时一个矩阵，使用矩阵乘法，对 view 的frame 进行变换</p>
-</blockquote>
-</div>
-<footer class=post-footer>
-<nav class=post-nav>
-<a class=prev href=/post/2021-11-22-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%83runloopruntimemethod-swizzle/>
-<i class="iconfont icon-left"></i>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-objc data-lang=objc><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=n>UIImage</span> <span class=o>*</span><span class=p>)</span><span class=nf>circleImage</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// NO代表透明
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>UIGraphicsBeginImageContextWithOptions</span><span class=p>(</span><span class=nb>self</span><span class=p>.</span><span class=n>size</span><span class=p>,</span> <span class=nb>NO</span><span class=p>,</span> <span class=mf>0.0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 获得上下文
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>CGContextRef</span> <span class=n>ctx</span> <span class=o>=</span> <span class=n>UIGraphicsGetCurrentContext</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 添加一个圆
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>CGRect</span> <span class=n>rect</span> <span class=o>=</span> <span class=n>CGRectMake</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=nb>self</span><span class=p>.</span><span class=n>size</span><span class=p>.</span><span class=n>width</span><span class=p>,</span> <span class=nb>self</span><span class=p>.</span><span class=n>size</span><span class=p>.</span><span class=n>height</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>CGContextAddEllipseInRect</span><span class=p>(</span><span class=n>ctx</span><span class=p>,</span> <span class=n>rect</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 裁剪
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>CGContextClip</span><span class=p>(</span><span class=n>ctx</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 将图片画上去
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=p>[</span><span class=nb>self</span> <span class=nl>drawInRect</span><span class=p>:</span><span class=n>rect</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=n>UIImage</span> <span class=o>*</span><span class=n>image</span> <span class=o>=</span> <span class=n>UIGraphicsGetImageFromCurrentImageContext</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 关闭上下文
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>UIGraphicsEndImageContext</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>image</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=transform-改变的是-frame-还是-bounds>transform 改变的是 frame 还是 bounds</h2><blockquote><p>transform 的改变，会影响 frame，bounds 不会受到影响</p><p>transform 时一个矩阵，使用矩阵乘法，对 view 的frame 进行变换</p></blockquote></div><footer class=post-footer><nav class=post-nav><a class=prev href=/post/2021-11-22-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B8%83runloopruntimemethod-swizzle/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">面试准备（七）RunLoop、Runtime、Method Swizzle</span>
-<span class="prev-text nav-mobile">上一篇</span>
-</a>
-<a class=next href=/post/2021-11-21-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%94%E6%9C%AC%E5%9C%B0%E5%82%A8%E5%AD%98/>
-<span class="next-text nav-default">面试准备（五）本地储存</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/post/2021-11-21-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%BA%94%E6%9C%AC%E5%9C%B0%E5%82%A8%E5%AD%98/><span class="next-text nav-default">面试准备（五）本地储存</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=dongjiawang2008@163.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div></div></main><footer id=footer class=footer><div class=social-links><a href=weakself@foxmail.com class="iconfont icon-email" title=email></a>
 <a href=https://github.com/dongjiawang class="iconfont icon-github" title=github></a>
 <a href=https://space.bilibili.com/13834686 class="iconfont icon-bilibili" title=bilibili></a>
-<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
-</span>
+<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
 <span class=division>|</span>
-<span class=theme-info>
-主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<span class=copyright-year>
-&copy;
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
 2015 -
-2021<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-141040294-1','auto'),ga('set','anonymizeIp',!0),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-141040294-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){if(window.location.hostname==="localhost")return;var t,e=document.createElement("script");e.async=!0,e.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script><script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

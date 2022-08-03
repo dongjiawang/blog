@@ -1,115 +1,8 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>UICollectionView的常用方法和属性 - 我的码</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="dongjiawang"><meta name=description content="简单的创建和使用 collectionview 请看我的另一片文章，UICollectionView的简单使用 下面是 UICollectionView 的常用方法和属性，或许可以通过详细阅读开发者文档从而"><meta name=keywords content="Hugo,theme,even">
-<meta name=generator content="Hugo 0.89.4 with theme even">
-<link rel=canonical href=https://blog.dongjiawang.top/post/2016-11-06-uicollectionabout/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<link href=/sass/main.min.cb68f97bc9cece255d217346d970e3c62623408634e500c330a62fadabbbe77c.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="UICollectionView的常用方法和属性">
-<meta property="og:description" content="简单的创建和使用 collectionview 请看我的另一片文章，UICollectionView的简单使用 下面是 UICollectionView 的常用方法和属性，或许可以通过详细阅读开发者文档从而">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://blog.dongjiawang.top/post/2016-11-06-uicollectionabout/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2016-11-06T21:35:00+00:00">
-<meta property="article:modified_time" content="2016-11-06T21:35:00+00:00">
-<meta itemprop=name content="UICollectionView的常用方法和属性">
-<meta itemprop=description content="简单的创建和使用 collectionview 请看我的另一片文章，UICollectionView的简单使用 下面是 UICollectionView 的常用方法和属性，或许可以通过详细阅读开发者文档从而"><meta itemprop=datePublished content="2016-11-06T21:35:00+00:00">
-<meta itemprop=dateModified content="2016-11-06T21:35:00+00:00">
-<meta itemprop=wordCount content="1397">
-<meta itemprop=keywords content="UICollectionView,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="UICollectionView的常用方法和属性">
-<meta name=twitter:description content="简单的创建和使用 collectionview 请看我的另一片文章，UICollectionView的简单使用 下面是 UICollectionView 的常用方法和属性，或许可以通过详细阅读开发者文档从而"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>我的码</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>UICollectionView的常用方法和属性 - 我的码</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="dongjiawang"><meta name=description content="简单的创建和使用 collectionview 请看我的另一片文章，UICollectionView的简单使用 下面是 UICollectionView 的常用方法和属性，或许可以通过详细阅读开发者文档从而"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.101.0 with theme even"><link rel=canonical href=https://blog.dongjiawang.top/post/2016-11-06-uicollectionabout/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.cb68f97bc9cece255d217346d970e3c62623408634e500c330a62fadabbbe77c.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="UICollectionView的常用方法和属性"><meta property="og:description" content="简单的创建和使用 collectionview 请看我的另一片文章，UICollectionView的简单使用 下面是 UICollectionView 的常用方法和属性，或许可以通过详细阅读开发者文档从而"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.dongjiawang.top/post/2016-11-06-uicollectionabout/"><meta property="article:section" content="post"><meta property="article:published_time" content="2016-11-06T21:35:00+00:00"><meta property="article:modified_time" content="2016-11-06T21:35:00+00:00"><meta itemprop=name content="UICollectionView的常用方法和属性"><meta itemprop=description content="简单的创建和使用 collectionview 请看我的另一片文章，UICollectionView的简单使用 下面是 UICollectionView 的常用方法和属性，或许可以通过详细阅读开发者文档从而"><meta itemprop=datePublished content="2016-11-06T21:35:00+00:00"><meta itemprop=dateModified content="2016-11-06T21:35:00+00:00"><meta itemprop=wordCount content="1397"><meta itemprop=keywords content="UICollectionView,"><meta name=twitter:card content="summary"><meta name=twitter:title content="UICollectionView的常用方法和属性"><meta name=twitter:description content="简单的创建和使用 collectionview 请看我的另一片文章，UICollectionView的简单使用 下面是 UICollectionView 的常用方法和属性，或许可以通过详细阅读开发者文档从而"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>我的码</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>首页</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>归档</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>标签</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>分类</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>关于</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>我的码</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>首页</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>归档</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>标签</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>分类</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>关于</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>UICollectionView的常用方法和属性</h1>
-<div class=post-meta>
-<span class=post-time> 2016-11-06 </span>
-<div class=post-category>
-<a href=/categories/ios/> iOS </a>
-</div>
-<span class=more-meta> 约 1397 字 </span>
-<span class=more-meta> 预计阅读 3 分钟 </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>文章目录</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents></nav>
-</div>
-</div>
-<div class=post-content>
-<p>简单的创建和使用 collectionview 请看我的另一片文章，<a href=https://dongjiawang.github.io/2015/12/30/2015-12-30-iOS-CollectionView-basic/>UICollectionView的简单使用</a></p>
-<p>下面是 UICollectionView 的常用方法和属性，或许可以通过详细阅读开发者文档从而做出来更炫的效果。</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>  1
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>我的码</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>UICollectionView的常用方法和属性</h1><div class=post-meta><span class=post-time>2016-11-06</span><div class=post-category><a href=/categories/ios/>iOS</a></div><span class=more-meta>约 1397 字</span>
+<span class=more-meta>预计阅读 3 分钟</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents></nav></div></div><div class=post-content><p>简单的创建和使用 collectionview 请看我的另一片文章，<a href=https://dongjiawang.github.io/2015/12/30/2015-12-30-iOS-CollectionView-basic/>UICollectionView的简单使用</a></p><p>下面是 UICollectionView 的常用方法和属性，或许可以通过详细阅读开发者文档从而做出来更炫的效果。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
 </span><span class=lnt>  2
 </span><span class=lnt>  3
 </span><span class=lnt>  4
@@ -224,184 +117,139 @@
 </span><span class=lnt>113
 </span><span class=lnt>114
 </span><span class=lnt>115
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=c1>//通过一个布局策略初识化CollectionView
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>instancetype</span><span class=p>)</span><span class=nf>initWithFrame:</span><span class=p>(</span><span class=n>CGRect</span><span class=p>)</span><span class=nv>frame</span> <span class=nf>collectionViewLayout:</span><span class=p>(</span><span class=n>UICollectionViewLayout</span> <span class=o>*</span><span class=p>)</span><span class=nv>layout</span><span class=p>;</span>
-
-<span class=c1>//获取和设置collection的layout
-</span><span class=c1></span><span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>,</span> <span class=k>strong</span><span class=p>)</span> <span class=n>UICollectionViewLayout</span> <span class=o>*</span><span class=n>collectionViewLayout</span><span class=p>;</span>
-
-<span class=c1>//数据源和代理
-</span><span class=c1></span><span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>,</span> <span class=k>weak</span><span class=p>,</span> <span class=n>nullable</span><span class=p>)</span> <span class=kt>id</span> <span class=o>&lt;</span><span class=n>UICollectionViewDelegate</span><span class=o>&gt;</span> <span class=n>delegate</span><span class=p>;</span>
-<span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>,</span> <span class=k>weak</span><span class=p>,</span> <span class=n>nullable</span><span class=p>)</span> <span class=kt>id</span> <span class=o>&lt;</span><span class=n>UICollectionViewDataSource</span><span class=o>&gt;</span> <span class=n>dataSource</span><span class=p>;</span>
-
-<span class=c1>//从一个class或者xib文件进行cell(item)的注册
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>registerClass:</span><span class=p>(</span><span class=n>nullable</span> <span class=kt>Class</span><span class=p>)</span><span class=nv>cellClass</span> <span class=nf>forCellWithReuseIdentifier:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>identifier</span><span class=p>;</span>
-<span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>registerNib:</span><span class=p>(</span><span class=n>nullable</span> <span class=n>UINib</span> <span class=o>*</span><span class=p>)</span><span class=nv>nib</span> <span class=nf>forCellWithReuseIdentifier:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>identifier</span><span class=p>;</span>
-
-<span class=c1>//下面两个方法与上面相似，这里注册的是头视图或者尾视图的类
-</span><span class=c1>//其中第二个参数是设置 头视图或者尾视图 系统为我们定义好了这两个字符串
-</span><span class=c1>//UIKIT_EXTERN NSString *const UICollectionElementKindSectionHeader NS_AVAILABLE_IOS(6_0);
-</span><span class=c1>//UIKIT_EXTERN NSString *const UICollectionElementKindSectionFooter NS_AVAILABLE_IOS(6_0);
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>registerClass:</span><span class=p>(</span><span class=n>nullable</span> <span class=kt>Class</span><span class=p>)</span><span class=nv>viewClass</span> <span class=nf>forSupplementaryViewOfKind:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>elementKind</span> <span class=nf>withReuseIdentifier:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>identifier</span><span class=p>;</span>
-<span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>registerNib:</span><span class=p>(</span><span class=n>nullable</span> <span class=n>UINib</span> <span class=o>*</span><span class=p>)</span><span class=nv>nib</span> <span class=nf>forSupplementaryViewOfKind:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>kind</span> <span class=nf>withReuseIdentifier:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>identifier</span><span class=p>;</span>
-
-<span class=c1>//这两个方法是从复用池中取出cell或者头尾视图
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>__kindof</span> <span class=n>UICollectionViewCell</span> <span class=o>*</span><span class=p>)</span><span class=nf>dequeueReusableCellWithReuseIdentifier:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>identifier</span> <span class=nf>forIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span><span class=p>;</span>
-<span class=p>-</span> <span class=p>(</span><span class=n>__kindof</span> <span class=n>UICollectionReusableView</span> <span class=o>*</span><span class=p>)</span><span class=nf>dequeueReusableSupplementaryViewOfKind:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>elementKind</span> <span class=nf>withReuseIdentifier:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>identifier</span> <span class=nf>forIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span><span class=p>;</span>
-
-<span class=c1>//设置是否允许选中 默认yes
-</span><span class=c1></span><span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>)</span> <span class=kt>BOOL</span> <span class=n>allowsSelection</span><span class=p>;</span>
-
-<span class=c1>//设置是否允许多选 默认no
-</span><span class=c1></span><span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>)</span> <span class=kt>BOOL</span> <span class=n>allowsMultipleSelection</span><span class=p>;</span>
-
-<span class=c1>//获取所有选中的item的位置信息
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>nullable</span> <span class=n>NSArray</span><span class=o>&lt;</span><span class=n>NSIndexPath</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nf>indexPathsForSelectedItems</span><span class=p>;</span> 
-
-<span class=c1>//设置选中某一item，并使视图滑动到相应位置，scrollPosition是滑动位置的相关参数，如下：
-</span><span class=c1></span><span class=cm>/*
-</span><span class=cm>typedef NS_OPTIONS(NSUInteger, UICollectionViewScrollPosition) {
-</span><span class=cm>    //无
-</span><span class=cm>    UICollectionViewScrollPositionNone                 = 0,
-</span><span class=cm>    //垂直布局时使用的 对应上中下
-</span><span class=cm>    UICollectionViewScrollPositionTop                  = 1 &lt;&lt; 0,
-</span><span class=cm>    UICollectionViewScrollPositionCenteredVertically   = 1 &lt;&lt; 1,
-</span><span class=cm>    UICollectionViewScrollPositionBottom               = 1 &lt;&lt; 2,
-</span><span class=cm>    //水平布局时使用的  对应左中右
-</span><span class=cm>    UICollectionViewScrollPositionLeft                 = 1 &lt;&lt; 3,
-</span><span class=cm>    UICollectionViewScrollPositionCenteredHorizontally = 1 &lt;&lt; 4,
-</span><span class=cm>    UICollectionViewScrollPositionRight                = 1 &lt;&lt; 5
-</span><span class=cm>};
-</span><span class=cm>*/</span>
-<span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>selectItemAtIndexPath:</span><span class=p>(</span><span class=n>nullable</span> <span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span> <span class=nf>animated:</span><span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nv>animated</span> <span class=nf>scrollPosition:</span><span class=p>(</span><span class=n>UICollectionViewScrollPosition</span><span class=p>)</span><span class=nv>scrollPosition</span><span class=p>;</span>
-
-<span class=c1>//将某一item取消选中
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>deselectItemAtIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span> <span class=nf>animated:</span><span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nv>animated</span><span class=p>;</span>
-
-<span class=c1>//重新加载数据
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>reloadData</span><span class=p>;</span>
-
-<span class=c1>//下面这两个方法，可以重新设置collection的布局，后面的方法多了一个布局完成后的回调，iOS7后可以用
-</span><span class=c1>//使用这两个方法可以产生非常炫酷的动画效果
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>setCollectionViewLayout:</span><span class=p>(</span><span class=n>UICollectionViewLayout</span> <span class=o>*</span><span class=p>)</span><span class=nv>layout</span> <span class=nf>animated:</span><span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nv>animated</span><span class=p>;</span>
-<span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>setCollectionViewLayout:</span><span class=p>(</span><span class=n>UICollectionViewLayout</span> <span class=o>*</span><span class=p>)</span><span class=nv>layout</span> <span class=nf>animated:</span><span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nv>animated</span> <span class=nf>completion:</span><span class=p>(</span><span class=kt>void</span> <span class=p>(</span><span class=o>^</span> <span class=n>__nullable</span><span class=p>)(</span><span class=kt>BOOL</span> <span class=n>finished</span><span class=p>))</span><span class=nv>completion</span> <span class=n>NS_AVAILABLE_IOS</span><span class=p>(</span><span class=mi>7</span><span class=n>_0</span><span class=p>);</span>
-
-<span class=c1>//下面这些方法更加强大，我们可以对布局更改后的动画进行设置
-</span><span class=c1>//这个方法传入一个布局策略layout，系统会开始进行布局渲染，返回一个UICollectionViewTransitionLayout对象
-</span><span class=c1>//这个UICollectionViewTransitionLayout对象管理动画的相关属性，我们可以进行设置
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>UICollectionViewTransitionLayout</span> <span class=o>*</span><span class=p>)</span><span class=nf>startInteractiveTransitionToCollectionViewLayout:</span><span class=p>(</span><span class=n>UICollectionViewLayout</span> <span class=o>*</span><span class=p>)</span><span class=nv>layout</span> <span class=nf>completion:</span><span class=p>(</span><span class=n>nullable</span> <span class=n>UICollectionViewLayoutInteractiveTransitionCompletion</span><span class=p>)</span><span class=nv>completion</span> <span class=n>NS_AVAILABLE_IOS</span><span class=p>(</span><span class=mi>7</span><span class=n>_0</span><span class=p>);</span>
-<span class=c1>//准备好动画设置后，我们需要调用下面的方法进行布局动画的展示，之后会调用上面方法的block回调
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>finishInteractiveTransition</span> <span class=n>NS_AVAILABLE_IOS</span><span class=p>(</span><span class=mi>7</span><span class=n>_0</span><span class=p>);</span>
-<span class=c1>//调用这个方法取消上面的布局动画设置，之后也会进行上面方法的block回调
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>cancelInteractiveTransition</span> <span class=n>NS_AVAILABLE_IOS</span><span class=p>(</span><span class=mi>7</span><span class=n>_0</span><span class=p>);</span>
-
-<span class=c1>//获取分区数
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nf>numberOfSections</span><span class=p>;</span>
-
-<span class=c1>//获取某一分区的item数
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nf>numberOfItemsInSection:</span><span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nv>section</span><span class=p>;</span>
-
-<span class=c1>//下面两个方法获取item或者头尾视图的layout属性，这个UICollectionViewLayoutAttributes对象
-</span><span class=c1>//存放着布局的相关数据，可以用来做完全自定义布局，后面博客会介绍
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>nullable</span> <span class=n>UICollectionViewLayoutAttributes</span> <span class=o>*</span><span class=p>)</span><span class=nf>layoutAttributesForItemAtIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span><span class=p>;</span>
-<span class=p>-</span> <span class=p>(</span><span class=n>nullable</span> <span class=n>UICollectionViewLayoutAttributes</span> <span class=o>*</span><span class=p>)</span><span class=nf>layoutAttributesForSupplementaryElementOfKind:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>kind</span> <span class=nf>atIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span><span class=p>;</span>
-
-<span class=c1>//获取某一点所在的indexpath位置
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>nullable</span> <span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nf>indexPathForItemAtPoint:</span><span class=p>(</span><span class=n>CGPoint</span><span class=p>)</span><span class=nv>point</span><span class=p>;</span>
-
-<span class=c1>//获取某个cell所在的indexPath
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>nullable</span> <span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nf>indexPathForCell:</span><span class=p>(</span><span class=n>UICollectionViewCell</span> <span class=o>*</span><span class=p>)</span><span class=nv>cell</span><span class=p>;</span>
-
-<span class=c1>//根据indexPath获取cell
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>nullable</span> <span class=n>UICollectionViewCell</span> <span class=o>*</span><span class=p>)</span><span class=nf>cellForItemAtIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span><span class=p>;</span>
-
-<span class=c1>//获取所有可见cell的数组
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>NSArray</span><span class=o>&lt;</span><span class=n>__kindof</span> <span class=n>UICollectionViewCell</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nf>visibleCells</span><span class=p>;</span>
-
-<span class=c1>//获取所有可见cell的位置数组
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>NSArray</span><span class=o>&lt;</span><span class=n>NSIndexPath</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nf>indexPathsForVisibleItems</span><span class=p>;</span>
-
-<span class=c1>//下面三个方法是iOS9中新添加的方法，用于获取头尾视图
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>UICollectionReusableView</span> <span class=o>*</span><span class=p>)</span><span class=nf>supplementaryViewForElementKind:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>elementKind</span> <span class=nf>atIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span> <span class=n>NS_AVAILABLE_IOS</span><span class=p>(</span><span class=mi>9</span><span class=n>_0</span><span class=p>);</span>
-<span class=p>-</span> <span class=p>(</span><span class=n>NSArray</span><span class=o>&lt;</span><span class=n>UICollectionReusableView</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nf>visibleSupplementaryViewsOfKind:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>elementKind</span> <span class=n>NS_AVAILABLE_IOS</span><span class=p>(</span><span class=mi>9</span><span class=n>_0</span><span class=p>);</span>
-<span class=p>-</span> <span class=p>(</span><span class=n>NSArray</span><span class=o>&lt;</span><span class=n>NSIndexPath</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nf>indexPathsForVisibleSupplementaryElementsOfKind:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>elementKind</span> <span class=n>NS_AVAILABLE_IOS</span><span class=p>(</span><span class=mi>9</span><span class=n>_0</span><span class=p>);</span>
-
-<span class=c1>//使视图滑动到某一位置，可以带动画效果
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>scrollToItemAtIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span> <span class=nf>atScrollPosition:</span><span class=p>(</span><span class=n>UICollectionViewScrollPosition</span><span class=p>)</span><span class=nv>scrollPosition</span> <span class=nf>animated:</span><span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nv>animated</span><span class=p>;</span>
-
-<span class=c1>//用于动态添加，删除，移动某些分区获取items
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>insertSections:</span><span class=p>(</span><span class=n>NSIndexSet</span> <span class=o>*</span><span class=p>)</span><span class=nv>sections</span><span class=p>;</span>
-<span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>deleteSections:</span><span class=p>(</span><span class=n>NSIndexSet</span> <span class=o>*</span><span class=p>)</span><span class=nv>sections</span><span class=p>;</span>
-<span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>reloadSections:</span><span class=p>(</span><span class=n>NSIndexSet</span> <span class=o>*</span><span class=p>)</span><span class=nv>sections</span><span class=p>;</span>
-<span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>moveSection:</span><span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nv>section</span> <span class=nf>toSection:</span><span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nv>newSection</span><span class=p>;</span>
-
-<span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>insertItemsAtIndexPaths:</span><span class=p>(</span><span class=n>NSArray</span><span class=o>&lt;</span><span class=n>NSIndexPath</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPaths</span><span class=p>;</span>
-<span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>deleteItemsAtIndexPaths:</span><span class=p>(</span><span class=n>NSArray</span><span class=o>&lt;</span><span class=n>NSIndexPath</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPaths</span><span class=p>;</span>
-<span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>reloadItemsAtIndexPaths:</span><span class=p>(</span><span class=n>NSArray</span><span class=o>&lt;</span><span class=n>NSIndexPath</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPaths</span><span class=p>;</span>
-<span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>moveItemAtIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span> <span class=nf>toIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>newIndexPath</span><span class=p>;</span>
-</code></pre></td></tr></table>
-</div>
-</div>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/uicollectionview/>UICollectionView</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/post/2016-11-08-nsdictionary-enum/>
-<i class="iconfont icon-left"></i>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=line><span class=cl><span class=c1>//通过一个布局策略初识化CollectionView
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>instancetype</span><span class=p>)</span><span class=nf>initWithFrame:</span><span class=p>(</span><span class=n>CGRect</span><span class=p>)</span><span class=nv>frame</span> <span class=nf>collectionViewLayout:</span><span class=p>(</span><span class=n>UICollectionViewLayout</span> <span class=o>*</span><span class=p>)</span><span class=nv>layout</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//获取和设置collection的layout
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>,</span> <span class=k>strong</span><span class=p>)</span> <span class=n>UICollectionViewLayout</span> <span class=o>*</span><span class=n>collectionViewLayout</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//数据源和代理
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>,</span> <span class=k>weak</span><span class=p>,</span> <span class=n>nullable</span><span class=p>)</span> <span class=kt>id</span> <span class=o>&lt;</span><span class=n>UICollectionViewDelegate</span><span class=o>&gt;</span> <span class=n>delegate</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>,</span> <span class=k>weak</span><span class=p>,</span> <span class=n>nullable</span><span class=p>)</span> <span class=kt>id</span> <span class=o>&lt;</span><span class=n>UICollectionViewDataSource</span><span class=o>&gt;</span> <span class=n>dataSource</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//从一个class或者xib文件进行cell(item)的注册
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>registerClass:</span><span class=p>(</span><span class=n>nullable</span> <span class=kt>Class</span><span class=p>)</span><span class=nv>cellClass</span> <span class=nf>forCellWithReuseIdentifier:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>identifier</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>registerNib:</span><span class=p>(</span><span class=n>nullable</span> <span class=n>UINib</span> <span class=o>*</span><span class=p>)</span><span class=nv>nib</span> <span class=nf>forCellWithReuseIdentifier:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>identifier</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//下面两个方法与上面相似，这里注册的是头视图或者尾视图的类
+</span></span></span><span class=line><span class=cl><span class=c1>//其中第二个参数是设置 头视图或者尾视图 系统为我们定义好了这两个字符串
+</span></span></span><span class=line><span class=cl><span class=c1>//UIKIT_EXTERN NSString *const UICollectionElementKindSectionHeader NS_AVAILABLE_IOS(6_0);
+</span></span></span><span class=line><span class=cl><span class=c1>//UIKIT_EXTERN NSString *const UICollectionElementKindSectionFooter NS_AVAILABLE_IOS(6_0);
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>registerClass:</span><span class=p>(</span><span class=n>nullable</span> <span class=kt>Class</span><span class=p>)</span><span class=nv>viewClass</span> <span class=nf>forSupplementaryViewOfKind:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>elementKind</span> <span class=nf>withReuseIdentifier:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>identifier</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>registerNib:</span><span class=p>(</span><span class=n>nullable</span> <span class=n>UINib</span> <span class=o>*</span><span class=p>)</span><span class=nv>nib</span> <span class=nf>forSupplementaryViewOfKind:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>kind</span> <span class=nf>withReuseIdentifier:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>identifier</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//这两个方法是从复用池中取出cell或者头尾视图
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>__kindof</span> <span class=n>UICollectionViewCell</span> <span class=o>*</span><span class=p>)</span><span class=nf>dequeueReusableCellWithReuseIdentifier:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>identifier</span> <span class=nf>forIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=n>__kindof</span> <span class=n>UICollectionReusableView</span> <span class=o>*</span><span class=p>)</span><span class=nf>dequeueReusableSupplementaryViewOfKind:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>elementKind</span> <span class=nf>withReuseIdentifier:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>identifier</span> <span class=nf>forIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//设置是否允许选中 默认yes
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>)</span> <span class=kt>BOOL</span> <span class=n>allowsSelection</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//设置是否允许多选 默认no
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>)</span> <span class=kt>BOOL</span> <span class=n>allowsMultipleSelection</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//获取所有选中的item的位置信息
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>nullable</span> <span class=n>NSArray</span><span class=o>&lt;</span><span class=n>NSIndexPath</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nf>indexPathsForSelectedItems</span><span class=p>;</span> 
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//设置选中某一item，并使视图滑动到相应位置，scrollPosition是滑动位置的相关参数，如下：
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=cm>/*
+</span></span></span><span class=line><span class=cl><span class=cm>typedef NS_OPTIONS(NSUInteger, UICollectionViewScrollPosition) {
+</span></span></span><span class=line><span class=cl><span class=cm>    //无
+</span></span></span><span class=line><span class=cl><span class=cm>    UICollectionViewScrollPositionNone                 = 0,
+</span></span></span><span class=line><span class=cl><span class=cm>    //垂直布局时使用的 对应上中下
+</span></span></span><span class=line><span class=cl><span class=cm>    UICollectionViewScrollPositionTop                  = 1 &lt;&lt; 0,
+</span></span></span><span class=line><span class=cl><span class=cm>    UICollectionViewScrollPositionCenteredVertically   = 1 &lt;&lt; 1,
+</span></span></span><span class=line><span class=cl><span class=cm>    UICollectionViewScrollPositionBottom               = 1 &lt;&lt; 2,
+</span></span></span><span class=line><span class=cl><span class=cm>    //水平布局时使用的  对应左中右
+</span></span></span><span class=line><span class=cl><span class=cm>    UICollectionViewScrollPositionLeft                 = 1 &lt;&lt; 3,
+</span></span></span><span class=line><span class=cl><span class=cm>    UICollectionViewScrollPositionCenteredHorizontally = 1 &lt;&lt; 4,
+</span></span></span><span class=line><span class=cl><span class=cm>    UICollectionViewScrollPositionRight                = 1 &lt;&lt; 5
+</span></span></span><span class=line><span class=cl><span class=cm>};
+</span></span></span><span class=line><span class=cl><span class=cm>*/</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>selectItemAtIndexPath:</span><span class=p>(</span><span class=n>nullable</span> <span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span> <span class=nf>animated:</span><span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nv>animated</span> <span class=nf>scrollPosition:</span><span class=p>(</span><span class=n>UICollectionViewScrollPosition</span><span class=p>)</span><span class=nv>scrollPosition</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//将某一item取消选中
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>deselectItemAtIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span> <span class=nf>animated:</span><span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nv>animated</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//重新加载数据
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>reloadData</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//下面这两个方法，可以重新设置collection的布局，后面的方法多了一个布局完成后的回调，iOS7后可以用
+</span></span></span><span class=line><span class=cl><span class=c1>//使用这两个方法可以产生非常炫酷的动画效果
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>setCollectionViewLayout:</span><span class=p>(</span><span class=n>UICollectionViewLayout</span> <span class=o>*</span><span class=p>)</span><span class=nv>layout</span> <span class=nf>animated:</span><span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nv>animated</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>setCollectionViewLayout:</span><span class=p>(</span><span class=n>UICollectionViewLayout</span> <span class=o>*</span><span class=p>)</span><span class=nv>layout</span> <span class=nf>animated:</span><span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nv>animated</span> <span class=nf>completion:</span><span class=p>(</span><span class=kt>void</span> <span class=p>(</span><span class=o>^</span> <span class=n>__nullable</span><span class=p>)(</span><span class=kt>BOOL</span> <span class=n>finished</span><span class=p>))</span><span class=nv>completion</span> <span class=n>NS_AVAILABLE_IOS</span><span class=p>(</span><span class=mi>7</span><span class=n>_0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//下面这些方法更加强大，我们可以对布局更改后的动画进行设置
+</span></span></span><span class=line><span class=cl><span class=c1>//这个方法传入一个布局策略layout，系统会开始进行布局渲染，返回一个UICollectionViewTransitionLayout对象
+</span></span></span><span class=line><span class=cl><span class=c1>//这个UICollectionViewTransitionLayout对象管理动画的相关属性，我们可以进行设置
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>UICollectionViewTransitionLayout</span> <span class=o>*</span><span class=p>)</span><span class=nf>startInteractiveTransitionToCollectionViewLayout:</span><span class=p>(</span><span class=n>UICollectionViewLayout</span> <span class=o>*</span><span class=p>)</span><span class=nv>layout</span> <span class=nf>completion:</span><span class=p>(</span><span class=n>nullable</span> <span class=n>UICollectionViewLayoutInteractiveTransitionCompletion</span><span class=p>)</span><span class=nv>completion</span> <span class=n>NS_AVAILABLE_IOS</span><span class=p>(</span><span class=mi>7</span><span class=n>_0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=c1>//准备好动画设置后，我们需要调用下面的方法进行布局动画的展示，之后会调用上面方法的block回调
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>finishInteractiveTransition</span> <span class=n>NS_AVAILABLE_IOS</span><span class=p>(</span><span class=mi>7</span><span class=n>_0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=c1>//调用这个方法取消上面的布局动画设置，之后也会进行上面方法的block回调
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>cancelInteractiveTransition</span> <span class=n>NS_AVAILABLE_IOS</span><span class=p>(</span><span class=mi>7</span><span class=n>_0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//获取分区数
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nf>numberOfSections</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//获取某一分区的item数
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nf>numberOfItemsInSection:</span><span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nv>section</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//下面两个方法获取item或者头尾视图的layout属性，这个UICollectionViewLayoutAttributes对象
+</span></span></span><span class=line><span class=cl><span class=c1>//存放着布局的相关数据，可以用来做完全自定义布局，后面博客会介绍
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>nullable</span> <span class=n>UICollectionViewLayoutAttributes</span> <span class=o>*</span><span class=p>)</span><span class=nf>layoutAttributesForItemAtIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=n>nullable</span> <span class=n>UICollectionViewLayoutAttributes</span> <span class=o>*</span><span class=p>)</span><span class=nf>layoutAttributesForSupplementaryElementOfKind:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>kind</span> <span class=nf>atIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//获取某一点所在的indexpath位置
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>nullable</span> <span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nf>indexPathForItemAtPoint:</span><span class=p>(</span><span class=n>CGPoint</span><span class=p>)</span><span class=nv>point</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//获取某个cell所在的indexPath
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>nullable</span> <span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nf>indexPathForCell:</span><span class=p>(</span><span class=n>UICollectionViewCell</span> <span class=o>*</span><span class=p>)</span><span class=nv>cell</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//根据indexPath获取cell
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>nullable</span> <span class=n>UICollectionViewCell</span> <span class=o>*</span><span class=p>)</span><span class=nf>cellForItemAtIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//获取所有可见cell的数组
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>NSArray</span><span class=o>&lt;</span><span class=n>__kindof</span> <span class=n>UICollectionViewCell</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nf>visibleCells</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//获取所有可见cell的位置数组
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>NSArray</span><span class=o>&lt;</span><span class=n>NSIndexPath</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nf>indexPathsForVisibleItems</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//下面三个方法是iOS9中新添加的方法，用于获取头尾视图
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>UICollectionReusableView</span> <span class=o>*</span><span class=p>)</span><span class=nf>supplementaryViewForElementKind:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>elementKind</span> <span class=nf>atIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span> <span class=n>NS_AVAILABLE_IOS</span><span class=p>(</span><span class=mi>9</span><span class=n>_0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=n>NSArray</span><span class=o>&lt;</span><span class=n>UICollectionReusableView</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nf>visibleSupplementaryViewsOfKind:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>elementKind</span> <span class=n>NS_AVAILABLE_IOS</span><span class=p>(</span><span class=mi>9</span><span class=n>_0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=n>NSArray</span><span class=o>&lt;</span><span class=n>NSIndexPath</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nf>indexPathsForVisibleSupplementaryElementsOfKind:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>elementKind</span> <span class=n>NS_AVAILABLE_IOS</span><span class=p>(</span><span class=mi>9</span><span class=n>_0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//使视图滑动到某一位置，可以带动画效果
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>scrollToItemAtIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span> <span class=nf>atScrollPosition:</span><span class=p>(</span><span class=n>UICollectionViewScrollPosition</span><span class=p>)</span><span class=nv>scrollPosition</span> <span class=nf>animated:</span><span class=p>(</span><span class=kt>BOOL</span><span class=p>)</span><span class=nv>animated</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//用于动态添加，删除，移动某些分区获取items
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>insertSections:</span><span class=p>(</span><span class=n>NSIndexSet</span> <span class=o>*</span><span class=p>)</span><span class=nv>sections</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>deleteSections:</span><span class=p>(</span><span class=n>NSIndexSet</span> <span class=o>*</span><span class=p>)</span><span class=nv>sections</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>reloadSections:</span><span class=p>(</span><span class=n>NSIndexSet</span> <span class=o>*</span><span class=p>)</span><span class=nv>sections</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>moveSection:</span><span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nv>section</span> <span class=nf>toSection:</span><span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nv>newSection</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>insertItemsAtIndexPaths:</span><span class=p>(</span><span class=n>NSArray</span><span class=o>&lt;</span><span class=n>NSIndexPath</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPaths</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>deleteItemsAtIndexPaths:</span><span class=p>(</span><span class=n>NSArray</span><span class=o>&lt;</span><span class=n>NSIndexPath</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPaths</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>reloadItemsAtIndexPaths:</span><span class=p>(</span><span class=n>NSArray</span><span class=o>&lt;</span><span class=n>NSIndexPath</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPaths</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=nf>moveItemAtIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span> <span class=nf>toIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>newIndexPath</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div></div><footer class=post-footer><div class=post-tags><a href=/tags/uicollectionview/>UICollectionView</a></div><nav class=post-nav><a class=prev href=/post/2016-11-08-nsdictionary-enum/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">遍历字典 NSDictionary</span>
-<span class="prev-text nav-mobile">上一篇</span>
-</a>
-<a class=next href=/post/2016-11-02-netstatus/>
-<span class="next-text nav-default">使用 Reachability 监听网络状态</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/post/2016-11-02-netstatus/><span class="next-text nav-default">使用 Reachability 监听网络状态</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=dongjiawang2008@163.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div></div></main><footer id=footer class=footer><div class=social-links><a href=weakself@foxmail.com class="iconfont icon-email" title=email></a>
 <a href=https://github.com/dongjiawang class="iconfont icon-github" title=github></a>
 <a href=https://space.bilibili.com/13834686 class="iconfont icon-bilibili" title=bilibili></a>
-<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
-</span>
+<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
 <span class=division>|</span>
-<span class=theme-info>
-主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<span class=copyright-year>
-&copy;
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
 2015 -
-2021<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-141040294-1','auto'),ga('set','anonymizeIp',!0),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-141040294-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){if(window.location.hostname==="localhost")return;var t,e=document.createElement("script");e.async=!0,e.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script><script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

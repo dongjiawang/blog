@@ -1,132 +1,8 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>UITableView的索引 - 我的码</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="dongjiawang"><meta name=description content="苹果提供了UILocalizedIndexedCollation来配合UITableView进行索引管理。 UILocalizedIndexe"><meta name=keywords content="Hugo,theme,even">
-<meta name=generator content="Hugo 0.89.4 with theme even">
-<link rel=canonical href=https://blog.dongjiawang.top/post/2018-12-31-uitableview%E7%9A%84%E7%B4%A2%E5%BC%95/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<link href=/sass/main.min.cb68f97bc9cece255d217346d970e3c62623408634e500c330a62fadabbbe77c.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="UITableView的索引">
-<meta property="og:description" content="苹果提供了UILocalizedIndexedCollation来配合UITableView进行索引管理。 UILocalizedIndexe">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://blog.dongjiawang.top/post/2018-12-31-uitableview%E7%9A%84%E7%B4%A2%E5%BC%95/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2018-12-31T22:00:00+00:00">
-<meta property="article:modified_time" content="2018-12-31T22:00:00+00:00">
-<meta itemprop=name content="UITableView的索引">
-<meta itemprop=description content="苹果提供了UILocalizedIndexedCollation来配合UITableView进行索引管理。 UILocalizedIndexe"><meta itemprop=datePublished content="2018-12-31T22:00:00+00:00">
-<meta itemprop=dateModified content="2018-12-31T22:00:00+00:00">
-<meta itemprop=wordCount content="868">
-<meta itemprop=keywords content="UITableView,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="UITableView的索引">
-<meta name=twitter:description content="苹果提供了UILocalizedIndexedCollation来配合UITableView进行索引管理。 UILocalizedIndexe"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>我的码</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>UITableView的索引 - 我的码</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="dongjiawang"><meta name=description content="苹果提供了UILocalizedIndexedCollation来配合UITableView进行索引管理。 UILocalizedIndexe"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.101.0 with theme even"><link rel=canonical href=https://blog.dongjiawang.top/post/2018-12-31-uitableview%E7%9A%84%E7%B4%A2%E5%BC%95/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.cb68f97bc9cece255d217346d970e3c62623408634e500c330a62fadabbbe77c.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="UITableView的索引"><meta property="og:description" content="苹果提供了UILocalizedIndexedCollation来配合UITableView进行索引管理。 UILocalizedIndexe"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.dongjiawang.top/post/2018-12-31-uitableview%E7%9A%84%E7%B4%A2%E5%BC%95/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-12-31T22:00:00+00:00"><meta property="article:modified_time" content="2018-12-31T22:00:00+00:00"><meta itemprop=name content="UITableView的索引"><meta itemprop=description content="苹果提供了UILocalizedIndexedCollation来配合UITableView进行索引管理。 UILocalizedIndexe"><meta itemprop=datePublished content="2018-12-31T22:00:00+00:00"><meta itemprop=dateModified content="2018-12-31T22:00:00+00:00"><meta itemprop=wordCount content="866"><meta itemprop=keywords content="UITableView,"><meta name=twitter:card content="summary"><meta name=twitter:title content="UITableView的索引"><meta name=twitter:description content="苹果提供了UILocalizedIndexedCollation来配合UITableView进行索引管理。 UILocalizedIndexe"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>我的码</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>首页</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>归档</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>标签</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>分类</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>关于</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>我的码</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>首页</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>归档</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>标签</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>分类</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>关于</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>UITableView的索引</h1>
-<div class=post-meta>
-<span class=post-time> 2018-12-31 </span>
-<div class=post-category>
-<a href=/categories/ios/> iOS </a>
-</div>
-<span class=more-meta> 约 868 字 </span>
-<span class=more-meta> 预计阅读 2 分钟 </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>文章目录</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>苹果提供了<code>UILocalizedIndexedCollation</code>来配合<code>UITableView</code>进行索引管理。</p>
-<p><code>UILocalizedIndexedCollation</code>提供了返回汉字拼音的首字母、返回包含<code>A～Z</code>字母的数组和按照字母进行排序的功能。</p>
-<p><a href="https://developer.apple.com/documentation/uikit/uilocalizedindexedcollation?language=objc">UILocalizedIndexedCollation</a>的官方文档说明。</p>
-<h4 id=下面是我们项目中的代码的demo>下面是我们项目中的代码的demo</h4>
-<ol>
-<li>定义</li>
-</ol>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>我的码</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>UITableView的索引</h1><div class=post-meta><span class=post-time>2018-12-31</span><div class=post-category><a href=/categories/ios/>iOS</a></div><span class=more-meta>约 866 字</span>
+<span class=more-meta>预计阅读 2 分钟</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><ul><li><ul><li></li></ul></li></ul></li></ul></nav></div></div><div class=post-content><p>苹果提供了<code>UILocalizedIndexedCollation</code>来配合<code>UITableView</code>进行索引管理。</p><p><code>UILocalizedIndexedCollation</code>提供了返回汉字拼音的首字母、返回包含<code>A～Z</code>字母的数组和按照字母进行排序的功能。</p><p><a href="https://developer.apple.com/documentation/uikit/uilocalizedindexedcollation?language=objc">UILocalizedIndexedCollation</a>的官方文档说明。</p><h4 id=下面是我们项目中的代码的demo>下面是我们项目中的代码的demo</h4><ol><li>定义</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -135,44 +11,24 @@
 </span><span class=lnt>7
 </span><span class=lnt>8
 </span><span class=lnt>9
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=cm>/**
-</span><span class=cm>索引单例
-</span><span class=cm>*/</span>
-<span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>,</span> <span class=k>strong</span><span class=p>)</span> <span class=n>UILocalizedIndexedCollation</span> <span class=o>*</span><span class=n>localizedCollation</span><span class=p>;</span>
-
-<span class=cm>/**
-</span><span class=cm>每个section中的i数组
-</span><span class=cm>*/</span>
-<span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>,</span> <span class=k>strong</span><span class=p>)</span> <span class=n>NSMutableArray</span> <span class=o>*</span><span class=n>sectionArray</span><span class=p>;</span>
-</code></pre></td></tr></table>
-</div>
-</div><ol start=2>
-<li>设置显示效果</li>
-</ol>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=line><span class=cl><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>索引单例
+</span></span></span><span class=line><span class=cl><span class=cm>*/</span>
+</span></span><span class=line><span class=cl><span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>,</span> <span class=k>strong</span><span class=p>)</span> <span class=n>UILocalizedIndexedCollation</span> <span class=o>*</span><span class=n>localizedCollation</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>每个section中的i数组
+</span></span></span><span class=line><span class=cl><span class=cm>*/</span>
+</span></span><span class=line><span class=cl><span class=k>@property</span> <span class=p>(</span><span class=k>nonatomic</span><span class=p>,</span> <span class=k>strong</span><span class=p>)</span> <span class=n>NSMutableArray</span> <span class=o>*</span><span class=n>sectionArray</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=2><li>设置显示效果</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=c1>// 文字颜色
-</span><span class=c1></span><span class=nb>self</span><span class=p>.</span><span class=n>tableView</span><span class=p>.</span><span class=n>sectionIndexColor</span> <span class=o>=</span> <span class=p>[</span><span class=n>UIColor</span> <span class=n>darkTextColor</span><span class=p>];</span>
-<span class=c1>//背景颜色
-</span><span class=c1></span><span class=nb>self</span><span class=p>.</span><span class=n>tableView</span><span class=p>.</span><span class=n>sectionIndexBackgroundColor</span> <span class=o>=</span> <span class=p>[</span><span class=n>UIColor</span> <span class=n>clearColor</span><span class=p>];</span>
-
-</code></pre></td></tr></table>
-</div>
-</div><ol start=3>
-<li>创建并排序索引数据</li>
-</ol>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=line><span class=cl><span class=c1>// 文字颜色
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>self</span><span class=p>.</span><span class=n>tableView</span><span class=p>.</span><span class=n>sectionIndexColor</span> <span class=o>=</span> <span class=p>[</span><span class=n>UIColor</span> <span class=n>darkTextColor</span><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=c1>//背景颜色
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>self</span><span class=p>.</span><span class=n>tableView</span><span class=p>.</span><span class=n>sectionIndexBackgroundColor</span> <span class=o>=</span> <span class=p>[</span><span class=n>UIColor</span> <span class=n>clearColor</span><span class=p>];</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=3><li>创建并排序索引数据</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -188,32 +44,23 @@
 </span><span class=lnt>14
 </span><span class=lnt>15
 </span><span class=lnt>16
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=c1>// UserGroup 是我们项目中的对象，包含着一个name的属性
-</span><span class=c1></span><span class=k>for</span> <span class=p>(</span><span class=n>UserGroup</span> <span class=o>*</span><span class=n>group</span> <span class=k>in</span> <span class=n>groups</span><span class=p>)</span> <span class=p>{</span>
-        <span class=c1>//根据name的字符串的拼音首字母,找到这个首字母对应的下标index
-</span><span class=c1></span>        <span class=n>NSInteger</span> <span class=n>section</span> <span class=o>=</span> <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>localizedCollation</span> <span class=nl>sectionForObject</span><span class=p>:</span><span class=n>group</span> <span class=nl>collationStringSelector</span><span class=p>:</span><span class=k>@selector</span><span class=p>(</span><span class=n>name</span><span class=p>)];</span>
-        <span class=c1>//根据index取出二维数组中的一维数组数组元素
-</span><span class=c1></span>        <span class=n>NSMutableArray</span> <span class=o>*</span><span class=n>subArr</span> <span class=o>=</span> <span class=n>tempSectionArray</span><span class=p>[</span><span class=n>section</span><span class=p>];</span>
-        <span class=c1>//将这个对象加入到一维数组数组中
-</span><span class=c1></span>        <span class=p>[</span><span class=n>subArr</span> <span class=nl>addObject</span><span class=p>:</span><span class=n>group</span><span class=p>];</span>
-    <span class=p>}</span>
-    
-    <span class=c1>//遍历二维数组，取出每一个一维数组，在对数组中的对象按照字母进行下排序。
-</span><span class=c1></span>    <span class=k>for</span> <span class=p>(</span><span class=n>NSMutableArray</span> <span class=o>*</span><span class=n>arr</span> <span class=k>in</span> <span class=n>tempSectionArray</span><span class=p>)</span> <span class=p>{</span>
-        <span class=n>NSArray</span> <span class=o>*</span><span class=n>sortArr</span> <span class=o>=</span> <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>localizedCollation</span> <span class=nl>sortedArrayFromArray</span><span class=p>:</span><span class=n>arr</span> <span class=nl>collationStringSelector</span><span class=p>:</span><span class=k>@selector</span><span class=p>(</span><span class=n>name</span><span class=p>)];</span>
-        <span class=p>[</span><span class=n>arr</span> <span class=n>removeAllObjects</span><span class=p>];</span>
-        <span class=p>[</span><span class=n>arr</span> <span class=nl>addObjectsFromArray</span><span class=p>:</span><span class=n>sortArr</span><span class=p>];</span>
-    <span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><ol start=4>
-<li>筛选空白数据</li>
-</ol>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=line><span class=cl><span class=c1>// UserGroup 是我们项目中的对象，包含着一个name的属性
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>for</span> <span class=p>(</span><span class=n>UserGroup</span> <span class=o>*</span><span class=n>group</span> <span class=k>in</span> <span class=n>groups</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//根据name的字符串的拼音首字母,找到这个首字母对应的下标index
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>NSInteger</span> <span class=n>section</span> <span class=o>=</span> <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>localizedCollation</span> <span class=nl>sectionForObject</span><span class=p>:</span><span class=n>group</span> <span class=nl>collationStringSelector</span><span class=p>:</span><span class=k>@selector</span><span class=p>(</span><span class=n>name</span><span class=p>)];</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//根据index取出二维数组中的一维数组数组元素
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>NSMutableArray</span> <span class=o>*</span><span class=n>subArr</span> <span class=o>=</span> <span class=n>tempSectionArray</span><span class=p>[</span><span class=n>section</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//将这个对象加入到一维数组数组中
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>[</span><span class=n>subArr</span> <span class=nl>addObject</span><span class=p>:</span><span class=n>group</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1>//遍历二维数组，取出每一个一维数组，在对数组中的对象按照字母进行下排序。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>for</span> <span class=p>(</span><span class=n>NSMutableArray</span> <span class=o>*</span><span class=n>arr</span> <span class=k>in</span> <span class=n>tempSectionArray</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>NSArray</span> <span class=o>*</span><span class=n>sortArr</span> <span class=o>=</span> <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>localizedCollation</span> <span class=nl>sortedArrayFromArray</span><span class=p>:</span><span class=n>arr</span> <span class=nl>collationStringSelector</span><span class=p>:</span><span class=k>@selector</span><span class=p>(</span><span class=n>name</span><span class=p>)];</span>
+</span></span><span class=line><span class=cl>        <span class=p>[</span><span class=n>arr</span> <span class=n>removeAllObjects</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>        <span class=p>[</span><span class=n>arr</span> <span class=nl>addObjectsFromArray</span><span class=p>:</span><span class=n>sortArr</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=4><li>筛选空白数据</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -227,43 +74,27 @@
 </span><span class=lnt>12
 </span><span class=lnt>13
 </span><span class=lnt>14
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=c1>// 遍历section中的数据，把空白的section，在索引中移除，这样显示效果比较好
-</span><span class=c1></span><span class=n>NSMutableArray</span> <span class=o>*</span><span class=n>tempTitleArray</span> <span class=o>=</span> <span class=p>[</span><span class=n>NSMutableArray</span> <span class=n>array</span><span class=p>];</span>
-<span class=p>[</span><span class=n>tempSectionArray</span> <span class=nl>enumerateObjectsUsingBlock</span><span class=p>:</span><span class=o>^</span><span class=p>(</span><span class=n>NSArray</span> <span class=o>*</span><span class=n>array</span><span class=p>,</span> <span class=n>NSUInteger</span> <span class=n>idx</span><span class=p>,</span> <span class=kt>BOOL</span> <span class=o>*</span> <span class=n>_Nonnull</span> <span class=n>stop</span><span class=p>)</span> <span class=p>{</span>
-    <span class=k>if</span> <span class=p>(</span><span class=n>array</span><span class=p>.</span><span class=n>count</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
-        <span class=p>[</span><span class=n>tempTitleArray</span> <span class=nl>addObject</span><span class=p>:</span><span class=n>array</span><span class=p>];</span>
-    <span class=p>}</span>
-    <span class=k>else</span> <span class=p>{</span>
-        <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>tableDataArray</span> <span class=nl>addObject</span><span class=p>:[</span><span class=nb>self</span><span class=p>.</span><span class=n>localizedCollation</span> <span class=n>sectionTitles</span><span class=p>][</span><span class=n>idx</span><span class=p>]];</span>
-    <span class=p>}</span>
-<span class=p>}];</span>
-    
-<span class=p>[</span><span class=n>tempSectionArray</span> <span class=nl>removeObjectsInArray</span><span class=p>:</span><span class=n>tempTitleArray</span><span class=p>];</span>
-
-<span class=nb>self</span><span class=p>.</span><span class=n>sectionArray</span> <span class=o>=</span> <span class=n>tempSectionArray</span><span class=p>;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>可以在索引的开头添加搜索或者其他自定义的文字</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=line><span class=cl><span class=c1>// 遍历section中的数据，把空白的section，在索引中移除，这样显示效果比较好
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>NSMutableArray</span> <span class=o>*</span><span class=n>tempTitleArray</span> <span class=o>=</span> <span class=p>[</span><span class=n>NSMutableArray</span> <span class=n>array</span><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=n>tempSectionArray</span> <span class=nl>enumerateObjectsUsingBlock</span><span class=p>:</span><span class=o>^</span><span class=p>(</span><span class=n>NSArray</span> <span class=o>*</span><span class=n>array</span><span class=p>,</span> <span class=n>NSUInteger</span> <span class=n>idx</span><span class=p>,</span> <span class=kt>BOOL</span> <span class=o>*</span> <span class=n>_Nonnull</span> <span class=n>stop</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=n>array</span><span class=p>.</span><span class=n>count</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=p>[</span><span class=n>tempTitleArray</span> <span class=nl>addObject</span><span class=p>:</span><span class=n>array</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>tableDataArray</span> <span class=nl>addObject</span><span class=p>:[</span><span class=nb>self</span><span class=p>.</span><span class=n>localizedCollation</span> <span class=n>sectionTitles</span><span class=p>][</span><span class=n>idx</span><span class=p>]];</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}];</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=n>tempSectionArray</span> <span class=nl>removeObjectsInArray</span><span class=p>:</span><span class=n>tempTitleArray</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>self</span><span class=p>.</span><span class=n>sectionArray</span> <span class=o>=</span> <span class=n>tempSectionArray</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><p>可以在索引的开头添加搜索或者其他自定义的文字</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>tableDataArray</span> <span class=nl>insertObject</span><span class=p>:</span><span class=s>@&#34;推荐&#34;</span> <span class=nl>atIndex</span><span class=p>:</span><span class=mi>0</span><span class=p>];</span>
-<span class=c1>// 或者添加系统提供的一个搜索标志
-</span><span class=c1></span><span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>tableDataArray</span> <span class=nl>insertObject</span><span class=p>:</span><span class=n>UITableViewIndexSearch</span> <span class=nl>atIndex</span><span class=p>:</span><span class=mi>0</span><span class=p>];</span>
-</code></pre></td></tr></table>
-</div>
-</div><ol start=5>
-<li>UITableView的代理</li>
-</ol>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=line><span class=cl><span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>tableDataArray</span> <span class=nl>insertObject</span><span class=p>:</span><span class=s>@&#34;推荐&#34;</span> <span class=nl>atIndex</span><span class=p>:</span><span class=mi>0</span><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=c1>// 或者添加系统提供的一个搜索标志
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>tableDataArray</span> <span class=nl>insertObject</span><span class=p>:</span><span class=n>UITableViewIndexSearch</span> <span class=nl>atIndex</span><span class=p>:</span><span class=mi>0</span><span class=p>];</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=5><li>UITableView的代理</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -293,46 +124,37 @@
 </span><span class=lnt>28
 </span><span class=lnt>29
 </span><span class=lnt>30
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=p>-</span> <span class=p>(</span><span class=n>CGFloat</span><span class=p>)</span><span class=nf>tableView:</span><span class=p>(</span><span class=n>UITableView</span> <span class=o>*</span><span class=p>)</span><span class=nv>tableView</span> <span class=nf>heightForHeaderInSection:</span><span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nv>section</span> <span class=p>{</span>
-    <span class=k>return</span> <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>sectionArray</span><span class=p>[</span><span class=n>section</span><span class=p>]</span> <span class=n>count</span><span class=p>]</span> <span class=o>==</span> <span class=mi>0</span> <span class=o>?</span> <span class=mi>0</span> <span class=o>:</span> <span class=mi>30</span><span class=p>;</span>
-<span class=p>}</span>
-
-<span class=p>-</span> <span class=p>(</span><span class=n>CGFloat</span><span class=p>)</span><span class=nf>tableView:</span><span class=p>(</span><span class=n>UITableView</span> <span class=o>*</span><span class=p>)</span><span class=nv>tableView</span> <span class=nf>heightForRowAtIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span> <span class=p>{</span>
-    <span class=k>return</span> <span class=mi>44</span><span class=p>;</span>
-<span class=p>}</span>
-
-<span class=p>-</span> <span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nf>numberOfSectionsInTableView:</span><span class=p>(</span><span class=n>UITableView</span> <span class=o>*</span><span class=p>)</span><span class=nv>tableView</span> <span class=p>{</span>
-    <span class=k>return</span> <span class=nb>self</span><span class=p>.</span><span class=n>tableDataArray</span><span class=p>.</span><span class=n>count</span><span class=p>;</span>
-<span class=p>}</span>
-
-<span class=p>-</span> <span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nf>tableView:</span><span class=p>(</span><span class=n>UITableView</span> <span class=o>*</span><span class=p>)</span><span class=nv>tableView</span> <span class=nf>numberOfRowsInSection:</span><span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nv>section</span> <span class=p>{</span>    
-    <span class=k>return</span> <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>sectionArray</span><span class=p>[</span><span class=n>section</span><span class=p>]</span> <span class=n>count</span><span class=p>];</span>
-<span class=p>}</span>
-
-<span class=p>-</span> <span class=p>(</span><span class=n>UITableViewCell</span> <span class=o>*</span><span class=p>)</span><span class=nf>tableView:</span><span class=p>(</span><span class=n>UITableView</span> <span class=o>*</span><span class=p>)</span><span class=nv>tableView</span> <span class=nf>cellForRowAtIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span> <span class=p>{</span>
-    <span class=k>static</span> <span class=n>NSString</span> <span class=o>*</span><span class=n>cellid</span> <span class=o>=</span> <span class=s>@&#34;tableViewCell&#34;</span><span class=p>;</span>
-    <span class=n>UITableViewCell</span> <span class=o>*</span><span class=n>cell</span> <span class=o>=</span> <span class=p>[</span><span class=n>tableView</span> <span class=nl>dequeueReusableCellWithIdentifier</span><span class=p>:</span><span class=n>cellid</span><span class=p>];</span>
-    
-    <span class=k>if</span> <span class=p>(</span><span class=n>cell</span> <span class=o>==</span> <span class=nb>nil</span><span class=p>)</span> <span class=p>{</span>
-        <span class=n>cell</span> <span class=o>=</span> <span class=p>[[</span><span class=n>UITableViewCell</span> <span class=n>alloc</span><span class=p>]</span> <span class=nl>initWithStyle</span><span class=p>:</span><span class=n>UITableViewCellStyleDefault</span> <span class=nl>reuseIdentifier</span><span class=p>:</span><span class=n>cellid</span><span class=p>];</span>
-        <span class=n>cell</span><span class=p>.</span><span class=n>selectionStyle</span> <span class=o>=</span> <span class=n>UITableViewCellSelectionStyleNone</span><span class=p>;</span>
-    <span class=p>}</span>
-    
-    <span class=n>UserGroup</span> <span class=o>*</span><span class=n>group</span> <span class=o>=</span> <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>sectionArray</span><span class=p>[</span><span class=n>indexPath</span><span class=p>.</span><span class=n>section</span><span class=p>]</span> <span class=nl>objectAtIndex</span><span class=p>:</span><span class=n>indexPath</span><span class=p>.</span><span class=n>row</span><span class=p>];</span>
-    <span class=n>cell</span><span class=p>.</span><span class=n>textLabel</span><span class=p>.</span><span class=n>text</span> <span class=o>=</span> <span class=n>group</span><span class=p>.</span><span class=n>name</span><span class=p>;</span>
-    
-    <span class=k>return</span> <span class=n>cell</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><ol start=6>
-<li>UITableView的索引代理</li>
-</ol>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=n>CGFloat</span><span class=p>)</span><span class=nf>tableView:</span><span class=p>(</span><span class=n>UITableView</span> <span class=o>*</span><span class=p>)</span><span class=nv>tableView</span> <span class=nf>heightForHeaderInSection:</span><span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nv>section</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>sectionArray</span><span class=p>[</span><span class=n>section</span><span class=p>]</span> <span class=n>count</span><span class=p>]</span> <span class=o>==</span> <span class=mi>0</span> <span class=o>?</span> <span class=mi>0</span> <span class=o>:</span> <span class=mi>30</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=n>CGFloat</span><span class=p>)</span><span class=nf>tableView:</span><span class=p>(</span><span class=n>UITableView</span> <span class=o>*</span><span class=p>)</span><span class=nv>tableView</span> <span class=nf>heightForRowAtIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>44</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nf>numberOfSectionsInTableView:</span><span class=p>(</span><span class=n>UITableView</span> <span class=o>*</span><span class=p>)</span><span class=nv>tableView</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nb>self</span><span class=p>.</span><span class=n>tableDataArray</span><span class=p>.</span><span class=n>count</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nf>tableView:</span><span class=p>(</span><span class=n>UITableView</span> <span class=o>*</span><span class=p>)</span><span class=nv>tableView</span> <span class=nf>numberOfRowsInSection:</span><span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nv>section</span> <span class=p>{</span>    
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>sectionArray</span><span class=p>[</span><span class=n>section</span><span class=p>]</span> <span class=n>count</span><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>-</span> <span class=p>(</span><span class=n>UITableViewCell</span> <span class=o>*</span><span class=p>)</span><span class=nf>tableView:</span><span class=p>(</span><span class=n>UITableView</span> <span class=o>*</span><span class=p>)</span><span class=nv>tableView</span> <span class=nf>cellForRowAtIndexPath:</span><span class=p>(</span><span class=n>NSIndexPath</span> <span class=o>*</span><span class=p>)</span><span class=nv>indexPath</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>static</span> <span class=n>NSString</span> <span class=o>*</span><span class=n>cellid</span> <span class=o>=</span> <span class=s>@&#34;tableViewCell&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>UITableViewCell</span> <span class=o>*</span><span class=n>cell</span> <span class=o>=</span> <span class=p>[</span><span class=n>tableView</span> <span class=nl>dequeueReusableCellWithIdentifier</span><span class=p>:</span><span class=n>cellid</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=n>cell</span> <span class=o>==</span> <span class=nb>nil</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>cell</span> <span class=o>=</span> <span class=p>[[</span><span class=n>UITableViewCell</span> <span class=n>alloc</span><span class=p>]</span> <span class=nl>initWithStyle</span><span class=p>:</span><span class=n>UITableViewCellStyleDefault</span> <span class=nl>reuseIdentifier</span><span class=p>:</span><span class=n>cellid</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>        <span class=n>cell</span><span class=p>.</span><span class=n>selectionStyle</span> <span class=o>=</span> <span class=n>UITableViewCellSelectionStyleNone</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=n>UserGroup</span> <span class=o>*</span><span class=n>group</span> <span class=o>=</span> <span class=p>[</span><span class=nb>self</span><span class=p>.</span><span class=n>sectionArray</span><span class=p>[</span><span class=n>indexPath</span><span class=p>.</span><span class=n>section</span><span class=p>]</span> <span class=nl>objectAtIndex</span><span class=p>:</span><span class=n>indexPath</span><span class=p>.</span><span class=n>row</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=n>cell</span><span class=p>.</span><span class=n>textLabel</span><span class=p>.</span><span class=n>text</span> <span class=o>=</span> <span class=n>group</span><span class=p>.</span><span class=n>name</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>cell</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=6><li>UITableView的索引代理</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -346,87 +168,38 @@
 </span><span class=lnt>12
 </span><span class=lnt>13
 </span><span class=lnt>14
-</span><span class=lnt>15
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=c1>// 返回索引的数据
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>NSArray</span><span class=o>&lt;</span><span class=n>NSString</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nf>sectionIndexTitlesForTableView:</span><span class=p>(</span><span class=n>UITableView</span> <span class=o>*</span><span class=p>)</span><span class=nv>tableView</span> <span class=p>{</span>
-    <span class=k>return</span> <span class=nb>self</span><span class=p>.</span><span class=n>tableDataArray</span><span class=p>;</span>
-<span class=p>}</span>
-
-<span class=c1>// 返回每个section的title
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nf>tableView:</span><span class=p>(</span><span class=n>UITableView</span> <span class=o>*</span><span class=p>)</span><span class=nv>tableView</span> <span class=nf>titleForHeaderInSection:</span><span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nv>section</span> <span class=p>{</span>
-    <span class=k>return</span> <span class=nb>self</span><span class=p>.</span><span class=n>tableDataArray</span><span class=p>[</span><span class=n>section</span><span class=p>];</span>
-<span class=p>}</span>
-
-<span class=c1>//点击索引后跳转到对应的section
-</span><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nf>tableView:</span><span class=p>(</span><span class=n>UITableView</span> <span class=o>*</span><span class=p>)</span><span class=nv>tableView</span> <span class=nf>sectionForSectionIndexTitle:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>title</span> <span class=nf>atIndex:</span><span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nv>index</span> <span class=p>{</span>
-    <span class=k>return</span> <span class=n>index</span><span class=p>;</span>
-<span class=p>}</span>
-
-</code></pre></td></tr></table>
-</div>
-</div><p>如图就是做出的效果</p>
-<p><img src=https://raw.githubusercontent.com/dongjiawang/BlogImage/master/img/20190527222605.png alt></p>
-<p>在右侧显示一条首字母的索引。</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/uitableview/>UITableView</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/post/2019-01-22-%E6%A3%80%E6%B5%8B%E7%A7%81%E6%9C%89api%E7%9A%84%E4%BD%BF%E7%94%A8/>
-<i class="iconfont icon-left"></i>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-objectivec data-lang=objectivec><span class=line><span class=cl><span class=c1>// 返回索引的数据
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>NSArray</span><span class=o>&lt;</span><span class=n>NSString</span> <span class=o>*&gt;</span> <span class=o>*</span><span class=p>)</span><span class=nf>sectionIndexTitlesForTableView:</span><span class=p>(</span><span class=n>UITableView</span> <span class=o>*</span><span class=p>)</span><span class=nv>tableView</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nb>self</span><span class=p>.</span><span class=n>tableDataArray</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 返回每个section的title
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nf>tableView:</span><span class=p>(</span><span class=n>UITableView</span> <span class=o>*</span><span class=p>)</span><span class=nv>tableView</span> <span class=nf>titleForHeaderInSection:</span><span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nv>section</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nb>self</span><span class=p>.</span><span class=n>tableDataArray</span><span class=p>[</span><span class=n>section</span><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//点击索引后跳转到对应的section
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>-</span> <span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nf>tableView:</span><span class=p>(</span><span class=n>UITableView</span> <span class=o>*</span><span class=p>)</span><span class=nv>tableView</span> <span class=nf>sectionForSectionIndexTitle:</span><span class=p>(</span><span class=n>NSString</span> <span class=o>*</span><span class=p>)</span><span class=nv>title</span> <span class=nf>atIndex:</span><span class=p>(</span><span class=n>NSInteger</span><span class=p>)</span><span class=nv>index</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>index</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>如图就是做出的效果</p><p><img src=https://raw.githubusercontent.com/dongjiawang/BlogImage/master/img/20190527222605.png alt></p><p>在右侧显示一条首字母的索引。</p></div><footer class=post-footer><div class=post-tags><a href=/tags/uitableview/>UITableView</a></div><nav class=post-nav><a class=prev href=/post/2019-01-22-%E6%A3%80%E6%B5%8B%E7%A7%81%E6%9C%89api%E7%9A%84%E4%BD%BF%E7%94%A8/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">检测私有API的使用</span>
-<span class="prev-text nav-mobile">上一篇</span>
-</a>
-<a class=next href=/post/2018-12-30-uicollectionviewcell%E7%9A%84label%E7%82%B9%E5%87%BB%E6%96%87%E5%AD%97%E9%A2%9C%E8%89%B2/>
-<span class="next-text nav-default">UICollectionViewCell的Label点击文字颜色</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/post/2018-12-30-uicollectionviewcell%E7%9A%84label%E7%82%B9%E5%87%BB%E6%96%87%E5%AD%97%E9%A2%9C%E8%89%B2/><span class="next-text nav-default">UICollectionViewCell的Label点击文字颜色</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=dongjiawang2008@163.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div></div></main><footer id=footer class=footer><div class=social-links><a href=weakself@foxmail.com class="iconfont icon-email" title=email></a>
 <a href=https://github.com/dongjiawang class="iconfont icon-github" title=github></a>
 <a href=https://space.bilibili.com/13834686 class="iconfont icon-bilibili" title=bilibili></a>
-<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
-</span>
+<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
 <span class=division>|</span>
-<span class=theme-info>
-主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<span class=copyright-year>
-&copy;
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
 2015 -
-2021<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-141040294-1','auto'),ga('set','anonymizeIp',!0),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-141040294-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){if(window.location.hostname==="localhost")return;var t,e=document.createElement("script");e.async=!0,e.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script><script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

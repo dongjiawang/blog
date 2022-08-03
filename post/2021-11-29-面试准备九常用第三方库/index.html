@@ -1,214 +1,25 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>面试准备（九）常用第三方库 - 我的码</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="dongjiawang"><meta name=description content="常用第三方库 AFNetworking AFNetworking 主要是对 NSURLSession 的封装，主要有以下类： AFHTTPSessionManager：内部封装是 NSURLSession，负责发送网络请"><meta name=keywords content="Hugo,theme,even">
-<meta name=generator content="Hugo 0.89.4 with theme even">
-<link rel=canonical href=https://blog.dongjiawang.top/post/2021-11-29-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B9%9D%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<link href=/sass/main.min.cb68f97bc9cece255d217346d970e3c62623408634e500c330a62fadabbbe77c.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="面试准备（九）常用第三方库">
-<meta property="og:description" content="常用第三方库 AFNetworking AFNetworking 主要是对 NSURLSession 的封装，主要有以下类： AFHTTPSessionManager：内部封装是 NSURLSession，负责发送网络请">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://blog.dongjiawang.top/post/2021-11-29-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B9%9D%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2021-11-29T20:29:00+08:00">
-<meta property="article:modified_time" content="2021-11-29T20:29:00+08:00">
-<meta itemprop=name content="面试准备（九）常用第三方库">
-<meta itemprop=description content="常用第三方库 AFNetworking AFNetworking 主要是对 NSURLSession 的封装，主要有以下类： AFHTTPSessionManager：内部封装是 NSURLSession，负责发送网络请"><meta itemprop=datePublished content="2021-11-29T20:29:00+08:00">
-<meta itemprop=dateModified content="2021-11-29T20:29:00+08:00">
-<meta itemprop=wordCount content="995">
-<meta itemprop=keywords content><meta name=twitter:card content="summary">
-<meta name=twitter:title content="面试准备（九）常用第三方库">
-<meta name=twitter:description content="常用第三方库 AFNetworking AFNetworking 主要是对 NSURLSession 的封装，主要有以下类： AFHTTPSessionManager：内部封装是 NSURLSession，负责发送网络请"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>我的码</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>面试准备（九）常用第三方库 - 我的码</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="dongjiawang"><meta name=description content="常用第三方库 AFNetworking AFNetworking 主要是对 NSURLSession 的封装，主要有以下类： AFHTTPSessionManager：内部封装是 NSURLSession，负责发送网络请"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.101.0 with theme even"><link rel=canonical href=https://blog.dongjiawang.top/post/2021-11-29-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B9%9D%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.cb68f97bc9cece255d217346d970e3c62623408634e500c330a62fadabbbe77c.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="面试准备（九）常用第三方库"><meta property="og:description" content="常用第三方库 AFNetworking AFNetworking 主要是对 NSURLSession 的封装，主要有以下类： AFHTTPSessionManager：内部封装是 NSURLSession，负责发送网络请"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.dongjiawang.top/post/2021-11-29-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E4%B9%9D%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-11-29T20:29:00+08:00"><meta property="article:modified_time" content="2021-11-29T20:29:00+08:00"><meta itemprop=name content="面试准备（九）常用第三方库"><meta itemprop=description content="常用第三方库 AFNetworking AFNetworking 主要是对 NSURLSession 的封装，主要有以下类： AFHTTPSessionManager：内部封装是 NSURLSession，负责发送网络请"><meta itemprop=datePublished content="2021-11-29T20:29:00+08:00"><meta itemprop=dateModified content="2021-11-29T20:29:00+08:00"><meta itemprop=wordCount content="995"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="面试准备（九）常用第三方库"><meta name=twitter:description content="常用第三方库 AFNetworking AFNetworking 主要是对 NSURLSession 的封装，主要有以下类： AFHTTPSessionManager：内部封装是 NSURLSession，负责发送网络请"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>我的码</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>首页</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>归档</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>标签</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>分类</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>关于</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>我的码</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>首页</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>归档</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>标签</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>分类</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>关于</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>面试准备（九）常用第三方库</h1>
-<div class=post-meta>
-<span class=post-time> 2021-11-29 </span>
-<div class=post-category>
-<a href=/categories/%E5%85%85%E7%94%B5/> 充电 </a>
-</div>
-<span class=more-meta> 约 995 字 </span>
-<span class=more-meta> 预计阅读 2 分钟 </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>文章目录</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#常用第三方库>常用第三方库</a>
-<ul>
-<li><a href=#afnetworking>AFNetworking</a></li>
-<li><a href=#sdwebimage>SDWebImage</a></li>
-<li><a href=#对-masonry-的理解>对 masonry 的理解</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<h1 id=常用第三方库>常用第三方库</h1>
-<h2 id=afnetworking>AFNetworking</h2>
-<blockquote>
-<p>AFNetworking 主要是对 NSURLSession 的封装，主要有以下类：</p>
-<ol>
-<li>AFHTTPSessionManager：内部封装是 NSURLSession，负责发送网络请求</li>
-<li>AFNetworkReachabilityManager：实时监测网络状态的工具类</li>
-<li>AFSecurityPolicy：网络安全的工具类，主要是针对 HTTPS 服务</li>
-<li>AFURLRequestSerialization：序列化工具类</li>
-<li>AFURLResponseSerializer：反序列化工具类</li>
-<li>AFJSONResponseSerializer：JSON 解析器</li>
-<li>AFHTTPResponseSerializer：万能解析器，解析 JSON 和 XMl 之外的数据类型，直接返回二进制数据，对服务器返回的数据部作品任何处理</li>
-<li>AFXMLParserResponseSerializer：XML 解析器</li>
-</ol>
-</blockquote>
-<h2 id=sdwebimage>SDWebImage</h2>
-<blockquote>
-<p>SDWebImage 中为 UIIMageView 提供了一个分类 UIImageView+WebCache，这个分类中有一个最常用的接口 sd_setimageWithURL:placeHolderImage:,会在真实图片出现前先显示占位图，当真实图片加载出来之后再替换占位图片</p>
-<p>加载图片的大致过程如下：</p>
-<ol>
-<li>首先在 SDWebImageCache 中寻找图片是否有对应的缓存，它会以 url 作为数据的索引现在内存中寻找是否有对应的缓存</li>
-<li>如果内存中未找到，会利用通过 MD5 处理过的 key 继续在磁盘中查询对应的数据，如果找到了，会把磁盘中的数据加载内存中，并将图片显示出来</li>
-<li>如果内存和磁盘中都没有找到，会向远程服务器发送请求，下载图片</li>
-<li>下载完成后的图片会加入缓存，并写入磁盘</li>
-<li>获取图片的过程在子线程中执行，获取图片后回到主线程显示图片</li>
-</ol>
-</blockquote>
-<h2 id=对-masonry-的理解>对 masonry 的理解</h2>
-<blockquote>
-<p>masonry 是一个轻量级的布局框架，采用链式语法封装自动布局，使代码更为易读，只声明了方法，没有声明相应的属性，通过添加约束条件来确定视图的位置，主要包含点语法、小括号调用、连续访问三部分。</p>
-</blockquote>
-<blockquote>
-<p>注意事项：</p>
-<ol>
-<li>使用 mas_makeConstraints方法的元素必须事先添加到父元素的中，例如[self.view addSubview:view];</li>
-<li>masequalTo 和 equalTo 区别：masequalTo 比equalTo多了类型转换操作，一般来说，大多数时候两个方法都是 通用的，但是对于数值元素使用mas_equalTo。对于对象或是多个属性的处理，使用equalTo。特别是多个属性时，必须使用equalTo,例如 make.left.and.right.equalTo(self.view);</li>
-<li>with和and,这两个方法其实没有做任何操作，方法只是返回对象本身，这这个方法的左右完全是为了方法写的时候的可读性 。</li>
-</ol>
-</blockquote>
-</div>
-<footer class=post-footer>
-<nav class=post-nav>
-<a class=prev href=/post/2021-11-29-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E5%8D%81%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/>
-<i class="iconfont icon-left"></i>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>我的码</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>面试准备（九）常用第三方库</h1><div class=post-meta><span class=post-time>2021-11-29</span><div class=post-category><a href=/categories/%E5%85%85%E7%94%B5/>充电</a></div><span class=more-meta>约 995 字</span>
+<span class=more-meta>预计阅读 2 分钟</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#常用第三方库>常用第三方库</a><ul><li><a href=#afnetworking>AFNetworking</a></li><li><a href=#sdwebimage>SDWebImage</a></li><li><a href=#对-masonry-的理解>对 masonry 的理解</a></li></ul></li></ul></nav></div></div><div class=post-content><h1 id=常用第三方库>常用第三方库</h1><h2 id=afnetworking>AFNetworking</h2><blockquote><p>AFNetworking 主要是对 NSURLSession 的封装，主要有以下类：</p><ol><li>AFHTTPSessionManager：内部封装是 NSURLSession，负责发送网络请求</li><li>AFNetworkReachabilityManager：实时监测网络状态的工具类</li><li>AFSecurityPolicy：网络安全的工具类，主要是针对 HTTPS 服务</li><li>AFURLRequestSerialization：序列化工具类</li><li>AFURLResponseSerializer：反序列化工具类</li><li>AFJSONResponseSerializer：JSON 解析器</li><li>AFHTTPResponseSerializer：万能解析器，解析 JSON 和 XMl 之外的数据类型，直接返回二进制数据，对服务器返回的数据部作品任何处理</li><li>AFXMLParserResponseSerializer：XML 解析器</li></ol></blockquote><h2 id=sdwebimage>SDWebImage</h2><blockquote><p>SDWebImage 中为 UIIMageView 提供了一个分类 UIImageView+WebCache，这个分类中有一个最常用的接口 sd_setimageWithURL:placeHolderImage:,会在真实图片出现前先显示占位图，当真实图片加载出来之后再替换占位图片</p><p>加载图片的大致过程如下：</p><ol><li>首先在 SDWebImageCache 中寻找图片是否有对应的缓存，它会以 url 作为数据的索引现在内存中寻找是否有对应的缓存</li><li>如果内存中未找到，会利用通过 MD5 处理过的 key 继续在磁盘中查询对应的数据，如果找到了，会把磁盘中的数据加载内存中，并将图片显示出来</li><li>如果内存和磁盘中都没有找到，会向远程服务器发送请求，下载图片</li><li>下载完成后的图片会加入缓存，并写入磁盘</li><li>获取图片的过程在子线程中执行，获取图片后回到主线程显示图片</li></ol></blockquote><h2 id=对-masonry-的理解>对 masonry 的理解</h2><blockquote><p>masonry 是一个轻量级的布局框架，采用链式语法封装自动布局，使代码更为易读，只声明了方法，没有声明相应的属性，通过添加约束条件来确定视图的位置，主要包含点语法、小括号调用、连续访问三部分。</p></blockquote><blockquote><p>注意事项：</p><ol><li>使用 mas_makeConstraints方法的元素必须事先添加到父元素的中，例如[self.view addSubview:view];</li><li>masequalTo 和 equalTo 区别：masequalTo 比equalTo多了类型转换操作，一般来说，大多数时候两个方法都是 通用的，但是对于数值元素使用mas_equalTo。对于对象或是多个属性的处理，使用equalTo。特别是多个属性时，必须使用equalTo,例如 make.left.and.right.equalTo(self.view);</li><li>with和and,这两个方法其实没有做任何操作，方法只是返回对象本身，这这个方法的左右完全是为了方法写的时候的可读性 。</li></ol></blockquote></div><footer class=post-footer><nav class=post-nav><a class=prev href=/post/2021-11-29-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E5%8D%81%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">面试准备（十）性能优化</span>
-<span class="prev-text nav-mobile">上一篇</span>
-</a>
-<a class=next href=/post/2021-11-26-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E5%85%AB%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/>
-<span class="next-text nav-default">面试准备（八）设计模式</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/post/2021-11-26-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%E5%85%AB%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/><span class="next-text nav-default">面试准备（八）设计模式</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=dongjiawang2008@163.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div></div></main><footer id=footer class=footer><div class=social-links><a href=weakself@foxmail.com class="iconfont icon-email" title=email></a>
 <a href=https://github.com/dongjiawang class="iconfont icon-github" title=github></a>
 <a href=https://space.bilibili.com/13834686 class="iconfont icon-bilibili" title=bilibili></a>
-<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
-</span>
+<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
 <span class=division>|</span>
-<span class=theme-info>
-主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<span class=copyright-year>
-&copy;
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
 2015 -
-2021<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-141040294-1','auto'),ga('set','anonymizeIp',!0),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-141040294-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){if(window.location.hostname==="localhost")return;var t,e=document.createElement("script");e.async=!0,e.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script><script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

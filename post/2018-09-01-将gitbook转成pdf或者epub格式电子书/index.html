@@ -1,178 +1,20 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>将GitBook转成PDF或者EPUB格式电子书 - 我的码</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="dongjiawang"><meta name=description content="GitBook 是一个基于Node.js的命令行工具，可以使用Markdown来制作电子书，并利用Git/Github发布。 支持输出静态站点、PDF、eB"><meta name=keywords content="Hugo,theme,even">
-<meta name=generator content="Hugo 0.89.4 with theme even">
-<link rel=canonical href=https://blog.dongjiawang.top/post/2018-09-01-%E5%B0%86gitbook%E8%BD%AC%E6%88%90pdf%E6%88%96%E8%80%85epub%E6%A0%BC%E5%BC%8F%E7%94%B5%E5%AD%90%E4%B9%A6/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<link href=/sass/main.min.cb68f97bc9cece255d217346d970e3c62623408634e500c330a62fadabbbe77c.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="将GitBook转成PDF或者EPUB格式电子书">
-<meta property="og:description" content="GitBook 是一个基于Node.js的命令行工具，可以使用Markdown来制作电子书，并利用Git/Github发布。 支持输出静态站点、PDF、eB">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://blog.dongjiawang.top/post/2018-09-01-%E5%B0%86gitbook%E8%BD%AC%E6%88%90pdf%E6%88%96%E8%80%85epub%E6%A0%BC%E5%BC%8F%E7%94%B5%E5%AD%90%E4%B9%A6/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2018-09-01T17:40:00+00:00">
-<meta property="article:modified_time" content="2018-09-01T17:40:00+00:00">
-<meta itemprop=name content="将GitBook转成PDF或者EPUB格式电子书">
-<meta itemprop=description content="GitBook 是一个基于Node.js的命令行工具，可以使用Markdown来制作电子书，并利用Git/Github发布。 支持输出静态站点、PDF、eB"><meta itemprop=datePublished content="2018-09-01T17:40:00+00:00">
-<meta itemprop=dateModified content="2018-09-01T17:40:00+00:00">
-<meta itemprop=wordCount content="492">
-<meta itemprop=keywords content><meta name=twitter:card content="summary">
-<meta name=twitter:title content="将GitBook转成PDF或者EPUB格式电子书">
-<meta name=twitter:description content="GitBook 是一个基于Node.js的命令行工具，可以使用Markdown来制作电子书，并利用Git/Github发布。 支持输出静态站点、PDF、eB"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>我的码</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>将GitBook转成PDF或者EPUB格式电子书 - 我的码</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="dongjiawang"><meta name=description content="GitBook 是一个基于Node.js的命令行工具，可以使用Markdown来制作电子书，并利用Git/Github发布。 支持输出静态站点、PDF、eB"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.101.0 with theme even"><link rel=canonical href=https://blog.dongjiawang.top/post/2018-09-01-%E5%B0%86gitbook%E8%BD%AC%E6%88%90pdf%E6%88%96%E8%80%85epub%E6%A0%BC%E5%BC%8F%E7%94%B5%E5%AD%90%E4%B9%A6/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.cb68f97bc9cece255d217346d970e3c62623408634e500c330a62fadabbbe77c.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="将GitBook转成PDF或者EPUB格式电子书"><meta property="og:description" content="GitBook 是一个基于Node.js的命令行工具，可以使用Markdown来制作电子书，并利用Git/Github发布。 支持输出静态站点、PDF、eB"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.dongjiawang.top/post/2018-09-01-%E5%B0%86gitbook%E8%BD%AC%E6%88%90pdf%E6%88%96%E8%80%85epub%E6%A0%BC%E5%BC%8F%E7%94%B5%E5%AD%90%E4%B9%A6/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-09-01T17:40:00+00:00"><meta property="article:modified_time" content="2018-09-01T17:40:00+00:00"><meta itemprop=name content="将GitBook转成PDF或者EPUB格式电子书"><meta itemprop=description content="GitBook 是一个基于Node.js的命令行工具，可以使用Markdown来制作电子书，并利用Git/Github发布。 支持输出静态站点、PDF、eB"><meta itemprop=datePublished content="2018-09-01T17:40:00+00:00"><meta itemprop=dateModified content="2018-09-01T17:40:00+00:00"><meta itemprop=wordCount content="491"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="将GitBook转成PDF或者EPUB格式电子书"><meta name=twitter:description content="GitBook 是一个基于Node.js的命令行工具，可以使用Markdown来制作电子书，并利用Git/Github发布。 支持输出静态站点、PDF、eB"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>我的码</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>首页</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>归档</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>标签</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>分类</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>关于</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>我的码</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>首页</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>归档</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>标签</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>分类</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>关于</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>将GitBook转成PDF或者EPUB格式电子书</h1>
-<div class=post-meta>
-<span class=post-time> 2018-09-01 </span>
-<div class=post-category>
-<a href=/categories/%E5%B7%A5%E5%85%B7/> 工具 </a>
-</div>
-<span class=more-meta> 约 492 字 </span>
-<span class=more-meta> 预计阅读 1 分钟 </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>文章目录</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li><a href=#安装gitbook>安装GitBook</a>
-<ul>
-<li></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<blockquote>
-<p>GitBook 是一个基于<code>Node.js</code>的命令行工具，可以使用<code>Markdown</code>来制作电子书，并利用<code>Git/Github</code>发布。</p>
-</blockquote>
-<p>支持输出<code>静态站点</code>、<code>PDF</code>、<code>eBook</code>、<code>HTML网页</code>、<code>JSON</code>等格式。</p>
-<p>安装GitBook需要Node环境，具体怎么安装Node这里就不多说了。</p>
-<h2 id=安装gitbook>安装GitBook</h2>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>npm install -g gitbook-cli
-</code></pre></td></tr></table>
-</div>
-</div><p>检查是否安装成功</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>gitbook -V
-</code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p>如果出现错误提示：</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>我的码</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>将GitBook转成PDF或者EPUB格式电子书</h1><div class=post-meta><span class=post-time>2018-09-01</span><div class=post-category><a href=/categories/%E5%B7%A5%E5%85%B7/>工具</a></div><span class=more-meta>约 491 字</span>
+<span class=more-meta>预计阅读 1 分钟</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#安装gitbook>安装GitBook</a><ul><li></li></ul></li></ul></li></ul></nav></div></div><div class=post-content><blockquote><p>GitBook 是一个基于<code>Node.js</code>的命令行工具，可以使用<code>Markdown</code>来制作电子书，并利用<code>Git/Github</code>发布。</p></blockquote><p>支持输出<code>静态站点</code>、<code>PDF</code>、<code>eBook</code>、<code>HTML网页</code>、<code>JSON</code>等格式。</p><p>安装GitBook需要Node环境，具体怎么安装Node这里就不多说了。</p><h2 id=安装gitbook>安装GitBook</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>npm install -g gitbook-cli
+</span></span></code></pre></td></tr></table></div></div><p>检查是否安装成功</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>gitbook -V
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>如果出现错误提示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>You need to install <span class=s2>&#34;gitbook-cli&#34;</span> to have access to the gitbook <span class=nb>command</span> anywhere on your system.
-If you<span class=err>&#39;</span>ve installed this package globally, you need to uninstall it.
-&gt;&gt; Run <span class=s2>&#34;npm uninstall -g gitbook&#34;</span> <span class=k>then</span> <span class=s2>&#34;npm install -g gitbook-cli&#34;</span>
-
-</code></pre></td></tr></table>
-</div>
-</div><p>就按照提示先卸载gitbook，再重新安装gitbook-cli</p>
-</blockquote>
-<p>或者使用 yarn安装GitBook</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>yarn global add gitbook-cli
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>本篇文章只是简单介绍怎么安装GitBook和导出PDF电子书，所以就不介绍怎么使用GitBook制作电子书。</strong></p>
-<p>打开到gitbook 的目录下</p>
-<h4 id=1输出静态网页>1、输出静态网页</h4>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>You need to install <span class=s2>&#34;gitbook-cli&#34;</span> to have access to the gitbook <span class=nb>command</span> anywhere on your system.
+</span></span><span class=line><span class=cl>If you<span class=err>&#39;</span>ve installed this package globally, you need to uninstall it.
+</span></span><span class=line><span class=cl>&gt;&gt; Run <span class=s2>&#34;npm uninstall -g gitbook&#34;</span> <span class=k>then</span> <span class=s2>&#34;npm install -g gitbook-cli&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p>就按照提示先卸载gitbook，再重新安装gitbook-cli</p></blockquote><p>或者使用 yarn安装GitBook</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>yarn global add gitbook-cli
+</span></span></code></pre></td></tr></table></div></div><p><strong>本篇文章只是简单介绍怎么安装GitBook和导出PDF电子书，所以就不介绍怎么使用GitBook制作电子书。</strong></p><p>打开到gitbook 的目录下</p><h4 id=1输出静态网页>1、输出静态网页</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -180,97 +22,36 @@ If you<span class=err>&#39;</span>ve installed this package globally, you need t
 </span><span class=lnt>6
 </span><span class=lnt>7
 </span><span class=lnt>8
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>$ gitbook serve .
-Press CTRL+C to quit ...
-
-Starting build ...
-Successfuly built !
-
-Starting server ...
-Serving book on http://localhost:4000	
-</code></pre></td></tr></table>
-</div>
-</div><p>这时候就可以打开 <a href=http://localhost:4000/>http://localhost:4000</a>：进行预览</p>
-<p>同时在项目的目录中多了一个 <code>_book</code> 的文件夹，其中的文件就是生成的静态网页的内容。</p>
-<h4 id=2导出pdf>2、导出PDF</h4>
-<p>在项目的目录中执行</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>gitbook pdf .
-</code></pre></td></tr></table>
-</div>
-</div><p>项目目录下就会生成 <code>book.pdf</code></p>
-<h4 id=3导出epub>3、导出epub</h4>
-<p>在项目目录中执行</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>gitbook epub .	
-</code></pre></td></tr></table>
-</div>
-</div><p>项目目录下就会生成 <code>book.epub</code></p>
-</div>
-<footer class=post-footer>
-<nav class=post-nav>
-<a class=prev href=/post/2018-09-01-%E4%BF%AE%E6%94%B9html%E5%AF%8C%E6%96%87%E6%9C%AC%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87%E7%9A%84%E5%A4%A7%E5%B0%8F/>
-<i class="iconfont icon-left"></i>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ gitbook serve .
+</span></span><span class=line><span class=cl>Press CTRL+C to quit ...
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Starting build ...
+</span></span><span class=line><span class=cl>Successfuly built !
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Starting server ...
+</span></span><span class=line><span class=cl>Serving book on http://localhost:4000	
+</span></span></code></pre></td></tr></table></div></div><p>这时候就可以打开 <a href=http://localhost:4000/>http://localhost:4000</a>：进行预览</p><p>同时在项目的目录中多了一个 <code>_book</code> 的文件夹，其中的文件就是生成的静态网页的内容。</p><h4 id=2导出pdf>2、导出PDF</h4><p>在项目的目录中执行</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>gitbook pdf .
+</span></span></code></pre></td></tr></table></div></div><p>项目目录下就会生成 <code>book.pdf</code></p><h4 id=3导出epub>3、导出epub</h4><p>在项目目录中执行</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>gitbook epub .	
+</span></span></code></pre></td></tr></table></div></div><p>项目目录下就会生成 <code>book.epub</code></p></div><footer class=post-footer><nav class=post-nav><a class=prev href=/post/2018-09-01-%E4%BF%AE%E6%94%B9html%E5%AF%8C%E6%96%87%E6%9C%AC%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87%E7%9A%84%E5%A4%A7%E5%B0%8F/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">修改HTML富文本中的图片的大小</span>
-<span class="prev-text nav-mobile">上一篇</span>
-</a>
-<a class=next href=/post/2018-08-22-%E5%BC%BA%E5%88%B6%E6%89%93%E5%BC%80https%E8%AF%81%E4%B9%A6%E6%97%A0%E6%95%88%E7%9A%84%E7%BD%91%E5%9D%80/>
-<span class="next-text nav-default">强制打开HTTPS证书无效的网址</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/post/2018-08-22-%E5%BC%BA%E5%88%B6%E6%89%93%E5%BC%80https%E8%AF%81%E4%B9%A6%E6%97%A0%E6%95%88%E7%9A%84%E7%BD%91%E5%9D%80/><span class="next-text nav-default">强制打开HTTPS证书无效的网址</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=dongjiawang2008@163.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div></div></main><footer id=footer class=footer><div class=social-links><a href=weakself@foxmail.com class="iconfont icon-email" title=email></a>
 <a href=https://github.com/dongjiawang class="iconfont icon-github" title=github></a>
 <a href=https://space.bilibili.com/13834686 class="iconfont icon-bilibili" title=bilibili></a>
-<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
-</span>
+<a href=https://blog.dongjiawang.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
 <span class=division>|</span>
-<span class=theme-info>
-主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<span class=copyright-year>
-&copy;
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
 2015 -
-2021<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>dongjiawang</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-141040294-1','auto'),ga('set','anonymizeIp',!0),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-141040294-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){if(window.location.hostname==="localhost")return;var t,e=document.createElement("script");e.async=!0,e.src="https://hm.baidu.com/hm.js?fa4bbb246def5e07ea71011a568aceaa",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script><script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>
