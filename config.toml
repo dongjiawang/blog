@@ -187,7 +187,7 @@ copyright = "dongjiawang"            # default: author.name ↓        # 默认�
     alipay = "/path/to/your/alipay-qr-code.png"           # 支付宝二维码
 
   [params.social]                                         # 社交链接
-    a-email = "dongjiawang2008@163.com"
+    a-email = "weakself@foxmail.com"
     # b-stack-overflow = "http://localhost:1313"
     # c-twitter = "http://localhost:1313"
     # d-facebook = "http://localhost:1313"

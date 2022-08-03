@@ -15,7 +15,7 @@ date: 2016-11-05 10:44:12
 
 微信 : djw934738009
 
-邮箱 : dongjiawang2008@163.com
+邮箱 : weakself@foxmail.com
 
 ![](https://cdn.jsdelivr.net/gh/dongjiawang/BlogImage@1.0/img/975ef6b8ly1fx1rh80vjcj21r41bckjo.jpg)
 
